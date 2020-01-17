@@ -1,8 +1,11 @@
 import React from "react";
 
+export const BlackDiagonalACFLayout = "black_diagonal";
+export type BlackDiagonalProps = {
+  acf_fc_layout: typeof BlackDiagonalACFLayout,
+}
 
-
-const BlackDiagonal: React.FC = () => {
+const BlackDiagonal: React.FC<BlackDiagonalProps> = () => {
   return (
     <section className="black-diagonal">
       <div className="main">

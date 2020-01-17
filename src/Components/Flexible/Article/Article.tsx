@@ -1,7 +1,9 @@
 import React from "react";
 import LinkButton from "../../Global/LinkButton/LinkButton";
 
+export const ArticleACFLayout = "article";
 export type ArticleProps = {
+  acf_fc_layout: typeof ArticleACFLayout,
   header: string,
   subheader: string,
   body: string,

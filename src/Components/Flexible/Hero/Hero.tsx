@@ -1,13 +1,15 @@
 import React from 'react';
 import LinkButton from '../../Global/LinkButton/LinkButton';
 
-type HeroTypes = {
+export const HeroACFLayout = "hero";
+export type HeroProps = {
+    acf_fc_layout: typeof HeroACFLayout,
     centered?: boolean,
     header: string,
     subheader: string,
 }
 
-const Hero: React.FC<HeroTypes> = ({header, subheader, centered}) => {
+const Hero: React.FC<HeroProps> = ({header, subheader, centered}) => {
     return (
         <section className={centered ? 'hero-centered' : 'hero'}>
             <div className="background-image"></div>

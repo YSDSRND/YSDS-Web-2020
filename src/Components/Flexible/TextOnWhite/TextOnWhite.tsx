@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Editor : React.FC = () => {
+export const TextOnWhiteACFLayout = "text_on_white";
+export type TextOnWhiteProps = {
+    acf_fc_layout: typeof TextOnWhiteACFLayout
+}
+
+const TextOnWhite : React.FC<TextOnWhiteProps> = () => {
     return (
         <section className="text-on-white editor">
         <div className="main">
@@ -23,4 +28,4 @@ const Editor : React.FC = () => {
     )
 }
 
-export default Editor;
+export default TextOnWhite;

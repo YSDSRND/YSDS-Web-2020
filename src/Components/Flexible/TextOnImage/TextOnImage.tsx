@@ -1,6 +1,12 @@
 import React from 'react';
 
-const TextOnImage : React.FC = () => {
+export const TextOnImageACFLayout = "text_on_image";
+export type TextOnImageProps = {
+    acf_fc_layout: typeof TextOnImageACFLayout,
+}
+
+
+const TextOnImage : React.FC<TextOnImageProps> = () => {
     return (
         <section className="text-on-image">
     <div className="background-image"></div>

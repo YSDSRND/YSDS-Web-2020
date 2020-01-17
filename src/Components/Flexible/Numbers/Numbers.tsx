@@ -1,7 +1,9 @@
 import React from 'react';
 import Number, {NumberProps} from './Number';
+export const NumbersACFLayout = "numbers";
 
 export type NumbersProps = {
+  acf_fc_layout: typeof NumbersACFLayout,
   header: string,
   numbers: Array<NumberProps>
 }

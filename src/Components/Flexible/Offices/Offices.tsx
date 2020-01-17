@@ -1,7 +1,10 @@
 import React from "react";
 import Office, {OfficeProps} from "./Office";
 
-type OfficesProps = {
+export const OfficesACFLayout = "offices";
+
+export type OfficesProps = {
+  acf_fc_layout: typeof OfficesACFLayout,
   header: string;
   body: string;
   offices: Array<OfficeProps>

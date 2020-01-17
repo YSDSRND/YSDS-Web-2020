@@ -1,7 +1,8 @@
 import React from 'react';
 
-
-type AgentsProps = {
+export const AgentsACFLayout = "agents";
+export type AgentsProps = {
+  acf_fc_layout: typeof AgentsACFLayout,
   header: string,
   body: string,
   agents: Array<Agent>,

@@ -1,7 +1,8 @@
 import React from "react";
 import Card, { CardProps } from "./Card";
-
+export const CardsAlternateACFLayout = "cards_alternative";
 export type CardsAlternateProps = {
+  acf_fc_layout: typeof CardsAlternateACFLayout,
   header: string;
   cards: Array<CardProps>;
 };

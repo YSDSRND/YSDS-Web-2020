@@ -1,8 +1,9 @@
 import React from "react";
 import Case, {CaseProps} from "./Case";
 
-
+export const CasesACFLayout = "cases";
 export type CasesProps = {
+  acf_fc_layout: typeof CasesACFLayout,
   cases: Array<CaseProps>
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 
-type TextAndImageProps = {
+export const TextAndImageACFLayout = "text_and_image";
+export type TextAndImageProps = {
+    acf_fc_layout: typeof TextAndImageACFLayout,
     mirrored?: boolean
 }
 

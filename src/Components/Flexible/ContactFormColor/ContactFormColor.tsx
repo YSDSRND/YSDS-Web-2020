@@ -1,9 +1,15 @@
 import React from 'react';
 import ContactForm from '../../Global/ContactForm/ContactForm';
 
-const ContactFormWhite : React.FC = () => {
+export const ContactFormColorACFLayout = "contact";
+export type ContactFormColorProps = {
+  acf_fc_layout: typeof ContactFormColorACFLayout,
+  backgroundColor: "white" | "blue"
+}
+
+const ContactFormColor : React.FC<ContactFormColorProps> = ({backgroundColor}) => {
     return (
-        <section className="contact-form white">
+        <section className={`contact-form ${backgroundColor}`}>
         <div className="main">
             <div className="main-inner">
                 <div className="text-container">
@@ -30,4 +36,4 @@ const ContactFormWhite : React.FC = () => {
     )
 }
 
-export default ContactFormWhite;
+export default ContactFormColor;

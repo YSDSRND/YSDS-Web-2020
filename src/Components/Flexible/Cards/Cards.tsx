@@ -1,7 +1,9 @@
 import React from 'react';
 import Card, {CardProps} from './Card';
 
+export const CardsACFLayout = "cards";
 export type CardsProps = {
+  acf_fc_layout: typeof CardsACFLayout,
   cards: Array<CardProps>
 }
 
