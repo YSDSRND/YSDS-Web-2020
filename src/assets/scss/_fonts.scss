@@ -1,0 +1,96 @@
+@font-face {
+    font-family: Helvetica-Neue;
+    src: url(../fonts/HelveticaNeueLTPro-BdCn.otf);
+}
+
+@font-face {
+    font-family: Helvetica-Neue-Roman;
+    src: url(../fonts/HelveticaNeueLTPro-Roman.otf);
+}
+
+@font-face {
+    font-family: Helvetica-Neue-Bd;
+    src: url(../fonts/HelveticaNeueLTPro-Bd.otf);
+}
+
+* {
+    font-family: sans-serif;
+    font-family: Helvetica-Neue-Bd;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 129%;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    word-break: break-word;
+    hyphens: auto;
+    @media screen and (min-width: $small) {
+        font-size: 40px;
+    }
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 23px;
+    line-height: 120%;
+    text-transform: uppercase;
+    line-height: 133%;
+    letter-spacing: 1px;
+    margin: 0;
+    margin-bottom: 10px;
+    @media screen and (min-width: $small) {
+        font-size: 30px;
+    }
+}
+
+h3 {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+h4 {
+    margin: 0;
+    font-family: Helvetica-Neue-Bd;
+}
+
+p, a, li, div {
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 160%;
+    font-family: Helvetica-Neue-Roman;
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: $red;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul, ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    li::before {
+        content: "\2022";
+        color: $red;
+        font-weight: bold;
+        display: inline-block; 
+        width: 1em;
+        margin-left: -1em;
+    }
+}

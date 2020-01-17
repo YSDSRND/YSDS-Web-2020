@@ -1,0 +1,45 @@
+$red: #D0021B;
+$blue: #040E1A;
+
+
+$margin: 100px auto;
+$padding: 100px 15px;
+
+
+$small: 600px;
+$medium: 992px;
+
+$one-col: 12.5%;
+$two-col: 25%;
+$three-col: 37.5%;
+$four-col: 50%;
+$five-col: 62.5%;
+$six-col: 75%;
+$seven-col: 87.5%;
+$eight-col: 100%;
+
+.one-col { 
+    width: 12.5%;
+}
+
+.two-col { 
+    width: 25%;
+}
+.three-col { 
+    width: 37.5%;
+}
+.four-col {
+    width: 50%;
+}
+.five-col {
+    width: 62.5%;
+}
+.six-col { 
+    width: 75%;
+}
+.seven-col { 
+    width: 87.5%;
+}
+.eight-col { 
+    width: 100%;
+}

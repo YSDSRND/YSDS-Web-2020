@@ -1,0 +1,49 @@
+@import './mixins';
+@import './variables';
+@import './fonts';
+@import './buttons';
+
+@import './partials/hero';
+@import './partials/hero-centered';
+@import './partials/numbers';
+@import './partials/cards';
+@import './partials/cards-alternative';
+@import './partials/cases';
+@import './partials/text-on-image';
+@import './partials/contact-on-image';
+@import './partials/text-and-image';
+@import './partials/text-on-white';
+@import './partials/black-diagonal';
+@import './partials/contact-form';
+@import './partials/footer';
+@import './partials/offices';
+@import './partials/agents';
+@import './partials/article';
+@import './partials/header';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.main {
+    width: 100%;
+}
+
+.main-inner {
+    //max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 $one-col;
+}
+
+img {
+    display: block;
+}

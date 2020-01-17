@@ -1,0 +1,54 @@
+.cards-alternative {
+    background: $blue;
+    .main {
+        position: relative;
+        padding-top: 100px;
+        h2 {
+            color: white;
+            margin-left: $one-col;
+        }
+        .line {
+            height: 1px;
+            background: $red;
+            position: absolute;
+        }
+    }
+    .main-inner {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px 12.5% 50px;
+        @media screen and (min-width: $small) {
+            width: calc(100% + 20px);
+        }
+        .one-card {
+            margin-bottom: 50px;
+            text-decoration: none;
+            color: black;
+            @media screen and (min-width: $small) {
+                margin-right: 20px;
+                width: calc(50% - 20px);
+            }
+            @media screen and (min-width: $medium) {
+                width: calc(33.333% - 20px);
+            }
+            img {
+                height: 160px;
+                background: $red;
+                width: 100%;
+                @media screen and (min-width: $small) {
+                    height: 200px;
+                }
+            }
+            .text-container {
+                background: white;
+                padding: 28px 15px 1px;
+            }
+            h3 {
+                border-bottom: 1px solid $red;
+                padding-bottom: 10px;
+                margin-bottom: 12px;
+                margin-top: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.text-on-image {
+    position: relative;
+    .background-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url(../../images/box.jpg);
+        background-position: top;
+        background-size: cover;
+        filter: saturate(0.5);
+    }
+    .main {
+        position: relative;
+        background-color: rgba(0,0,0,0.7);
+    }
+    .triangle {
+        background: $blue;
+        clip-path: polygon(0 0, 25% 0, 37.5% 100%, 0% 100%);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+    .main-inner {
+        color: white;
+        margin-left: 12.5%;
+        margin-right: 12.5%;
+        padding:100px 0 150px;
+        @media screen and (min-width: $medium) {
+            width: $three-col;
+        }
+        .content {
+            padding-top: 20px;
+            position: relative;
+        }
+        h2, p {
+           position: relative;
+        }
+        .ysds-button {
+            margin-top: 20px;
+            position: absolute;
+            bottom: 100px;
+            right: $one-col;
+        }
+    }
+    .line {
+        height: 1px;
+        background: $red;
+        margin-left: -$one-col;
+        position: absolute;
+    }
+}

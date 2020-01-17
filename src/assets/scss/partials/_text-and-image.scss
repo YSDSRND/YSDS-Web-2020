@@ -1,0 +1,62 @@
+.text-and-image {
+    position: relative;
+    .main-inner {
+        margin: 100px 12.5%;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        .text-container {
+            padding-top: 30px;
+            order: 2;
+            @media screen and (min-width: $medium) {
+                width: 60%;
+                order: 1;
+                padding-bottom: 30px;
+                padding-right: 40px;
+            }
+            .content {
+                padding-top: 20px;
+                position: relative;
+            }
+        }
+        .image-container {
+            width: 100%;
+            height: 200px;
+            order: 1;
+            @media screen and (min-width: $medium) {
+                width: 40%;
+                order: 2;
+                height: auto;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                background: $red;
+            }
+        }
+    }
+    .line {
+        height: 1px;
+        background: $red;
+        margin-left: -$one-col;
+        position: absolute;
+    }
+
+
+    &.mirrored {
+        .image-container {
+            order: 1;
+        }
+        .text-container {
+            order: 2;
+            padding-right: 0;
+            @media screen and (min-width: $medium) {
+                padding-left: 30px;
+            }
+            .line {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    }
+}

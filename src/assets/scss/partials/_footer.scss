@@ -1,0 +1,45 @@
+.footer {
+    background: black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .main-inner {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        @media screen and (min-width: $small) {
+            padding: 0 15px;
+        }
+        @media screen and (min-width: $medium) {
+            padding: 0 $one-col;
+        }
+        img {
+            background: white;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 30px;
+            @media screen and (min-width: $small) {
+                margin-right: 30px;
+            }
+        }
+        ul {
+            list-style-type: none;
+            margin-bottom: 30px;
+            width: 100%;
+            padding: 0;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            @media screen and (min-width: $small) {
+                width: auto;
+                margin-right: 30px;
+            }
+            li {
+                text-transform: uppercase;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
