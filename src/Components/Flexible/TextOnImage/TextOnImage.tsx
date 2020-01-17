@@ -17,7 +17,6 @@ const TextOnImage : React.FC<TextOnImageProps> = () => {
                     <h2>Titel</h2>
                     <div className="line three-col"></div>
                     <div className="content">
-                      <p>
                       <h4>A-Z shipment – With you all the way</h4>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       <br></br><br></br>
@@ -29,7 +28,6 @@ const TextOnImage : React.FC<TextOnImageProps> = () => {
                       <br></br><br></br>
                       <h4>Always there 24/7</h4>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      </p>
                     </div>
                     <a className="ysds-button">Read more</a>
                 </div>

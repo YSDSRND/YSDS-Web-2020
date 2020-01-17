@@ -20,14 +20,7 @@ import ContactFormColor from "./Components/Flexible/ContactFormColor/ContactForm
 import TextOnImage from "./Components/Flexible/TextOnImage/TextOnImage";
 
 const App: React.FC = () => {
-  return (
-    <div>
-      <Router />
-
-      <Lists />
-
-    </div>
-  );
+  return <Router />;
 };
 
 export default App;

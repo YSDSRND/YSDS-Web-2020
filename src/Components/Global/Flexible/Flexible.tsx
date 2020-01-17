@@ -6,7 +6,7 @@ import Numbers, { NumbersProps, NumbersACFLayout } from '../../Flexible/Numbers/
 import Cards, { CardsProps, CardsACFLayout } from '../../Flexible/Cards/Cards';
 import CardsAlternate, { CardsAlternateProps, CardsAlternateACFLayout } from '../../Flexible/CardsAlternate/CardsAlternate';
 import ContactFormImage, { ContactFormImageProps, ContactFormImageACFLayout } from '../../Flexible/ContactFormImage/ContactFormImage';
-import TextAndImage, {TextAndImageProps, TextAndImageACFLayout} from '../../Flexible/TextAndImage';
+import TextAndImage, {TextAndImageProps, TextAndImageACFLayout} from '../../Flexible/TextAndImage/TextAndImage';
 import Cases, { CasesProps, CasesACFLayout } from '../../Flexible/Cases/Cases';
 import BlackDiagonal, { BlackDiagonalProps, BlackDiagonalACFLayout } from '../../Flexible/BlackDiagonal/BlackDiagonal';
 import ContactFormColor, { ContactFormColorProps, ContactFormColorACFLayout } from '../../Flexible/ContactFormColor/ContactFormColor';

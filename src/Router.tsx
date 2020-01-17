@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Header from "./Components/Global/Header/Header";
 import { PagesRoute, PostRoute, FrontPageRoute } from "./Config/routes";
 import Footer from "./Components/Global/Footer/Footer";
+import Post from "./Pages/Post/Post";
 
 const Router: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Router: React.FC = () => {
         <Header />
         <Switch>
           <Route path={PostRoute}>
-            <h1>Post</h1>
+            <Post />
           </Route>
           <Route path={PagesRoute}>
             <h1>Page</h1>
