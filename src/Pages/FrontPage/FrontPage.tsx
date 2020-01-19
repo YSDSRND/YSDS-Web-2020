@@ -3,6 +3,7 @@ import Flexible from "../../Components/Global/Flexible/Flexible";
 import { GetPageByID } from "../../Services/Pages/Pages";
 import { useSelector } from "react-redux";
 import { AppState } from "../../Store";
+import Error404Template from "../../PageTemplates/Error404Template/Error404Template";
 
 const FrontPage: React.FC = () => {
     const options = useSelector((state : AppState) => state.options);
@@ -28,7 +29,7 @@ const FrontPage: React.FC = () => {
     return <p>Loading...</p>;
   }
   if (is404) {
-    return <h1>404</h1>;
+    return <Error404Template />
   }
   return <Flexible flexible={data.acf.flexible} />;
 };

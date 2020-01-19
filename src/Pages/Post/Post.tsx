@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Flexible from "../../Components/Global/Flexible/Flexible";
 import { GetPostBySlug } from "../../Services/Post/Post";
+import Error404Template from "../../PageTemplates/Error404Template/Error404Template";
 
 const Post: React.FC = () => {
   const { slug } = useParams();
@@ -28,7 +29,7 @@ const Post: React.FC = () => {
   }
 
   if (is404) {
-    return <h1>404</h1>;
+    return <Error404Template />
   }
 
   return <Flexible flexible={data.acf.flexible} />;

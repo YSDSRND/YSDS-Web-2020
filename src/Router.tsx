@@ -8,6 +8,7 @@ import Post from "./Pages/Post";
 import Page from "./Pages/Page";
 import FrontPage from "./Pages/FrontPage";
 import Case from "./Pages/Case";
+import Error404Template from "./PageTemplates/Error404Template/Error404Template";
 
 const Router: React.FC = () => {
   return (
@@ -28,7 +29,7 @@ const Router: React.FC = () => {
             <FrontPage />
           </Route>
           <Route path="*">
-            <h1>404</h1>
+            <Error404Template />
           </Route>
         </Switch>
         <Footer />
