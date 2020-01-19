@@ -2,9 +2,12 @@ import React from "react";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Header from "./Components/Global/Header/Header";
-import { PagesRoute, PostRoute, FrontPageRoute } from "./Config/routes";
-import Footer from "./Components/Global/Footer/Footer";
-import Post from "./Pages/Post/Post";
+import { PagesRoute, PostRoute, FrontPageRoute, CasesRoute } from "./Config/routes";
+import Footer from "./Components/Global/Footer";
+import Post from "./Pages/Post";
+import Page from "./Pages/Page";
+import FrontPage from "./Pages/FrontPage";
+import Case from "./Pages/Case";
 
 const Router: React.FC = () => {
   return (
@@ -15,11 +18,14 @@ const Router: React.FC = () => {
           <Route path={PostRoute}>
             <Post />
           </Route>
+          <Route path={CasesRoute}>
+            <Case />
+          </Route>
           <Route path={PagesRoute}>
-            <h1>Page</h1>
+            <Page />
           </Route>
           <Route exact path={FrontPageRoute}>
-            <h1>Front</h1>
+            <FrontPage />
           </Route>
           <Route path="*">
             <h1>404</h1>

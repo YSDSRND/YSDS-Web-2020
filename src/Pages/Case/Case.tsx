@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Flexible from "../../Components/Global/Flexible/Flexible";
-import { GetPageBySlug } from "../../Services/Pages/Pages";
+import { GetCaseBySlug } from "../../Services/Cases/Cases";
 
-const Page: React.FC = () => {
+const Case: React.FC = () => {
   const { slug } = useParams();
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -14,7 +14,7 @@ const Page: React.FC = () => {
     if (!slug) {
       return;
     }
-    GetPageBySlug(slug).then(resp => {
+    GetCaseBySlug(slug).then(resp => {
       if (Array.isArray(resp)) {
         set404(true);
       }
@@ -26,9 +26,11 @@ const Page: React.FC = () => {
   if (loading) {
     return <p>Loading...</p>;
   }
+
   if (is404) {
     return <h1>404</h1>;
   }
+
   return <Flexible flexible={data.acf.flexible} />;
 };
-export default Page;
+export default Case;

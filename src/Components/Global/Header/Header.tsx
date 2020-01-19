@@ -1,150 +1,84 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../Store";
+import Link from "../Link/Link";
+import LinkButton from "../LinkButton/LinkButton";
 
 const Header: React.FC = () => {
-  const options = useSelector((state : AppState) => state.options);
-  if(!options.options || options.loading) {
-    return (
-      <></>
-    )
+  const options = useSelector((state: AppState) => state.options);
+  if (!options.options || options.loading) {
+    return <></>;
   }
-  
-  const {header_logo} = options.options;
+
+  const { header_logo, navigation, contact } = options.options.header;
   return (
     <section className="header">
-      <img className="logo" src={header_logo.sizes.large} alt={header_logo.alt} />
+      <img
+        className="logo"
+        src={header_logo.sizes.large}
+        alt={header_logo.alt}
+      />
       <ul className="menu-container desktop">
-        <li>
-          <a href="#">Solutions</a>
-        </li>
-        <li className="has-children">
-          <a href="#">Solutions</a>
-          <div className="sub-menu">
-            <div className="sub-menu-list">
-              <h5>Solutions</h5>
-              <ul>
-                <li>
-                  <a href="#">INFO/Freight Forward</a>
-                </li>
-                <li>
-                  <a href="#">OBC</a>
-                </li>
-                <li>
-                  <a href="#">Charter</a>
-                </li>
-                <li>
-                  <a href="#">Dedicated Vehicle</a>
-                </li>
-              </ul>
-            </div>
-            <div className="sub-menu-list">
-              <h5>Title here</h5>
-              <ul>
-                <li>
-                  <a href="#">Solutions</a>
-                </li>
-                <li>
-                  <a href="#">Solutions</a>
-                </li>
-                <li>
-                  <a href="#">Solutions</a>
-                </li>
-              </ul>
-            </div>
-            <div className="sub-menu-list">
-              <h5>Title here</h5>
-              <ul>
-                <li>
-                  <a href="#">Solutions</a>
-                </li>
-                <li>
-                  <a href="#">Solutions</a>
-                </li>
-                <li>
-                  <a href="#">Solutions</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="#">Solutions</a>
-        </li>
-        <li>
-          <a href="#">Solutions</a>
-        </li>
-        <li>
-          <a href="#">Solutions</a>
-        </li>
+        {navigation.map(nav => {
+          return (
+            <li className={nav.submenus ? "has-children" : ""}>
+              <Link to={nav.link.url}>{nav.link.title}</Link>
+              <div className="sub-menu">
+                {typeof nav.submenus === "object" &&
+                  nav.submenus.map(subs => {
+                    return (
+                      <div className="sub-menu-list">
+                        <h5>{subs.title}</h5>
+                        <ul>
+                          {typeof subs.navigation === "object" &&
+                            subs.navigation.map(l => {
+                              return (
+                                <li>
+                                  <Link to={l.link.url}>{l.link.title}</Link>
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      </div>
+                    );
+                  })}
+              </div>
+            </li>
+          );
+        })}
       </ul>
-      <a className="ysds-button">Contact</a>
+      <LinkButton button={contact} button_style="normal"/>
       <img className="hamburger"></img>
 
       <div className="menu-container mobile">
         <ul>
-          <li>
-            <a href="#">Solutions</a>
-          </li>
-          <li className="has-children">
-            <a href="#">Solutions</a>
-            <div className="sub-menu">
-              <div className="sub-menu-list">
-                <h5>Solutions</h5>
-                <ul>
-                  <li>
-                    <a href="#">INFO/Freight Forward</a>
-                  </li>
-                  <li>
-                    <a href="#">OBC</a>
-                  </li>
-                  <li>
-                    <a href="#">Charter</a>
-                  </li>
-                  <li>
-                    <a href="#">Dedicated Vehicle</a>
-                  </li>
-                </ul>
+        {navigation.map(nav => {
+          return (
+            <li className={nav.submenus ? "has-children" : ""}>
+              <Link to={nav.link.url}>{nav.link.title}</Link>
+              <div className="sub-menu">
+                {typeof nav.submenus === "object" &&
+                  nav.submenus.map(subs => {
+                    return (
+                      <div className="sub-menu-list">
+                        <h5>{subs.title}</h5>
+                        <ul>
+                          {typeof subs.navigation === "object" &&
+                            subs.navigation.map(l => {
+                              return (
+                                <li>
+                                  <Link to={l.link.url}>{l.link.title}</Link>
+                                </li>
+                              );
+                            })}
+                        </ul>
+                      </div>
+                    );
+                  })}
               </div>
-              <div className="sub-menu-list">
-                <h5>Title here</h5>
-                <ul>
-                  <li>
-                    <a href="#">Solutions</a>
-                  </li>
-                  <li>
-                    <a href="#">Solutions</a>
-                  </li>
-                  <li>
-                    <a href="#">Solutions</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="sub-menu-list">
-                <h5>Title here</h5>
-                <ul>
-                  <li>
-                    <a href="#">Solutions</a>
-                  </li>
-                  <li>
-                    <a href="#">Solutions</a>
-                  </li>
-                  <li>
-                    <a href="#">Solutions</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a href="#">Solutions</a>
-          </li>
-          <li>
-            <a href="#">Solutions</a>
-          </li>
-          <li>
-            <a href="#">Solutions</a>
-          </li>
+            </li>
+          );
+        })}
         </ul>
       </div>
     </section>

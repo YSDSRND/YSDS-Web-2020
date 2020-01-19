@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Flexible from "../../Components/Global/Flexible/Flexible";
-import { GetPageBySlug } from "../../Services/Pages/Pages";
+import { GetPageBySlug, GetPageByID } from "../../Services/Pages/Pages";
+import { useSelector } from "react-redux";
+import { AppState } from "../../Store";
 
-const Page: React.FC = () => {
-  const { slug } = useParams();
+const FrontPage: React.FC = () => {
+    const options = useSelector((state : AppState) => state.options);
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
   const [is404, set404] = useState<boolean>();
 
   useEffect(() => {
-    if (!slug) {
-      return;
-    }
-    GetPageBySlug(slug).then(resp => {
+   if(options.loading || !options.options) {
+       return;
+   }
+    GetPageByID(options.options.frontpage).then(resp => {
       if (Array.isArray(resp)) {
         set404(true);
       }
       setData(resp);
       setLoading(false);
     });
-  }, [slug]);
+  }, [options]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -31,4 +33,4 @@ const Page: React.FC = () => {
   }
   return <Flexible flexible={data.acf.flexible} />;
 };
-export default Page;
+export default FrontPage;

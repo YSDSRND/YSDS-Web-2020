@@ -1,8 +1,29 @@
 import { WPImage } from "../../Util/Types/WPImage";
+import WPLinks from "../../Util/Types/WPLink";
 
 export type WPOptions = {
-    footer_logo: WPImage,
-    header_logo: WPImage,
+    footer: {
+        footer_logo: WPImage,
+        navigation: Array<{
+            subnavigation: Array<{
+                link: WPLinks
+            }>
+        }>
+    },
+    header: {
+        header_logo: WPImage,
+        navigation: Array<{
+            link: WPLinks,
+            submenus: boolean | Array<{
+                title: string,
+                navigation: boolean | Array<{
+                    link: WPLinks
+                }>
+            }>
+        }>,
+        contact: WPLinks,
+    },
+    frontpage: number,
 }
 
 export interface OptionsState {
