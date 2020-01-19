@@ -1,29 +1,35 @@
 import React from "react";
+import { WPImage } from "../../../Util/Types/WPImage";
 
 export const BlackDiagonalACFLayout = "black_diagonal";
 export type BlackDiagonalProps = {
-  acf_fc_layout: typeof BlackDiagonalACFLayout,
-}
+  acf_fc_layout: typeof BlackDiagonalACFLayout;
+  title_left: string;
+  image: WPImage;
+  title_right: string;
+  subtitle_right: string;
+};
 
-const BlackDiagonal: React.FC<BlackDiagonalProps> = () => {
+const BlackDiagonal: React.FC<BlackDiagonalProps> = ({
+  title_left,
+  title_right,
+  subtitle_right,
+  image
+}) => {
   return (
     <section className="black-diagonal">
       <div className="main">
         <div className="triangle"></div>
         <div className="flex-container">
           <div className="left">
-            <h2>
-              What<br></br>we do
-            </h2>
+            <h2>{title_left}</h2>
           </div>
           <div className="image-container">
-            <img></img>
+            <img src={image.sizes.large} alt={image.alt} />
           </div>
           <div className="right">
-            <h2>
-              What our<br></br>clients do
-            </h2>
-            <p>Call or email us – we take care of the rest</p>
+            <h2>{title_right}</h2>
+            <p>{subtitle_right}</p>
           </div>
         </div>
       </div>

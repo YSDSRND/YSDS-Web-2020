@@ -1,17 +1,24 @@
 import React from "react";
+import { WPImage } from "../../../Util/Types/WPImage";
+import WPButton from "../../../Util/Types/WPButton";
+import LinkButton from "../../Global/LinkButton/LinkButton";
 
-export type CardProps = {};
+export type CardProps = {
+  image: WPImage,
+  header: string,
+  text: string,
+  button: WPButton,
+};
 
-const Card: React.FC = () => {
+const Card: React.FC<CardProps> = ({image, header, text, button}) => {
   return (
     <div className="one-card">
-      <img></img>
-      <h3>Lifescience</h3>
+      <img src={image.sizes.medium} alt={image.alt} />
+      <h3>{header}</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
+        {text}
       </p>
-      <a className="ysds-button lines">more info</a>
+      <LinkButton {...button} />
     </div>
   );
 };

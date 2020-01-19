@@ -1,31 +1,58 @@
-import React from 'react';
+import React from "react";
+import { WPImage } from "../../../Util/Types/WPImage";
+import HTMLContent from "../../Global/HTMLContent/HTMLContent";
 
 export const TextOnWhiteACFLayout = "text_on_white";
 export type TextOnWhiteProps = {
-    acf_fc_layout: typeof TextOnWhiteACFLayout
-}
+  acf_fc_layout: typeof TextOnWhiteACFLayout;
+  background_image: WPImage;
+  header: string;
+  text_or_lists: "text" | "lists";
+  body?: string;
+  lists?: Array<{
+    title: string;
+    content: string;
+  }>;
+};
 
-const TextOnWhite : React.FC<TextOnWhiteProps> = () => {
-    return (
-        <section className="text-on-white editor">
-        <div className="main">
-        <div className="bg-image"></div>
-          <div className="triangle"></div>
-            <div className="main-inner">
-                <div className="text-container">
-                    <h2>We facilitate growth by mitigating risks</h2>
-                    <div className="line six-col"></div>
-                    <div className="content">
-                      <p>If you are close to our offices, you are more than welcome to drop by. If you happen to be further away, don't worry, our global network of agents and partners will make sure your needs are also met. If you are close to our offices, you are more than welcome to drop by. If you happen to be further away, don't worry, our global network of agents and partners will make sure your needs are also met. If you are close to our offices, you are more than welcome to drop by. If you happen to be further away, don't worry, our global network of agents and partners will make sure your needs are also met.
-                      <br></br><br></br>
-                      If you are close to our offices, you are more than welcome to drop by. If you happen to be further away, don't worry, our global network of agents and partners will make sure your needs are also met. If you are close to our offices, you are more than welcome to drop by. If you happen to be further away, don't worry, our global network of agents and partners will make sure your needs are also met.
-                      </p>
+const TextOnWhite: React.FC<TextOnWhiteProps> = ({
+    background_image,
+  header,
+  text_or_lists,
+  body,
+  lists
+}) => {
+    console.log("bg", background_image.sizes)
+  return (
+    <section className="text-on-white editor">
+      <div className="main">
+        <div
+          className="bg-image"
+          style={{ backgroundImage: `url(${background_image.sizes.large})` }}
+        />
+        <div className="triangle"></div>
+        <div className="main-inner">
+          <div className="text-container">
+            <h2>{header}</h2>
+            <div className="line six-col"></div>
+            <div className="content">
+              {text_or_lists === "text" && body && <HTMLContent html={body} />}
+              {text_or_lists === "lists" &&
+                lists &&
+                lists.map(l => {
+                  return (
+                    <div className="one-list">
+                      <h4>{l.title}</h4>
+                      <HTMLContent html={l.content} />
                     </div>
-                </div>
+                  );
+                })}
             </div>
+          </div>
         </div>
+      </div>
     </section>
-    )
-}
+  );
+};
 
 export default TextOnWhite;

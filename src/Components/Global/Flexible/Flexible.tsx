@@ -12,6 +12,7 @@ import BlackDiagonal, { BlackDiagonalProps, BlackDiagonalACFLayout } from '../..
 import ContactFormColor, { ContactFormColorProps, ContactFormColorACFLayout } from '../../Flexible/ContactFormColor/ContactFormColor';
 import TextOnImage, { TextOnImageProps, TextOnImageACFLayout } from '../../Flexible/TextOnImage/TextOnImage';
 import TextOnWhite, { TextOnWhiteProps, TextOnWhiteACFLayout } from '../../Flexible/TextOnWhite/TextOnWhite';
+import Article, { ArticleProps, ArticleACFLayout } from '../../Flexible/Article/Article';
 
 type FlexibleProps = {
     flexible: Array<FlexibleLayout>
@@ -30,6 +31,7 @@ type FlexibleLayout = HeroProps
     | ContactFormColorProps
     | TextOnImageProps
     | TextOnWhiteProps
+    | ArticleProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
@@ -76,6 +78,8 @@ function renderFlexibleSection(layout : FlexibleLayout) {
             return <TextOnImage {...layout} />
         case TextOnWhiteACFLayout:
             return <TextOnWhite {...layout} />
+        case ArticleACFLayout:
+            return <Article {...layout} />
         default: {
             return <h1>Component not found</h1>
         }

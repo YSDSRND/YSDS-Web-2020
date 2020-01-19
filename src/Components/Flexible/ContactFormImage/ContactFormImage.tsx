@@ -1,30 +1,38 @@
 import React from "react";
 import ContactForm from "../../Global/ContactForm/ContactForm";
+import { WPImage } from "../../../Util/Types/WPImage";
 
 export const ContactFormImageACFLayout = "contact_on_image";
 export type ContactFormImageProps = {
   acf_fc_layout: typeof ContactFormImageACFLayout;
+  background_image: WPImage;
+  header: string;
+  body: string;
+  form_header: string;
 };
 
-const ContactFormImage: React.FC<ContactFormImageProps> = ({}) => {
+const ContactFormImage: React.FC<ContactFormImageProps> = ({
+  background_image,
+  header,
+  body,
+  form_header
+}) => {
   return (
     <section className="contact-on-image">
-      <div className="background-image"></div>
+      <div
+        className="background-image"
+        style={{ backgroundImage: `url(${background_image.sizes.large})` }}
+      />
       <div className="main">
         <div className="triangle"></div>
         <div className="main-inner">
           <div className="text-container">
-            <h2>Get in touch with us</h2>
+            <h2>{header}</h2>
             <div className="line three-col"></div>
-            <p>
-              If you are close to our offices, you are more than welcome to drop
-              by. If you happen to be further away, don't worry, our global
-              network of agents and partners will make sure your needs are also
-              met.
-            </p>
+            <p>{body}</p>
             <div className="content">
               <div className="form-container">
-                <h3>Write us an email</h3>
+                <h3>{form_header}</h3>
                 <ContactForm />
               </div>
             </div>

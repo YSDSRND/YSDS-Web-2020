@@ -1,8 +1,11 @@
 import React from 'react';
+import WPButton from '../../../Util/Types/WPButton';
 
-const LinkButton : React.FC = () => {
+const LinkButton : React.FC<WPButton> = ({button, button_style}) => {
     return (
-        <a className="ysds-button big">Read more</a>
+        <a href={button.url} className={`ysds-button ${button_style}`}>
+            {button.title}
+        </a>
     )
 }
 

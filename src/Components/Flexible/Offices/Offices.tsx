@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Office, {OfficeProps} from "./Office";
+import { GetOfficeByID } from "../../../Services/Offices/Offices";
 
 export const OfficesACFLayout = "offices";
 
@@ -7,10 +8,29 @@ export type OfficesProps = {
   acf_fc_layout: typeof OfficesACFLayout,
   header: string;
   body: string;
-  offices: Array<OfficeProps>
+  offices: Array<{
+    ID: number
+  }>
 };
 
 const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
+
+  const [loading, setLoading] = useState<boolean>(true);
+  const [officeData, setOfficeData] = useState<Array<OfficeProps>>([]);
+
+  useEffect(() => {
+    const promises = offices.map((off) => {
+      return GetOfficeByID(off.ID)
+    })
+
+    Promise.all(promises).then((res) => {
+      console.log(res);
+      setOfficeData(res.map((r) => r.acf))
+      setLoading(false);
+    })
+  }, [offices])
+
+  
   return (
     <section className="offices">
       <div className="main">
@@ -21,7 +41,7 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
         <div className="main-inner">
           <div className="flex-container">
             {
-              offices.map(officeItem => {
+              !loading && officeData.map(officeItem => {
                 return (
                   <Office {...officeItem} />
                 )

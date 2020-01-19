@@ -1,26 +1,38 @@
-import React from 'react';
-
+import React from "react";
+import { WPImage } from "../../../Util/Types/WPImage";
+import HTMLContent from "../../Global/HTMLContent/HTMLContent";
 
 export type OfficeProps = {
-    email: string,
-    phoneNumber: string,
-}
+  image: WPImage;
+  office_title: string;
+  address: string;
+  email: string;
+  phone: string;
+  linkable_phone: string;
+};
 
-const Office : React.FC<OfficeProps> = () => {
-    return (
-        <div className="one-card">
-                <img></img>
-                <div className="text-container">
-                  <h3>Amsterdam</h3>
-                  <p>Modemstraat 13<br></br>
-                  1033 RW Amsterdam<br></br>
-                  Netherlands<br></br>
-                  <a>order.ams@ysds.com</a><br></br>
-                  <a>+31 20 214 21 87</a></p>
-                </div>
-
-                </div>
-    )
-}
+const Office: React.FC<OfficeProps> = ({
+  image,
+  office_title,
+  address,
+  email,
+  phone,
+  linkable_phone
+}) => {
+  return (
+    <div className="one-card">
+      <img src={image.sizes.medium} alt={image.alt} />
+      <div className="text-container">
+        <h3>{office_title}</h3>
+        <p>
+          <HTMLContent html={address} />
+          <a href={`mailto:${email}`}>{email}</a>
+          <br></br>
+          <a href={`tel:${linkable_phone}`}>{phone}</a>
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default Office;

@@ -1,5 +1,8 @@
 import React from "react";
 import LinkButton from "../../Global/LinkButton/LinkButton";
+import WPButton from "../../../Util/Types/WPButton";
+import { WPImage } from "../../../Util/Types/WPImage";
+import HTMLContent from "../../Global/HTMLContent/HTMLContent";
 
 export const ArticleACFLayout = "article";
 export type ArticleProps = {
@@ -7,28 +10,28 @@ export type ArticleProps = {
   header: string,
   subheader: string,
   body: string,
+  button: WPButton,
+  backgroundImage: WPImage,
 }
 
 
-const Article: React.FC<ArticleProps> = ({header, subheader, body}) => {
+const Article: React.FC<ArticleProps> = ({header, subheader, body, button, backgroundImage}) => {
   return (
     <section className="article">
-      <div className="background-image"></div>
+      <div className="background-image" style={{backgroundImage: `url(${backgroundImage.sizes.large})`}}></div>
       <div className="main">
         <div className="triangle"></div>
         <div className="main-inner">
           <div className="text-container">
-  <h1>{header}</h1>
+          <h1>{header}</h1>
             <div className="line five-col"></div>
             <h2>
               {subheader}
             </h2>
             <div className="content">
-              <p>
-                {body}
-              </p>
+              <HTMLContent html={body} />
             </div>
-            <LinkButton />
+            <LinkButton {...button} />
           </div>
         </div>
       </div>

@@ -1,22 +1,23 @@
-import React from 'react';
+import React from "react";
+import WPButton from "../../../Util/Types/WPButton";
+import LinkButton from "../../Global/LinkButton/LinkButton";
 
 export type CaseProps = {
-    header: string,
-    body: string,
-}
+  header: string;
+  body: string;
+  button: {
+      button: WPButton
+  };
+};
 
-const Case : React.FC<CaseProps> = ({header, body}) => {
-    return (
-        <div className="one-card">
-            <h3>{header}</h3>
-            <p>
-              {
-                  body
-              }
-            </p>
-            <a className="ysds-button lines">more info</a>
-          </div>
-    )
-}
+const Case: React.FC<CaseProps> = ({ header, body, button }) => {
+  return (
+    <div className="one-card">
+      <h3>{header}</h3>
+      <p>{body}</p>
+      <LinkButton {...button.button} />
+    </div>
+  );
+};
 
 export default Case;

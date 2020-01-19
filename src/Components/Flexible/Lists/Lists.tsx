@@ -13,34 +13,7 @@ const Lists : React.FC = () => {
                     <div className="line six-col"></div>
                     <div className="content">
                       
-                      <div className="one-list">
-                        <h4>Areas of expertise</h4>
-                        <ul>
-                          <li>Dangerous goods</li>
-                          <li>Customs</li>
-                          <li>Cold chain</li>
-                          <li>Dangerous goods</li>
-                          <li>Customs</li>
-                          <li>Cold chain</li>
-                          <li>Dangerous goods</li>
-                          <li>Customs</li>
-                          <li>Cold chain</li>
-                        </ul>
-                      </div>
-                      <div className="one-list">
-                        <h4>Areas of expertise</h4>
-                        <ul>
-                          <li>Dangerous goods</li>
-                          <li>Customs</li>
-                          <li>Cold chain</li>
-                          <li>Dangerous goods</li>
-                          <li>Customs</li>
-                          <li>Cold chain</li>
-                          <li>Dangerous goods</li>
-                          <li>Customs</li>
-                          <li>Cold chain</li>
-                        </ul>
-                      </div>
+                      
 
                     </div>
                 </div>

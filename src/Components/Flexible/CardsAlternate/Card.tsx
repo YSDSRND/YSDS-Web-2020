@@ -1,19 +1,24 @@
-import React from 'react';
+import React from "react";
+import { WPImage } from "../../../Util/Types/WPImage";
+import WPLink from "../../../Util/Types/WPLink";
 
 export type CardProps = {
+  image: WPImage;
+  header: string;
+  text: string;
+  link: WPLink;
+};
 
-}
-
-const Card : React.FC = () => {
-    return (
-        <a className="one-card" href="#">
-                <img></img>
-                <div className="text-container">
-                  <h3>Lifescience</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
-              </a>
-    )
-}
+const Card: React.FC<CardProps> = ({ image, header, text, link }) => {
+  return (
+    <a className="one-card" href={link.url}>
+      <img src={image.sizes.medium} alt={image.alt} />
+      <div className="text-container">
+        <h3>{header}</h3>
+        <p>{text}</p>
+      </div>
+    </a>
+  );
+};
 
 export default Card;

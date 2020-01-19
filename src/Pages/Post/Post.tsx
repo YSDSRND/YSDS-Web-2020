@@ -24,10 +24,7 @@ const Post : React.FC = () => {
         )
     }
     return (
-        <div style={{paddingTop: 100}}>
-            {slug}
-            <Flexible flexible={data.acf.flexible} />
-        </div>
+        <Flexible flexible={data.acf.flexible} />
     )
 }
 export default Post;
