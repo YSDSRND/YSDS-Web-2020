@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../Store";
 import Link from "../Link/Link";
+import {Link as RouterLink} from "react-router-dom";
 import LinkButton from "../LinkButton/LinkButton";
 
 const Header: React.FC = () => {
@@ -13,11 +14,13 @@ const Header: React.FC = () => {
   const { header_logo, navigation, contact } = options.options.header;
   return (
     <section className="header">
-      <img
-        className="logo"
-        src={header_logo.sizes.large}
-        alt={header_logo.alt}
-      />
+      <RouterLink to="/">
+        <img
+          className="logo"
+          src={header_logo.sizes.large}
+          alt={header_logo.alt}
+        />
+      </RouterLink>
       <ul className="menu-container desktop">
         {navigation.map(nav => {
           return (
