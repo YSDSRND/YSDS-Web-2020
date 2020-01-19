@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         })}
       </ul>
       <LinkButton button={contact} button_style="normal"/>
-      <img className="hamburger"></img>
+      <img className="hamburger" alt="Menu toggle"></img>
 
       <div className="menu-container mobile">
         <ul>

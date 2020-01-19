@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Flexible from "../../Components/Global/Flexible/Flexible";
-import { GetPageBySlug, GetPageByID } from "../../Services/Pages/Pages";
+import { GetPageByID } from "../../Services/Pages/Pages";
 import { useSelector } from "react-redux";
 import { AppState } from "../../Store";
 

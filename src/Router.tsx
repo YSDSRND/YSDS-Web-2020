@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./Components/Global/Header/Header";
 import { PagesRoute, PostRoute, FrontPageRoute, CasesRoute } from "./Config/routes";
 import Footer from "./Components/Global/Footer";

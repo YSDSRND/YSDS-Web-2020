@@ -15,7 +15,7 @@ const App: React.FC = () => {
       dispatch(SetOptions(options));
       dispatch(SetOptionsLoading(false));
     })
-  }, [])
+  }, [dispatch])
   return <Router />;
 };
 
