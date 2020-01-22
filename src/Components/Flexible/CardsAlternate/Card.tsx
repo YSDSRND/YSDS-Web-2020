@@ -12,7 +12,7 @@ export type CardProps = {
 const Card: React.FC<CardProps> = ({ image, header, text, link }) => {
   return (
     <a className="one-card" href={link.url}>
-      <img src={image.sizes.medium} alt={image.alt} />
+      <img src={image.sizes.large} alt={image.alt} />
       <div className="text-container">
         <h3>{header}</h3>
         <p>{text}</p>

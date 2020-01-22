@@ -7,7 +7,7 @@ import LinkButton from "../../Global/LinkButton/LinkButton";
 export const TextAndImageACFLayout = "text_and_image";
 export type TextAndImageProps = {
   acf_fc_layout: typeof TextAndImageACFLayout;
-  mirrored?: "normal" | "mirrored";
+  mirrored_layout?: "normal" | "mirrored";
   header: string;
   body: string;
   button?: WPButton;
@@ -15,14 +15,14 @@ export type TextAndImageProps = {
 };
 
 const TextAndImage: React.FC<TextAndImageProps> = ({
-  mirrored,
+  mirrored_layout,
   header,
   body,
   button,
   image
 }) => {
   return (
-    <section className={`text-and-image ${mirrored}`}>
+    <section className={`text-and-image ${mirrored_layout}`}>
       <div className="main">
         <div className="main-inner">
           <div className="text-container">

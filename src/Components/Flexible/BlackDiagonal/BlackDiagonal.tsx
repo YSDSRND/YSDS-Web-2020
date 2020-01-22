@@ -1,5 +1,6 @@
 import React from "react";
 import { WPImage } from "../../../Util/Types/WPImage";
+import HTMLContent from "../../Global/HTMLContent/HTMLContent";
 
 export const BlackDiagonalACFLayout = "black_diagonal";
 export type BlackDiagonalProps = {
@@ -22,14 +23,18 @@ const BlackDiagonal: React.FC<BlackDiagonalProps> = ({
         <div className="triangle"></div>
         <div className="flex-container">
           <div className="left">
-            <h2>{title_left}</h2>
+            <h2>
+              <HTMLContent html={title_left} />
+            </h2>
           </div>
           <div className="image-container">
             <img src={image.sizes.large} alt={image.alt} />
           </div>
           <div className="right">
-            <h2>{title_right}</h2>
-            <p>{subtitle_right}</p>
+            <h2><HTMLContent html={title_right} /></h2>
+            <p>
+              <HTMLContent html={subtitle_right} />
+            </p>
           </div>
         </div>
       </div>
