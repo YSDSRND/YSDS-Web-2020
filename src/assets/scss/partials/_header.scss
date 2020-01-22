@@ -52,9 +52,11 @@
                     bottom: -20px;
                 }
             }
+            &:hover a {
+                text-decoration: underline;
+            }
             &.has-children:hover {
                 > a {
-                    text-decoration: underline;
                     &:after {
                         display: block;
                     }
@@ -90,11 +92,15 @@
                     padding: 0;
                     padding-top: 10px;
                     li a {
-                        margin: 0;
+                        margin: 4px 0;
                         text-transform: none;
                         font-size: 13px;
+                        text-decoration: none;
                         &:after {
                             display: none;
+                        }
+                        &:hover {
+                            text-decoration: underline;
                         }
                     }
                 }

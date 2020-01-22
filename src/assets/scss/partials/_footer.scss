@@ -13,9 +13,10 @@
             padding: 0 $one-col;
         }
         img {
-            background: white;
+            object-fit: contain;
+            object-position: left;
             width: 200px;
-            height: 100px;
+            height: 137px;
             margin-bottom: 30px;
             @media screen and (min-width: $small) {
                 margin-right: 30px;

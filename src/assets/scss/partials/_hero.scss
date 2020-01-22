@@ -29,8 +29,11 @@
             width: $four-col;
         }
         h1 {
-            font-size: 56px;
             position: relative;
+            @media screen and (min-width: $small) {
+                font-size: 56px;
+                line-height: 108%;
+            }
         }
         h2 {
             font-size: 17px;
