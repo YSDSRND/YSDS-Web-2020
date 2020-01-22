@@ -135,6 +135,7 @@
             &.has-children {
                 position: relative;
                 &:after {
+                    pointer-events: none;
                     content: '\25BC';
                     position: absolute;
                     color: $red;
