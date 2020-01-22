@@ -36,7 +36,15 @@
         }
         h2 {
             border-bottom: 1px solid $red;
-            line-height: 110%;
+            div {
+                font-weight: 900;
+                font-size: 23px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin: 0 0 10px;
+                font-family: Helvetica-Neue-Bd;
+                line-height: 110%;
+            }
             @media screen and (min-width: $small) {
                 text-align: right;
             }
@@ -80,7 +88,15 @@
         }
         h2 {
             border-bottom: 1px solid $red;
-            line-height: 110%;
+            div {
+                font-weight: 900;
+                font-size: 23px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin: 0 0 10px;
+                font-family: Helvetica-Neue-Bd;
+                line-height: 110%;
+            }
         }
         p {
             text-transform: uppercase;
