@@ -34,7 +34,7 @@ const TextAndImage: React.FC<TextAndImageProps> = ({
             {button && <LinkButton {...button} />}
           </div>
           <div className="image-container">
-            <img src={image.sizes.large} alt={image.alt} />
+            <img src={image && image.sizes && image.sizes.large ? image.sizes.large :""} alt={image ? image.alt : ""} />
           </div>
         </div>
       </div>

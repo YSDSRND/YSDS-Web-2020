@@ -18,7 +18,7 @@ export type ArticleProps = {
 const Article: React.FC<ArticleProps> = ({header, subheader, body, button, backgroundImage}) => {
   return (
     <section className="article">
-      <div className="background-image" style={{backgroundImage: `url(${backgroundImage.sizes.large})`}}></div>
+      <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : null})`}}></div>
       <div className="main">
         <div className="triangle"></div>
         <div className="main-inner">

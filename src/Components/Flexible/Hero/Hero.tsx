@@ -16,7 +16,7 @@ export type HeroProps = {
 const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage, button}) => {
     return (
         <section className={centered ? 'hero-centered' : 'hero'}>
-            <div className="background-image" style={{backgroundImage: `url(${backgroundImage.sizes.large})`}}></div>
+            <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}></div>
             <div className="main">
                 <div className="triangle"></div>
                 <div className="main-inner">

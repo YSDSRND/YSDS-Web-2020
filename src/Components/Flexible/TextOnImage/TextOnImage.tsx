@@ -21,7 +21,7 @@ const TextOnImage: React.FC<TextOnImageProps> = ({
 }) => {
   return (
     <section className="text-on-image">
-      <div className="background-image" style={{backgroundImage: `url(${backgroundImage.sizes.large})`}} />
+      <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large :""})`}} />
       <div className="main">
         <div className="triangle"></div>
         <div className="main-inner">

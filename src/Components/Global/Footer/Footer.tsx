@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
       <div className="main">
         <div className="main-inner">
           <RouterLink to="/">
-            <img src={footer_logo.sizes.large} alt={footer_logo.alt} />
+            <img src={footer_logo && footer_logo.sizes && footer_logo.sizes.large ? footer_logo.sizes.large:""} alt={footer_logo? footer_logo.alt : ""} />
           </RouterLink>
           {navigation.map(({ subnavigation }) => {
             return (

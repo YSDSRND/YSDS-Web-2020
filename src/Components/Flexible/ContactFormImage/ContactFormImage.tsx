@@ -21,7 +21,7 @@ const ContactFormImage: React.FC<ContactFormImageProps> = ({
     <section className="contact-on-image">
       <div
         className="background-image"
-        style={{ backgroundImage: `url(${background_image.sizes.large})` }}
+        style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ""})` }}
       />
       <div className="main">
         <div className="triangle"></div>

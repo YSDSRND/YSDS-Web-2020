@@ -28,7 +28,7 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
       <div className="main">
         <div
           className="bg-image"
-          style={{ backgroundImage: `url(${background_image.sizes.large})` }}
+          style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ""})` }}
         />
         <div className="triangle"></div>
         <div className="main-inner">

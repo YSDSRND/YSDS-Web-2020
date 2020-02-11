@@ -21,7 +21,7 @@ const Office: React.FC<OfficeProps> = ({
 }) => {
   return (
     <div className="one-card">
-      <img src={image.sizes.large} alt={image.alt} />
+      <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ""} alt={image ? image.alt :""} />
       <div className="text-container">
         <h3>{office_title}</h3>
         <p>

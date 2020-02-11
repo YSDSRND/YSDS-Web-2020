@@ -28,7 +28,7 @@ const BlackDiagonal: React.FC<BlackDiagonalProps> = ({
             </h2>
           </div>
           <div className="image-container">
-            <img src={image.sizes.large} alt={image.alt} />
+            <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ""} alt={image ? image.alt : ""} />
           </div>
           <div className="right">
             <h2><HTMLContent html={title_right} /></h2>

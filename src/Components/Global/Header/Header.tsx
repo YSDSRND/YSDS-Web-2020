@@ -26,8 +26,8 @@ const Header: React.FC = () => {
       >
         <img
           className="logo"
-          src={header_logo.sizes.large}
-          alt={header_logo.alt}
+          src={header_logo && header_logo.sizes && header_logo.sizes.large ? header_logo.sizes.large : ""}
+          alt={header_logo ? header_logo.alt ""}
         />
       </RouterLink>
       <ul className="menu-container desktop">
