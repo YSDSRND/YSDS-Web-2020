@@ -41,7 +41,9 @@
             margin-top: 20px;
             position: absolute;
             bottom: 100px;
-            right: $one-col;
+            @media screen and (min-width: $medium) {
+                right: $one-col;
+            }
         }
     }
     .line {
