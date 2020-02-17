@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../Store";
 import Link from "../Link/Link";
@@ -7,13 +7,19 @@ import LinkButton from "../LinkButton/LinkButton";
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
+  const contactButtonRef = useRef(null);
   const [openSubNavs, setOpenSubNavs] = useState<Map<number, boolean>>(
     new Map<number, boolean>()
   );
+
+  const [formOpen, setFormOpen] = useState<boolean>(false);
+
+
   const options = useSelector((state: AppState) => state.options);
   if (!options.options || options.loading) {
     return <></>;
   }
+
 
   const { header_logo, navigation, contact } = options.options.header;
   return (
@@ -26,7 +32,11 @@ const Header: React.FC = () => {
       >
         <img
           className="logo"
-          src={header_logo && header_logo.sizes && header_logo.sizes.large ? header_logo.sizes.large : ""}
+          src={
+            header_logo && header_logo.sizes && header_logo.sizes.large
+              ? header_logo.sizes.large
+              : ""
+          }
           alt={header_logo ? header_logo.alt : ""}
         />
       </RouterLink>
@@ -59,24 +69,12 @@ const Header: React.FC = () => {
           );
         })}
       </ul>
-      <LinkButton button={contact} button_style="normal" />
-
-        <div className="header-contact-form">
-            <h4>Write us an email</h4>
-            <form>
-              <label>Name</label>
-              <input type="text" name="name"></input>
-              
-              <label>Phone nr</label>
-              <input type="tel" name="phone"></input>
-
-              <label>Email</label>
-              <input type="email" name="email"></input>
-
-              <input type="submit" value="SEND" className="ysds-button small red"></input>
-            </form> 
-        </div>
-
+      <button ref={contactButtonRef} className={"ysds-button normal"} onClick={() => {
+        setFormOpen(!formOpen);
+      }}>
+        Contact us
+      </button>
+      <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={() => {setFormOpen(false)}} />
       <button
         className="hamburger"
         onClick={() => {
@@ -146,3 +144,54 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+type FormDropdownProps = {
+  open: boolean;
+  onClose: (() => void)
+  openButtonRef: any
+};
+const FormDropdown: React.FC<FormDropdownProps> = ({open, onClose, openButtonRef}) => {
+  const dropdownRef : any = useRef(null);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+  const handleClick = (e: any) => {
+    if(!dropdownRef || !dropdownRef.current || !openButtonRef || !openButtonRef.current) {
+      return;
+    }
+    if(!dropdownRef.current.contains(e.target) && !openButtonRef.current.contains(e.target)) {
+      console.log(openButtonRef, "asdas")
+      onClose();
+      return;
+    }
+  };
+
+  if(!open) {
+    return <></>
+  }
+  return (
+    <div ref={dropdownRef} className="header-contact-form">
+      <h4>Write us an email</h4>
+      <form>
+        <label>Name</label>
+        <input type="text" name="name"></input>
+
+        <label>Phone nr</label>
+        <input type="tel" name="phone"></input>
+
+        <label>Email</label>
+        <input type="email" name="email"></input>
+
+        <input
+          type="submit"
+          value="SEND"
+          className="ysds-button small red"
+        ></input>
+      </form>
+    </div>
+  );
+};
