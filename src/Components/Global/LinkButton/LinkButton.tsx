@@ -4,10 +4,17 @@ import { Link } from 'react-router-dom';
 
 const LinkButton : React.FC<WPButton> = ({button, button_style}) => {
 
-    const url = new URL(button.url);
+    var  url;
+    var pathname=""
+    if(button){
+
+        url = new URL(button.url);     
+        pathname = url.pathname
+    } 
+    
 
     return (
-        <Link to={url.pathname} className={`ysds-button ${button_style}`}>
+        <Link to={pathname} className={`ysds-button ${button_style}`}>
             {button.title}
         </Link>
     )

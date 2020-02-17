@@ -6,9 +6,13 @@ export type LinkProps = {
   onClick?: ((event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void) | undefined
 };
 const Link: React.FC<LinkProps> = ({ to, children, onClick }) => {
-  const url = new URL(to);
-  const path = url.pathname;
-  return <RouterLink onClick={onClick} to={path}>{children}</RouterLink>;
+  var pathName = ""
+  if(to){
+    var url = new URL(to);
+    pathName = url.pathname
+  }
+  
+  return <RouterLink onClick={onClick} to={pathName}>{children}</RouterLink>;
 };
 
 export default Link;
