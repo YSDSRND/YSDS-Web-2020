@@ -27,7 +27,7 @@ const Header: React.FC = () => {
         <img
           className="logo"
           src={header_logo && header_logo.sizes && header_logo.sizes.large ? header_logo.sizes.large : ""}
-          alt={header_logo ? header_logo.alt ""}
+          alt={header_logo ? header_logo.alt : ""}
         />
       </RouterLink>
       <ul className="menu-container desktop">
@@ -60,6 +60,23 @@ const Header: React.FC = () => {
         })}
       </ul>
       <LinkButton button={contact} button_style="normal" />
+
+        <div className="header-contact-form">
+            <h4>Write us an email</h4>
+            <form>
+              <label>Name</label>
+              <input type="text" name="name"></input>
+              
+              <label>Phone nr</label>
+              <input type="tel" name="phone"></input>
+
+              <label>Email</label>
+              <input type="email" name="email"></input>
+
+              <input type="submit" value="SEND" className="ysds-button small red"></input>
+            </form> 
+        </div>
+
       <button
         className="hamburger"
         onClick={() => {
