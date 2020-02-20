@@ -13,8 +13,8 @@ const Cards : React.FC<CardsProps> = ({cards}) => {
         <div className="main">
             <div className="main-inner">
               {
-                cards.map((cardItem) => {
-                  return <Card {...cardItem} />
+                cards.map((cardItem, i) => {
+                  return <Card {...cardItem} key={i}/>
                 })
               }
             </div>

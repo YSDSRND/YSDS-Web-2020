@@ -22,7 +22,6 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
   body,
   lists
 }) => {
-    console.log("bg", background_image.sizes)
   return (
     <section className="text-on-white editor">
       <div className="main">
@@ -39,9 +38,9 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
               {text_or_lists === "text" && body && <HTMLContent html={body} />}
               {text_or_lists === "lists" &&
                 lists &&
-                lists.map(l => {
+                lists.map((l,key) => {
                   return (
-                    <div className="one-list">
+                    <div className="one-list" key={key}>
                       <h4>{l.title}</h4>
                       <HTMLContent html={l.content} />
                     </div>

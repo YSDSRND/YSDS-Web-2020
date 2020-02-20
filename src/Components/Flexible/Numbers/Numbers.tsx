@@ -18,8 +18,8 @@ const Numbers : React.FC<NumbersProps> = ({header, numbers}) => {
                     <div className="line three-col"></div>
                     <div className="content">
                       {
-                        numbers.map((numberItem) => {
-                          return <Number {...numberItem} />
+                        numbers.map((numberItem, i) => {
+                          return <Number {...numberItem} key={i}/>
                         })
                       }
                     </div>

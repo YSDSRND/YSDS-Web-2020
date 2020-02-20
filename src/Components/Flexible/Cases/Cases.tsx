@@ -29,9 +29,9 @@ const Cases: React.FC<CasesProps> = ({cases}) => {
       <div className="main">
         <div className="main-inner">
           {
-            !loading && casesData && casesData.map((caseItem: CaseProps) => {
+            !loading && casesData && casesData.map((caseItem: CaseProps, i) => {
               return (
-                <Case {...caseItem} />
+                <Case key={i} {...caseItem} />
               )
             })
           }

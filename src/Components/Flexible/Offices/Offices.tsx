@@ -24,7 +24,6 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
     })
 
     Promise.all(promises).then((res) => {
-      console.log(res);
       setOfficeData(res.map((r) => r.acf))
       setLoading(false);
     })
@@ -41,9 +40,9 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
         <div className="main-inner">
           <div className="flex-container">
             {
-              !loading && officeData.map(officeItem => {
+              !loading && officeData.map((officeItem,i) => {
                 return (
-                  <Office {...officeItem} />
+                  <Office key={i} {...officeItem} />
                 )
               })
             }

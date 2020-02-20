@@ -11,7 +11,6 @@ const Footer: React.FC = () => {
   }
 
   const { footer_logo, navigation } = options.options.footer;
-  console.log(navigation);
   return (
     <section className="footer">
       <div className="main">
@@ -19,12 +18,12 @@ const Footer: React.FC = () => {
           <RouterLink to="/">
             <img src={footer_logo && footer_logo.sizes && footer_logo.sizes.large ? footer_logo.sizes.large:""} alt={footer_logo? footer_logo.alt : ""} />
           </RouterLink>
-          {navigation.map(({ subnavigation }) => {
+          {navigation.map(({ subnavigation }, j) => {
             return (
-              <ul>
-                {subnavigation.map(({ link }) => {
+              <ul key={j}>
+                {subnavigation.map(({ link }, i) => {
                   return (
-                    <li>
+                    <li key={i}>
                       <Link to={link.url}>{link.title}</Link>
                     </li>
                   );

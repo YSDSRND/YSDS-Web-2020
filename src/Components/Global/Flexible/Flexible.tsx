@@ -38,8 +38,8 @@ const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
     return (
         <main>
             {
-                flexible.map(section => {
-                    return renderFlexibleSection(section);
+                flexible.map((section,i) => {
+                    return renderFlexibleSection(section, i);
                 })
             }
         </main>
@@ -50,38 +50,38 @@ export default Flexible;
 
 
 
-function renderFlexibleSection(layout : FlexibleLayout) {
+function renderFlexibleSection(layout : FlexibleLayout, i:any) {
     switch(layout.acf_fc_layout) {
         case HeroACFLayout:
-            return <Hero {...layout} />
+            return <Hero {...layout} key={i}/>
         case OfficesACFLayout:
-            return <Offices {...layout} />
+            return <Offices {...layout} key={i}/>
         case AgentsACFLayout:
-            return <Agents {...layout} />
+            return <Agents {...layout} key={i}/>
         case NumbersACFLayout: 
-            return <Numbers {...layout} />
+            return <Numbers {...layout} key={i}/>
         case CardsACFLayout:
-            return <Cards {...layout} />
+            return <Cards {...layout} key={i}/>
         case CardsAlternateACFLayout: 
-            return <CardsAlternate {...layout} />
+            return <CardsAlternate {...layout} key={i}/>
         case ContactFormImageACFLayout:
-            return <ContactFormImage {...layout} />
+            return <ContactFormImage {...layout} key={i}/>
         case TextAndImageACFLayout:
-            return <TextAndImage {...layout} />
+            return <TextAndImage {...layout} key={i}/>
         case CasesACFLayout:
-            return <Cases {...layout} />
+            return <Cases {...layout} key={i}/>
         case BlackDiagonalACFLayout:
-            return <BlackDiagonal {...layout} />
+            return <BlackDiagonal {...layout} key={i} />
         case ContactFormColorACFLayout:
-            return <ContactFormColor {...layout} />
+            return <ContactFormColor {...layout} key={i}/>
         case TextOnImageACFLayout:
-            return <TextOnImage {...layout} />
+            return <TextOnImage {...layout} key={i}/>
         case TextOnWhiteACFLayout:
-            return <TextOnWhite {...layout} />
+            return <TextOnWhite {...layout} key={i}/>
         case ArticleACFLayout:
-            return <Article {...layout} />
+            return <Article {...layout} key={i}/>
         default: {
-            return <h1>Component not found</h1>
+            return <h1 key={i}>Component not found</h1>
         }
     }
 }

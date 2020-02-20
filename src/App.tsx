@@ -11,7 +11,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     GetOptions().then(options => {
-      console.log("OPTIONS!", options);
       dispatch(SetOptions(options));
       dispatch(SetOptionsLoading(false));
     })

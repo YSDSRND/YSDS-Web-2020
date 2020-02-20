@@ -4,6 +4,7 @@ import { AppState } from "../../../Store";
 import Link from "../Link/Link";
 import { Link as RouterLink } from "react-router-dom";
 import LinkButton from "../LinkButton/LinkButton";
+import ContactForm from '../ContactForm/ContactForm'
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -41,21 +42,21 @@ const Header: React.FC = () => {
         />
       </RouterLink>
       <ul className="menu-container desktop">
-        {navigation.map(nav => {
+        {navigation.map((nav,i) => {
           return (
-            <li className={nav.submenus ? "has-children" : ""}>
+            <li className={nav.submenus ? "has-children" : ""} key={i}>
               <Link to={nav.link.url}>{nav.link.title}</Link>
               <div className="sub-menu">
                 {typeof nav.submenus === "object" &&
-                  nav.submenus.map(subs => {
+                  nav.submenus.map((subs,i) => {
                     return (
-                      <div className="sub-menu-list">
+                      <div className="sub-menu-list" key={i}>
                         <h5>{subs.title}</h5>
                         <ul>
                           {typeof subs.navigation === "object" &&
-                            subs.navigation.map(l => {
+                            subs.navigation.map((l,key) => {
                               return (
-                                <li>
+                                <li key={key}>
                                   <Link to={l.link.url}>{l.link.title}</Link>
                                 </li>
                               );
@@ -86,7 +87,7 @@ const Header: React.FC = () => {
         <ul>
           {navigation.map((nav, index) => {
             return (
-              <li className={nav.submenus ? "has-children" : ""}>
+              <li className={nav.submenus ? "has-children" : ""} key={index}>
                 <span
                   onClick={() => {
                     if (nav.submenus) {
@@ -109,15 +110,15 @@ const Header: React.FC = () => {
                   className={`sub-menu ${openSubNavs.get(index) ? "show" : ""}`}
                 >
                   {typeof nav.submenus === "object" &&
-                    nav.submenus.map(subs => {
+                    nav.submenus.map((subs,k) => {
                       return (
-                        <div className="sub-menu-list">
+                        <div className="sub-menu-list" key={k}>
                           <h5>{subs.title}</h5>
                           <ul>
                             {typeof subs.navigation === "object" &&
-                              subs.navigation.map(l => {
+                              subs.navigation.map((l,key) => {
                                 return (
-                                  <li>
+                                  <li key={key}>
                                     <Link
                                       onClick={() => {
                                         setMobileNavOpen(false);
@@ -152,6 +153,9 @@ type FormDropdownProps = {
 };
 const FormDropdown: React.FC<FormDropdownProps> = ({open, onClose, openButtonRef}) => {
   const dropdownRef : any = useRef(null);
+
+
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClick);
     return () => {
@@ -164,7 +168,6 @@ const FormDropdown: React.FC<FormDropdownProps> = ({open, onClose, openButtonRef
       return;
     }
     if(!dropdownRef.current.contains(e.target) && !openButtonRef.current.contains(e.target)) {
-      console.log(openButtonRef, "asdas")
       onClose();
       return;
     }
@@ -176,22 +179,7 @@ const FormDropdown: React.FC<FormDropdownProps> = ({open, onClose, openButtonRef
   return (
     <div ref={dropdownRef} className="header-contact-form">
       <h4>Write us an email</h4>
-      <form>
-        <label>Name</label>
-        <input type="text" name="name"></input>
-
-        <label>Phone nr</label>
-        <input type="tel" name="phone"></input>
-
-        <label>Email</label>
-        <input type="email" name="email"></input>
-
-        <input
-          type="submit"
-          value="SEND"
-          className="ysds-button small red"
-        ></input>
-      </form>
+      <ContactForm />
     </div>
   );
 };
