@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../Store";
 import Link from "../Link";
 import { Link as RouterLink } from "react-router-dom";
+import CookieConsent from "react-cookie-consent";
 
 const Footer: React.FC = () => {
   const options = useSelector((state: AppState) => state.options);
@@ -33,6 +34,17 @@ const Footer: React.FC = () => {
           })}
         </div>
       </div>
+      <CookieConsent
+    location="bottom"
+    buttonText="OK"
+    cookieName="ysdscookie"
+    style={{ background: "black" }}
+    buttonStyle={{ color: "white", background:"#D0021B", fontSize: "13px" }}
+    expires={150}
+>
+    This website uses cookies to enhance the user experience.{" "}
+    
+</CookieConsent>
     </section>
   );
 };
