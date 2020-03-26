@@ -22,12 +22,13 @@ const Router: React.FC = () => {
           <Route path={CasesRoute}>
             <Case />
           </Route>
-          <Route path={PagesRoute}>
-            <Page />
-          </Route>
           <Route path={SubPagesRoute}>
             <Page />
           </Route>
+          <Route path={PagesRoute}>
+            <Page />
+          </Route>
+          
           <Route exact path={FrontPageRoute}>
             <FrontPage />
           </Route>

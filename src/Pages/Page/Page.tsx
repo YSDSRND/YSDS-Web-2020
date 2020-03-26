@@ -15,7 +15,7 @@ const Page: React.FC = (props) => {
   const [is404, set404] = useState<boolean>();
 
   useEffect(() => {
-    if (!slug) {
+    if (!location) {
       return;
     }
     GetPageBySlug(location.pathname).then(resp => {
@@ -25,7 +25,7 @@ const Page: React.FC = (props) => {
       setData(resp);
       setLoading(false);
     });
-  }, [slug]);
+  }, [location]);
 
   if (loading) {
     return <p>Loading...</p>;
