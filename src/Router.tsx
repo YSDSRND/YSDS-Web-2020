@@ -2,7 +2,7 @@ import React from "react";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./Components/Global/Header/Header";
-import { PagesRoute, PostRoute, FrontPageRoute, CasesRoute } from "./Config/routes";
+import { PagesRoute, PostRoute, FrontPageRoute, CasesRoute,SubPagesRoute } from "./Config/routes";
 import Footer from "./Components/Global/Footer";
 import Post from "./Pages/Post";
 import Page from "./Pages/Page";
@@ -23,6 +23,9 @@ const Router: React.FC = () => {
             <Case />
           </Route>
           <Route path={PagesRoute}>
+            <Page />
+          </Route>
+          <Route path={SubPagesRoute}>
             <Page />
           </Route>
           <Route exact path={FrontPageRoute}>
