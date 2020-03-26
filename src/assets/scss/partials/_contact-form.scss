@@ -11,6 +11,9 @@
         }
         .content {
             padding-top: 20px;
+            p:first-of-type {
+                margin-top: 0;
+            }
         }
 
     }
