@@ -14,10 +14,11 @@
     white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
+    font-family: Helvetica-Neue-Condensed;
 
     &.big {
         font-size: 17px;
-        padding: 16px 26px 11px;
+        padding: 16px 26px 9px;
         &.lines {
             color: $red;
             background: none;
