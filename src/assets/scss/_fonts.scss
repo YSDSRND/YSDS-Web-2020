@@ -25,6 +25,7 @@ h1 {
     margin: 0;
     margin-bottom: 3px;
     font-family: Helvetica-Neue-Condensed;
+    font-weight: normal;
     @media screen and (min-width: $small) {
         font-size: 40px;
     }
@@ -37,6 +38,7 @@ h2 {
     margin: 0;
     margin-bottom: 6px;
     font-family: Helvetica-Neue-Condensed;
+    font-weight: normal;
     @media screen and (min-width: $small) {
         font-size: 30px;
     }
@@ -47,11 +49,18 @@ h3 {
     line-height: 120%;
     text-transform: uppercase;
     font-family: Helvetica-Neue-Condensed;
+    font-weight: normal;
 }
 
 h4 {
     margin: 0;
     font-family: Helvetica-Neue-Condensed;
+    font-weight: normal;
+}
+
+h5 {
+    font-family: Helvetica-Neue-Condensed;
+    font-weight: normal;
 }
 
 p, a, li, div {
