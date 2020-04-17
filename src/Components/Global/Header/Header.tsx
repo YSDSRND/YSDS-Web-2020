@@ -98,7 +98,7 @@ const Header: React.FC = () => {
         <ul>
           {navigation.map((nav, index) => {
             return (
-              <li className={nav.submenus ? "has-children" : ""} key={index}>
+              <li className={nav.submenus ? `has-children ${openSubNavs.get(index) ? "show" : ""}` : ""} key={index}>
                 <span
                   onClick={() => {
                     if (nav.submenus) {

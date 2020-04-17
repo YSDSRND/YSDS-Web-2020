@@ -153,9 +153,16 @@
             }
             &.has-children {
                 position: relative;
+                &.show{
+                    &:after{
+                        content: '-' ;
+                    }
+                }
                 &:after {
                     pointer-events: none;
                     content: '+';
+                    width: 15px;
+                    text-align: center;
                     position: absolute;
                     color: $red;
                     font-size: 27px;
