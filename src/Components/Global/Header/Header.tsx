@@ -42,19 +42,30 @@ const Header: React.FC = () => {
         />
       </RouterLink>
       <ul className="menu-container desktop">
-        {navigation.map((nav,i) => {
+        {navigation.map((nav:any,i) => {
+          let className=""
+          if (nav.submenus){
+            className += "has-children"
+            if (nav.submenus.length === 1){
+              className += " one-submenu"
+            }
+          }
           return (
-            <li className={nav.submenus ? "has-children" : ""} key={i}>
+            <li className={className} key={i}>
               <Link to={nav.link.url}>{nav.link.title}</Link>
               <div className="sub-menu">
                 {typeof nav.submenus === "object" &&
-                  nav.submenus.map((subs,i) => {
+                  nav.submenus.map((subs:any,i:any) => {
                     return (
                       <div className="sub-menu-list" key={i}>
-                        <h5>{subs.title}</h5>
+                        {
+                          subs.title.length > 0 ? (
+                            <h5>{subs.title}</h5>
+                          ): null
+                        }
                         <ul>
                           {typeof subs.navigation === "object" &&
-                            subs.navigation.map((l,key) => {
+                            subs.navigation.map((l:any,key:any) => {
                               return (
                                 <li key={key}>
                                   <Link to={l.link.url}>{l.link.title}</Link>
@@ -113,7 +124,11 @@ const Header: React.FC = () => {
                     nav.submenus.map((subs,k) => {
                       return (
                         <div className="sub-menu-list" key={k}>
-                          <h5>{subs.title}</h5>
+                          {
+                          subs.title.length > 0 ? (
+                            <h5>{subs.title}</h5>
+                          ): null
+                        }
                           <ul>
                             {typeof subs.navigation === "object" &&
                               subs.navigation.map((l,key) => {

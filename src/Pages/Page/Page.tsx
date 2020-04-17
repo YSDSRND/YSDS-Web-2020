@@ -28,7 +28,7 @@ const Page: React.FC = (props) => {
   }, [location]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <div className="highblack"></div>;
   }
   if (is404) {
     return <Error404Template />

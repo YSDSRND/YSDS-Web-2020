@@ -26,7 +26,7 @@ const FrontPage: React.FC = () => {
   }, [options]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <div className="highblack"></div>;
   }
   if (is404) {
     return <Error404Template />
