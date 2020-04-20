@@ -39,7 +39,7 @@ const TextOnWhite: React.FC<TrackerProps> = ({
               <p>{info.description}</p>
               <p>{info.date}</p>
               <p>{info.address.city}</p>
-              <p>{info.country_code}</p>
+              <p>{info.address.country_code}</p>
             </div>
             
           )
