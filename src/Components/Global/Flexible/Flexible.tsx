@@ -13,7 +13,7 @@ import ContactFormColor, { ContactFormColorProps, ContactFormColorACFLayout } fr
 import TextOnImage, { TextOnImageProps, TextOnImageACFLayout } from '../../Flexible/TextOnImage/TextOnImage';
 import TextOnWhite, { TextOnWhiteProps, TextOnWhiteACFLayout } from '../../Flexible/TextOnWhite/TextOnWhite';
 import Article, { ArticleProps, ArticleACFLayout } from '../../Flexible/Article/Article';
-
+import Tracker, {TrackerProps, TrackerAcfLayout} from '../../Flexible/Tracker/Tracker'
 type FlexibleProps = {
     flexible: Array<FlexibleLayout>
 }
@@ -32,6 +32,7 @@ type FlexibleLayout = HeroProps
     | TextOnImageProps
     | TextOnWhiteProps
     | ArticleProps
+    | TrackerProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
@@ -52,6 +53,8 @@ export default Flexible;
 
 function renderFlexibleSection(layout : FlexibleLayout, i:any) {
     switch(layout.acf_fc_layout) {
+        case TrackerAcfLayout:
+            return <Tracker {...layout} key={i}/>
         case HeroACFLayout:
             return <Hero {...layout} key={i}/>
         case OfficesACFLayout:
