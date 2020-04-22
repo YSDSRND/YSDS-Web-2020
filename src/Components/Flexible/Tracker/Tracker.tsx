@@ -29,21 +29,29 @@ const TextOnWhite: React.FC<TrackerProps> = ({
     
   return (
     <section className="tracker">
-        <input value={trackingId} onChange={(e) => setTrackingId(e.target.value)} placeholder={"trackerid"}/>
-        <button onClick={() => {
-            getTracking()
-        }} disabled={loading}>Submit</button>
-        {trackingInformation.map((info:any) => {
-          return (
-            <div>
-              <p>{info.description}</p>
-              <p>{info.date}</p>
-              <p>{info.address.city}</p>
-              <p>{info.address.country_code}</p>
-            </div>
-            
-          )
-        })}
+      <div className="main">
+        <div className="main-inner">
+          <h3>Enter your tracking code here:</h3>
+          <div className="tracker-form">
+            <input value={trackingId} onChange={(e) => setTrackingId(e.target.value)} placeholder={"trackerid"}/>
+            <button onClick={() => {
+                getTracking()
+            }} disabled={loading}>Submit</button>
+          </div>
+          <div className="timeline">
+            {trackingInformation.map((info:any) => {
+              return (
+                <div className="box">
+                  <h3>{info.description}</h3>
+                  <p className="date">{info.date}</p>
+                  <p className="city">{info.address.city}</p>
+                  <p className="country">{info.address.country_code}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>   
+      </div>
     </section>
   );
 };

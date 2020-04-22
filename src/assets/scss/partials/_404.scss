@@ -1,0 +1,13 @@
+.error-page {
+    .main-inner {
+        margin: 100px auto 60px;
+        h1 {
+            text-align: center;
+            color: $red;
+            font-size: 100px;
+            @media screen and (min-width: $small) {
+                font-size: 200px;
+            }
+        }
+    }
+}

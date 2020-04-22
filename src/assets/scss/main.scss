@@ -20,6 +20,8 @@
 @import './partials/agents';
 @import './partials/article';
 @import './partials/header';
+@import './partials/tracker';
+@import './partials/404';
 
 * {
     box-sizing: border-box;
@@ -29,6 +31,7 @@
 
 html {
     overflow-x: hidden;
+    background: black;
 }
 
 .highblack {
@@ -44,6 +47,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     padding-top: 70px;
+    background: white;
 }
 
 .main {
