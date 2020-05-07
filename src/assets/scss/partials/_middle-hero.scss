@@ -1,5 +1,14 @@
-.hero {
+.middle-hero.hero-centered {
     position: relative;
+    &.background {
+        background: $blue;
+        .background-image {
+            display: none;
+        }
+        .main {
+            background-color: transparent;
+        }
+    }
     .background-image {
         position: absolute;
         width: 100%;
@@ -14,28 +23,24 @@
         position: relative;
         background-color: rgba(0,0,0,0.7);
     }
-    .triangle {
-        background: $blue;
-        clip-path: polygon(0 0, 25% 0, 37.5% 100%, 0% 100%);
-        height: 100%;
-        width: 100%;
-        position: absolute;
-    }
     .main-inner {
         color: white;
         padding: 100px 0;
-        margin: 0 12.5%;
+        margin: 0 auto;
         @media screen and (min-width: $medium) {
             width: $four-col;
             padding: 150px 0;
         }
-        h1 {
+        h2 {
             position: relative;
+            font-family: Helvetica-Neue-Condensed;
+            font-size: 30px;
+            line-height: 110%;
             @media screen and (min-width: $small) {
-                font-size: 56px;
+                font-size: 50px;
             }
         }
-        h2 {
+        h3 {
             font-size: 21px;
             font-family: Helvetica-Neue-Roman;
             margin-top: 19px;
@@ -52,7 +57,5 @@
     .line {
         height: 1px;
         background: $red;
-        margin-left: -$one-col;
-        position: absolute;
     }
 }
