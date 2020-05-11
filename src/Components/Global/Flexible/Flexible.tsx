@@ -14,6 +14,8 @@ import TextOnImage, { TextOnImageProps, TextOnImageACFLayout } from '../../Flexi
 import TextOnWhite, { TextOnWhiteProps, TextOnWhiteACFLayout } from '../../Flexible/TextOnWhite/TextOnWhite';
 import Article, { ArticleProps, ArticleACFLayout } from '../../Flexible/Article/Article';
 import Tracker, {TrackerProps, TrackerAcfLayout} from '../../Flexible/Tracker/Tracker'
+import OldHero, { OldHeroACFLayout, OldHeroProps } from '../../Flexible/OldHero/OldHero'
+
 type FlexibleProps = {
     flexible: Array<FlexibleLayout>
 }
@@ -33,6 +35,7 @@ type FlexibleLayout = HeroProps
     | TextOnWhiteProps
     | ArticleProps
     | TrackerProps
+    | OldHeroProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
@@ -55,6 +58,8 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
     switch(layout.acf_fc_layout) {
         case TrackerAcfLayout:
             return <Tracker {...layout} key={i}/>
+        case OldHeroACFLayout:
+            return <OldHero {...layout} key={i}/>
         case HeroACFLayout:
             return <Hero {...layout} key={i}/>
         case OfficesACFLayout:

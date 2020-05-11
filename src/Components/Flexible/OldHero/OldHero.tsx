@@ -3,9 +3,9 @@ import LinkButton from '../../Global/LinkButton/LinkButton';
 import { WPImage } from '../../../Util/Types/WPImage';
 import WPButton from '../../../Util/Types/WPButton';
 
-export const HeroACFLayout = "hero";
-export type HeroProps = {
-    acf_fc_layout: typeof HeroACFLayout,
+export const OldHeroACFLayout = "oldHero";
+export type OldHeroProps = {
+    acf_fc_layout: typeof OldHeroACFLayout,
     centered?: boolean,
     header: string,
     subheader: string,
@@ -13,7 +13,7 @@ export type HeroProps = {
     button: WPButton,
 }
 
-const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage, button}) => {
+const Hero: React.FC<OldHeroProps> = ({header, subheader, centered, backgroundImage, button}) => {
     return (
         <section className={centered ? 'hero-centered' : 'hero'}>
             <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}></div>
@@ -21,6 +21,7 @@ const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage
                 <div className="triangle"></div>
                 <div className="main-inner">
                     <div className="text-container">
+                        
                         <h1>
                             {header}
                         </h1>

@@ -2,10 +2,12 @@ import React from "react";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./Components/Global/Header/Header";
-import { PagesRoute, PostRoute, FrontPageRoute, CasesRoute,SubPagesRoute } from "./Config/routes";
+import { PagesRoute, PostRoute, FrontPageRoute, CasesRoute,SubPagesRoute, PostsRoute } from "./Config/routes";
 import Footer from "./Components/Global/Footer";
 import Post from "./Pages/Post";
 import Page from "./Pages/Page";
+import Posts from "./Pages/Posts";
+
 import FrontPage from "./Pages/FrontPage";
 import Case from "./Pages/Case";
 import Error404Template from "./PageTemplates/Error404Template/Error404Template";
@@ -16,6 +18,9 @@ const Router: React.FC = () => {
       <>
         <Header />
         <Switch>
+        <Route path={PostsRoute}>
+            <Posts />
+          </Route>
           <Route path={PostRoute}>
             <Post />
           </Route>
