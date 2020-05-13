@@ -1,0 +1,71 @@
+.blog-posts,
+.latest-blog-posts {
+    .main {
+        position: relative;
+    }
+    .main-inner {
+        display: flex;
+        flex-wrap: wrap;
+        margin: $margin;
+        @media screen and (min-width: $small) {
+            width: calc(100% + 20px);
+        }
+        h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            width: 100%;
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .one-post {
+            margin-bottom: 40px;
+            min-width: 250px;
+            border-radius: 5px;
+            box-shadow: 0 0 11px 6px #0000001a;
+            transition: all 0.2s ease;
+            @media screen and (min-width: $small) {
+                margin-right: 20px;
+                flex: 1;
+            }
+            img {
+                height: 250px;
+                background: $blue;
+                width: 100%;
+                object-fit: cover;
+            }
+            h3 {
+                border-bottom: 1px solid $red;
+                padding-bottom: 10px;
+                margin: 22px 15px 12px;
+            }
+            p {
+                padding: 0 15px;
+            }
+            &:hover {
+                box-shadow: 0 0 11px 6px #00000026;
+            }
+        }
+        .pagination {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            div {
+                background: $blue;
+                color: white;
+                margin: 4px;
+                padding: 7px 11px;
+                line-height: 1;
+                padding-top: 13px;
+                font-family: Helvetica-Neue-Condensed;
+                text-transform: uppercase;
+                &.active,
+                &:hover {
+                    background: $red;
+                }
+            }
+        }
+    }
+}

@@ -5,10 +5,10 @@
     .main-inner {
         display: flex;
         flex-wrap: wrap;
-        padding: 70px 12.5%;
+        margin: $margin;
         @media screen and (min-width: $small) {
             width: calc(100% + 20px);
-            padding: 70px 6.25%;
+            padding: 0 6.25%;
         }
         .one-card {
             margin-bottom: 40px;

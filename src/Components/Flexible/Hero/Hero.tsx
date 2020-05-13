@@ -86,6 +86,37 @@ const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage
         </section>
 
 
+        <section className="latest-blog-posts">
+            <div className="main">
+                <div className="main-inner">
+                    <h2>Våra senaste blgginlägg</h2>
+                    <div className="flex-container">
+
+                        <div className="one-post">
+                            <img src="#"></img>
+                            <h3>dett är en post!</h3>
+                            <p>Customized transporting solutions of unique artwork and invaluable objects. We work with galleries, auction houses and provide global crating, storage facilities.</p>
+                        </div>
+
+                        <div className="one-post">
+                            <img src="#"></img>
+                            <h3>dett är en post!</h3>
+                            <p>Customized transporting solutions of unique artwork and invaluable objects. We work with galleries, auction houses and provide global crating, storage facilities.</p>
+                        </div>
+
+                        <div className="one-post">
+                            <img src="#"></img>
+                            <h3>dett är en post!</h3>
+                            <p>Customized transporting solutions of unique artwork and invaluable objects. We work with galleries, auction houses and provide global crating, storage facilities.</p>
+                        </div>
+
+                    </div>
+                    <button>Lägg in button-komponenten här por favor</button>
+                </div>
+            </div>
+        </section>
+
+
 
         </>
     )

@@ -28,12 +28,30 @@ const Posts: React.FC = () => {
   }
 
   return (
-      <section>
-          {
-              data.map((post:any) => <PostCard post={post} />)
-          }
+      <section className="blog-posts">
+        <div className="main">
+          <div className="main-inner">
+            {
+                data.map((post:any) => <PostCard post={post} />)
+            }
 
-          Här ska det typ vara en knapp "Nästa sida o förra sidan"
+            <div className="pagination">
+              <div className="prev">prev</div>
+              <div className="number active">1</div>
+              <div className="number">2</div>
+              <div className="number">3</div>
+              <div className="number">4</div>
+              <div className="number">2</div>
+              <div className="number">3</div>
+              <div className="number">4</div>
+              <div className="number">2</div>
+              <div className="number">3</div>
+              <div className="number">4</div>
+              <div className="next">next</div>
+            </div>
+
+          </div>
+        </div>
       </section>
   )
 
