@@ -48,6 +48,16 @@
                     }
                 }
             }
+            &.dark {
+                .check-mark {
+                    border: none;
+                    background-color: $blue;
+                    background-image: url(../../images/check-white.svg);
+                }
+                h3 {
+                    color: $red;
+                }
+            }
         }
     }
 }
