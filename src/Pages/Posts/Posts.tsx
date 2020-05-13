@@ -35,7 +35,7 @@ const Posts: React.FC = () => {
                 data.map((post:any) => <PostCard post={post} />)
             }
 
-            <div className="pagination">
+          {  /*<div className="pagination">
               <div className="prev">prev</div>
               <div className="number active">1</div>
               <div className="number">2</div>
@@ -48,7 +48,7 @@ const Posts: React.FC = () => {
               <div className="number">3</div>
               <div className="number">4</div>
               <div className="next">next</div>
-            </div>
+          </div>*/ }
 
           </div>
         </div>

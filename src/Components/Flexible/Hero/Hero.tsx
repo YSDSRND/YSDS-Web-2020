@@ -3,7 +3,7 @@ import LinkButton from '../../Global/LinkButton/LinkButton';
 import { WPImage } from '../../../Util/Types/WPImage';
 import WPButton from '../../../Util/Types/WPButton';
 
-export const HeroACFLayout = "Hero";
+export const HeroACFLayout = "hero";
 export type HeroProps = {
     acf_fc_layout: typeof HeroACFLayout,
     centered?: boolean,
