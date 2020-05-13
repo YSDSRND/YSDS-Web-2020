@@ -14,8 +14,9 @@ import TextOnImage, { TextOnImageProps, TextOnImageACFLayout } from '../../Flexi
 import TextOnWhite, { TextOnWhiteProps, TextOnWhiteACFLayout } from '../../Flexible/TextOnWhite/TextOnWhite';
 import Article, { ArticleProps, ArticleACFLayout } from '../../Flexible/Article/Article';
 import Tracker, {TrackerProps, TrackerAcfLayout} from '../../Flexible/Tracker/Tracker'
-import OldHero, { OldHeroACFLayout, OldHeroProps } from '../../Flexible/OldHero/OldHero'
-
+import Bullets, {BulletProps, BulletACFLayout} from '../../Flexible/Bullets/Bullets'
+import MiddleHero, {MiddleHeroACFLayout,MiddleHeroProps} from '../../Flexible/MiddleHero/MiddleHero'
+import ThreeBlogPosts, {ThreeBlogPostsProps, ThreeBlogPostsPropsACFLayout} from '../../Flexible/ThreeBlogPosts/ThreeBlogPosts'
 type FlexibleProps = {
     flexible: Array<FlexibleLayout>
 }
@@ -35,7 +36,9 @@ type FlexibleLayout = HeroProps
     | TextOnWhiteProps
     | ArticleProps
     | TrackerProps
-    | OldHeroProps
+    | BulletProps
+    | MiddleHeroProps
+    | ThreeBlogPostsProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
@@ -55,11 +58,14 @@ export default Flexible;
 
 
 function renderFlexibleSection(layout : FlexibleLayout, i:any) {
+    console.log(layout)
     switch(layout.acf_fc_layout) {
+        case ThreeBlogPostsPropsACFLayout:
+            return <ThreeBlogPosts {...layout} key={i} />
+        case MiddleHeroACFLayout:
+            return <MiddleHero {...layout} key={i} />
         case TrackerAcfLayout:
             return <Tracker {...layout} key={i}/>
-        case OldHeroACFLayout:
-            return <OldHero {...layout} key={i}/>
         case HeroACFLayout:
             return <Hero {...layout} key={i}/>
         case OfficesACFLayout:
@@ -88,7 +94,10 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
             return <TextOnWhite {...layout} key={i}/>
         case ArticleACFLayout:
             return <Article {...layout} key={i}/>
+        case BulletACFLayout:
+            return <Bullets {...layout} key={i} />
         default: {
+            console.log(layout)
             return <h1 key={i}>Component not found</h1>
         }
     }

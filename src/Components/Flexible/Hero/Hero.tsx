@@ -3,7 +3,7 @@ import LinkButton from '../../Global/LinkButton/LinkButton';
 import { WPImage } from '../../../Util/Types/WPImage';
 import WPButton from '../../../Util/Types/WPButton';
 
-export const HeroACFLayout = "hero";
+export const HeroACFLayout = "Hero";
 export type HeroProps = {
     acf_fc_layout: typeof HeroACFLayout,
     centered?: boolean,
@@ -15,18 +15,18 @@ export type HeroProps = {
 
 const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage, button}) => {
     return (
-        <>
-
-        <section className={'hero-centered middle-hero background'}>
+        <section className={centered ? 'hero-centered' : 'hero'}>
             <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}></div>
             <div className="main">
+                <div className="triangle"></div>
                 <div className="main-inner">
                     <div className="text-container">
-                        <h2>
+                        
+                        <h1>
                             {header}
-                        </h2>
+                        </h1>
                         <div className="line three-col"></div>
-                        <h3>{subheader}</h3>
+                        <h2>{subheader}</h2>
                         
                             <LinkButton {...button} /> 
 
@@ -34,91 +34,6 @@ const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage
                 </div>
             </div>
         </section>
-
-        <section className={'check-list'}>
-            <div className="main">
-                <div className="main-inner">
-                    <h2>This is our checklist</h2>
-                    <div className="flex-container">
-                        <div className="bullet">
-                            <div className="check-mark"></div>
-                            <div className="text-container">
-                                <h3>Bullet nr 1</h3>
-                                <p>Text about this bullet is possible to write here.</p>
-                            </div>
-                        </div>
-                        <div className="bullet">
-                            <div className="check-mark"></div>
-                            <div className="text-container">
-                                <h3>Bullet nr 2</h3>
-                                <p>Text about this bullet is possible to write here. Text about this bullet is possible to write here.</p>
-                            </div>
-                        </div>
-                        <div className="bullet">
-                            <div className="check-mark"></div>
-                            <div className="text-container">
-                                <h3>Bullet nr 3</h3>
-                            </div>
-                        </div>
-                        <div className="bullet">
-                            <div className="check-mark"></div>
-                            <div className="text-container">
-                                <h3>Bullet nr 3</h3>
-                                <p>Text about this bullet is possible to write here.</p>
-                            </div>
-                        </div>
-                        <div className="bullet">
-                            <div className="check-mark"></div>
-                            <div className="text-container">
-                                <h3>Bullet nr 3</h3>
-                            </div>
-                        </div>
-                        <div className="bullet">
-                            <div className="check-mark"></div>
-                            <div className="text-container">
-                                <h3>Bullet nr 3</h3>
-                                <p>Text about this bullet is possible to write here.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section className="latest-blog-posts">
-            <div className="main">
-                <div className="main-inner">
-                    <h2>Våra senaste blgginlägg</h2>
-                    <div className="flex-container">
-
-                        <div className="one-post">
-                            <img src="#"></img>
-                            <h3>dett är en post!</h3>
-                            <p>Customized transporting solutions of unique artwork and invaluable objects. We work with galleries, auction houses and provide global crating, storage facilities.</p>
-                        </div>
-
-                        <div className="one-post">
-                            <img src="#"></img>
-                            <h3>dett är en post!</h3>
-                            <p>Customized transporting solutions of unique artwork and invaluable objects. We work with galleries, auction houses and provide global crating, storage facilities.</p>
-                        </div>
-
-                        <div className="one-post">
-                            <img src="#"></img>
-                            <h3>dett är en post!</h3>
-                            <p>Customized transporting solutions of unique artwork and invaluable objects. We work with galleries, auction houses and provide global crating, storage facilities.</p>
-                        </div>
-
-                    </div>
-                    <button>Lägg in button-komponenten här por favor</button>
-                </div>
-            </div>
-        </section>
-
-
-
-        </>
     )
 }
 
