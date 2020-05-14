@@ -42,6 +42,7 @@ type FlexibleLayout = HeroProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
+    console.log(flexible)
     return (
         <main>
             {

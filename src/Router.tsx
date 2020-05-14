@@ -18,12 +18,13 @@ const Router: React.FC = () => {
       <>
         <Header />
         <Switch>
+        <Route path={PostRoute}>
+            <Post />
+          </Route>
         <Route path={PostsRoute}>
             <Posts />
           </Route>
-          <Route path={PostRoute}>
-            <Post />
-          </Route>
+          
           <Route path={CasesRoute}>
             <Case />
           </Route>

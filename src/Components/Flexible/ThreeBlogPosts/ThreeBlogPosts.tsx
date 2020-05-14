@@ -39,7 +39,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
                                 data.map((card: any) => {
                                     console.log("card", card)
                                     return (
-                                        <a className="one-post" href="#">
+                                        <a className="one-post" href={"/posts/" + card.slug}>
                                             <img src={card.media? card.media.large : ""}></img>
                                             <h3>{card.title}</h3>
                                             <p>{card.excerpt}</p>
