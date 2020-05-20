@@ -42,6 +42,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
                                         <a className="one-post" href={"/posts/" + card.slug}>
                                             <img src={card.media? card.media.large : ""}></img>
                                             <h3>{card.title}</h3>
+                                            <p className="date">27 maj 2020</p>
                                             <p>{card.excerpt}</p>
                                         </a>
                                     )

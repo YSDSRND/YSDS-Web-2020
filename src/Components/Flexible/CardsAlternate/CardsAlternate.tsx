@@ -8,8 +8,9 @@ export type CardsAlternateProps = {
 };
 const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards }) => {
   return (
-    <section className="cards-alternative">
+    <section className="cards">
       <div className="main">
+
         <h2>{header}</h2>
         <div className="line three-col"></div>
 

@@ -11,6 +11,12 @@
             width: calc(100% + 20px);
             padding: 0px 6.25%;
         }
+        h2 {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 50px;
+        }
         .one-card {
             margin-bottom: 40px;
             @media screen and (min-width: $small) {

@@ -9,7 +9,7 @@ export type CardsProps = {
 
 const Cards : React.FC<CardsProps> = ({cards}) => {
     return (
-        <section className="cards">
+      <section className="cards">
         <div className="main">
             <div className="main-inner">
               {

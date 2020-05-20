@@ -28,6 +28,7 @@ const Cases: React.FC<CasesProps> = ({cases}) => {
     <section className="cases">
       <div className="main">
         <div className="main-inner">
+          <h2>Title goes here</h2>
           {
             !loading && casesData && casesData.map((caseItem: CaseProps, i) => {
               return (

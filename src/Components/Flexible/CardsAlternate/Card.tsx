@@ -1,23 +1,25 @@
 import React from "react";
 import { WPImage } from "../../../Util/Types/WPImage";
-import WPLink from "../../../Util/Types/WPLink";
+import WPButton from "../../../Util/Types/WPButton";
+import LinkButton from "../../Global/LinkButton/LinkButton";
 
 export type CardProps = {
   image: WPImage;
   header: string;
   text: string;
-  link: WPLink;
+  button: WPButton,
 };
 
-const Card: React.FC<CardProps> = ({ image, header, text, link }) => {
+const Card: React.FC<CardProps> = ({ image, header, text, button }) => {
   return (
-    <a className="one-card" href={link.url}>
+    <div className="one-card">
       <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ""} alt={image ? image.alt : ""} />
       <div className="text-container">
         <h3>{header}</h3>
         <p>{text}</p>
+        <LinkButton {...button} />
       </div>
-    </a>
+    </div>
   );
 };
 

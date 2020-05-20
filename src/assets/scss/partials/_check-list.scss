@@ -16,6 +16,9 @@
                 display: flex;
                 width: 100%;
                 margin-bottom: 40px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
                 @media screen and (min-width: $small) {
                     max-width: calc(33.333% - 50px);
                     margin-right: 50px;
@@ -25,18 +28,15 @@
                     height: 50px;
                     border: 1px solid $red;
                     border-radius: 50%;
-                    background-image: url(../../images/check.svg);
+                    //background-image: url(../../images/check.svg);
                     background-size: contain;
                     background-position: center;
                     background-size: 54%;
                     background-repeat: no-repeat;
+                    margin-bottom: 5px;
                 }
                 .text-container {
                     padding: 15px;
-                    text-align: left;
-                    width: calc(100% - 50px);
-                    padding-right: 0;
-                    padding-bottom: 0;
                     h3 {
                         margin: 0;
                     }
