@@ -7,10 +7,11 @@ export type CasesProps = {
   acf_fc_layout: typeof CasesACFLayout,
   cases: Array<{
     ID: number,
-  }>
+  }>,
+  title:string
 }
 
-const Cases: React.FC<CasesProps> = ({cases}) => {
+const Cases: React.FC<CasesProps> = ({cases, title }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [casesData, setCasesData] = useState<Array<CaseProps>>([]);
 
@@ -28,7 +29,9 @@ const Cases: React.FC<CasesProps> = ({cases}) => {
     <section className="cases">
       <div className="main">
         <div className="main-inner">
-          <h2>Title goes here</h2>
+          {
+            title.length > 0 ? (<h2>{title}</h2>) : null
+          }
           {
             !loading && casesData && casesData.map((caseItem: CaseProps, i) => {
               return (

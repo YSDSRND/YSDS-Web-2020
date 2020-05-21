@@ -10,6 +10,7 @@ export type BulletProps = {
 };
 
 const Bullets: React.FC<BulletProps> = ({ bullets,  style  , title }) => {
+    console.log(bullets)
     return (
         <section className={'check-list'}>
             <div className="main">
@@ -20,7 +21,7 @@ const Bullets: React.FC<BulletProps> = ({ bullets,  style  , title }) => {
                             bullets.map((bullet) => {
                                 return (
                                     <div className="bullet">
-                                        <div className="check-mark">{bullet.icon}</div>
+                                        <div className="check-mark" dangerouslySetInnerHTML={{__html:bullet.icon }}></div>
                                         <div className="text-container">
                                             <h3>{bullet.title}</h3>
                                             <p>{bullet.text}</p>

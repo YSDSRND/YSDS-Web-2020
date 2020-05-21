@@ -5,14 +5,21 @@ export type CardsAlternateProps = {
   acf_fc_layout: typeof CardsAlternateACFLayout,
   header: string;
   cards: Array<CardProps>;
+  background_color:string;
 };
-const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards }) => {
+const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, background_color }) => {
   return (
-    <section className="cards">
+    <section className={"cards " + background_color}>
       <div className="main">
-
-        <h2>{header}</h2>
-        <div className="line three-col"></div>
+      {
+        header.length > 0 ? (
+          <>
+            <h2>{header}</h2>
+            <div className="line three-col"></div>
+          </>
+        ) : null
+      }
+        
 
         <div className="main-inner">
           {cards.map(cardItem => {

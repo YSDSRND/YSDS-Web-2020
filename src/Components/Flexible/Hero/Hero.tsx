@@ -26,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage
                             {header}
                         </h1>
                         <div className="line three-col"></div>
-                        <h2>{subheader}</h2>
+                        <h2 dangerouslySetInnerHTML={{__html: subheader}}></h2>
                         
                             <LinkButton {...button} /> 
 

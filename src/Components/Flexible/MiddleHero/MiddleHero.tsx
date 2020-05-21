@@ -27,7 +27,7 @@ const Hero: React.FC<MiddleHeroProps> = ({header, subheader, centered, backgroun
                             {header}
                         </h2>
                         <div className="line three-col"></div>
-                        <h3>{subheader}</h3>
+                        <h3 dangerouslySetInnerHTML={{__html: subheader}}></h3>
                         
                             <LinkButton {...button} /> 
 
