@@ -37,7 +37,6 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
                         <div className="flex-container">
                             {
                                 data.map((card: any) => {
-                                    console.log("card", card)
                                     return (
                                         <a className="one-post" href={"/posts/" + card.slug}>
                                             <img src={card.media? card.media.large : ""}></img>

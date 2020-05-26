@@ -42,7 +42,6 @@ type FlexibleLayout = HeroProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({flexible}) => {
-    console.log(flexible)
     return (
         <main>
             {
@@ -59,7 +58,6 @@ export default Flexible;
 
 
 function renderFlexibleSection(layout : FlexibleLayout, i:any) {
-    console.log(layout)
     switch(layout.acf_fc_layout) {
         case ThreeBlogPostsPropsACFLayout:
             return <ThreeBlogPosts {...layout} key={i} />
@@ -98,8 +96,8 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
         case BulletACFLayout:
             return <Bullets {...layout} key={i} />
         default: {
-            console.log(layout)
-            return <h1 key={i}>Component not found</h1>
+            console.error("Couldn't find component", layout);
+            return null
         }
     }
 }

@@ -9,7 +9,6 @@ const Page: React.FC = (props) => {
   const {slug} = useParams();
   let location = useLocation();
 
-  console.log(slug, "slug")
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
   const [is404, set404] = useState<boolean>();

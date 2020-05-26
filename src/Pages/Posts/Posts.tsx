@@ -13,7 +13,6 @@ const Posts: React.FC = () => {
   useEffect(() => {
  
     getPosts(0).then(resp => {
-      console.log(resp)
       setData(resp);
       setLoading(false);
     });

@@ -10,7 +10,6 @@ export type BulletProps = {
 };
 
 const Bullets: React.FC<BulletProps> = ({ bullets,  style  , title }) => {
-    console.log(bullets)
     return (
         <section className={'check-list'}>
             <div className="main">

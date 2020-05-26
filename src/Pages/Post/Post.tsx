@@ -20,7 +20,6 @@ const Post: React.FC = () => {
         set404(true);
       }
       setData(resp);
-      console.log(resp)
       setLoading(false);
     });
   }, [slug]);
