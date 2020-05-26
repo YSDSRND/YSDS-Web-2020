@@ -58,6 +58,7 @@ export default Flexible;
 
 
 function renderFlexibleSection(layout : FlexibleLayout, i:any) {
+    console.log(layout)
     switch(layout.acf_fc_layout) {
         case ThreeBlogPostsPropsACFLayout:
             return <ThreeBlogPosts {...layout} key={i} />

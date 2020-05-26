@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Office, {OfficeProps} from "./Office";
-import { GetOfficeByID } from "../../../Services/Offices/Offices";
+import { GetOffices } from "../../../Services/Offices/Offices";
 
 export const OfficesACFLayout = "offices";
 
@@ -19,12 +19,10 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
   const [officeData, setOfficeData] = useState<Array<OfficeProps>>([]);
 
   useEffect(() => {
-    const promises = offices.map((off) => {
-      return GetOfficeByID(off.ID)
-    })
 
-    Promise.all(promises).then((res) => {
-      setOfficeData(res.map((r) => r.acf))
+    GetOffices().then((res) => {
+      let officesIds = offices.map((office) => office.ID)
+      setOfficeData(res.filter((r:any) => officesIds.includes(r.id)).map((r:any) => r.acf))
       setLoading(false);
     })
   }, [offices])
