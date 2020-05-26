@@ -13,9 +13,9 @@ const Cards : React.FC<CardsProps> = ({cards}) => {
         <div className="main">
             <div className="main-inner">
               {
-                cards.map((cardItem, i) => {
+                cards ? cards.map((cardItem, i) => {
                   return <Card {...cardItem} key={i}/>
-                })
+                }) : null
               }
             </div>
         </div>
