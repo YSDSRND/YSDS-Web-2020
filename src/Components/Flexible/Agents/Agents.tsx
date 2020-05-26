@@ -27,7 +27,7 @@ const Agents  : React.FC<AgentsProps> = ({header, body, agents}) => {
                 agents.map((agent: Agent, index, arr) => {
                   return (
                     [
-                      `${agent.country} - ${agent.city}`,
+                      <span key={index}>{agent.country} - {agent.city}</span>,
                       <br />
                     ]
                   )
