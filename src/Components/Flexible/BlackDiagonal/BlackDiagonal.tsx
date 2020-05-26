@@ -20,7 +20,7 @@ const BlackDiagonal: React.FC<BlackDiagonalProps> = ({
   return (
     <section className="black-diagonal">
       <div className="main">
-        <div className="triangle"></div>
+        <div className="triangle"/>
         <div className="flex-container">
           <div className="left">
             <h2>

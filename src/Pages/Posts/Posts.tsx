@@ -19,7 +19,7 @@ const Posts: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div className="highblack"></div>;
+    return  <div className="highblack"/>;
   }
 
   if (is404) {
@@ -31,7 +31,7 @@ const Posts: React.FC = () => {
         <div className="main">
           <div className="main-inner">
             {
-                data.map((post:any) => <PostCard post={post} />)
+                data.map((post:any, index:any) => <PostCard key={index} post={post} />)
             }
 
           {  /*<div className="pagination">

@@ -19,15 +19,15 @@ const Hero: React.FC<MiddleHeroProps> = ({header, subheader, centered, backgroun
         <>
 
         <section className={'hero-centered middle-hero ' + background}>
-            <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}></div>
+            <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}/>
             <div className="main">
                 <div className="main-inner">
                     <div className="text-container">
                         <h2>
                             {header}
                         </h2>
-                        <div className="line three-col"></div>
-                        <h3 dangerouslySetInnerHTML={{__html: subheader}}></h3>
+                        <div className="line three-col"/>
+                        <h3 dangerouslySetInnerHTML={{__html: subheader}}/>
                         
                             <LinkButton {...button} /> 
 

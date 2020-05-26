@@ -1,3 +1,6 @@
-const base_url : string = "https://wp-admin.ysds.com/wp-json";
+const BASE_URL : string = "https://wp-admin.ysds.com/wp-json";
 
-export {base_url}
+export {
+    
+     BASE_URL
+}

@@ -27,7 +27,7 @@ const Office: React.FC<OfficeProps> = ({
         <div>
           <HTMLContent html={address} />
           <a href={`mailto:${email}`}>{email}</a>
-          <br></br>
+          <br/>
           <a href={`tel:${linkable_phone}`}>{phone}</a>
         </div>
       </div>

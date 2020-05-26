@@ -25,7 +25,7 @@ const Post: React.FC = () => {
   }, [slug]);
 
   if (loading) {
-    return <div className="highblack"></div>;
+    return  <div className="highblack"/>;
   }
 
   if (is404) {

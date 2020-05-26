@@ -7,7 +7,7 @@ import Error404Template from "../../PageTemplates/Error404Template/Error404Templ
 const Page: React.FC = (props) => {
   const params = useParams();
   const {slug} = useParams();
-  let location = useLocation();
+  const location = useLocation();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
@@ -27,7 +27,7 @@ const Page: React.FC = (props) => {
   }, [location]);
 
   if (loading) {
-    return <div className="highblack"></div>;
+    return  <div className="highblack"/>;
   }
   if (is404) {
     return <Error404Template />

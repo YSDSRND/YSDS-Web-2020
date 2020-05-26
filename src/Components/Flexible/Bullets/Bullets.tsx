@@ -17,10 +17,10 @@ const Bullets: React.FC<BulletProps> = ({ bullets,  style  , title }) => {
                     <h2>{title}</h2>
                     <div className={"flex-container " + style}>
                         {
-                            bullets.map((bullet) => {
+                            bullets.map((bullet, i) => {
                                 return (
-                                    <div className="bullet">
-                                        <div className="check-mark" dangerouslySetInnerHTML={{__html:bullet.icon }}></div>
+                                    <div className="bullet" key={i}>
+                                        <div className="check-mark" dangerouslySetInnerHTML={{__html:bullet.icon }}/>
                                         <div className="text-container">
                                             <h3>{bullet.title}</h3>
                                             <p>{bullet.text}</p>

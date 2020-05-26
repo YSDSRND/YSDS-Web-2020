@@ -5,15 +5,15 @@ import { GetCaseByID } from "../../../Services/Cases/Cases";
 export const CasesACFLayout = "cases";
 export type CasesProps = {
   acf_fc_layout: typeof CasesACFLayout,
-  cases: Array<{
+  cases: {
     ID: number,
-  }>,
+  }[],
   title:string
 }
 
 const Cases: React.FC<CasesProps> = ({cases, title }) => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [casesData, setCasesData] = useState<Array<CaseProps>>([]);
+  const [casesData, setCasesData] = useState<CaseProps[]>([]);
 
   useEffect(() => {
     const promises = cases.map(c => {

@@ -10,8 +10,8 @@ const LinkButton : React.FC<WPButton> = ({button, button_style}) => {
         
     }
     
-    let url = new URL(button.url);     
-     let   pathname = url.pathname
+    const url = new URL(button.url);     
+     const   pathname = url.pathname
 
     return (
         <Link to={pathname} className={`ysds-button ${button_style}`}>

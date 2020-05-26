@@ -16,17 +16,17 @@ export type HeroProps = {
 const Hero: React.FC<HeroProps> = ({header, subheader, centered, backgroundImage, button}) => {
     return (
         <section className={centered ? 'hero-centered' : 'hero'}>
-            <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}></div>
+            <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ""})`}}/>
             <div className="main">
-                <div className="triangle"></div>
+                <div className="triangle"/>
                 <div className="main-inner">
                     <div className="text-container">
                         
                         <h1>
                             {header}
                         </h1>
-                        <div className="line three-col"></div>
-                        <h2 dangerouslySetInnerHTML={{__html: subheader}}></h2>
+                        <div className="line three-col"/>
+                        <h2 dangerouslySetInnerHTML={{__html: subheader}}/>
                         
                             <LinkButton {...button} /> 
 

@@ -21,14 +21,35 @@ const Header: React.FC = () => {
     return <></>;
   }
 
+  const closeMobileNav = () => {
+    setMobileNavOpen(false);
+  }
+
+  const reverseMobileNav = () => {
+    setMobileNavOpen(!mobileNavOpen);
+  }
+
+  const reverseForm = () => {
+    setFormOpen(!formOpen);
+  }
+
+  const closeForm = () => {
+    setFormOpen(false)
+  }
+
+  const openSubMenu = (nav:any, index:any) => {
+    if (nav.submenus) {
+      const newMap = new Map<number, boolean>(openSubNavs);
+      newMap.set(index, newMap.get(index) ? false : true);
+      setOpenSubNavs(newMap);
+    }
+  }
 
   const { header_logo, navigation, contact } = options.options.header;
   return (
     <section className="header">
       <RouterLink
-        onClick={() => {
-          setMobileNavOpen(false);
-        }}
+        onClick={closeMobileNav}
         to="/"
       >
         <img
@@ -55,9 +76,9 @@ const Header: React.FC = () => {
               <Link to={nav.link.url}>{nav.link.title}</Link>
               <div className="sub-menu">
                 {typeof nav.submenus === "object" &&
-                  nav.submenus.map((subs:any,i:any) => {
+                  nav.submenus.map((subs:any, index:any) => {
                     return (
-                      <div className="sub-menu-list" key={i}>
+                      <div className="sub-menu-list" key={index}>
                         {
                           subs.title.length > 0 ? (
                             <h5>{subs.title}</h5>
@@ -81,17 +102,13 @@ const Header: React.FC = () => {
           );
         })}
       </ul>
-      <button ref={contactButtonRef} className={"ysds-button normal"} onClick={() => {
-        setFormOpen(!formOpen);
-      }}>
+      <button ref={contactButtonRef} className={"ysds-button normal"} onClick={reverseForm}>
         Contact us
       </button>
-      <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={() => {setFormOpen(false)}} />
+      <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} />
       <button
         className="hamburger"
-        onClick={() => {
-          setMobileNavOpen(!mobileNavOpen);
-        }}
+        onClick={reverseMobileNav}
       />
 
       <div className={`menu-container mobile ${mobileNavOpen ? "show" : ""}`}>
@@ -100,13 +117,7 @@ const Header: React.FC = () => {
             return (
               <li className={nav.submenus ? `has-children ${openSubNavs.get(index) ? "show" : ""}` : ""} key={index}>
                 <span
-                  onClick={() => {
-                    if (nav.submenus) {
-                      let newMap = new Map<number, boolean>(openSubNavs);
-                      newMap.set(index, newMap.get(index) ? false : true);
-                      setOpenSubNavs(newMap);
-                    }
-                  }}
+                  onClick={() => openSubMenu(nav,index)}
                 >
                   <Link
                     onClick={() => {

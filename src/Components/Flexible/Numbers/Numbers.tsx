@@ -5,7 +5,7 @@ export const NumbersACFLayout = "numbers";
 export type NumbersProps = {
   acf_fc_layout: typeof NumbersACFLayout,
   header: string,
-  numbers: Array<NumberProps>
+  numbers: NumberProps[]
 }
 
 const Numbers : React.FC<NumbersProps> = ({header, numbers}) => {
@@ -15,7 +15,7 @@ const Numbers : React.FC<NumbersProps> = ({header, numbers}) => {
             <div className="main-inner">
                 <div className="text-container">
                     <h2>{header}</h2>
-                    <div className="line three-col"></div>
+                    <div className="line three-col"/>
                     <div className="content">
                       {
                         numbers.map((numberItem, i) => {

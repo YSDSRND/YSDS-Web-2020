@@ -5,13 +5,13 @@ export type NumberProps = {
   explanation: string;
 };
 
-const Number: React.FC<NumberProps> = ({ number, explanation }) => {
+const NumberComponent: React.FC<NumberProps> = (props) => {
   return (
     <div className="one-number">
-      <p className="big-number">{number}</p>
-      <p className="explanation">{explanation}</p>
+      <p className="big-number">{props.number}</p>
+      <p className="explanation">{props.explanation}</p>
     </div>
   );
 };
 
-export default Number;
+export default NumberComponent;

@@ -9,10 +9,10 @@ export type TextOnWhiteProps = {
   header: string;
   text_or_lists: "text" | "lists";
   body?: string;
-  lists?: Array<{
+  lists?: {
     title: string;
     content: string;
-  }>;
+  }[];
 };
 
 const TextOnWhite: React.FC<TextOnWhiteProps> = ({
@@ -29,11 +29,11 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
           className="bg-image"
           style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ""})` }}
         />
-        <div className="triangle"></div>
+        <div className="triangle"/>
         <div className="main-inner">
           <div className="text-container">
             <h2>{header}</h2>
-            <div className="line six-col"></div>
+            <div className="line six-col"/>
             <div className="content">
               {text_or_lists === "text" && body && <HTMLContent html={body} />}
               {text_or_lists === "lists" &&

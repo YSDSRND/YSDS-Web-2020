@@ -22,10 +22,12 @@ const TextOnWhite: React.FC<TrackerProps> = ({
       if(loading){
         return;
       }
-      let tracking = await getTrackingRequest(trackingId)
+      const tracking = await getTrackingRequest(trackingId)
       setTrackingInformation(tracking.data.tracking.activities)
       setLoading(true)
     }
+
+    const setTracking = (e:any) => setTrackingId(e.target.value)
     
   return (
     <section className="tracker">
@@ -33,15 +35,13 @@ const TextOnWhite: React.FC<TrackerProps> = ({
         <div className="main-inner">
           <h3>Enter your tracking code here:</h3>
           <div className="tracker-form">
-            <input value={trackingId} onChange={(e) => setTrackingId(e.target.value)} placeholder={"trackerid"}/>
-            <button onClick={() => {
-                getTracking()
-            }} disabled={loading}>Submit</button>
+            <input value={trackingId} onChange={setTracking} placeholder={"trackerid"}/>
+            <button onClick={getTracking} disabled={loading}>Submit</button>
           </div>
           <div className="timeline">
-            {trackingInformation.map((info:any) => {
+            {trackingInformation.map((info:any, i:number) => {
               return (
-                <div className="box">
+                <div className="box" key={i}>
                   <h3>{info.description}</h3>
                   <p className="date">{info.date}</p>
                   <p className="city">{info.address.city}</p>

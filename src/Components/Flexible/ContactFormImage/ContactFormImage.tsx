@@ -24,11 +24,11 @@ const ContactFormImage: React.FC<ContactFormImageProps> = ({
         style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ""})` }}
       />
       <div className="main">
-        <div className="triangle"></div>
+        <div className="triangle"/>
         <div className="main-inner">
           <div className="text-container">
             <h2>{header}</h2>
-            <div className="line three-col"></div>
+            <div className="line three-col"/>
             <p>{body}</p>
             <div className="content">
               <div className="form-container">

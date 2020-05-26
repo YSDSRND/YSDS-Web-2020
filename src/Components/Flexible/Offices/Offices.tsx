@@ -8,20 +8,20 @@ export type OfficesProps = {
   acf_fc_layout: typeof OfficesACFLayout,
   header: string;
   body: string;
-  offices: Array<{
+  offices: {
     ID: number
-  }>
+  }[]
 };
 
 const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
 
   const [loading, setLoading] = useState<boolean>(true);
-  const [officeData, setOfficeData] = useState<Array<OfficeProps>>([]);
+  const [officeData, setOfficeData] = useState<OfficeProps[]>([]);
 
   useEffect(() => {
 
     GetOffices().then((res) => {
-      let officesIds = offices.map((office) => office.ID)
+      const officesIds = offices.map((office) => office.ID)
       setOfficeData(res.filter((r:any) => officesIds.includes(r.id)).map((r:any) => r.acf))
       setLoading(false);
     })
@@ -32,7 +32,7 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices}) => {
     <section className="offices">
       <div className="main">
         <h2>{header}</h2>
-        <div className="line three-col"></div>
+        <div className="line three-col"/>
         <p className="subtitle">{body}</p>
 
         <div className="main-inner">

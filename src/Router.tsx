@@ -35,7 +35,7 @@ const Router: React.FC = () => {
             <Page />
           </Route>
           
-          <Route exact path={FrontPageRoute}>
+          <Route exact={true} path={FrontPageRoute}>
             <FrontPage />
           </Route>
           <Route path="*">

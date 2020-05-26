@@ -24,7 +24,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
     }, []);
 
     if (loading) {
-        return <div className="highblack"></div>;
+        return  <div className="highblack"/>;
     }
 
 
@@ -36,10 +36,10 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
                         <h2>{title}</h2>
                         <div className="flex-container">
                             {
-                                data.map((card: any) => {
+                                data.map((card: any, i:number) => {
                                     return (
-                                        <a className="one-post" href={"/posts/" + card.slug}>
-                                            <img src={card.media? card.media.large : ""}></img>
+                                        <a key={i} className="one-post" href={"/posts/" + card.slug}>
+                                            <img src={card.media? card.media.large : ""}/>
                                             <h3>{card.title}</h3>
                                             <p className="date">27 maj 2020</p>
                                             <p>{card.excerpt}</p>

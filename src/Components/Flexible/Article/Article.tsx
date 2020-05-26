@@ -18,13 +18,13 @@ export type ArticleProps = {
 const Article: React.FC<ArticleProps> = ({header, subheader, body, button, backgroundImage}) => {
   return (
     <section className="article">
-      <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : null})`}}></div>
+      <div className="background-image" style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : null})`}}/>
       <div className="main">
-        <div className="triangle"></div>
+        <div className="triangle"/>
         <div className="main-inner">
           <div className="text-container">
           <h1>{header}</h1>
-            <div className="line five-col"></div>
+            <div className="line five-col"/>
             <h2>
               {subheader}
             </h2>

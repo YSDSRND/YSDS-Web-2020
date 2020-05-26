@@ -18,7 +18,7 @@ import Bullets, {BulletProps, BulletACFLayout} from '../../Flexible/Bullets/Bull
 import MiddleHero, {MiddleHeroACFLayout,MiddleHeroProps} from '../../Flexible/MiddleHero/MiddleHero'
 import ThreeBlogPosts, {ThreeBlogPostsProps, ThreeBlogPostsPropsACFLayout} from '../../Flexible/ThreeBlogPosts/ThreeBlogPosts'
 type FlexibleProps = {
-    flexible: Array<FlexibleLayout>
+    flexible: FlexibleLayout[]
 }
 
 type FlexibleLayout = HeroProps 
@@ -58,7 +58,6 @@ export default Flexible;
 
 
 function renderFlexibleSection(layout : FlexibleLayout, i:any) {
-    console.log(layout)
     switch(layout.acf_fc_layout) {
         case ThreeBlogPostsPropsACFLayout:
             return <ThreeBlogPosts {...layout} key={i} />
@@ -97,7 +96,6 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
         case BulletACFLayout:
             return <Bullets {...layout} key={i} />
         default: {
-            console.error("Couldn't find component", layout);
             return null
         }
     }

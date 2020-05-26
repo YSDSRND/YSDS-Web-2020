@@ -27,7 +27,7 @@ const TextAndImage: React.FC<TextAndImageProps> = ({
         <div className="main-inner">
           <div className="text-container">
             <h2>{header}</h2>
-            <div className="line three-col"></div>
+            <div className="line three-col"/>
             <div className="content">
               <HTMLContent html={body} />
             </div>

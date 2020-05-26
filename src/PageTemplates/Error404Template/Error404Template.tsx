@@ -1,5 +1,5 @@
 import React from 'react';
-//TODO 2020-05-26: this url should be configurable
+// TODO 2020-05-26: this url should be configurable
 const Error404Template : React.FC = () => {
     return (
         <div className="error-page">

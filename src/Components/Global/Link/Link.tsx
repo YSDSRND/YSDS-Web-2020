@@ -6,9 +6,9 @@ export type LinkProps = {
   onClick?: ((event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void) | undefined
 };
 const Link: React.FC<LinkProps> = ({ to, children, onClick }) => {
-  var pathName = ""
+  let pathName = ""
   if(to){
-    var url = new URL(to);
+    const url = new URL(to);
     pathName = url.pathname
   }
   

@@ -5,7 +5,7 @@ export type AgentsProps = {
   acf_fc_layout: typeof AgentsACFLayout,
   header: string,
   body: string,
-  agents: Array<Agent>,
+  agents: Agent[],
 }
 
 type Agent = {
@@ -18,7 +18,7 @@ const Agents  : React.FC<AgentsProps> = ({header, body, agents}) => {
       <section className="agents">
       <div className="main">
         <h2>{header}</h2>
-          <div className="line three-col"></div>
+          <div className="line three-col"/>
           <p className="subtitle">{body}</p>
 
           <div className="main-inner">
@@ -28,7 +28,7 @@ const Agents  : React.FC<AgentsProps> = ({header, body, agents}) => {
                   return (
                     [
                       <span key={index}>{agent.country} - {agent.city}</span>,
-                      <br />
+                      <br key={"br" + index}/>
                     ]
                   )
                 })
