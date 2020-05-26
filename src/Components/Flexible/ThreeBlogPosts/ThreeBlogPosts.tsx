@@ -9,9 +9,10 @@ export type ThreeBlogPostsProps = {
     acf_fc_layout: typeof ThreeBlogPostsPropsACFLayout,
     title: string,
     button: WPButton,
+    background_color:string
 }
 
-const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
+const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button,background_color }) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<any>([]);
 
@@ -30,7 +31,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button }) => {
 
     return (
         <>
-            <section className="latest-blog-posts">
+            <section className={"latest-blog-posts " + background_color}>
                 <div className="main">
                     <div className="main-inner">
                         <h2>{title}</h2>

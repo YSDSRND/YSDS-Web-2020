@@ -4,14 +4,15 @@ import Card, {CardProps} from './Card';
 export const CardsACFLayout = "cards";
 export type CardsProps = {
   acf_fc_layout: typeof CardsACFLayout,
-  cards: CardProps[]
+  cards: CardProps[],
+  columns:string
 }
 
-const Cards : React.FC<CardsProps> = ({cards}) => {
+const Cards : React.FC<CardsProps> = ({cards, columns}) => {
     return (
       <section className="cards">
         <div className="main">
-            <div className="main-inner">
+            <div className={"main-inner " + columns}>
               {
                 cards ? cards.map((cardItem, i) => {
                   return <Card {...cardItem} key={i}/>

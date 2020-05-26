@@ -8,10 +8,11 @@ export type CasesProps = {
   cases: {
     ID: number,
   }[],
-  title:string
+  title:string,
+  background_color:string
 }
 
-const Cases: React.FC<CasesProps> = ({cases, title }) => {
+const Cases: React.FC<CasesProps> = ({cases, title, background_color }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [casesData, setCasesData] = useState<CaseProps[]>([]);
 
@@ -26,7 +27,7 @@ const Cases: React.FC<CasesProps> = ({cases, title }) => {
     })
   }, [cases])
   return (
-    <section className="cases">
+    <section className={"cases " + background_color}>
       <div className="main">
         <div className="main-inner">
           {
