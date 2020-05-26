@@ -24,12 +24,12 @@ const Office: React.FC<OfficeProps> = ({
       <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ""} alt={image ? image.alt :""} />
       <div className="text-container">
         <h3>{office_title}</h3>
-        <p>
+        <div>
           <HTMLContent html={address} />
           <a href={`mailto:${email}`}>{email}</a>
           <br></br>
           <a href={`tel:${linkable_phone}`}>{phone}</a>
-        </p>
+        </div>
       </div>
     </div>
   );
