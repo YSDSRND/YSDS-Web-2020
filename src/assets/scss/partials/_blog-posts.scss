@@ -1,5 +1,14 @@
 .blog-posts,
 .latest-blog-posts {
+    &.darkblue {
+        background: $blue;
+        .main-inner {
+            margin: 0 auto;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            color: white;
+        }
+    }
     .main {
         position: relative;
     }
@@ -8,8 +17,9 @@
         flex-wrap: wrap;
         margin: $margin;
         justify-content: center;
-        @media screen and (min-width: $small) {
-            width: calc(100% + 20px);
+        padding: 0 6.25%;
+        @media screen and (min-width: $medium) {
+            padding: 0 12.5%;
         }
         h2 {
             margin-bottom: 30px;
@@ -19,34 +29,47 @@
         .flex-container {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
         }
         .one-post {
             margin-bottom: 40px;
-            min-width: 250px;
             border-radius: 5px;
             box-shadow: 0 0 11px 6px #0000001a;
             transition: all 0.2s ease;
             color: black;
             text-decoration: none;
+            width: 100%;
+            background: white;
             @media screen and (min-width: $small) {
                 margin-right: 20px;
-                flex: 1;
+                width: calc(33.33333% - 20px);
+                &:last-of-type {
+                    margin-right: 0;
+                }
             }
             img {
                 height: 250px;
                 background: $blue;
                 width: 100%;
                 object-fit: cover;
+                @media screen and (min-width: $small) {
+                    height: 180px;
+                }
+                @media screen and (min-width: $medium) {
+                    height: 250px;
+                }
             }
             h3 {
                 border-bottom: 1px solid $red;
-                padding-bottom: 10px;
-                margin: 22px 15px 12px;
+                padding-bottom: 5px;
+                margin: 22px 15px 10px;
             }
             .date {
                 text-transform: uppercase;
                 font-size: 13px;
                 font-family: Helvetica-Neue-Condensed;
+                margin-top: 0;
             }
             p {
                 padding: 0 15px;

@@ -2,6 +2,10 @@
     .main-inner {
         margin: $margin;
         text-align: center;
+        padding: 0 6.25%;
+        @media screen and (min-width: $medium) {
+            padding: 0 12.5%;
+        }
         h2 {
             margin-bottom: 50px;
         }
@@ -9,6 +13,7 @@
             display: flex;
             flex-wrap: wrap;
             margin-bottom: -40px;
+            justify-content: space-evenly;
             @media screen and (min-width: $small) {
                 width: calc(100% + 50px);
             }
@@ -24,25 +29,10 @@
                     margin-right: 50px;
                 }
                 .check-mark {
-                    width: 50px;
-                    height: 50px;
-                    border: 1px solid $red;
-                    border-radius: 50%;
-                    //background-image: url(../../images/check.svg);
-                    background-size: contain;
-                    background-position: center;
-                    background-size: 54%;
-                    background-repeat: no-repeat;
-                    margin-bottom: 5px;
-                    position: relative;
+                    margin-bottom: 8px;
 
                     i {
-                        font-size: 20px;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        line-height: 50px;
+                        font-size: 62px;
                     }
                 }
                 .text-container {
@@ -59,11 +49,6 @@
                 }
             }
             &.dark {
-                .check-mark {
-                    border: none;
-                    background-color: $blue;
-                    background-image: url(../../images/check-white.svg);
-                }
                 h3 {
                     color: $red;
                 }

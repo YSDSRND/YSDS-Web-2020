@@ -64,5 +64,12 @@
                 margin-top: 0;
             }
         }
+        &.three {
+            .one-card {
+                @media screen and (min-width: $medium) {
+                    width: calc(33.3333% - 20px);
+                }
+            }
+        }
     }
 }
