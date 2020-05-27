@@ -6,8 +6,9 @@ export type CardsAlternateProps = {
   header: string;
   cards: CardProps[];
   background_color:string;
+  columns:string
 };
-const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, background_color }) => {
+const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, background_color, columns }) => {
   return (
     <section className={"cards " + background_color}>
       <div className="main">
@@ -21,7 +22,7 @@ const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, backgrou
       }
         
 
-        <div className="main-inner">
+        <div className={"main-inner " + columns}>
           {cards.map((cardItem, i) => {
             return <Card key={i} {...cardItem} />;
           })}
