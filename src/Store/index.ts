@@ -1,10 +1,10 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { optionsReducer } from "./Options/OptionsReducer";
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { optionsReducer } from './Options/OptionsReducer';
 
 
 const rootReducer = combineReducers({
-    options: optionsReducer,
+  options: optionsReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
@@ -15,7 +15,7 @@ export default function configureStore() {
 
   const store = createStore(
     rootReducer,
-    composeWithDevTools(middleWareEnhancer)
+    composeWithDevTools(middleWareEnhancer),
   );
 
   return store;

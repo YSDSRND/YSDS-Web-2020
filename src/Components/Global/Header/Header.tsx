@@ -1,16 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { AppState } from "../../../Store";
-import Link from "../Link/Link";
-import { Link as RouterLink } from "react-router-dom";
-import LinkButton from "../LinkButton/LinkButton";
-import ContactForm from '../ContactForm/ContactForm'
+import React, { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
+import { AppState } from '../../../Store';
+import Link from '../Link/Link';
+import ContactForm from '../ContactForm/ContactForm';
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
   const contactButtonRef = useRef(null);
   const [openSubNavs, setOpenSubNavs] = useState<Map<number, boolean>>(
-    new Map<number, boolean>()
+    new Map<number, boolean>(),
   );
 
   const [formOpen, setFormOpen] = useState<boolean>(false);
@@ -23,29 +22,29 @@ const Header: React.FC = () => {
 
   const closeMobileNav = () => {
     setMobileNavOpen(false);
-  }
+  };
 
   const reverseMobileNav = () => {
     setMobileNavOpen(!mobileNavOpen);
-  }
+  };
 
   const reverseForm = () => {
     setFormOpen(!formOpen);
-  }
+  };
 
   const closeForm = () => {
-    setFormOpen(false)
-  }
+    setFormOpen(false);
+  };
 
   const openSubMenu = (nav:any, index:any) => {
     if (nav.submenus) {
       const newMap = new Map<number, boolean>(openSubNavs);
-      newMap.set(index, newMap.get(index) ? false : true);
+      newMap.set(index, !newMap.get(index));
       setOpenSubNavs(newMap);
     }
-  }
+  };
 
-  const { header_logo, navigation, contact } = options.options.header;
+  const { header_logo, navigation } = options.options.header;
   return (
     <section className="header">
       <RouterLink
@@ -57,52 +56,48 @@ const Header: React.FC = () => {
           src={
             header_logo && header_logo.sizes && header_logo.sizes.large
               ? header_logo.sizes.large
-              : ""
+              : ''
           }
-          alt={header_logo ? header_logo.alt : ""}
+          alt={header_logo ? header_logo.alt : ''}
         />
       </RouterLink>
       <ul className="menu-container desktop">
-        {navigation.map((nav:any,i) => {
-          let className=""
-          if (nav.submenus){
-            className += "has-children"
-            if (nav.submenus.length === 1){
-              className += " one-submenu"
+        {navigation.map((nav:any, i) => {
+          let className = '';
+          if (nav.submenus) {
+            className += 'has-children';
+            if (nav.submenus.length === 1) {
+              className += ' one-submenu';
             }
           }
           return (
             <li className={className} key={i}>
               <Link to={nav.link.url}>{nav.link.title}</Link>
               <div className="sub-menu">
-                {typeof nav.submenus === "object" &&
-                  nav.submenus.map((subs:any, index:any) => {
-                    return (
-                      <div className="sub-menu-list" key={index}>
-                        {
+                {typeof nav.submenus === 'object'
+                  && nav.submenus.map((subs:any, index:any) => (
+                    <div className="sub-menu-list" key={index}>
+                      {
                           subs.title.length > 0 ? (
                             <h5>{subs.title}</h5>
-                          ): null
+                          ) : null
                         }
-                        <ul>
-                          {typeof subs.navigation === "object" &&
-                            subs.navigation.map((l:any,key:any) => {
-                              return (
-                                <li key={key}>
-                                  <Link to={l.link.url}>{l.link.title}</Link>
-                                </li>
-                              );
-                            })}
-                        </ul>
-                      </div>
-                    );
-                  })}
+                      <ul>
+                        {typeof subs.navigation === 'object'
+                            && subs.navigation.map((l:any, key:any) => (
+                              <li key={key}>
+                                <Link to={l.link.url}>{l.link.title}</Link>
+                              </li>
+                            ))}
+                      </ul>
+                    </div>
+                  ))}
               </div>
             </li>
           );
         })}
       </ul>
-      <button ref={contactButtonRef} className={"ysds-button normal"} onClick={reverseForm}>
+      <button ref={contactButtonRef} className="ysds-button normal" onClick={reverseForm}>
         Contact us
       </button>
       <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} />
@@ -111,59 +106,53 @@ const Header: React.FC = () => {
         onClick={reverseMobileNav}
       />
 
-      <div className={`menu-container mobile ${mobileNavOpen ? "show" : ""}`}>
+      <div className={`menu-container mobile ${mobileNavOpen ? 'show' : ''}`}>
         <ul>
-          {navigation.map((nav, index) => {
-            return (
-              <li className={nav.submenus ? `has-children ${openSubNavs.get(index) ? "show" : ""}` : ""} key={index}>
-                <span
-                  onClick={() => openSubMenu(nav,index)}
+          {navigation.map((nav, index) => (
+            <li className={nav.submenus ? `has-children ${openSubNavs.get(index) ? 'show' : ''}` : ''} key={index}>
+              <span
+                onClick={() => openSubMenu(nav, index)}
+              >
+                <Link
+                  onClick={() => {
+                    setMobileNavOpen(false);
+                  }}
+                  to={nav.link.url}
                 >
-                  <Link
-                    onClick={() => {
-                      setMobileNavOpen(false);
-                    }}
-                    to={nav.link.url}
-                  >
-                    {nav.link.title}
-                  </Link>
-                </span>
-                <div
-                  className={`sub-menu ${openSubNavs.get(index) ? "show" : ""}`}
-                >
-                  {typeof nav.submenus === "object" &&
-                    nav.submenus.map((subs,k) => {
-                      return (
-                        <div className="sub-menu-list" key={k}>
-                          {
+                  {nav.link.title}
+                </Link>
+              </span>
+              <div
+                className={`sub-menu ${openSubNavs.get(index) ? 'show' : ''}`}
+              >
+                {typeof nav.submenus === 'object'
+                    && nav.submenus.map((subs, k) => (
+                      <div className="sub-menu-list" key={k}>
+                        {
                           subs.title.length > 0 ? (
                             <h5>{subs.title}</h5>
-                          ): null
+                          ) : null
                         }
-                          <ul>
-                            {typeof subs.navigation === "object" &&
-                              subs.navigation.map((l,key) => {
-                                return (
-                                  <li key={key}>
-                                    <Link
-                                      onClick={() => {
-                                        setMobileNavOpen(false);
-                                      }}
-                                      to={l.link.url}
-                                    >
-                                      {l.link.title}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
-                          </ul>
-                        </div>
-                      );
-                    })}
-                </div>
-              </li>
-            );
-          })}
+                        <ul>
+                          {typeof subs.navigation === 'object'
+                              && subs.navigation.map((l, key) => (
+                                <li key={key}>
+                                  <Link
+                                    onClick={() => {
+                                      setMobileNavOpen(false);
+                                    }}
+                                    to={l.link.url}
+                                  >
+                                    {l.link.title}
+                                  </Link>
+                                </li>
+                              ))}
+                        </ul>
+                      </div>
+                    ))}
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
@@ -177,30 +166,29 @@ type FormDropdownProps = {
   onClose: (() => void)
   openButtonRef: any
 };
-const FormDropdown: React.FC<FormDropdownProps> = ({open, onClose, openButtonRef}) => {
+const FormDropdown: React.FC<FormDropdownProps> = ({ open, onClose, openButtonRef }) => {
   const dropdownRef : any = useRef(null);
 
 
-
   useEffect(() => {
-    document.addEventListener("mousedown", handleClick);
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
+    const handleClick = (e: any) => {
+      if (!dropdownRef || !dropdownRef.current || !openButtonRef || !openButtonRef.current) {
+        return;
+      }
+      if (!dropdownRef.current.contains(e.target) && !openButtonRef.current.contains(e.target)) {
+        onClose();
+      }
     };
-  }, []);
 
-  const handleClick = (e: any) => {
-    if(!dropdownRef || !dropdownRef.current || !openButtonRef || !openButtonRef.current) {
-      return;
-    }
-    if(!dropdownRef.current.contains(e.target) && !openButtonRef.current.contains(e.target)) {
-      onClose();
-      return;
-    }
-  };
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, [onClose, openButtonRef]);
 
-  if(!open) {
-    return <></>
+
+  if (!open) {
+    return <></>;
   }
   return (
     <div ref={dropdownRef} className="header-contact-form">

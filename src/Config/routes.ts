@@ -1,6 +1,6 @@
-export const FrontPageRoute : string = '/';
-export const PagesRoute : string = '/:slug';
-export const SubPagesRoute : string = '/:slug/:sub';
-export const PostRoute : string = '/posts/:slug';
-export const PostsRoute : string = '/posts'
-export const CasesRoute : string = '/case/:slug';
+export const FrontPageRoute = '/';
+export const PagesRoute = '/:slug';
+export const SubPagesRoute = '/:slug/:sub';
+export const PostRoute = '/posts/:slug';
+export const PostsRoute = '/posts';
+export const CasesRoute = '/case/:slug';

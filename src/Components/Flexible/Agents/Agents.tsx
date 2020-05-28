@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AgentsACFLayout = "agents";
+export const AgentsACFLayout = 'agents';
 export type AgentsProps = {
   acf_fc_layout: typeof AgentsACFLayout,
   header: string,
@@ -13,32 +13,34 @@ type Agent = {
   city: string,
 }
 
-const Agents  : React.FC<AgentsProps> = ({header, body, agents}) => {
-    return (
-      <section className="agents">
-      <div className="main">
-        <h2>{header}</h2>
-          <div className="line three-col"/>
-          <p className="subtitle">{body}</p>
+const Agents : React.FC<AgentsProps> = ({ header, body, agents }) => (
+  <section className="agents">
+    <div className="main">
+      <h2>{header}</h2>
+      <div className="line three-col" />
+      <p className="subtitle">{body}</p>
 
-          <div className="main-inner">
-            <p className="list">
-              {
-                agents.map((agent: Agent, index, arr) => {
-                  return (
-                    [
-                      <span key={index}>{agent.country} - {agent.city}</span>,
-                      <br key={"br" + index}/>
-                    ]
-                  )
-                })
+      <div className="main-inner">
+        <p className="list">
+          {
+                agents.map((agent: Agent, index, arr) => (
+                  [
+                    <span key={index}>
+                      {agent.country}
+                      {' '}
+                      -
+                      {' '}
+                      {agent.city}
+                    </span>,
+                    <br key={`br${index}`} />,
+                  ]
+                ))
               }
-            </p>
-          </div>
+        </p>
       </div>
+    </div>
   </section>
 
-    )
-}
+);
 
 export default Agents;

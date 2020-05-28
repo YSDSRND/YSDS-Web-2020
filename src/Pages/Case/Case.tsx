@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Flexible from "../../Components/Global/Flexible/Flexible";
-import { GetCaseBySlug } from "../../Services/Cases/Cases";
-import Error404Template from "../../PageTemplates/Error404Template/Error404Template";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Flexible from '../../Components/Global/Flexible/Flexible';
+import { GetCaseBySlug } from '../../Services/Cases/Cases';
+import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 
 const Case: React.FC = () => {
   const { slug } = useParams();
@@ -15,7 +15,7 @@ const Case: React.FC = () => {
     if (!slug) {
       return;
     }
-    GetCaseBySlug(slug).then(resp => {
+    GetCaseBySlug(slug).then((resp) => {
       if (Array.isArray(resp)) {
         set404(true);
       }
@@ -25,11 +25,11 @@ const Case: React.FC = () => {
   }, [slug]);
 
   if (loading) {
-    return  <div className="highblack"/>;
+    return <div className="highblack" />;
   }
 
   if (is404) {
-    return <Error404Template />
+    return <Error404Template />;
   }
 
   return <Flexible flexible={data.acf.flexible} />;

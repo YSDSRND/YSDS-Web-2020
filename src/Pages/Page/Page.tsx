@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import Flexible from "../../Components/Global/Flexible/Flexible";
-import { GetPageBySlug } from "../../Services/Pages/Pages";
-import Error404Template from "../../PageTemplates/Error404Template/Error404Template";
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Flexible from '../../Components/Global/Flexible/Flexible';
+import { GetPageBySlug } from '../../Services/Pages/Pages';
+import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 
 const Page: React.FC = (props) => {
-  const params = useParams();
-  const {slug} = useParams();
   const location = useLocation();
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -17,7 +15,7 @@ const Page: React.FC = (props) => {
     if (!location) {
       return;
     }
-    GetPageBySlug(location.pathname).then(resp => {
+    GetPageBySlug(location.pathname).then((resp) => {
       if (Array.isArray(resp)) {
         set404(true);
       }
@@ -27,10 +25,10 @@ const Page: React.FC = (props) => {
   }, [location]);
 
   if (loading) {
-    return  <div className="highblack"/>;
+    return <div className="highblack" />;
   }
   if (is404) {
-    return <Error404Template />
+    return <Error404Template />;
   }
   return <Flexible flexible={data.acf.flexible} />;
 };

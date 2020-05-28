@@ -1,5 +1,5 @@
 export default interface WPButton {
-    button: {        
+    button: {
         target: string,
         title: string,
         url: string
@@ -7,4 +7,4 @@ export default interface WPButton {
     button_style: ButtonStyles
 };
 
-export type ButtonStyles = "normal" | "big" | "lines" | "big lines" | "lines white" | "big lines white";
+export type ButtonStyles = 'normal' | 'big' | 'lines' | 'big lines' | 'lines white' | 'big lines white';

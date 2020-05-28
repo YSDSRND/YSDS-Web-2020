@@ -9,7 +9,7 @@ export interface WPImage {
     author: string,
     description: string,
     caption: string,
-    name: string, 
+    name: string,
     status: string,
     uploaded_to: number,
     date: string,
@@ -23,13 +23,13 @@ export interface WPImage {
     height: number,
     sizes: {
         thumbnail: string,
-        ["thumbnail-width"]: number,
-        ["thumbnail-height"]: number,
+        ['thumbnail-width']: number,
+        ['thumbnail-height']: number,
         medium: string,
-        ["medium-width"]: number,
-        ["medium-height"]: number,
+        ['medium-width']: number,
+        ['medium-height']: number,
         large: string,
-        ["large-width"]: number,
-        ["large-height"]: number,
+        ['large-width']: number,
+        ['large-height']: number,
     }
 }
