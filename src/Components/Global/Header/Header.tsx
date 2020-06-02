@@ -79,7 +79,7 @@ const Header: React.FC = () => {
                     <div className="sub-menu-list" key={index}>
                       {
                           subs.title.length > 0 ? (
-                            <h5>{subs.title}</h5>
+                            <h5 dangerouslySetInnerHTML={{__html: subs.title}}></h5>
                           ) : null
                         }
                       <ul>
