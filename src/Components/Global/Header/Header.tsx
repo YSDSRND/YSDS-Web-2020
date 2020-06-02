@@ -86,7 +86,7 @@ const Header: React.FC = () => {
                         {typeof subs.navigation === 'object'
                             && subs.navigation.map((l:any, key:any) => (
                               <li key={key}>
-                                <Link to={l.link.url}>{l.link.title}</Link>
+                                <Link to={l.link.url}><span dangerouslySetInnerHTML={{__html: l.link.title}}></span></Link>
                               </li>
                             ))}
                       </ul>
