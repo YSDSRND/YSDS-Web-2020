@@ -1,17 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Helmet } from "react-helmet";
+import { useLocation } from 'react-router-dom';
+
 import Flexible from '../../Components/Global/Flexible/Flexible';
-import { GetPageByID } from '../../Services/Pages/Pages';
+import { GetPageByID, GetYoastBySlug } from '../../Services/Pages/Pages';
 import { AppState } from '../../Store';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 const FrontPage: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
+  const location = useLocation();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
   const [is404, set404] = useState<boolean>();
+  const [yoastData, setYoastData] = useState<any>();
+
+  useEffect(() => {
+    if (!location) {
+      return;
+    }
+    GetYoastBySlug(location.pathname).then((resp) => {
+      console.log(resp)
+      setYoastData(resp[0] ? resp[0].yoast_meta : ''); 
+      
+    });
+
+
+  }, [location]);
 
   useEffect(() => {
     if (options.loading || !options.options) {
@@ -32,6 +50,19 @@ const FrontPage: React.FC = () => {
   if (is404) {
     return <Error404Template />;
   }
-  return <Flexible flexible={data.acf.flexible} />;
+  return <>
+  <Helmet >
+    {
+      yoastData ? yoastData.map((d:any) => {
+        return (
+          <meta property={d.property} content={d.content} />
+        )
+      }) : null
+    }
+  
+  <title>{data.title}</title>
+
+  </Helmet>
+  <Flexible flexible={data.acf.flexible} /></>;
 };
 export default FrontPage;

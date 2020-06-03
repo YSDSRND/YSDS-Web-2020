@@ -1,16 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Flexible from '../../Components/Global/Flexible/Flexible';
-import { GetPostBySlug } from '../../Services/Post/Post';
+import { GetPostBySlug, GetYoastBySlug } from '../../Services/Post/Post';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
+import { useLocation } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 
 const Post: React.FC = () => {
   const { slug } = useParams();
+  const location = useLocation();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
   const [is404, set404] = useState<boolean>();
+
+  const [yoastData, setYoastData] = useState<any>();
+
+  useEffect(() => {
+    if (!location) {
+      return;
+    }
+    GetYoastBySlug(location.pathname).then((resp) => {
+      setYoastData(resp[0] ? resp[0].yoast_meta : '');
+
+    });
+
+
+  }, [location]);
 
   useEffect(() => {
     if (!slug) {
@@ -36,6 +53,19 @@ const Post: React.FC = () => {
     return <Error404Template />;
   }
 
-  return <Flexible flexible={data.acf.flexible} />;
+  return <>
+    <Helmet >
+      {
+        yoastData ? yoastData.map((d: any) => {
+          return (
+            <meta property={d.property} content={d.content} />
+          )
+        }) : null
+      }
+
+      <title>{data.title}</title>
+
+    </Helmet>
+    <Flexible flexible={data.acf.flexible} /></>;
 };
 export default Post;
