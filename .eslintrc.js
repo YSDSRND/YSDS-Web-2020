@@ -22,6 +22,8 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    "emotion"
+
   ],
   rules: {
     "react/prop-types":"off",

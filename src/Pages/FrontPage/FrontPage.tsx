@@ -4,6 +4,7 @@ import Flexible from '../../Components/Global/Flexible/Flexible';
 import { GetPageByID } from '../../Services/Pages/Pages';
 import { AppState } from '../../Store';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
+import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 const FrontPage: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
@@ -26,7 +27,7 @@ const FrontPage: React.FC = () => {
   }, [options]);
 
   if (loading) {
-    return <div className="highblack" />;
+    return <LoadingTemplate />;
   }
   if (is404) {
     return <Error404Template />;

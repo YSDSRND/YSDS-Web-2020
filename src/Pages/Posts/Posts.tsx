@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PostCard from '../../Components/Global/PostCard/PostCard';
 import { getPosts } from '../../Services/Post/Post';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
+import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 const Posts: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -16,7 +17,7 @@ const Posts: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div className="highblack" />;
+    return <LoadingTemplate />;
   }
 
   if (is404) {

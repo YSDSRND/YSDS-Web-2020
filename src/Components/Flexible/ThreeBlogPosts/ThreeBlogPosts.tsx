@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WPButton from '../../../Util/Types/WPButton';
 import LinkButton from '../../Global/LinkButton/LinkButton';
 import { getPosts } from '../../../Services/Post/Post';
+import LoadingTemplate from './../../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 
 export const ThreeBlogPostsPropsACFLayout = 'latest_blog_posts';
@@ -24,7 +25,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
   }, []);
 
   if (loading) {
-    return <div className="highblack" />;
+    return <LoadingTemplate />;
   }
 
 

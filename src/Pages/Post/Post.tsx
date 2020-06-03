@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Flexible from '../../Components/Global/Flexible/Flexible';
 import { GetPostBySlug } from '../../Services/Post/Post';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
+import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 const Post: React.FC = () => {
   const { slug } = useParams();
@@ -18,14 +19,17 @@ const Post: React.FC = () => {
     GetPostBySlug(slug).then((resp) => {
       if (Array.isArray(resp)) {
         set404(true);
+        setLoading(false)
+        return;
       }
       setData(resp);
       setLoading(false);
+      set404(false);
     });
   }, [slug]);
 
   if (loading) {
-    return <div className="highblack" />;
+    return <LoadingTemplate />;
   }
 
   if (is404) {
