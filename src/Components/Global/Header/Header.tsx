@@ -79,14 +79,14 @@ const Header: React.FC = () => {
                     <div className="sub-menu-list" key={index}>
                       {
                           subs.title.length > 0 ? (
-                            <h5>{subs.title}</h5>
+                            <h5 dangerouslySetInnerHTML={{__html: subs.title}}></h5>
                           ) : null
                         }
                       <ul>
                         {typeof subs.navigation === 'object'
                             && subs.navigation.map((l:any, key:any) => (
                               <li key={key}>
-                                <Link to={l.link.url}>{l.link.title}</Link>
+                                <Link to={l.link.url}><span dangerouslySetInnerHTML={{__html: l.link.title}}></span></Link>
                               </li>
                             ))}
                       </ul>
