@@ -1,22 +1,35 @@
 import React from 'react';
-import Hero, { HeroProps, HeroACFLayout } from '../../Flexible/Hero/Hero';
-import Offices, { OfficesProps, OfficesACFLayout } from '../../Flexible/Offices/Offices';
-import Agents, { AgentsProps, AgentsACFLayout } from '../../Flexible/Agents/Agents';
-import Numbers, { NumbersProps, NumbersACFLayout } from '../../Flexible/Numbers/Numbers';
-import Cards, { CardsProps, CardsACFLayout } from '../../Flexible/Cards/Cards';
-import CardsAlternate, { CardsAlternateProps, CardsAlternateACFLayout } from '../../Flexible/CardsAlternate/CardsAlternate';
-import ContactFormImage, { ContactFormImageProps, ContactFormImageACFLayout } from '../../Flexible/ContactFormImage/ContactFormImage';
-import TextAndImage, { TextAndImageProps, TextAndImageACFLayout } from '../../Flexible/TextAndImage/TextAndImage';
-import Cases, { CasesProps, CasesACFLayout } from '../../Flexible/Cases/Cases';
-import BlackDiagonal, { BlackDiagonalProps, BlackDiagonalACFLayout } from '../../Flexible/BlackDiagonal/BlackDiagonal';
-import ContactFormColor, { ContactFormColorProps, ContactFormColorACFLayout } from '../../Flexible/ContactFormColor/ContactFormColor';
-import TextOnImage, { TextOnImageProps, TextOnImageACFLayout } from '../../Flexible/TextOnImage/TextOnImage';
-import TextOnWhite, { TextOnWhiteProps, TextOnWhiteACFLayout } from '../../Flexible/TextOnWhite/TextOnWhite';
-import Article, { ArticleProps, ArticleACFLayout } from '../../Flexible/Article/Article';
-import Tracker, { TrackerProps, TrackerAcfLayout } from '../../Flexible/Tracker/Tracker';
-import Bullets, { BulletProps, BulletACFLayout } from '../../Flexible/Bullets/Bullets';
-import MiddleHero, { MiddleHeroACFLayout, MiddleHeroProps } from '../../Flexible/MiddleHero/MiddleHero';
-import ThreeBlogPosts, { ThreeBlogPostsProps, ThreeBlogPostsPropsACFLayout } from '../../Flexible/ThreeBlogPosts/ThreeBlogPosts';
+import Hero, {HeroACFLayout, HeroProps} from '../../Flexible/Hero/Hero';
+import Offices, {OfficesACFLayout, OfficesProps} from '../../Flexible/Offices/Offices';
+import Agents, {AgentsACFLayout, AgentsProps} from '../../Flexible/Agents/Agents';
+import Numbers, {NumbersACFLayout, NumbersProps} from '../../Flexible/Numbers/Numbers';
+import Cards, {CardsACFLayout, CardsProps} from '../../Flexible/Cards/Cards';
+import CardsAlternate, {
+  CardsAlternateACFLayout,
+  CardsAlternateProps
+} from '../../Flexible/CardsAlternate/CardsAlternate';
+import ContactFormImage, {
+  ContactFormImageACFLayout,
+  ContactFormImageProps
+} from '../../Flexible/ContactFormImage/ContactFormImage';
+import TextAndImage, {TextAndImageACFLayout, TextAndImageProps} from '../../Flexible/TextAndImage/TextAndImage';
+import Cases, {CasesACFLayout, CasesProps} from '../../Flexible/Cases/Cases';
+import BlackDiagonal, {BlackDiagonalACFLayout, BlackDiagonalProps} from '../../Flexible/BlackDiagonal/BlackDiagonal';
+import ContactFormColor, {
+  ContactFormColorACFLayout,
+  ContactFormColorProps
+} from '../../Flexible/ContactFormColor/ContactFormColor';
+import TextOnImage, {TextOnImageACFLayout, TextOnImageProps} from '../../Flexible/TextOnImage/TextOnImage';
+import TextOnWhite, {TextOnWhiteACFLayout, TextOnWhiteProps} from '../../Flexible/TextOnWhite/TextOnWhite';
+import Article, {ArticleACFLayout, ArticleProps} from '../../Flexible/Article/Article';
+import Tracker, {TrackerAcfLayout, TrackerProps} from '../../Flexible/Tracker/Tracker';
+import Bullets, {BulletACFLayout, BulletProps} from '../../Flexible/Bullets/Bullets';
+import MiddleHero, {MiddleHeroACFLayout, MiddleHeroProps} from '../../Flexible/MiddleHero/MiddleHero';
+import ThreeBlogPosts, {
+  ThreeBlogPostsProps,
+  ThreeBlogPostsPropsACFLayout
+} from '../../Flexible/ThreeBlogPosts/ThreeBlogPosts';
+import {ShipNowForm, ShipNowFormLayout, ShipNowFormProps} from "../../Flexible/ShipNowForm/ShipNowForm";
 
 type FlexibleProps = {
     flexible: FlexibleLayout[]
@@ -40,6 +53,7 @@ type FlexibleLayout = HeroProps
     | BulletProps
     | MiddleHeroProps
     | ThreeBlogPostsProps
+    | ShipNowFormProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({ flexible }) => (
@@ -91,6 +105,8 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
       return <Article {...layout} key={i} />;
     case BulletACFLayout:
       return <Bullets {...layout} key={i} />;
+    case ShipNowFormLayout:
+      return <ShipNowForm {...layout} key={i} />
     default: {
       return null;
     }
