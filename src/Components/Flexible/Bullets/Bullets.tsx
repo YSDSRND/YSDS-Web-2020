@@ -6,17 +6,18 @@ export type BulletProps = {
   bullets: [{ title: string, text: string, icon: string, fontawsome_or_upload: string, image: WPImage }],
   style: string,
   title: string,
+  columns:string
 
   acf_fc_layout: 'check_list'
 
 };
 
-const Bullets: React.FC<BulletProps> = ({ bullets, style, title, }) => (
+const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns}) => (
   <section className="check-list">
     <div className="main">
       <div className="main-inner">
         <h2>{title}</h2>
-        <div className={`flex-container ${style}`}>
+        <div className={`flex-container ${style} ${columns}`}>
           {
             bullets.map((bullet, i) => (
               <div className="bullet" key={i}>
