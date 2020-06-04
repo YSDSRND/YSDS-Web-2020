@@ -6,5 +6,5 @@ export const GetOfficeByID = (id : number) => fetch(`${API_URL}/${id}`)
   .then((resp) => resp.json());
 
 
-export const GetOffices = () => fetch(`${API_URL}`)
+export const GetOffices = () => fetch(`${API_URL}?orderby=title&order=asc&per_page=100000`)
   .then((resp) => resp.json());

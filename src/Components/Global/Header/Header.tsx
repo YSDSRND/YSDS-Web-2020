@@ -192,7 +192,7 @@ const FormDropdown: React.FC<FormDropdownProps> = ({ open, onClose, openButtonRe
   }
   return (
     <div ref={dropdownRef} className="header-contact-form">
-      <h4>Write us an email</h4>
+      <h4>Contact an expert</h4>
       <ContactForm />
     </div>
   );

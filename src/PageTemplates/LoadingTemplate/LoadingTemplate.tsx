@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PulseLoader from "react-spinners/PulseLoader";
 import { css } from "@emotion/core";
+import {BarLoader} from "react-spinners";
 
 const LoadingPage: React.FC = () => {
   const override = css`
@@ -10,10 +11,11 @@ const LoadingPage: React.FC = () => {
 `;
   
   return (<div className="highblack">
-      <PulseLoader
+      <BarLoader
           css={override}
-          size={80}
-          color={"#FFE900"}
+          width={200}
+          height={6}
+          color={"#fff"}
           loading={true}
         />
   </div>);

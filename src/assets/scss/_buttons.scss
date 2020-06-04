@@ -1,6 +1,5 @@
 .ysds-button {
-    appearance: none;
-    background: $red;
+    background: $primary-color;
     border-radius: 5px;
     display: inline-block;
     color: white;
@@ -8,7 +7,7 @@
     line-height: 19px;
     text-align: center;
     text-transform: uppercase;
-    border: 1px solid $red;
+    border: 1px solid $primary-color;
     letter-spacing: 1px;
     font-size: 12px;
     padding: 9px 15px 5px;
@@ -21,7 +20,7 @@
         font-size: 17px;
         padding: 14px 26px 9px;
         &.lines {
-            color: $red;
+            color: $primary-color;
             background: none;
             &.white {
                 color: white;
@@ -31,7 +30,7 @@
     }
 
     &.lines {
-        color: $red;
+        color: $primary-color;
         background: none;
         &.white {
             color: white;
