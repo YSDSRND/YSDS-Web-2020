@@ -61,7 +61,7 @@
                 }
             }
             h3 {
-                border-bottom: 1px solid $red;
+                border-bottom: 1px solid $primary-color;
                 padding-bottom: 5px;
                 margin: 22px 15px 10px;
             }
@@ -94,7 +94,7 @@
                 text-transform: uppercase;
                 &.active,
                 &:hover {
-                    background: $red;
+                    background: $primary-color;
                 }
             }
         }
