@@ -6,7 +6,7 @@ const Error404Template : React.FC = () => (
       <div className="main-inner">
         <h1>404</h1>
         <p style={{ textAlign: 'center' }}>
-          We`&apos;`re sorry, but something went wrong. Please start over again at
+          We&apos;re sorry, but something went wrong. Please start over again at&nbsp;
           <a href="https://www.ysds.com">www.ysds.com</a>
         </p>
       </div>
