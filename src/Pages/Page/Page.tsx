@@ -5,7 +5,6 @@ import Flexible from '../../Components/Global/Flexible/Flexible';
 import { GetPageBySlug, GetYoastBySlug } from '../../Services/Pages/Pages';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
-import { getQueriesForElement } from '@testing-library/react';
 
 const Page: React.FC = (props) => {
   const location = useLocation();

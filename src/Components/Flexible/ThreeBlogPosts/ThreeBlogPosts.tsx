@@ -52,8 +52,6 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
           </div>
         </div>
       </section>
-
-
     </>
   );
 };

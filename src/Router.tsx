@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './Components/Global/Header/Header';
 import {
@@ -9,12 +8,10 @@ import Footer from './Components/Global/Footer';
 import Post from './Pages/Post';
 import Page from './Pages/Page';
 import Posts from './Pages/Posts';
-import { GetYoastBySlug } from './Services/Pages/Pages';
 
 import FrontPage from './Pages/FrontPage';
 import Case from './Pages/Case';
 import Error404Template from './PageTemplates/Error404Template/Error404Template';
-import { Helmet } from "react-helmet";
 
 const Router: React.FC = () => {
   

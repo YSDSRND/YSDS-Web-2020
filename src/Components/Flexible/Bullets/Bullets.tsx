@@ -22,7 +22,7 @@ const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns}) => (
             bullets.map((bullet, i) => (
               <div className="bullet" key={i}>
                 {
-                  bullet.fontawsome_or_upload === 'upload' ? (<img style={{height:62}} src={bullet.image.url} />) : <div className="check-mark" dangerouslySetInnerHTML={{ __html: bullet.icon }} />
+                  bullet.fontawsome_or_upload === 'upload' ? (<img alt="" style={{height:62}} src={bullet.image.url} />) : <div className="check-mark" dangerouslySetInnerHTML={{ __html: bullet.icon }} />
                 }
 
                 <div className="text-container">
