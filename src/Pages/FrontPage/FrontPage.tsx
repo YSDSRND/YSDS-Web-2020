@@ -23,8 +23,7 @@ const FrontPage: React.FC = () => {
       return;
     }
     GetYoastBySlug(location.pathname).then((resp) => {
-      console.log(resp)
-      setYoastData(resp[0] ? resp[0].yoast_meta : ''); 
+      setYoastData(resp[0] ? resp[0].yoast_meta : '');
       
     });
 
