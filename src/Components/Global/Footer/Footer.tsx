@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
         buttonText="OK"
         cookieName="ysdscookie"
         style={{ background: 'black' }}
-        buttonStyle={{ color: 'white', background: '#D0021B', fontSize: '13px' }}
+        buttonStyle={{ color: 'white', background: '#846804', fontSize: '13px' }}
         expires={150}
       >
         This website uses cookies to enhance the user experience.
