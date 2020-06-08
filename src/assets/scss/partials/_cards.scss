@@ -48,6 +48,7 @@
             img {
                 height: 160px;
                 background: $primary-color;
+                filter: grayscale($image-grayscale-pct);
                 width: 100%;
                 object-fit: cover;
                 @media screen and (min-width: $small) {

@@ -5,7 +5,6 @@ import Flexible from '../../Components/Global/Flexible/Flexible';
 import { GetPageBySlug, GetYoastBySlug } from '../../Services/Pages/Pages';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
-import { getQueriesForElement } from '@testing-library/react';
 
 const Page: React.FC = (props) => {
   const location = useLocation();
@@ -21,7 +20,6 @@ const Page: React.FC = (props) => {
       return;
     }
     GetYoastBySlug(location.pathname).then((resp) => {
-      console.log(resp)
       setYoastData(resp[0] ? resp[0].yoast_meta : ''); 
       
     });
@@ -63,9 +61,9 @@ const Page: React.FC = (props) => {
   return <>
     <Helmet >
       {
-        yoastData ? yoastData.map((d:any) => {
+        yoastData ? yoastData.map((d:any, idx:number) => {
           return (
-            <meta property={d.property} content={d.content} />
+            <meta key={idx} property={d.property} content={d.content} />
           )
         }) : null
       }

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import PulseLoader from "react-spinners/PulseLoader";
+import React from 'react';
 import { css } from "@emotion/core";
 import {BarLoader} from "react-spinners";
 

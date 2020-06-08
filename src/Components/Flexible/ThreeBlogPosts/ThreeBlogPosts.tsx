@@ -41,7 +41,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
                                   <a key={i} className="one-post" href={`/posts/${card.slug}`}>
                                     <img alt="" src={card.media ? card.media.large : ''} />
                                     <h3>{card.title}</h3>
-                                    <p className="date">27 maj 2020</p>
+                                    <p className="date">{new Date(card.date).toLocaleDateString('sv-SE')}</p>
                                     <p>{card.excerpt}</p>
                                   </a>
                                 ))
@@ -52,8 +52,6 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
           </div>
         </div>
       </section>
-
-
     </>
   );
 };
