@@ -1,0 +1,81 @@
+.shipping-form {
+    background: $blue;
+    color: white;
+    padding: 100px 0;
+    .main-inner {
+        padding: 0 6.25%;
+        @media screen and (min-width: $small) {
+            padding: 0 12.5%;
+        }
+        .form-row {
+            &:first-of-type label {
+                margin-top: 10px;
+            }
+        }
+        label {
+            width: 100%;
+            display: block;
+            margin-top: 28px;
+        }
+        label.radio-label,
+        label.form-control {
+            margin-top: 0;
+            font-weight: normal;
+            margin-top: 5px;
+            span {
+                font-family: Helvetica-Neue-Roman;
+            }
+        }
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        select {
+            height: 38px;
+            width: 100%;
+            border-radius: 3px;
+            padding-left: 9px;
+            padding-top: 6px;
+            font-size: 15px;
+            font-family: Helvetica-Neue-Roman;
+            border: 1px solid #dedede;
+            background: white;
+        }
+        textarea {
+            width: 100%;
+            border-radius: 3px;
+            padding-left: 9px;
+            padding-top: 10px;
+            font-size: 15px;
+            font-family: Helvetica-Neue-Roman;
+            border: 1px solid #dedede;
+            background: white;
+            display: block;
+        }
+        input[type=file] {
+            font-family: Helvetica-Neue-Roman;
+            margin-top: 5px;
+        }
+        input:focus {
+            outline: none;
+        }
+        .form-section {
+            background: #f8f8f8;
+            color: black;
+            border-radius: 3px;
+            padding: 30px 15px;
+            margin-bottom: 30px;
+            @media screen and (min-width: $small) {
+                padding: 50px 30px;
+            }
+            fieldset {
+                margin: 0;
+                border: 0;
+                padding: 0;
+            }
+            h4 {
+                font-size: 24px;
+                border-bottom: 1px solid $primary-color;
+            }
+        }
+    }
+}

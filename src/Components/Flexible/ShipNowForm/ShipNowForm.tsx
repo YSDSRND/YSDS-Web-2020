@@ -107,7 +107,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                 },
                 {
                     property: "office",
-                    label: "office",
+                    label: "Office",
                     placeholder: "Choose...",
                     type: FieldType.Select,
                     required: model => true,
@@ -197,7 +197,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                 },
                 {
                     property: "recipient_phone",
-                    label: "receiver phone number",
+                    label: "Receiver phone number",
                     placeholder: "+1 1-111 222 333",
                     type: FieldType.String,
                     required: model => true,
@@ -404,7 +404,8 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         });
     };
 
-    return <div>
+    return <div className="shipping-form">
+        <div className="main-inner">
         {loading ? <div className="loading-overlay">
                 <div className="spinner"></div>
             </div> : null }
@@ -425,9 +426,10 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                         model={formData}
                         errors={errors}
                     />
-                    <input type="submit" value="Send" />
+                    <input type="submit" value="Send" className="ysds-button big red"/>
                 </form>
             </>
-        : <p>Thank you! We will get in touch ASAP!</p> }
+        : <h3>Thank you! We will get in touch ASAP!</h3> }
+        </div>
     </div>
 }
