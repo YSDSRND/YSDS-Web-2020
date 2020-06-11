@@ -65,6 +65,12 @@ body {
     //max-width: 1100px;
     margin: 0 auto;
     padding: 0 $one-col;
+
+    //Fix so that images doesn't overflow container - Joakim
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 img {
