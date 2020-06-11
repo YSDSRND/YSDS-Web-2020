@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import PostCard from '../../Components/Global/PostCard/PostCard';
-import { getPosts } from '../../Services/Post/Post';
-import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
-import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
+import PostCard from '../../../Components/Global/PostCard/PostCard';
+import { getPosts } from '../../../Services/Post/Post';
+import Error404Template from '../../../PageTemplates/Error404Template/Error404Template';
+import LoadingTemplate from '../../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
-const Posts: React.FC = () => {
+export const PostsACFLayout = 'posts';
+
+export type PostsProps = {
+    acf_fc_layout: typeof PostsACFLayout,
+  };
+
+const Posts: React.FC<PostsProps> = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>([]);
   const [is404] = useState<boolean>();
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    getPosts(page).then((resp) => {
-      console.log(resp,"upper")
+    getPosts(page).then((resp:any) => {
       setData(resp);
       setLoading(false);
     });
@@ -37,7 +42,7 @@ const Posts: React.FC = () => {
           <div style={{width:"100%"}}></div>
 
       <a className="ysds-button normal"  onClick={() => {
-        getPosts(page+1).then((resp) => {
+        getPosts(page+1).then((resp:any) => {
           let newData = data.concat(resp)
           setData(newData);
           setPage(page +1)
