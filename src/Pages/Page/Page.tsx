@@ -35,7 +35,7 @@ const Page: React.FC = (props) => {
     }
     GetPageBySlug(location.pathname).then((resp) => {
 
-      if (Array.isArray(resp)) {
+      if (Array.isArray(resp) || !resp.permalink.endsWith(location.pathname)) {
         set404(true);
         setLoading(false);
         return
