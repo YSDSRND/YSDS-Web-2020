@@ -72,7 +72,7 @@ const Header: React.FC = () => {
           }
           return (
             <li className={className} key={i}>
-              <Link to={nav.link.url}>{nav.link.title}</Link>
+              <Link to={nav.link.url}><span dangerouslySetInnerHTML={{__html:nav.link.title}}/></Link>
               <div className="sub-menu">
                 {typeof nav.submenus === 'object'
                   && nav.submenus.map((subs:any, index:any) => (
