@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             <ul key={j}>
               {subnavigation.map(({ link }, i) => (
                 <li key={i}>
-                  <Link to={link.url}>{link.title}</Link>
+                  <Link to={link.url}><span dangerouslySetInnerHTML={{__html: link.title}}></span></Link>
                 </li>
               ))}
             </ul>
