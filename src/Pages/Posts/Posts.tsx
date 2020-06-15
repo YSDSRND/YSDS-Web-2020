@@ -9,12 +9,17 @@ const Posts: React.FC = () => {
   const [data, setData] = useState<any>([]);
   const [is404] = useState<boolean>();
   const [page, setPage] = useState<number>(1);
+  const [last, setLast] = useState<boolean>(false);
+
 
   useEffect(() => {
     getPosts(page).then((resp) => {
-      console.log(resp,"upper")
+      console.log(resp, "upper")
       setData(resp);
       setLoading(false);
+      if (resp.length < 3) {
+        setLast(true);
+      }
     });
   }, []);
 
@@ -31,19 +36,27 @@ const Posts: React.FC = () => {
       <div className="main">
         <div className="main-inner">
           {
-               data.map((post:any, index:any) => <PostCard key={index} post={post} />)
+            data.map((post: any, index: any) => <PostCard key={index} post={post} />)
           }
 
-          <div style={{width:"100%"}}></div>
+          <div style={{ width: "100%" }}></div>
 
-      <a className="ysds-button normal"  onClick={() => {
-        getPosts(page+1).then((resp) => {
-          let newData = data.concat(resp)
-          setData(newData);
-          setPage(page +1)
-          
-        });
-      }}>Load more</a>
+          {
+            !last ? (
+              <a className="ysds-button normal" onClick={() => {
+                getPosts(page + 1).then((resp) => {
+                  let newData = data.concat(resp)
+                  setData(newData);
+                  setPage(page + 1)
+                  if (resp.length < 3) {
+                    setLast(true);
+                  }
+
+                });
+              }}>Load more</a>
+
+            ) : null
+          }
 
         </div>
       </div>
