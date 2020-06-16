@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AppState } from '../../../Store';
 import Link from '../Link/Link';
 import ContactForm from '../ContactForm/ContactForm';
@@ -11,6 +11,18 @@ const Header: React.FC = () => {
   const [openSubNavs, setOpenSubNavs] = useState<Map<number, boolean>>(
     new Map<number, boolean>(),
   );
+  const location = useLocation();
+  const [hideDropdown, setHideDropdown] = useState<boolean>(false);
+
+  React.useEffect(() => {
+    
+    setHideDropdown(true)
+    setTimeout(() => {
+      setHideDropdown(false)
+
+    }, 10)
+
+  }, [location]);
 
   const [formOpen, setFormOpen] = useState<boolean>(false);
 
@@ -36,7 +48,7 @@ const Header: React.FC = () => {
     setFormOpen(false);
   };
 
-  const openSubMenu = (nav:any, index:any) => {
+  const openSubMenu = (nav: any, index: any) => {
     if (nav.submenus) {
       const newMap = new Map<number, boolean>(openSubNavs);
       newMap.set(index, !newMap.get(index));
@@ -62,7 +74,7 @@ const Header: React.FC = () => {
         />
       </RouterLink>
       <ul className="menu-container desktop">
-        {navigation.map((nav:any, i) => {
+        {navigation.map((nav: any, i) => {
           let className = '';
           if (nav.submenus) {
             className += 'has-children';
@@ -72,23 +84,23 @@ const Header: React.FC = () => {
           }
           return (
             <li className={className} key={i}>
-              <Link to={nav.link.url}><span dangerouslySetInnerHTML={{__html:nav.link.title}}/></Link>
-              <div className="sub-menu">
+              <Link to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }} /></Link>
+              <div className={"sub-menu"}>
                 {typeof nav.submenus === 'object'
-                  && nav.submenus.map((subs:any, index:any) => (
-                    <div className="sub-menu-list" key={index}>
+                  && nav.submenus.map((subs: any, index: any) => (
+                    <div className="sub-menu-list" style={{display: !hideDropdown ? "block" : "none"}} key={index}>
                       {
-                          subs.title.length > 0 ? (
-                            <h5 dangerouslySetInnerHTML={{__html: subs.title}}></h5>
-                          ) : null
-                        }
+                        subs.title.length > 0 ? (
+                          <h5 dangerouslySetInnerHTML={{ __html: subs.title }}></h5>
+                        ) : null
+                      }
                       <ul>
                         {typeof subs.navigation === 'object'
-                            && subs.navigation.map((l:any, key:any) => (
-                              <li key={key}>
-                                <Link to={l.link.url}><span dangerouslySetInnerHTML={{__html: l.link.title}}></span></Link>
-                              </li>
-                            ))}
+                          && subs.navigation.map((l: any, key: any) => (
+                            <li key={key}>
+                              <Link to={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></Link>
+                            </li>
+                          ))}
                       </ul>
                     </div>
                   ))}
@@ -126,30 +138,30 @@ const Header: React.FC = () => {
                 className={`sub-menu ${openSubNavs.get(index) ? 'show' : ''}`}
               >
                 {typeof nav.submenus === 'object'
-                    && nav.submenus.map((subs, k) => (
-                      <div className="sub-menu-list" key={k}>
-                        {
-                          subs.title.length > 0 ? (
-                            <h5>{subs.title}</h5>
-                          ) : null
-                        }
-                        <ul>
-                          {typeof subs.navigation === 'object'
-                              && subs.navigation.map((l, key) => (
-                                <li key={key}>
-                                  <Link
-                                    onClick={() => {
-                                      setMobileNavOpen(false);
-                                    }}
-                                    to={l.link.url}
-                                  >
-                                    {l.link.title}
-                                  </Link>
-                                </li>
-                              ))}
-                        </ul>
-                      </div>
-                    ))}
+                  && nav.submenus.map((subs, k) => (
+                    <div className="sub-menu-list" key={k}>
+                      {
+                        subs.title.length > 0 ? (
+                          <h5>{subs.title}</h5>
+                        ) : null
+                      }
+                      <ul>
+                        {typeof subs.navigation === 'object'
+                          && subs.navigation.map((l, key) => (
+                            <li key={key}>
+                              <Link
+                                onClick={() => {
+                                  setMobileNavOpen(false);
+                                }}
+                                to={l.link.url}
+                              >
+                                {l.link.title}
+                              </Link>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+                  ))}
               </div>
             </li>
           ))}
@@ -167,7 +179,7 @@ type FormDropdownProps = {
   openButtonRef: any
 };
 const FormDropdown: React.FC<FormDropdownProps> = ({ open, onClose, openButtonRef }) => {
-  const dropdownRef : any = useRef(null);
+  const dropdownRef: any = useRef(null);
 
 
   useEffect(() => {
