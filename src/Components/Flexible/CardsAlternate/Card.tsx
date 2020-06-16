@@ -13,14 +13,14 @@ export type CardProps = {
 const Card: React.FC<CardProps> = ({
   image, header, text, button,
 }) => (
-  <div className="one-card">
+  <a href={button.button.url} className="one-card">
     <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ''} alt={image ? image.alt : ''} />
     <div className="text-container">
       <h3>{header}</h3>
       <p>{text}</p>
       <LinkButton {...button} />
     </div>
-  </div>
+  </a>
 );
 
 export default Card;

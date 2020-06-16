@@ -20,7 +20,7 @@ const Header: React.FC = () => {
     setTimeout(() => {
       setHideDropdown(false)
 
-    }, 10)
+    }, 100)
 
   }, [location]);
 
