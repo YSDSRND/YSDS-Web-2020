@@ -13,10 +13,7 @@
     .main-inner {
         margin: $margin;
         text-align: center;
-        padding: 0 6.25%;
-        @media screen and (min-width: $medium) {
-            padding: 0 12.5%;
-        }
+        padding: 0 $half-col;
         h2 {
             margin-bottom: 50px;
         }
@@ -54,8 +51,14 @@
                 }
                 .text-container {
                     padding: 15px;
+                    padding-top: 20px;
+                    padding-right: 0;
+                    padding-left: 0;
                     h3 {
                         margin: 0;
+                        border-bottom: 1px solid $primary-color;
+                        padding-bottom: 10px;
+                        margin-bottom: 12px;
                     }
                     p:first-of-type {
                         margin-top: 5px;
@@ -73,8 +76,9 @@
                 }
             }
             &.dark {
-                h3 {
+                .bullet .text-container h3 {
                     color: $primary-color;
+                    border-color: black;
                 }
             }
             &.four {
