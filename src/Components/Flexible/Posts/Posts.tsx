@@ -21,7 +21,7 @@ const Posts: React.FC<PostsProps> = () => {
       setData(resp);
       setLoading(false);
     });
-  }, []);
+  });
 
   if (loading) {
     return <LoadingTemplate />;
@@ -41,14 +41,14 @@ const Posts: React.FC<PostsProps> = () => {
 
           <div style={{width:"100%"}}></div>
 
-      <a className="ysds-button normal"  onClick={() => {
+      <button className="ysds-button normal"  onClick={() => {
         getPosts(page+1).then((resp:any) => {
           let newData = data.concat(resp)
           setData(newData);
           setPage(page +1)
           
         });
-      }}>Load more</a>
+      }}>Load more</button>
 
         </div>
       </div>

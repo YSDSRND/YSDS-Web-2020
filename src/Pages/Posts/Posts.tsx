@@ -14,14 +14,15 @@ const Posts: React.FC = () => {
 
   useEffect(() => {
     getPosts(page).then((resp) => {
-      console.log(resp, "upper")
-      setData(resp);
+      let newData = data.concat(resp)
+
+      setData(newData);
       setLoading(false);
       if (resp.length < 3) {
         setLast(true);
       }
     });
-  }, []);
+  }, [page]);
 
   if (loading) {
     return <LoadingTemplate />;
@@ -43,17 +44,11 @@ const Posts: React.FC = () => {
 
           {
             !last ? (
-              <a className="ysds-button normal" onClick={() => {
-                getPosts(page + 1).then((resp) => {
-                  let newData = data.concat(resp)
-                  setData(newData);
-                  setPage(page + 1)
-                  if (resp.length < 3) {
-                    setLast(true);
-                  }
+              <button className="ysds-button normal" onClick={() => {
+                setPage(page + 1)
 
-                });
-              }}>Load more</a>
+               
+              }}>Load more</button>
 
             ) : null
           }
