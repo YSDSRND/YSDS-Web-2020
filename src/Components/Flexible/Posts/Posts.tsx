@@ -15,13 +15,15 @@ const Posts: React.FC<PostsProps> = () => {
   const [data, setData] = useState<any>([]);
   const [is404] = useState<boolean>();
   const [page, setPage] = useState<number>(1);
-
+ 
   useEffect(() => {
     getPosts(page).then((resp:any) => {
-      setData(resp);
+      let newData = data.concat(resp)
+
+      setData(newData);
       setLoading(false);
     });
-  });
+  }, [page]);
 
   if (loading) {
     return <LoadingTemplate />;
@@ -42,12 +44,9 @@ const Posts: React.FC<PostsProps> = () => {
           <div style={{width:"100%"}}></div>
 
       <button className="ysds-button normal"  onClick={() => {
-        getPosts(page+1).then((resp:any) => {
-          let newData = data.concat(resp)
-          setData(newData);
-          setPage(page +1)
-          
-        });
+                  setPage(page +1)
+
+       
       }}>Load more</button>
 
         </div>
