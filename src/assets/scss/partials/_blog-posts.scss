@@ -53,6 +53,7 @@
                 background: $blue;
                 width: 100%;
                 object-fit: cover;
+                filter: grayscale(60%);
                 @media screen and (min-width: $small) {
                     height: 180px;
                 }
