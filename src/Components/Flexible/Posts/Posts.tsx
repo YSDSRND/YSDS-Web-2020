@@ -23,7 +23,7 @@ const Posts: React.FC<PostsProps> = () => {
       setData(newData);
       setLoading(false);
     });
-  }, [page]);
+  }, [page, data]);
 
   if (loading) {
     return <LoadingTemplate />;
