@@ -48,7 +48,7 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
             !loading && casesData && (
               <Swiper {...params}>
               {
-                [...casesData, ...casesData].map((caseItem: CaseProps, i) => (
+                casesData.map((caseItem: CaseProps, i) => (
                   <div className="swiper-slide">
                     <Case key={i} {...caseItem} />
                   </div>
