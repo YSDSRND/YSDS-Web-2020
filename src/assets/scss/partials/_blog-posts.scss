@@ -31,22 +31,19 @@
             flex-wrap: wrap;
             justify-content: space-between;
             width: 100%;
+            margin-bottom: 20px;
         }
         .one-post {
-            margin-bottom: 40px;
-            border-radius: 5px;
-            box-shadow: 0 0 11px 6px #0000001a;
+            margin-bottom: 20px;
+            box-shadow: 0 0 13px 2px #0000001a;
             transition: all 0.2s ease;
             color: black;
             text-decoration: none;
             width: 100%;
             background: white;
+            overflow: hidden;
             @media screen and (min-width: $small) {
-                margin-right: 20px;
-                width: calc(33.33333% - 20px);
-                &:last-of-type {
-                    margin-right: 0;
-                }
+                display: flex;
             }
             img {
                 height: 250px;
@@ -54,30 +51,61 @@
                 width: 100%;
                 object-fit: cover;
                 filter: grayscale(60%);
+                display: none;
                 @media screen and (min-width: $small) {
                     height: 180px;
+                    width: 200px;
                 }
                 @media screen and (min-width: $medium) {
-                    height: 250px;
+                    height: 100%;
                 }
             }
-            h3 {
-                border-bottom: 1px solid $primary-color;
-                padding-bottom: 5px;
-                margin: 22px 15px 10px;
-            }
-            .date {
-                color: $dark-grey;
-                text-transform: uppercase;
-                font-size: 13px;
-                font-family: Helvetica-Neue-Condensed;
-                margin-top: 0;
-            }
-            p {
-                padding: 0 15px;
+            .post-text-container {
+                position: relative;
+                width: 100%;
+                h3 {
+                    border-bottom: 1px solid $primary-color;
+                    padding-bottom: 5px;
+                    margin: 20px 15px 10px;
+                    font-size: 20px;
+                    padding-right: 70px;
+                }
+                .date {
+                    color: $dark-grey;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    font-family: Helvetica-Neue-Condensed;
+                    margin-top: 0;
+                    position: absolute;
+                    top: 1px;
+                    right: 0;
+                    @media screen and (min-width: $small) {
+                        top: 20px;
+                    }
+                }
+                p {
+                    padding: 0 15px;
+                    font-size: 14px;
+                }
             }
             &:hover {
-                box-shadow: 0 0 11px 6px #00000026;
+                box-shadow: 0 0 13px 2px #00000026;
+            }
+            &:first-of-type {
+                background: $blue;
+                color: white;
+                img {
+                    display: block;
+                }
+                h3 {
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 16px;
+                }
+                .date {
+                    color: #afafaf;
+                }
             }
         }
         .pagination {

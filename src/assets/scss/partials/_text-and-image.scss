@@ -3,11 +3,18 @@
     .main-inner {
         margin: 100px 12.5%;
         padding: 0;
-        display: flex;
-        flex-wrap: wrap;
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            align-items: stretch;
+        }
         .text-container {
             padding-top: 30px;
             order: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             @media screen and (min-width: $medium) {
                 width: 60%;
                 order: 1;
@@ -15,7 +22,7 @@
                 padding-right: 40px;
             }
             .content {
-                padding-top: 20px;
+                padding-top: 1px;
                 position: relative;
             }
         }
@@ -23,6 +30,9 @@
             width: 100%;
             height: 200px;
             order: 1;
+            @media screen and (min-width: $small) {
+                height: 300px;
+            }
             @media screen and (min-width: $medium) {
                 width: 40%;
                 order: 2;
@@ -32,6 +42,12 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+            &.contain {
+                height: auto;
+                img {
+                    object-fit: contain;
+                }
             }
         }
     }
