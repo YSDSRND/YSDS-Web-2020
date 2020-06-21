@@ -37,15 +37,17 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
             <h2>{title}</h2>
             <div className="flex-container">
               {
-                                data.map((card: any, i:number) => (
-                                  <a key={i} className="one-post" href={`/posts/${card.slug}`}>
-                                    <img alt="" src={card.media ? card.media.large : ''} />
-                                    <h3>{card.title}</h3>
-                                    <p className="date">{new Date(card.date).toLocaleDateString('sv-SE')}</p>
-                                    <p>{card.excerpt}</p>
-                                  </a>
-                                ))
-                            }
+                data.map((card: any, i:number) => (
+                  <a key={i} className="one-post" href={`/posts/${card.slug}`}>
+                    <img alt="" src={card.media ? card.media.large : ''} />
+                    <div className="post-text-container">
+                      <h3>{card.title}</h3>
+                      <p className="date">{new Date(card.date).toLocaleDateString('sv-SE')}</p>
+                      <p>{card.excerpt}</p>
+                    </div>
+                  </a>
+                ))
+              }
 
             </div>
             <LinkButton {...button} />

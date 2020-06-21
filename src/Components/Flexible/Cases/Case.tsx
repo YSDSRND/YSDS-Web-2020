@@ -12,6 +12,7 @@ export type CaseProps = {
 
 const Case: React.FC<CaseProps> = ({ header, body, button }) => (
   <div className="one-card">
+    <img src="#" />
     <h3>{header}</h3>
     <p>{body}</p>
     <LinkButton {...button.button} />

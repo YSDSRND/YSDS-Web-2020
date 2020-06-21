@@ -33,6 +33,7 @@ const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns, backgr
                 <div className="text-container">
                   <h3>{bullet.title}</h3>
                   <p>{bullet.text}</p>
+                  <LinkButton {...button} />
                 </div>
               </div>
             ))
