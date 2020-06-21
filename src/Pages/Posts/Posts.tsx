@@ -22,7 +22,7 @@ const Posts: React.FC = () => {
         setLast(true);
       }
     });
-  }, [page]);
+  }, [page, data]);
 
   if (loading) {
     return <LoadingTemplate />;
