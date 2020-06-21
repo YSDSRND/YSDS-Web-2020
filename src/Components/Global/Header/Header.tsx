@@ -60,7 +60,10 @@ const Header: React.FC = () => {
   return (
     <section className="header">
       <RouterLink
-        onClick={closeMobileNav}
+        onClick={() => {
+          closeMobileNav()
+          window.scrollTo(0, 0);
+        }}
         to="/"
       >
         <img
@@ -84,7 +87,7 @@ const Header: React.FC = () => {
           }
           return (
             <li className={className} key={i}>
-              <Link to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }} /></Link>
+              <Link onClick={() => {window.scrollTo(0, 0)}} to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }} /></Link>
               <div className={"sub-menu"}>
                 {typeof nav.submenus === 'object'
                   && nav.submenus.map((subs: any, index: any) => (
@@ -98,7 +101,7 @@ const Header: React.FC = () => {
                         {typeof subs.navigation === 'object'
                           && subs.navigation.map((l: any, key: any) => (
                             <li key={key}>
-                              <Link to={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></Link>
+                              <Link onClick={() => {window.scrollTo(0, 0)}} to={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></Link>
                             </li>
                           ))}
                       </ul>
@@ -128,6 +131,7 @@ const Header: React.FC = () => {
                 <Link
                   onClick={() => {
                     setMobileNavOpen(false);
+                    window.scrollTo(0, 0)
                   }}
                   to={nav.link.url}
                 >
@@ -152,6 +156,7 @@ const Header: React.FC = () => {
                               <Link
                                 onClick={() => {
                                   setMobileNavOpen(false);
+                                  window.scrollTo(0, 0)
                                 }}
                                 to={l.link.url}
                               >

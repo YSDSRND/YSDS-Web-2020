@@ -16,14 +16,14 @@ const Footer: React.FC = () => {
     <section className="footer">
       <div className="main">
         <div className="main-inner">
-          <RouterLink to="/">
+          <RouterLink to="/" onClick={() => {window.scrollTo(0, 0)}}>
             <img src={footer_logo && footer_logo.sizes && footer_logo.sizes.large ? footer_logo.sizes.large : ''} alt={footer_logo ? footer_logo.alt : ''} />
           </RouterLink>
           {navigation.map(({ subnavigation }, j) => (
             <ul key={j}>
               {subnavigation.map(({ link }, i) => (
                 <li key={i}>
-                  <Link to={link.url}><span dangerouslySetInnerHTML={{__html: link.title}}></span></Link>
+                  <Link onClick={() => {window.scrollTo(0, 0)}} to={link.url}><span dangerouslySetInnerHTML={{__html: link.title}}></span></Link>
                 </li>
               ))}
             </ul>
