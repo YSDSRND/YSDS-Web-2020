@@ -22,7 +22,8 @@ const Posts: React.FC = () => {
         setLast(true);
       }
     });
-  }, [page, data]);
+    // eslint-disable-next-line
+  }, [page]);
 
   if (loading) {
     return <LoadingTemplate />;

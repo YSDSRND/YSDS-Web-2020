@@ -114,7 +114,7 @@ const Header: React.FC = () => {
       </button>
       <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} />
       <button
-        className="hamburger"
+        className={"hamburger " + (mobileNavOpen ? "navopen" : "")}
         onClick={reverseMobileNav}
       />
 

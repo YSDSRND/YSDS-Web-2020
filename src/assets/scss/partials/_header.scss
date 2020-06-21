@@ -278,6 +278,7 @@
     }
 
     .hamburger {
+        
         width: 40px;
         height: 34px;
         position: absolute;
@@ -293,5 +294,10 @@
         appearance: none;
         border: none;
         background-color: transparent;
+     
+    }
+    .navopen{
+        background-image: url(../../images/box.jpg);
+
     }
 }

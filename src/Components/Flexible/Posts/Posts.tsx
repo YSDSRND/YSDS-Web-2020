@@ -23,7 +23,8 @@ const Posts: React.FC<PostsProps> = () => {
       setData(newData);
       setLoading(false);
     });
-  }, [page, data]);
+        // eslint-disable-next-line
+  }, [page]);
 
   if (loading) {
     return <LoadingTemplate />;

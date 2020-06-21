@@ -19,7 +19,7 @@ const LinkButton : React.FC<WPButton> = ({ button, button_style,  }) => {
     )
   }
   return (
-    <Link to={pathname} target={button.target} className={`ysds-button ${button_style}`}>
+    <Link to={pathname} target={"_blank"} className={`ysds-button ${button_style}`}>
       {button.title}
     </Link>
   );

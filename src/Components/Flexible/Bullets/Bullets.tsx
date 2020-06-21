@@ -1,5 +1,8 @@
 import React from 'react';
 import { WPImage } from '../../../Util/Types/WPImage';
+import WPButton  from '../../../Util/Types/WPButton';
+
+import LinkButton from '../../Global/LinkButton/LinkButton';
 
 export const BulletACFLayout = 'check_list';
 export type BulletProps = {
@@ -8,13 +11,13 @@ export type BulletProps = {
   title: string,
   columns:string,
   background_color:string,
-  bullet_alignment: string
-
+  bullet_alignment: string,
+  button: WPButton,
   acf_fc_layout: 'check_list'
 
 };
 
-const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns, background_color, bullet_alignment}) => (
+const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns, background_color, bullet_alignment, button}) => (
   <section className={"check-list " + background_color}>
     <div className="main">
       <div className="main-inner">
@@ -35,6 +38,8 @@ const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns, backgr
             ))
           }
         </div>
+        <LinkButton {...button} />
+
       </div>
     </div>
   </section>
