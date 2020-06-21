@@ -19,11 +19,18 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
   useEffect(() => {
     const promises = cases.map((c) => GetCaseByID(c.ID));
 
-    Promise.all(promises).then((res) => {
-      setCasesData(res.map((r) => r.acf));
+    Promise.all(promises).then((res:any) => {
+      res = res.map((r:any) => {
+        console.log(r.media)
+        r.acf.media=r.media;
+        return r;
+      })
+
+      setCasesData(res.map((r:any) => r.acf));
       setLoading(false);
     });
   }, [cases]);
+
   return (
     <section className={`cases ${background_color}`}>
       <div className="main">

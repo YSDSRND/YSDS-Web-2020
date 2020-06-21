@@ -8,12 +8,13 @@ export type CaseProps = {
   button: {
       button: WPButton
   };
+
+  media: any;
 };
 
-const Case: React.FC<CaseProps> = ({ header, body, button }) => (
+const Case: React.FC<CaseProps> = ({ header, body, button, media }) => (
   <div className="one-card">
-    <img src="#" />
-    <h3>{header}</h3>
+    <img src={media &&  media.large ? media.large : ''} alt={''} />    <h3>{header}</h3>
     <p>{body}</p>
     <LinkButton {...button.button} />
   </div>
