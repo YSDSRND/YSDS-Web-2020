@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Case, { CaseProps } from './Case';
 import { GetCaseByID } from '../../../Services/Cases/Cases';
+import Swiper from 'react-id-swiper';
 
 export const CasesACFLayout = 'cases';
 export type CasesProps = {
@@ -31,6 +32,11 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
     });
   }, [cases]);
 
+  const params = {
+    slidesPerView: 1,
+    spaceBetween: 40,
+  }
+
   return (
     <section className={`cases ${background_color}`}>
       <div className="main">
@@ -39,10 +45,19 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
             title.length > 0 ? (<h2>{title}</h2>) : null
           }
           {
-            !loading && casesData && casesData.map((caseItem: CaseProps, i) => (
-              <Case key={i} {...caseItem} />
-            ))
+            !loading && casesData && (
+              <Swiper {...params}>
+              {
+                [...casesData, ...casesData].map((caseItem: CaseProps, i) => (
+                  <div className="swiper-slide">
+                    <Case key={i} {...caseItem} />
+                  </div>
+                ))
+              }
+              </Swiper>
+            )
           }
+          
 
         </div>
       </div>
