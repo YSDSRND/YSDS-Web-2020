@@ -113,7 +113,7 @@ const Header: React.FC = () => {
         })}
       </ul>
       <button ref={contactButtonRef} className="ysds-button normal" onClick={reverseForm}>
-        Contact us
+        Get in touch!
       </button>
       <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} />
       <button
