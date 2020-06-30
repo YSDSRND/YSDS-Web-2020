@@ -11,7 +11,7 @@ import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTempla
 
 import Swal from 'sweetalert2';
 import withReactContent from "sweetalert2-react-content";
-import Card, {CardProps} from "../../Components/Flexible/CardsAlternate/Card";
+import Card from "../../Components/Flexible/CardsAlternate/Card";
 
 const ReactSwal = withReactContent(Swal);
 
