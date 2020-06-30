@@ -12,6 +12,7 @@ import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTempla
 import Swal from 'sweetalert2';
 import withReactContent from "sweetalert2-react-content";
 import Card, {CardProps} from "../../Components/Flexible/CardsAlternate/Card";
+import {AllHtmlEntities} from 'html-entities';
 
 const ReactSwal = withReactContent(Swal);
 
@@ -83,12 +84,12 @@ const FrontPage: React.FC = () => {
     {
       yoastData ? yoastData.map((d:any) => {
         return (
-          <meta property={d.property} content={d.content} />
+          <meta property={d.property} content={unescape(d.content)} />
         )
       }) : null
     }
   
-  <title>{data.title}</title>
+  <title>{AllHtmlEntities.decode(data.title)}</title>
 
   </Helmet>
   <Flexible flexible={data.acf.flexible} /></>;

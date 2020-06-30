@@ -6,6 +6,7 @@ import Error404Template from '../../PageTemplates/Error404Template/Error404Templ
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 import { useLocation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import {AllHtmlEntities} from "html-entities";
 
 const Post: React.FC = () => {
   const { slug } = useParams();
@@ -63,7 +64,7 @@ const Post: React.FC = () => {
         }) : null
       }
 
-      <title>{data.title}</title>
+      <title>{AllHtmlEntities.decode(data.title)}</title>
 
     </Helmet>
     <Flexible flexible={data.acf.flexible} /></>;
