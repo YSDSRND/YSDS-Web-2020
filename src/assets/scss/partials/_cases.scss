@@ -24,6 +24,9 @@
             margin: 0;
             margin-bottom: 50px;
         }
+        .swiper-pagination-bullet-active {
+            background: $primary-color;
+        }
         .one-card {
             width: 100%;
             padding: 30px 20px;
