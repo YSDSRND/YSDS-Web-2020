@@ -1,5 +1,6 @@
 import { WPImage } from '../../Util/Types/WPImage';
 import WPLinks from '../../Util/Types/WPLink';
+import {CardProps} from "../../Components/Flexible/CardsAlternate/Card";
 
 export type WPOptions = {
     footer: {
@@ -24,6 +25,11 @@ export type WPOptions = {
         contact: WPLinks,
     },
     frontpage: number,
+    industry_modal: {
+        title: string,
+        description: string,
+        cards: CardProps[],
+    },
 }
 
 export interface OptionsState {

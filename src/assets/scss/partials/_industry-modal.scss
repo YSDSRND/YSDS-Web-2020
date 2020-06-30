@@ -4,12 +4,16 @@
   justify-content: center;
   flex-wrap: wrap;
   .one-card {
-    margin-bottom: 50px;
     text-decoration: none;
     color: black;
     background: white;
-    width: calc(50% - 30px);
     margin: 15px;
+    @media screen and (min-width: $small) {
+      width: calc(50% - 30px);
+    }
+    @media screen and (min-width: $medium) {
+      width: calc(25% - 30px);
+    }
 
     img {
       height: 160px;
