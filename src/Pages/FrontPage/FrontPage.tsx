@@ -26,7 +26,7 @@ const FrontPage: React.FC = () => {
     }
     GetYoastBySlug(location.pathname).then((resp) => {
       setYoastData(resp[0] ? resp[0].yoast_meta : '');
-
+      
     });
 
 
@@ -60,7 +60,7 @@ const FrontPage: React.FC = () => {
         )
       }) : null
     }
-
+  
   <title>{AllHtmlEntities.decode(data.title)}</title>
 
   </Helmet>
