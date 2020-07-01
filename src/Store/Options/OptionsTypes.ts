@@ -1,6 +1,5 @@
 import { WPImage } from '../../Util/Types/WPImage';
 import WPLinks from '../../Util/Types/WPLink';
-import {CardProps} from "../../Components/Flexible/CardsAlternate/Card";
 
 export type WPOptions = {
     footer: {
