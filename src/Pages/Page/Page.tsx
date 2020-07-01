@@ -4,7 +4,8 @@ import { useLocation } from 'react-router-dom';
 import Flexible from '../../Components/Global/Flexible/Flexible';
 import { GetPageBySlug, GetYoastBySlug } from '../../Services/Pages/Pages';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
-import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
+import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate';
+import {AllHtmlEntities} from 'html-entities';
 
 const Page: React.FC = (props) => {
   const location = useLocation();
@@ -68,7 +69,7 @@ const Page: React.FC = (props) => {
         }) : null
       }
     
-    <title>{data.title}</title>
+    <title>{AllHtmlEntities.decode(data.title)}</title>
 
     </Helmet>
     <Flexible flexible={data.acf.flexible} /></>;
