@@ -1,0 +1,66 @@
+.industry-banner {
+  background-color: lighten(#000000, 10);
+  color: #ffffff;
+  padding: 2rem 0;
+  .main-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .description {
+    width: 50%;
+    p {
+      margin: 0;
+    }
+  }
+
+  .form {
+    margin-left: 1rem;
+    width: calc(50% - 1rem);
+    height: 40px;
+    margin-top: auto;
+
+    display: flex;
+
+    .custom-select {
+      position: relative;
+      width: 40%;
+      margin-right: 2rem;
+
+      &:after {
+        content: '\25BE';
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: #ffffff;
+        font-size: 20px;
+      }
+
+      select {
+        padding: 0 4rem 0 1rem;
+        height: 100%;
+        width: 100%;
+
+        outline: none;
+        border: #ffffff solid 1px;
+        border-radius: 4px;
+        background-color: rgba(#000000, 0.4);
+        color: #ffffff;
+
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        appearance:none;
+      }
+    }
+
+
+    button {
+      &:first-of-type {
+        margin-right: 2rem;
+      }
+      width: 30%;
+    }
+  }
+}
