@@ -44,7 +44,7 @@ const FrontPage: React.FC = () => {
     ReactSwal.fire({
       title: <h2>{options.options.industry_modal.title}</h2>,
       html: <>
-        <p>{options.options.industry_modal.description}</p>
+        <p className="lead">{options.options.industry_modal.description}</p>
         <div className="industry-modal">
           {options.options.industry_modal.cards.map((cardItem, i) => {
             return <Card key={i} {...cardItem} />;
