@@ -9,12 +9,7 @@ import { AppState } from '../../Store';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
-import Swal from 'sweetalert2';
-import withReactContent from "sweetalert2-react-content";
-import Card from "../../Components/Flexible/CardsAlternate/Card";
 import {AllHtmlEntities} from 'html-entities';
-
-const ReactSwal = withReactContent(Swal);
 
 const FrontPage: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
@@ -31,34 +26,11 @@ const FrontPage: React.FC = () => {
     }
     GetYoastBySlug(location.pathname).then((resp) => {
       setYoastData(resp[0] ? resp[0].yoast_meta : '');
-      
+
     });
 
 
   }, [location]);
-
-  useEffect(() => {
-    if (options.loading || !options.options) {
-      return;
-    }
-
-    ReactSwal.fire({
-      title: <h2>{options.options.industry_modal.title}</h2>,
-      html: <>
-        <p>{options.options.industry_modal.description}</p>
-        <div className="industry-modal">
-          {options.options.industry_modal.cards.map((cardItem, i) => {
-            return <Card key={i} {...cardItem} />;
-          })}
-        </div>
-        </>,
-      grow: "row",
-      showCloseButton: true,
-      showConfirmButton: false,
-      showCancelButton: true,
-      cancelButtonText: "Skip",
-    })
-  }, [options]);
 
   useEffect(() => {
     if (options.loading || !options.options) {
@@ -88,7 +60,7 @@ const FrontPage: React.FC = () => {
         )
       }) : null
     }
-  
+
   <title>{AllHtmlEntities.decode(data.title)}</title>
 
   </Helmet>

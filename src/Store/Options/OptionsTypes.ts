@@ -25,11 +25,6 @@ export type WPOptions = {
         contact: WPLinks,
     },
     frontpage: number,
-    industry_modal: {
-        title: string,
-        description: string,
-        cards: CardProps[],
-    },
 }
 
 export interface OptionsState {
