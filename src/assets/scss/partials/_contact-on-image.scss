@@ -1,5 +1,25 @@
 .contact-on-image {
     position: relative;
+    &.dark {
+        .main {
+            background-color: rgba(0,0,0,0.7);
+            .triangle {
+                background: $blue;
+            }
+            .main-inner {
+                color: white;
+                .form-container {
+                    background: white;
+                    color: black;
+                    input[type=text],
+                    input[type=email],
+                    input[type=tel] {
+                        border: 1px solid #040f1b;
+                    }
+                }
+            }
+        }
+    }
     .background-image {
         position: absolute;
         width: 100%;

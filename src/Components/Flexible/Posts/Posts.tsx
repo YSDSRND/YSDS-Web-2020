@@ -8,9 +8,10 @@ export const PostsACFLayout = 'posts';
 
 export type PostsProps = {
     acf_fc_layout: typeof PostsACFLayout,
+    background_color:string;
   };
 
-const Posts: React.FC<PostsProps> = () => {
+const Posts: React.FC<PostsProps> = ({ background_color }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>([]);
   const [is404] = useState<boolean>();
@@ -35,7 +36,7 @@ const Posts: React.FC<PostsProps> = () => {
   }
 
   return (
-    <section className="blog-posts">
+    <section className={"blog-posts " + background_color}>
       <div className="main">
         <div className="main-inner">
           {

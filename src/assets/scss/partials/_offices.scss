@@ -1,4 +1,16 @@
 .offices {
+    &.darkblue {
+        background: $blue;
+        .main {
+            margin: 0;
+            color: white;
+        }
+        .main-inner {
+            margin: 0 auto;
+            padding-bottom: 100px;
+            color: black;
+        }
+    }
     .main {
         position: relative;
         margin-top: 100px;
@@ -40,6 +52,7 @@
             border-radius: 5px;
             overflow: hidden;
             width: 100%;
+            background: white;
             @media screen and (min-width: $small) {
                 width: calc(33.333% - 20px);
                 margin-right: 20px;
@@ -60,7 +73,7 @@
             }
             .text-container {
                 background: white;
-                padding: 28px 15px 1px;
+                padding: 28px 15px 10px;
             }
             h3 {
                 border-bottom: 1px solid $primary-color;

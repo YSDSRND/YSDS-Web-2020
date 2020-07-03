@@ -1,13 +1,25 @@
 .numbers {
+    &.darkblue {
+        .main {
+            background-color: $blue;
+            .main-inner {
+                color: white;
+                padding: 100px 0;
+            }
+        }
+    }
     .main {
         position: relative;
-        background-color: $blue;
+
     }
     .main-inner {
-        color: white;
         width: $six-col;
         margin-left: 12.5%;
         padding:100px 0;
+        padding-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 100px;
         .content {
             padding-top: 30px;
             position: relative;

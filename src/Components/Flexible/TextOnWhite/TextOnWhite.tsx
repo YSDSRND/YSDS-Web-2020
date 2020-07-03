@@ -13,6 +13,7 @@ export type TextOnWhiteProps = {
     title: string;
     content: string;
   }[];
+  background_color:string;
 };
 
 const TextOnWhite: React.FC<TextOnWhiteProps> = ({
@@ -21,8 +22,9 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
   text_or_lists,
   body,
   lists,
+  background_color
 }) => (
-  <section className="text-on-white editor">
+  <section className={"text-on-white editor " + background_color}>
     <div className="main">
       <div
         className="bg-image"

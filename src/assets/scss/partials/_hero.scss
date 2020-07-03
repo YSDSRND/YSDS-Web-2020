@@ -1,5 +1,17 @@
 .hero {
     position: relative;
+    &.darkblue {
+        
+        .main {
+            background-color: rgba(0,0,0,0.7);
+            .main-inner {
+                color: white;
+            } 
+        }
+        .triangle {
+            background: $blue;
+        }
+    }
     .background-image {
         position: absolute;
         width: 100%;
@@ -12,20 +24,18 @@
     }
     .main {
         position: relative;
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(255, 255, 255, 0.7);
     }
     .triangle {
-        background: $blue;
+        background: white;
         clip-path: polygon(0 0, 25% 0, 37.5% 100%, 0% 100%);
         height: 100%;
         width: 100%;
         position: absolute;
     }
     .main-inner {
-        color: white;
         padding: 100px 0;
         margin: 0 12.5%;
-        position: relative;
         @media screen and (min-width: $medium) {
             width: $four-col;
             padding: 150px 0;
@@ -50,13 +60,22 @@
             position: relative;
         }
         .bouncing-arrow {
-            width: 40px;
-            height: 40px;
-            background: blue;
+            appearance: none;
+            background: none;
+            width: 30px;
+            height: 30px;
             position: absolute;
             bottom: 20px;
             left: 50%;
-            transform: translate(-50%);
+            transform: translateX(-50%);
+            animation-name: bounce;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            background-image: url(../../images/arrow.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
         }
     }
     .line {

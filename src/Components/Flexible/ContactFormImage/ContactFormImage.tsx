@@ -9,6 +9,7 @@ export type ContactFormImageProps = {
   header: string;
   body: string;
   form_header: string;
+  background_color:string;
 };
 
 const ContactFormImage: React.FC<ContactFormImageProps> = ({
@@ -16,8 +17,9 @@ const ContactFormImage: React.FC<ContactFormImageProps> = ({
   header,
   body,
   form_header,
+  background_color
 }) => (
-  <section className="contact-on-image">
+  <section className={"contact-on-image " + background_color}>
     <div
       className="background-image"
       style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ''})` }}

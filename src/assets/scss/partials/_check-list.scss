@@ -78,7 +78,7 @@
             &.dark {
                 .bullet .text-container h3 {
                     color: $primary-color;
-                    border-color: black;
+                    border-color: white;
                 }
             }
             &.four {
@@ -96,6 +96,9 @@
                     }
                 }
             }
+        }
+        .ysds-button {
+            margin-top: 30px;
         }
     }
 }

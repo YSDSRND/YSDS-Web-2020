@@ -6,7 +6,7 @@ import LinkButton from '../../Global/LinkButton/LinkButton';
 
 export const BulletACFLayout = 'check_list';
 export type BulletProps = {
-  bullets: [{ title: string, text: string, icon: string, fontawsome_or_upload: string, image: WPImage }],
+  bullets: [{ title: string, text: string, icon: string, fontawsome_or_upload: string, image: WPImage, button:WPButton }],
   style: string,
   title: string,
   columns:string,
@@ -33,7 +33,7 @@ const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns, backgr
                 <div className="text-container">
                   <h3>{bullet.title}</h3>
                   <p>{bullet.text}</p>
-                  <LinkButton {...button} />
+                  <LinkButton {...bullet.button} />
                 </div>
               </div>
             ))

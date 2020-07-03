@@ -1,4 +1,15 @@
 .text-on-white {
+    &.darkblue {
+        background: $blue;
+        .triangle { 
+            background: $blue;
+        }
+        .main-inner {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            color: white;
+        }
+    }
     .bg-image {
         width: 100%;
         height: 250px;

@@ -1,5 +1,15 @@
 .text-and-image {
     position: relative;
+    &.darkblue {
+        background: $blue;
+        .main-inner {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            color: white;
+        }
+    }
     .main-inner {
         margin: 100px 12.5%;
         padding: 0;
