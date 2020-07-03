@@ -7,6 +7,10 @@
             padding-bottom: 100px;
             h2 {
                 color: white;
+                margin-bottom: 30px;
+            }
+            .swiper-pagination-bullet {
+                background: white;
             }
         }
     }
@@ -22,10 +26,51 @@
             width: 100%;
             text-align: center;
             margin: 0;
-            margin-bottom: 50px;
         }
-        .swiper-pagination-bullet-active {
-            background: $primary-color;
+        .swiper-container {
+            padding-bottom: 20px;
+            .swiper-pagination-bullet {
+                width: 10px;
+                height: 10px;
+            }
+            .swiper-pagination-bullet-active,
+            .swiper-pagination-bullet:hover {
+                background: $primary-color;
+                opacity: 1;
+            }
+            .swiper-container-horizontal>.swiper-pagination-bullets {
+                bottom: 0;
+            }
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            background: $blue;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 30px;
+            display: block;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            &:after {
+                color: white;
+                font-size: 24px;
+                left: 56%;
+                top: 50%;
+                position: absolute;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            &:hover {
+                background: $primary-color;
+            }
+        }
+        .swiper-button-prev {
+            left: 20px;
+            right: auto;
+            &:after {
+                left: 45%;
+            }
         }
         .one-card {
             width: 100%;
@@ -38,6 +83,9 @@
             align-items: center;
             //border: 1px solid $primary-color;
             background: white;
+            text-decoration: none;
+            color: black;
+            margin-bottom: 30px;
             @media screen and (min-width: $small) {
                 padding: 30px;
             }

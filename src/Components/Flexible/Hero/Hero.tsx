@@ -32,6 +32,7 @@ const Hero: React.FC<HeroProps> = ({
           <LinkButton {...button} />
 
         </div>
+        <button className="bouncing-arrow"></button>
       </div>
     </div>
   </section>

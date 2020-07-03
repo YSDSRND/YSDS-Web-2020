@@ -14,11 +14,11 @@ export type CaseProps = {
 };
 
 const Case: React.FC<CaseProps> = ({ header, body, button, media }) => (
-  <div className="one-card">
+  <a className="one-card" href="">
     <img src={media &&  media.large ? media.large : ''} alt={''} />    <h3>{header}</h3>
     <HTMLContent html={body} />
     <LinkButton {...button.button} />
-  </div>
+  </a>
 );
 
 export default Case;

@@ -37,6 +37,16 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
     spaceBetween: 40,
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
+    },
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   }
 
