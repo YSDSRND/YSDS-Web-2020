@@ -24,6 +24,14 @@ export type WPOptions = {
         contact: WPLinks,
     },
     frontpage: number,
+    industry_banner: {
+        description: string,
+        industries: {
+            ID: number,
+            post_title: string,
+            post_name: string,
+        }[]
+    }
 }
 
 export interface OptionsState {

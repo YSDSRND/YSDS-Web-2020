@@ -4,16 +4,20 @@ const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
   const [send, setSend] = useState(false);
 
   const onSubmit = (event: any) => {
     event.preventDefault();
+    const type = "contact_us";
     fetch('https://wp-admin.ysds.com/wp-json/qte/v1/contact', {
       method: 'POST',
       body: JSON.stringify({
         name,
         phone,
         email,
+        company,
+        type,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -24,6 +28,7 @@ const ContactForm: React.FC = () => {
   };
 
   const setNameFunc = (e:any) => { setName(e.target.value); };
+  const setCompanyFunc = (e:any) => { setCompany(e.target.value); };
   const setPhoneFunc = (e:any) => { setPhone(e.target.value); };
   const setEmailFunc = (e:any) => { setEmail(e.target.value); };
 
@@ -37,6 +42,9 @@ const ContactForm: React.FC = () => {
                   <form onSubmit={onSubmit}>
                     <label>Name</label>
                     <input type="text" name="name" value={name} onChange={setNameFunc} />
+
+                    <label>Company</label>
+                    <input type="text" name="company" value={company} onChange={setCompanyFunc} />
 
                     <label>Phone nr</label>
                     <input type="tel" name="phone" value={phone} onChange={setPhoneFunc} />

@@ -9,6 +9,8 @@ import { AppState } from '../../Store';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
+import {AllHtmlEntities} from 'html-entities';
+
 const FrontPage: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
   const location = useLocation();
@@ -54,12 +56,12 @@ const FrontPage: React.FC = () => {
     {
       yoastData ? yoastData.map((d:any) => {
         return (
-          <meta property={d.property} content={d.content} />
+          <meta property={d.property} content={unescape(d.content)} />
         )
       }) : null
     }
   
-  <title>{data.title}</title>
+  <title>{AllHtmlEntities.decode(data.title)}</title>
 
   </Helmet>
   <Flexible flexible={data.acf.flexible} /></>;
