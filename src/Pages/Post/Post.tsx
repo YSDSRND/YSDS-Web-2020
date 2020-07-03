@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Flexible from '../../Components/Global/Flexible/Flexible';
 import { GetPostBySlug, GetYoastBySlug } from '../../Services/Post/Post';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 import { useLocation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import {AllHtmlEntities} from "html-entities";
+import {StandaloneTextAndImage} from "../../Components/Flexible/TextAndImage/TextAndImage";
 
 const Post: React.FC = () => {
   const { slug } = useParams();
@@ -67,6 +67,7 @@ const Post: React.FC = () => {
       <title>{AllHtmlEntities.decode(data.title)}</title>
 
     </Helmet>
-    <Flexible flexible={data.acf.flexible} /></>;
+    <StandaloneTextAndImage acf_fc_layout="text_and_image" header={data.title} body={data.content} image={data.media} button={data.acf.button} />
+    </>;
 };
 export default Post;
