@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
       <h3>{header}</h3>
       <p>{text}</p>
 
-        <button className="ysds-button lines">{button.button.title}</button>
+        {button.button ? <button className="ysds-button lines">{button.button.title}</button> : ''}
     </div>
   </a>
 );
