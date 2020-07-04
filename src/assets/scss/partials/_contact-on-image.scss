@@ -9,12 +9,18 @@
             .main-inner {
                 color: white;
                 .form-container {
-                    background: white;
-                    color: black;
+                    @media screen and (min-width: $small) {
+                        background: white;
+                        color: black;
+                    }
                     input[type=text],
                     input[type=email],
                     input[type=tel] {
-                        border: 1px solid #040f1b;
+                        background: white;
+                        border: 1px solid white;
+                        @media screen and (min-width: $small) {
+                            border: 1px solid $blue;
+                        }
                     }
                 }
             }
@@ -45,9 +51,10 @@
     .main-inner {
         margin-left: 12.5%;
         margin-right: 12.5%;
-        padding:100px 0 150px;
+        padding:100px 0 100px;
         @media screen and (min-width: $small) {
             width: $four-col;
+            padding:100px 0 150px;
         }
         p {
             padding-top: 8px;
@@ -56,10 +63,12 @@
             padding-top: 20px;
             position: relative;
             .form-container {
-                background: $blue;
-                color: white;
                 border-radius: 10px;
-                padding: 35px 28px;
+                @media screen and (min-width: $small) {
+                    padding: 35px 28px;
+                    background: $blue;
+                    color: white;
+                }
                 h3 {
                     margin-top: 0px;
                     margin-bottom: 10px;
@@ -80,12 +89,17 @@
                         height: 38px;
                         width: 100%;
                         border-radius: 3px;
-                        border: 1px solid white;
+                        border: 1px solid $blue;
+                        background: $blue;
                         margin-bottom: 20px;
                         padding-left: 5px;
                         padding-top: 4px;
                         font-size: 15px;
                         font-family: Helvetica-Neue-Roman;
+                        @media screen and (min-width: $small) {
+                            border: 1px solid white;
+                            background: white;
+                        }
                     }
                     input:focus {
                         outline: none;

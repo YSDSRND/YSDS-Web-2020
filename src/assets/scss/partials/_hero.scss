@@ -12,6 +12,11 @@
             background: $blue;
         }
     }
+    &.hide-arrow {
+        .bouncing-arrow {
+            display: none;
+        }
+    }
     .background-image {
         position: absolute;
         width: 100%;
@@ -76,6 +81,9 @@
             background-repeat: no-repeat;
             background-position: center;
             border: none;
+            &:focus {
+                outline: none;
+            }
         }
     }
     .line {

@@ -2,6 +2,7 @@ import React from 'react';
 import Hero, {HeroACFLayout, HeroProps} from '../../Flexible/Hero/Hero';
 import Offices, {OfficesACFLayout, OfficesProps} from '../../Flexible/Offices/Offices';
 import Agents, {AgentsACFLayout, AgentsProps} from '../../Flexible/Agents/Agents';
+import SimpleText, {SimpleTextACFLayout, SimpleTextProps} from '../../Flexible/SimpleText/SimpleText';
 import Numbers, {NumbersACFLayout, NumbersProps} from '../../Flexible/Numbers/Numbers';
 import Cards, {CardsACFLayout, CardsProps} from '../../Flexible/Cards/Cards';
 import CardsAlternate, {
@@ -39,6 +40,7 @@ type FlexibleProps = {
 type FlexibleLayout = HeroProps
     | OfficesProps
     | AgentsProps
+    | SimpleTextProps
     | NumbersProps
     | CardsProps
     | CardsAlternateProps
@@ -85,6 +87,8 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
       return <Offices {...layout} key={i} />;
     case AgentsACFLayout:
       return <Agents {...layout} key={i} />;
+    case SimpleTextACFLayout:
+      return <SimpleText {...layout} key={i} />;
     case NumbersACFLayout:
       return <Numbers {...layout} key={i} />;
     case CardsACFLayout:

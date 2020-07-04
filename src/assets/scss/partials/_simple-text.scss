@@ -1,0 +1,55 @@
+.simple-text {
+    &.darkblue {
+        background: $blue;
+        .main {
+            margin-top: 0;
+            color: white;
+            padding-top: 100px;
+        }
+        .main-inner {
+            margin: 0 auto;
+            padding-bottom: 100px;
+
+        }
+    }
+    &.two-columns {
+        @media screen and (min-width: $small) {
+            .main-inner div {
+                column-count: 2;
+            }
+        }
+    }
+    &.centered-title {
+        .main {
+            .line {
+                position: relative;
+                width: 75%;
+                margin: 0 auto;
+            }
+        }
+    }
+    .main {
+        position: relative;
+        margin-top: 100px;
+        h2 {
+            margin-bottom: 10px;
+            margin: 0 12.5%;
+            padding-bottom: 3px;
+        }
+        .line {
+            height: 1px;
+            background: $primary-color;
+            position: absolute;
+        }
+    }
+    .main-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px 12.5% 0;
+        margin-bottom: 100px;
+        p:first-of-type {
+            margin-top: 0;
+        }
+    }
+}
