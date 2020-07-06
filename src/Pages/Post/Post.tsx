@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import {AllHtmlEntities} from "html-entities";
 import {StandaloneTextAndImage} from "../../Components/Flexible/TextAndImage/TextAndImage";
+import ContactFormColor from "../../Components/Flexible/ContactFormColor/ContactFormColor";
 
 const Post: React.FC = () => {
   const { slug } = useParams();
@@ -68,6 +69,22 @@ const Post: React.FC = () => {
 
     </Helmet>
     <StandaloneTextAndImage acf_fc_layout="text_and_image" header={data.title} body={data.content} image={data.media} button={data.acf.button} />
+    <ContactFormColor
+        acf_fc_layout="contact"
+        backgroundColor="blue"
+        header="Contact an export"
+        subheader="We are based in 12 cities in 7 countries worldwide, with a global network of agents and partners."
+        prefer_contacting_us_title="Prefer calling?"
+        prefer_contacting_us_body="Our dedicated staff are available by phone to help with any questions or enquiries that you may have."
+        button={{
+          button: {
+            target: '_self',
+            title: "Click here",
+            url: `${window.location.protocol}${window.location.host}/contact`
+          },
+          button_style: "lines white",
+        }}
+      />
     </>;
 };
 export default Post;
