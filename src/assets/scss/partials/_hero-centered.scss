@@ -1,5 +1,21 @@
 .hero-centered {
     position: relative;
+    &.darkblue {
+        .main {
+            background-color: rgba(0,0,0,0.7);
+            .main-inner {
+                color: white;
+            } 
+        }
+        .triangle {
+            background: $blue;
+        }
+    }
+    &.hide-arrow {
+        .bouncing-arrow {
+            display: none;
+        }
+    }
     .background-image {
         position: absolute;
         width: 100%;
@@ -12,10 +28,9 @@
     }
     .main {
         position: relative;
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(255, 255, 255, 0.7);
     }
     .main-inner {
-        color: white;
         padding: 150px 0;
         margin: 0 auto;
         text-align: center;
@@ -67,6 +82,9 @@
             background-repeat: no-repeat;
             background-position: center;
             border: none;
+            &:focus {
+                outline: none;
+            }
         }
     }
     .line {

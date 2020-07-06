@@ -12,13 +12,13 @@ export type ArticleProps = {
   body: string,
   button: WPButton,
   backgroundImage: WPImage,
+  background_color:string;
 }
 
-
 const Article: React.FC<ArticleProps> = ({
-  header, subheader, body, button, backgroundImage,
+  header, subheader, body, button, backgroundImage, background_color
 }) => (
-  <section className="article">
+  <section className={"article " + background_color}>
     <div className="background-image" style={{ backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : null})` }} />
     <div className="main">
       <div className="triangle" />

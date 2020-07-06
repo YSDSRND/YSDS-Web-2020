@@ -23,6 +23,7 @@ export type TextAndImageProps = {
   body: string;
   button?: WPButton;
   image: WPImage;
+  background_color:string;
 };
 
 const TextAndImage: React.FC<TextAndImageProps> = ({
@@ -32,8 +33,10 @@ const TextAndImage: React.FC<TextAndImageProps> = ({
   body,
   button,
   image,
+  background_color
 }) => (
-  <section className={`text-and-image ${mirrored_layout}`}>
+ 
+  <section className={`text-and-image ${mirrored_layout} ${background_color}`}>
     <div className="main">
       <div className="main-inner">
         <div className="flex-container">

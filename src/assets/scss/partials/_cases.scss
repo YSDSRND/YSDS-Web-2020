@@ -20,8 +20,11 @@
     .main-inner {
         display: flex;
         flex-wrap: wrap;
-        padding: 0px $one-col;
+        padding: 0px $half-col;
         margin: $margin;
+        @media screen and (min-width: $small) {
+            padding: 0px $one-col;
+        }
         h2 {
             width: 100%;
             text-align: center;
@@ -45,36 +48,46 @@
         .swiper-button-next,
         .swiper-button-prev {
             background: $blue;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            font-size: 30px;
             display: block;
-            right: 20px;
+            right: 5px;
             top: 50%;
             transform: translateY(-50%);
+            @media screen and (min-width: $small) {
+                width: 40px;
+                height: 40px;
+                right: 20px;
+            }
             &:after {
                 color: white;
-                font-size: 24px;
+                font-size: 18px;
                 left: 56%;
                 top: 50%;
                 position: absolute;
                 transform: translateX(-50%) translateY(-50%);
+                @media screen and (min-width: $small) {
+                    font-size: 24px;
+                }
             }
             &:hover {
                 background: $primary-color;
             }
         }
         .swiper-button-prev {
-            left: 20px;
+            left: 5px;
             right: auto;
+            @media screen and (min-width: $small) {
+                left: 20px;
+            }
             &:after {
                 left: 45%;
             }
         }
         .one-card {
             width: 100%;
-            padding: 30px 20px;
+            padding: 30px 42px;
             border-radius: 12px;
             text-align: center;
             display: flex;

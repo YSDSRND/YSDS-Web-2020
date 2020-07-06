@@ -6,6 +6,7 @@ export type AgentsProps = {
   header: string,
   body: string,
   agents: Agent[],
+  background_color:string;
 }
 
 type Agent = {
@@ -13,8 +14,8 @@ type Agent = {
   city: string,
 }
 
-const Agents : React.FC<AgentsProps> = ({ header, body, agents }) => (
-  <section className="agents">
+const Agents : React.FC<AgentsProps> = ({ header, body, agents, background_color }) => (
+  <section className={"agents " + background_color}>
     <div className="main">
       <h2>{header}</h2>
       <div className="line three-col" />

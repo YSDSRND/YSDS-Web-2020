@@ -11,12 +11,14 @@ export type HeroProps = {
     subheader: string,
     backgroundImage: WPImage,
     button: WPButton,
+    background_color:string;
+    arrow:string;
 }
 
 const Hero: React.FC<HeroProps> = ({
-  header, subheader, centered, backgroundImage, button,
+  header, subheader, centered, backgroundImage, button, background_color, arrow
 }) => (
-  <section className={centered ? 'hero-centered' : 'hero'}>
+  <section className={(centered ? 'hero-centered' : 'hero') + ' ' + background_color + ' ' + arrow}>
     <div className="background-image" style={{ backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})` }} />
     <div className="main">
       <div className="triangle" />

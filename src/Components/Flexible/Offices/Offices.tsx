@@ -10,10 +10,11 @@ export type OfficesProps = {
   body: string;
   offices: {
     ID: number
-  }[]
+  }[];
+  background_color:string;
 };
 
-const Offices: React.FC<OfficesProps> = ({ header, body, offices }) => {
+const Offices: React.FC<OfficesProps> = ({ header, body, offices, background_color }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [officeData, setOfficeData] = useState<OfficeProps[]>([]);
 
@@ -27,7 +28,7 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices }) => {
 
 
   return (
-    <section className="offices">
+    <section className={"offices " + background_color}>
       <div className="main">
         <h2>{header}</h2>
         <div className="line three-col" />

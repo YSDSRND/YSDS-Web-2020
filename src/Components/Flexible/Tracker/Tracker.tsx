@@ -7,11 +7,13 @@ export type TrackerProps = {
   acf_fc_layout: typeof TrackerAcfLayout;
   background_image: WPImage;
   header: string;
+  background_color:string,
 };
 
 const TextOnWhite: React.FC<TrackerProps> = ({
   background_image,
   header,
+  background_color
 }) => {
   const [trackingId, setTrackingId] = useState('');
   const [loading, setLoading] = useState(false);
@@ -29,7 +31,7 @@ const TextOnWhite: React.FC<TrackerProps> = ({
   const setTracking = (e:any) => setTrackingId(e.target.value);
 
   return (
-    <section className="tracker">
+    <section className={"tracker " + background_color}>
       <div className="main">
         <div className="main-inner">
           <h3>Enter your tracking code here:</h3>

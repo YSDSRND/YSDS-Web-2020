@@ -11,6 +11,7 @@ export type TextOnImageProps = {
   header: string;
   body: string;
   button: WPButton;
+  background_color:string;
 };
 
 const TextOnImage: React.FC<TextOnImageProps> = ({
@@ -18,8 +19,9 @@ const TextOnImage: React.FC<TextOnImageProps> = ({
   header,
   body,
   button,
+  background_color
 }) => (
-  <section className="text-on-image">
+  <section className={"text-on-image " + background_color}>
     <div className="background-image" style={{ backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})` }} />
     <div className="main">
       <div className="triangle" />

@@ -1,4 +1,4 @@
-.agents {
+.simple-text {
     &.darkblue {
         background: $blue;
         .main {
@@ -12,6 +12,22 @@
 
         }
     }
+    &.two-columns {
+        @media screen and (min-width: $small) {
+            .main-inner div {
+                column-count: 2;
+            }
+        }
+    }
+    &.centered-title {
+        .main {
+            .line {
+                position: relative;
+                width: 75%;
+                margin: 0 auto;
+            }
+        }
+    }
     .main {
         position: relative;
         margin-top: 100px;
@@ -19,16 +35,6 @@
             margin-bottom: 10px;
             margin: 0 12.5%;
             padding-bottom: 3px;
-            @media screen and (min-width: $small) {
-                width: $four-col;
-            }
-        }
-        .subtitle {
-            padding-top: 15px;
-            margin: 0 12.5%;
-            @media screen and (min-width: $small) {
-                width: $four-col;
-            }
         }
         .line {
             height: 1px;
@@ -40,14 +46,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 50px 12.5% 0;
+        padding: 20px 12.5% 0;
         margin-bottom: 100px;
-        .list {
-            margin-bottom: 0;
-            width: 100%;
-            @media screen and (min-width: $small) {
-                column-count: 3;
-            }
+        p:first-of-type {
+            margin-top: 0;
         }
     }
 }
