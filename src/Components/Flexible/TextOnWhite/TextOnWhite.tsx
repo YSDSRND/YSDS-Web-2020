@@ -14,6 +14,8 @@ export type TextOnWhiteProps = {
     content: string;
   }[];
   background_color:string;
+  image: WPImage;
+  title_line_position: string;
 };
 
 const TextOnWhite: React.FC<TextOnWhiteProps> = ({
@@ -22,14 +24,19 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
   text_or_lists,
   body,
   lists,
-  background_color
+  background_color,
+  image,
+  title_line_position,
 }) => (
-  <section className={"text-on-white editor " + background_color}>
+  <section className={"text-on-white editor " + background_color + ' ' + title_line_position}>
     <div className="main">
       <div
         className="bg-image"
         style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ''})` }}
-      />
+      >
+          <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ''} alt={image ? image.alt : ''} />
+
+      </div>
       <div className="triangle" />
       <div className="main-inner">
         <div className="text-container">
