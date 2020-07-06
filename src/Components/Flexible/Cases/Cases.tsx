@@ -34,10 +34,6 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
   const params = {
     slidesPerView: 1,
     spaceBetween: 40,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
     loop: true,
     autoplay: {
       delay: 4000,

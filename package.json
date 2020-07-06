@@ -34,7 +34,7 @@
     "redux-devtools-extension": "^2.13.8",
     "sweetalert2": "^9.15.2",
     "sweetalert2-react-content": "^3.0.1",
-    "swiper": "^5.4.5",
+    "swiper": "5.4.3",
     "typescript": "^3.7.5"
   },
   "scripts": {
