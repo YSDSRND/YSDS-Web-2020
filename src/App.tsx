@@ -6,7 +6,7 @@ import Router from './Router';
 import { GetOptions } from './Services/Options/Options';
 import { SetOptions, SetOptionsLoading } from './Store/Options/OptionsActions';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,5 +17,3 @@ const App: React.FC = () => {
   }, [dispatch]);
   return <Router />;
 };
-
-export default App;
