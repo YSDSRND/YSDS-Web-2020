@@ -1,7 +1,6 @@
 import React from 'react';
 import { WPImage } from '../../../Util/Types/WPImage';
 import WPButton from '../../../Util/Types/WPButton';
-import LinkButton from '../../Global/LinkButton/LinkButton';
 
 export type CardProps = {
   image: WPImage;
@@ -18,7 +17,8 @@ const Card: React.FC<CardProps> = ({
     <div className="text-container">
       <h3>{header}</h3>
       <p>{text}</p>
-      <LinkButton {...button} />
+
+        {button.button ? <button className="ysds-button lines">{button.button.title}</button> : ''}
     </div>
   </a>
 );

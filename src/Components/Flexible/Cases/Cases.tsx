@@ -22,7 +22,6 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
 
     Promise.all(promises).then((res:any) => {
       res = res.map((r:any) => {
-        console.log(r.media)
         r.acf.media=r.media;
         return r;
       })
@@ -62,8 +61,8 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
               <Swiper {...params}>
               {
                 casesData.map((caseItem: CaseProps, i) => (
-                  <div className="swiper-slide">
-                    <Case key={i} {...caseItem} />
+                  <div key={i} className="swiper-slide">
+                    <Case {...caseItem} />
                   </div>
                 ))
               }

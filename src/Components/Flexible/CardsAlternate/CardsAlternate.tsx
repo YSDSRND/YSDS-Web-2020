@@ -14,10 +14,10 @@ const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, backgrou
       <div className="main">
       {
         header.length > 0 ? (
-          <>
+          <React.Fragment>
             <h2>{header}</h2>
             <div className="line three-col"/>
-          </>
+          </React.Fragment>
         ) : null
       }
         
