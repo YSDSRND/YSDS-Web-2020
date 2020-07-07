@@ -43,6 +43,7 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    rebuildOnUpdate: true,
   }
 
   return (
