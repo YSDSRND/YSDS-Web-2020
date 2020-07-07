@@ -1,0 +1,17 @@
+.breadcrumb {
+  padding: 0 1rem;
+  .breadcrumb-item {
+    display: inline-block;
+    &:not(:last-of-type) {
+      &::after {
+        content: "\\";
+        display: inline-block;
+        margin: 0 0.5rem;
+      }
+    }
+    p, a {
+      display: inline-block;
+      margin: 1rem 0;
+    }
+  }
+}

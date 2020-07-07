@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import {AllHtmlEntities} from "html-entities";
 import {StandaloneTextAndImage} from "../../Components/Flexible/TextAndImage/TextAndImage";
 import ContactFormColor from "../../Components/Flexible/ContactFormColor/ContactFormColor";
+import {Breadcrumb, BreadcrumbItem} from "../../Components/Global/Breadcrumb/Breadcrumb";
 
 const Post: React.FC = () => {
   const { slug } = useParams();
@@ -55,6 +56,17 @@ const Post: React.FC = () => {
     return <Error404Template />;
   }
 
+  const breadcrumbItems: BreadcrumbItem[] = [
+    {
+      title: 'Posts',
+      uri: '/posts'
+    },
+    {
+      title: data.title,
+      uri: `/posts/${data.name}`
+    }
+  ]
+
   return <>
     <Helmet >
       {
@@ -68,6 +80,7 @@ const Post: React.FC = () => {
       <title>{AllHtmlEntities.decode(data.title)}</title>
 
     </Helmet>
+    <Breadcrumb items={breadcrumbItems} />
     <StandaloneTextAndImage acf_fc_layout="text_and_image" header={data.title} body={data.content} image={data.media} button={data.acf.button} />
     <ContactFormColor
         acf_fc_layout="contact"
