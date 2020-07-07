@@ -22,7 +22,8 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
 
     Promise.all(promises).then((res:any) => {
       res = res.map((r:any) => {
-        r.acf.media=r.media;
+        r.acf.media = r.media;
+        r.acf.slug = r.slug
         return r;
       })
 
