@@ -5,6 +5,7 @@ import { AppState } from '../../../Store';
 import Link from '../Link/Link';
 import ContactForm from '../ContactForm/ContactForm';
 import {IndustryBanner} from "../IndustryBanner/IndustryBanner";
+import {isInternalUrl} from "../../../Util/isInternalUrl";
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -88,9 +89,14 @@ const Header: React.FC = () => {
                 className += ' one-submenu';
               }
             }
+
+            const button = isInternalUrl(nav.link.url)
+                ? <Link onClick={() => {window.scrollTo(0, 0)}} to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }}></span></Link>
+                : <a href={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }}></span></a>
+
             return (
               <li className={className} key={i}>
-                <Link onClick={() => {window.scrollTo(0, 0)}} to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }} /></Link>
+                {button}
                 <div className={"sub-menu"}>
                   {typeof nav.submenus === 'object'
                     && nav.submenus.map((subs: any, index: any) => (
@@ -102,11 +108,14 @@ const Header: React.FC = () => {
                         }
                         <ul>
                           {typeof subs.navigation === 'object'
-                            && subs.navigation.map((l: any, key: any) => (
-                              <li key={key}>
-                                <Link onClick={() => {window.scrollTo(0, 0)}} to={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></Link>
-                              </li>
-                            ))}
+                            && subs.navigation.map((l: any, key: any) => {
+                              const button = isInternalUrl(l.link.url)
+                                  ? <Link onClick={() => {window.scrollTo(0, 0)}} to={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></Link>
+                                  : <a href={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></a>
+
+                              return <li key={key}>{button}</li>
+                            }
+                            )}
                         </ul>
                       </div>
                     ))}
