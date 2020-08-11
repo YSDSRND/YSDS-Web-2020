@@ -2,6 +2,7 @@ import React, {FormEvent, useEffect, useState} from "react";
 import {ConfigurableForm, SectionList, validate} from "./ConfigurableForm";
 import {FieldType, get, ModelErrors} from "./ConfigurableField";
 import {GetOffices} from "../../../Services/Offices/Offices";
+import {BASE_URL} from "../../../Services/config";
 
 export const ShipNowFormLayout = 'ship_now_form';
 
@@ -10,6 +11,7 @@ export type ShipNowFormProps = {
 }
 type ShipNowData = {
     type_of_request: string,
+    country: string,
     office: string,
     sender_address: string,
     sender_name: string,
@@ -42,6 +44,7 @@ type ShipNowData = {
 export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
     const [formData, setFormData] = useState<ShipNowData>({
         type_of_request: '',
+        country: '',
         office: '',
         sender_address: '',
         sender_name: '',
@@ -104,6 +107,11 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                             ]
                         }
                     }
+                },
+                {
+                    property: "country",
+                    label: "Country",
+                    type: FieldType.Country,
                 },
                 {
                     property: "office",
@@ -395,7 +403,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
 
         setLoading(true);
 
-        fetch('https://wp-admin.ysds.com/wp-json/qte/v1/contact', {
+        fetch(BASE_URL + '/qte/v1/contact', {
             method: 'POST',
             body: body,
         }).then((res: any) => {

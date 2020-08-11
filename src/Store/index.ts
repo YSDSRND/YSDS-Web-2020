@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { optionsReducer } from './Options/OptionsReducer';
 import {postsPageReducer} from "./PostsPage/PostsPageReducer";
+import {countriesReducer} from "./Countries/CountriesReducer";
 
 
 const rootReducer = combineReducers({
   options: optionsReducer,
   postPage: postsPageReducer,
+  countries: countriesReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

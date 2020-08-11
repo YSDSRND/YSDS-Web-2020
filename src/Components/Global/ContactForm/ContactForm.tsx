@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import {CountryDropdown} from "../CountryDropdown/CountryDropdown";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
+  const [country, setCountry] = useState('');
   const [send, setSend] = useState(false);
 
   const onSubmit = (event: any) => {
@@ -18,6 +20,7 @@ const ContactForm: React.FC = () => {
         email,
         company,
         type,
+        country,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -51,6 +54,9 @@ const ContactForm: React.FC = () => {
 
                     <label>Email</label>
                     <input type="email" name="email" value={email} onChange={setEmailFunc} />
+
+                    <label>Country</label>
+                    <CountryDropdown value={country} onChange={country => setCountry(country)} />
 
                     <input type="submit" value="SEND" className="ysds-button" />
                   </form>

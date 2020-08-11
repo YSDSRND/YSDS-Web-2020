@@ -1,4 +1,5 @@
 import React, {ReactElement} from 'react';
+import {CountryDropdown} from "../../Global/CountryDropdown/CountryDropdown";
 
 export enum FieldType {
     String,
@@ -7,6 +8,7 @@ export enum FieldType {
     Checkbox,
     Radio,
     File,
+    Country,
 }
 
 type Field<T, U extends FieldType, K extends keyof T> = {
@@ -50,6 +52,8 @@ type Option = {
     label: string
 }
 
+type CountryField<T, K extends keyof T> = Field<T, FieldType.Country, K>;
+
 export type FieldLike<T> = {
     [K in keyof T]:
         | StringField<T, K>
@@ -57,6 +61,7 @@ export type FieldLike<T> = {
         | CheckboxField<T, K>
         | OptionField<T, K>
         | FileField<T, K>
+        | CountryField<T, K>
 }[keyof T]
 
 type Props<T> = {
@@ -73,6 +78,7 @@ type FieldTypeMap<T, K extends keyof T> = {
     [FieldType.Select]: OptionField<T, K>
     [FieldType.Radio]: OptionField<T, K>
     [FieldType.File]: FileField<T, K>
+    [FieldType.Country]: CountryField<T, K>
 }
 
 export type ModelErrors<T> = {
@@ -253,6 +259,21 @@ export function ConfigurableField<T, K extends keyof T = keyof T>(props: Props<T
                     const newModel = {
                         ...model,
                         [field.property]: Array.from(event.target.files || []),
+                    }
+                    props.onChange(newModel, field.property)
+                }}
+            />
+        )
+    } else if ( isFieldOfType(field, FieldType.Country) ) {
+        view = (
+            <CountryDropdown
+                className={field.className || "form-control"}
+                name={field.property.toString()}
+                placeholder={field.placeholder}
+                onChange={iso => {
+                    const newModel = {
+                        ...model,
+                        [field.property]: iso,
                     }
                     props.onChange(newModel, field.property)
                 }}
