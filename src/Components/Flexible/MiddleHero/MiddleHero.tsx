@@ -12,10 +12,11 @@ export type MiddleHeroProps = {
     backgroundImage: WPImage,
     button: WPButton,
     background: string
+    full_width_image?: WPImage,
 }
 
 const Hero: React.FC<MiddleHeroProps> = ({
-  header, subheader, centered, backgroundImage, button, background,
+  header, subheader, centered, backgroundImage, button, background, full_width_image
 }) => (
   <>
 
@@ -34,6 +35,12 @@ const Hero: React.FC<MiddleHeroProps> = ({
 
           </div>
         </div>
+          { full_width_image
+              ? <div className="full-width-image">
+                  <img src={full_width_image.sizes && full_width_image.sizes.large ? full_width_image.sizes.large : ''} alt={full_width_image.alt} />
+                </div>
+              : null
+          }
       </div>
     </section>
   </>
