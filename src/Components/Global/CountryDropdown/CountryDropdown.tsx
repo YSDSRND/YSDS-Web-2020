@@ -1,5 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import {BASE_URL} from "../../../Services/config";
+import React, {ChangeEvent} from 'react';
 import {useSelector} from "react-redux";
 import {AppState} from "../../../Store";
 
