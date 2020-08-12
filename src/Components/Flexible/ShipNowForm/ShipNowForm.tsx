@@ -3,6 +3,7 @@ import {ConfigurableForm, SectionList, validate} from "./ConfigurableForm";
 import {FieldType, get, ModelErrors} from "./ConfigurableField";
 import {GetOffices} from "../../../Services/Offices/Offices";
 import {BASE_URL} from "../../../Services/config";
+import {Link} from "react-router-dom";
 
 export const ShipNowFormLayout = 'ship_now_form';
 
@@ -38,6 +39,7 @@ type ShipNowData = {
     paying_taxes: string,
     customs_value: string,
     customs_declaration: string,
+    privacy_policy: boolean,
     files: ReadonlyArray<File>,
 }
 
@@ -71,6 +73,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         paying_taxes: '',
         customs_value: '',
         customs_declaration: '',
+        privacy_policy: false,
         files: [],
     })
     const [offices, setOffices] = useState<{title: string, slug: string}[]>([]);
@@ -112,6 +115,8 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                     property: "country",
                     label: "Country",
                     type: FieldType.Country,
+                    placeholder: "Choose...",
+                    required: model => true,
                 },
                 {
                     property: "office",
@@ -370,6 +375,17 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                     props: {
                         multiple: true,
                     }
+                }
+            ]
+        },
+        {
+            title: "Privacy policy",
+            fields: [
+                {
+                    property: "privacy_policy",
+                    label: <>I argee to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> </>,
+                    type: FieldType.Checkbox,
+                    required: model => true,
                 }
             ]
         }

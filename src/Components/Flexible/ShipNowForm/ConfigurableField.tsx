@@ -13,7 +13,7 @@ export enum FieldType {
 
 type Field<T, U extends FieldType, K extends keyof T> = {
     property: K
-    label: string
+    label: JSX.Element | string
     placeholder?: string
     type: U
     hide?: (model: T) => boolean
