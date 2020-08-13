@@ -383,7 +383,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
             fields: [
                 {
                     property: "privacy_policy",
-                    label: <>I argee to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> </>,
+                    label: <>I agree to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> </>,
                     type: FieldType.Checkbox,
                     required: model => true,
                 }

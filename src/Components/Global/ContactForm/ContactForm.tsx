@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
 
                         <label>
                             <input type="checkbox" name="privacy_policy" checked={privacyPolicy} onChange={setPrivacyPolicyFunc} />
-                            I argee to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> *
+                            I agree to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> *
                         </label>
                         { error ? <p className="error">You need to agree to the privacy policy.</p> : null}
 
