@@ -74,7 +74,10 @@
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-size: 12px;
-                    font-family: Helvetica-Neue-Roman;
+                    font-family: Helvetica-Neue-Roman, sans-serif;
+                    a {
+                        font-size: 13px;
+                    }
                 }
                 input[type=text],
                 input[type=tel],
@@ -96,6 +99,10 @@
                 }
                 input:focus {
                     outline: none;
+                }
+                .error {
+                    margin-top: 4px;
+                    color: #a22020;
                 }
             }
         }

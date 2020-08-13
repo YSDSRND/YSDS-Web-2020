@@ -295,6 +295,9 @@
                         letter-spacing: 1px;
                         font-size: 12px;
                         font-family: Helvetica-Neue-Roman, sans-serif;
+                        a {
+                            font-size: 13px;
+                        }
                     }
 
                     input[type=text],
@@ -313,6 +316,10 @@
 
                     input:focus {
                         outline: none;
+                    }
+                    .error {
+                        margin-top: 0;
+                        color: #db3d3d;
                     }
                 }
             }
