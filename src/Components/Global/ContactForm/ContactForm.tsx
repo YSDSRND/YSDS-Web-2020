@@ -80,8 +80,9 @@ const ContactForm: React.FC = () => {
                         <label>Country</label>
                         <CountryDropdown value={country} onChange={country => setCountry(country)}/>
 
-                        <label>
+                        <label className="checkbox-label">
                             <input type="checkbox" name="privacy_policy" checked={privacyPolicy} onChange={setPrivacyPolicyFunc} />
+                            <span className="checkmark"></span>
                             I agree to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> *
                         </label>
                         { error ? <p className="error">You need to agree to the privacy policy.</p> : null}
