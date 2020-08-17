@@ -1,6 +1,5 @@
 import React from 'react';
 import HTMLContent from '../../Global/HTMLContent/HTMLContent';
-import {useHistory} from 'react-router';
 
 export type CaseProps = {
   header: string;
@@ -10,13 +9,7 @@ export type CaseProps = {
 };
 
 const Case: React.FC<CaseProps> = ({ header, body, slug, media }) => {
-    const history = useHistory();
-
-    const onClick = () => {
-        history.push(`/case/${slug}`);
-    }
-
-    return <div className="one-card" onClick={onClick}>
+    return <div className="one-card">
         <img src={media &&  media.large ? media.large : ''} alt={''} />    <h3>{header}</h3>
         <HTMLContent html={body} />
       </div>
