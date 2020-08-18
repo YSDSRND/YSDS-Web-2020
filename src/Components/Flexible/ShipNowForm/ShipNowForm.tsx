@@ -1,7 +1,6 @@
-import React, {FormEvent, useEffect, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {ConfigurableForm, SectionList, validate} from "./ConfigurableForm";
 import {FieldType, get, ModelErrors} from "./ConfigurableField";
-import {GetOffices} from "../../../Services/Offices/Offices";
 import {BASE_URL} from "../../../Services/config";
 import {Link} from "react-router-dom";
 
@@ -13,7 +12,6 @@ export type ShipNowFormProps = {
 type ShipNowData = {
     type_of_request: string,
     country: string,
-    office: string,
     sender_address: string,
     sender_name: string,
     email: string,
@@ -47,7 +45,6 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
     const [formData, setFormData] = useState<ShipNowData>({
         type_of_request: '',
         country: '',
-        office: '',
         sender_address: '',
         sender_name: '',
         email: '',
@@ -76,16 +73,10 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         privacy_policy: false,
         files: [],
     })
-    const [offices, setOffices] = useState<{title: string, slug: string}[]>([]);
+
     const [errors, setErrors] = useState<ModelErrors<ShipNowData>>({});
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-
-    useEffect(() => {
-        GetOffices().then(res => {
-            setOffices(res);
-        })
-    }, [])
 
     const formSections: SectionList<ShipNowData> = [
         {
@@ -118,24 +109,6 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                     placeholder: "Choose...",
                     required: model => true,
                 },
-                {
-                    property: "office",
-                    label: "Office",
-                    placeholder: "Choose...",
-                    type: FieldType.Select,
-                    required: model => true,
-                    props: {
-                        options: model => {
-                            return offices.map(office => {
-                                return {
-                                    value: office.slug,
-                                    label: office.title,
-                                }
-                            })
-                        }
-                    }
-
-                }
             ]
         },
         {
