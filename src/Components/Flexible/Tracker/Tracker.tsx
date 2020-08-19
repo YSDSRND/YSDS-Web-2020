@@ -36,7 +36,7 @@ const TextOnWhite: React.FC<TrackerProps> = ({
         <div className="main-inner">
           <h3>Enter your tracking code here:</h3>
           <div className="tracker-form">
-            <input value={trackingId} onChange={setTracking} placeholder="trackerid" />
+            <input value={trackingId} onChange={setTracking} placeholder="Tracking ID" />
             <button onClick={getTracking} disabled={loading}>Submit</button>
           </div>
           <div className="timeline">
