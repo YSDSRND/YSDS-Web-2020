@@ -58,6 +58,11 @@ const Header: React.FC = () => {
     }
   };
 
+  const onClick = () => {
+      setMobileNavOpen(false);
+      window.scrollTo(0, 0)
+  }
+
   const { header_logo, navigation } = options.options.header;
   return (
     <section className="header">
@@ -135,53 +140,41 @@ const Header: React.FC = () => {
 
         <div className={`menu-container mobile ${mobileNavOpen ? 'show' : ''}`}>
           <ul>
-            {navigation.map((nav, index) => (
-              <li className={nav.submenus ? `has-children ${openSubNavs.get(index) ? 'show' : ''}` : ''} key={index}>
-                <span
-                  onClick={() => openSubMenu(nav, index)}
-                >
-                  <Link
-                    onClick={() => {
-                      setMobileNavOpen(false);
-                      window.scrollTo(0, 0)
-                    }}
-                    to={nav.link.url}
-                  >
-                    {nav.link.title}
-                  </Link>
+            {navigation.map((nav, index) => {
+              const button = isInternalUrl(nav.link.url)
+                  ? <Link onClick={() => onClick()} to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }}></span></Link>
+                  : <a href={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }}></span></a>
+
+              return (
+                <li className={nav.submenus ? `has-children ${openSubNavs.get(index) ? 'show' : ''}` : ''} key={index}>
+                <span onClick={() => openSubMenu(nav, index)}>
+                  {button}
                 </span>
-                <div
-                  className={`sub-menu ${openSubNavs.get(index) ? 'show' : ''}`}
-                >
-                  {typeof nav.submenus === 'object'
+                  <div className={`sub-menu ${openSubNavs.get(index) ? 'show' : ''}`}>
+                    {typeof nav.submenus === 'object'
                     && nav.submenus.map((subs, k) => (
                       <div className="sub-menu-list" key={k}>
                         {
                           subs.title.length > 0 ? (
-                            <h5>{subs.title}</h5>
+                              <h5 dangerouslySetInnerHTML={{ __html: subs.title}}></h5>
                           ) : null
                         }
                         <ul>
                           {typeof subs.navigation === 'object'
-                            && subs.navigation.map((l, key) => (
-                              <li key={key}>
-                                <Link
-                                  onClick={() => {
-                                    setMobileNavOpen(false);
-                                    window.scrollTo(0, 0)
-                                  }}
-                                  to={l.link.url}
-                                >
-                                  {l.link.title}
-                                </Link>
-                              </li>
-                            ))}
+                          && subs.navigation.map((l, key) => {
+                            const button = isInternalUrl(l.link.url)
+                                ? <Link onClick={() => onClick()} to={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></Link>
+                                : <a href={l.link.url}><span dangerouslySetInnerHTML={{ __html: l.link.title }}></span></a>
+
+                            return <li key={key}>{button}</li>
+                          })}
                         </ul>
                       </div>
                     ))}
-                </div>
-              </li>
-            ))}
+                  </div>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>
