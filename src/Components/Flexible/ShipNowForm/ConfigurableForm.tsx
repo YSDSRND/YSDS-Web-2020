@@ -1,5 +1,5 @@
 import React from 'react';
-import {ConfigurableField, FieldLike, get, ModelErrors, set} from "./ConfigurableField";
+import {ConfigurableField, FieldLike, FieldType, get, isFieldOfType, ModelErrors, set} from "./ConfigurableField";
 
 export type FieldList<T> = ReadonlyArray<FieldLike<T>>
 
@@ -23,8 +23,14 @@ function sectionsToFields<T>(sections: SectionList<T>): FieldList<T> {
     let fields: FieldLike<T>[] = [];
 
     sections.forEach(section => {
-        return fields.push(...section.fields);
-    })
+        section.fields.forEach(field => {
+            if (isFieldOfType(field, FieldType.String) && field.props && field.props.addonField) {
+                fields.push(field.props.addonField);
+            }
+
+            fields.push(field);
+        });
+    });
 
     return fields as FieldList<T>;
 }

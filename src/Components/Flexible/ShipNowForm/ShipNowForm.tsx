@@ -3,6 +3,7 @@ import {ConfigurableForm, SectionList, validate} from "./ConfigurableForm";
 import {FieldType, get, ModelErrors} from "./ConfigurableField";
 import {BASE_URL} from "../../../Services/config";
 import {Link} from "react-router-dom";
+import currencies from './currencies.json';
 
 export const ShipNowFormLayout = 'ship_now_form';
 
@@ -27,6 +28,7 @@ type ShipNowData = {
     shipment_dimensions: string,
     shipment_service_level: string,
     shipment_insurance_value: string,
+    shipment_insurance_currency: string,
     shipment_other_information: string,
     dangerous_goods: boolean,
     biological_substances: boolean,
@@ -60,6 +62,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         shipment_dimensions: '',
         shipment_service_level: '',
         shipment_insurance_value: '',
+        shipment_insurance_currency: '',
         shipment_other_information: '',
         dangerous_goods: false,
         biological_substances: false,
@@ -251,10 +254,29 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                 },
                 {
                     property: "shipment_insurance_value",
-                    label: "Insurance value (SEK)",
-                    placeholder: "500 SEK",
+                    label: "Insurance value",
+                    placeholder: "500",
                     type: FieldType.String,
                     required: model => true,
+                    props: {
+                        addonField: {
+                            property: "shipment_insurance_currency",
+                            label: "Currency",
+                            placeholder: "Currency",
+                            type: FieldType.Select,
+                            required: model => true,
+                            props: {
+                                options: model => {
+                                    return Object.keys(currencies as Record<string, string>).map(key => {
+                                        return {
+                                            value: key,
+                                            label: key,
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }
                 },
                 {
                     property: "shipment_other_information",
