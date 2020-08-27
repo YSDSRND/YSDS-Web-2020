@@ -31,6 +31,9 @@ export type WPOptions = {
             post_title: string,
             post_name: string,
         }[]
+    },
+    open_graph: {
+        default_image: WPImage,
     }
 }
 

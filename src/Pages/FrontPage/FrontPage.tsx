@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Helmet } from "react-helmet";
-import { useLocation } from 'react-router-dom';
 
 import Flexible from '../../Components/Global/Flexible/Flexible';
-import { GetPageByID, GetYoastBySlug } from '../../Services/Pages/Pages';
+import {GetPageByID, GetYoastById} from '../../Services/Pages/Pages';
 import { AppState } from '../../Store';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 import {AllHtmlEntities} from 'html-entities';
+import {defaultsForOGTags} from "../../Util/Types/defaultsForOGTags";
 
 const FrontPage: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
-  const location = useLocation();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
@@ -21,16 +20,17 @@ const FrontPage: React.FC = () => {
   const [yoastData, setYoastData] = useState<any>();
 
   useEffect(() => {
-    if (!location) {
+    if (!options.options?.frontpage) {
       return;
     }
-    GetYoastBySlug(location.pathname).then((resp) => {
-      setYoastData(resp[0] ? resp[0].yoast_meta : '');
-      
+
+    GetYoastById(options.options.frontpage).then((resp) => {
+      setYoastData(resp ? defaultsForOGTags(resp.yoast_meta, options) : '');
+
     });
 
 
-  }, [location]);
+  }, [options]);
 
   useEffect(() => {
     if (options.loading || !options.options) {

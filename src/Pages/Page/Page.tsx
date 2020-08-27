@@ -1,77 +1,81 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from "react-helmet";
-import { useLocation } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import {Helmet} from "react-helmet";
+import {useLocation} from 'react-router-dom';
 import Flexible from '../../Components/Global/Flexible/Flexible';
-import { GetPageBySlug, GetYoastBySlug } from '../../Services/Pages/Pages';
+import {GetPageBySlug, GetYoastBySlug} from '../../Services/Pages/Pages';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate';
 import {AllHtmlEntities} from 'html-entities';
+import {defaultsForOGTags} from "../../Util/Types/defaultsForOGTags";
+import {useSelector} from "react-redux";
+import {AppState} from "../../Store";
 
 const Page: React.FC = (props) => {
-  const location = useLocation();
+    const options = useSelector((state : AppState) => state.options);
+    const location = useLocation();
 
-  const [loading, setLoading] = useState<boolean>(true);
-  const [data, setData] = useState<any>();
-  const [is404, set404] = useState<boolean>();
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<any>();
+    const [is404, set404] = useState<boolean>();
 
-  const [yoastData, setYoastData] = useState<any>();
-  
-  useEffect(() => {
-    if (!location) {
-      return;
+    const [yoastData, setYoastData] = useState<any>();
+
+    useEffect(() => {
+        if (!location) {
+            return;
+        }
+
+        const slug = location.pathname.split('/').filter(value => !!value).slice(-1)[0];
+
+        GetYoastBySlug(slug).then((resp) => {
+            setYoastData(resp[0] ? defaultsForOGTags(resp[0].yoast_meta, options) : '');
+
+        });
+
+
+    }, [location, options]);
+
+
+    useEffect(() => {
+        if (!location) {
+            return;
+        }
+        GetPageBySlug(location.pathname).then((resp) => {
+
+            if (Array.isArray(resp)) {
+                set404(true);
+                setLoading(false);
+                return
+            }
+            setData(resp);
+            setLoading(false);
+            set404(false);
+        });
+
+
+    }, [location]);
+
+
+    if (loading) {
+        return <LoadingTemplate/>
     }
-    GetYoastBySlug(location.pathname).then((resp) => {
-      setYoastData(resp[0] ? resp[0].yoast_meta : ''); 
-      
-    });
-
-
-  }, [location]);
-
-
-
-  useEffect(() => {
-    if (!location) {
-      return;
+    if (is404) {
+        return <div><Error404Template/></div>;
     }
-    GetPageBySlug(location.pathname).then((resp) => {
-
-      if (Array.isArray(resp) ) {
-        set404(true);
-        setLoading(false);
-        return
-      }
-      setData(resp);
-      setLoading(false);
-      set404(false);
-    });
-
-    
-  }, [location]);
 
 
-  if (loading) {
-    return <LoadingTemplate />
-  }
-  if (is404) {
-    return <div><Error404Template /></div>;
-  }
+    return <>
+        <Helmet>
+            {
+                yoastData ? yoastData.map((d: any, idx: number) => {
+                    return (
+                        <meta key={idx} property={d.property} content={unescape(d.content)}/>
+                    )
+                }) : null
+            }
 
-  
-
-  return <>
-    <Helmet >
-      {
-        yoastData ? yoastData.map((d:any, idx:number) => {
-          return (
-            <meta key={idx} property={d.property} content={d.content} />
-          )
-        }) : null
-      }
-    
-    <title>{AllHtmlEntities.decode(data.title)}</title>
-
-    </Helmet>
-    <Flexible flexible={data.acf.flexible} /></>;
+            <title>{AllHtmlEntities.decode(data.title)}</title>
+        </Helmet>
+        <Flexible flexible={data.acf.flexible}/></>;
 };
 export default Page;

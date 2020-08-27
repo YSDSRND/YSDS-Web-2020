@@ -10,5 +10,5 @@ export const getPosts = (page:number) => fetch(`${POSTS_API_URL}${page}`)
   .then((resp) => resp.json());
 
 
-  export const GetYoastBySlug= (slug : string) => fetch(`${BASE_URL}/wp/v2/post/?slug=${slug}`)
+  export const GetYoastBySlug= (slug : string) => fetch(`${BASE_URL}/wp/v2/posts/?slug=${slug}`)
   .then((resp) => resp.json());
