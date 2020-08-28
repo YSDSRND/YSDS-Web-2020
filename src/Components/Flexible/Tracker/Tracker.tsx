@@ -18,14 +18,15 @@ const TextOnWhite: React.FC<TrackerProps> = ({
   const [trackingId, setTrackingId] = useState('');
   const [loading, setLoading] = useState(false);
   const [trackingInformation, setTrackingInformation] = useState([]);
+  const [error, setError] = useState(false);
 
   const getTracking = async () => {
-    if (loading) {
-      return;
-    }
-    const tracking = await getTrackingRequest(trackingId);
-    setTrackingInformation(tracking.data.tracking.activities);
     setLoading(true);
+
+    const tracking = await getTrackingRequest(trackingId);
+    setError(tracking.data.status === 500);
+    setTrackingInformation(tracking.data.status !== 500 ? tracking.data.tracking.activities : []);
+    setLoading(false);
   };
 
   const setTracking = (e:any) => setTrackingId(e.target.value);
@@ -39,6 +40,9 @@ const TextOnWhite: React.FC<TrackerProps> = ({
             <input value={trackingId} onChange={setTracking} placeholder="Tracking ID" />
             <button onClick={getTracking} disabled={loading}>Submit</button>
           </div>
+          { error ? <div className="alert">
+            <p>We couldn't find any information about your tracking. </p>
+          </div> : null }
           <div className="timeline">
             {trackingInformation.map((info:any, i:number) => (
               <div className="box" key={i}>
