@@ -3,16 +3,18 @@ import { useParams } from 'react-router-dom';
 import { GetPostBySlug, GetYoastBySlug } from '../../Services/Post/Post';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
-import { useLocation } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import {AllHtmlEntities} from "html-entities";
 import {StandaloneTextAndImage} from "../../Components/Flexible/TextAndImage/TextAndImage";
 import ContactFormColor from "../../Components/Flexible/ContactFormColor/ContactFormColor";
 import {Breadcrumb, BreadcrumbItem} from "../../Components/Global/Breadcrumb/Breadcrumb";
+import {defaultsForOGTags} from "../../Util/Types/defaultsForOGTags";
+import {useSelector} from "react-redux";
+import {AppState} from "../../Store";
 
 const Post: React.FC = () => {
+  const options = useSelector((state : AppState) => state.options);
   const { slug } = useParams();
-  const location = useLocation();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
@@ -21,16 +23,17 @@ const Post: React.FC = () => {
   const [yoastData, setYoastData] = useState<any>();
 
   useEffect(() => {
-    if (!location) {
+    if (!slug) {
       return;
     }
-    GetYoastBySlug(location.pathname).then((resp) => {
-      setYoastData(resp[0] ? resp[0].yoast_meta : '');
+
+    GetYoastBySlug(slug).then((resp) => {
+      setYoastData(resp[0] ? defaultsForOGTags(resp[0].yoast_meta, options) : '');
 
     });
 
 
-  }, [location]);
+  }, [slug, options]);
 
   useEffect(() => {
     if (!slug) {

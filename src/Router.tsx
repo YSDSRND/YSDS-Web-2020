@@ -13,6 +13,7 @@ import FrontPage from './Pages/FrontPage';
 import Case from './Pages/Case';
 import Error404Template from './PageTemplates/Error404Template/Error404Template';
 import ScrollToTop from './Util/ScrollToTop';
+import Analytics from "./Util/Analytics";
 
 const Router: React.FC = () => {
   
@@ -24,6 +25,7 @@ const Router: React.FC = () => {
         <>
           <Header />
           <ScrollToTop />
+          <Analytics />
           <Switch>
             <Route path={PostRoute}>
               <Post />

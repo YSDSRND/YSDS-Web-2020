@@ -10,3 +10,5 @@ export const GetPageByID = (id : number) => fetch(`${API_URL}/${id}`)
 
   export const GetYoastBySlug= (slug : string) => fetch(`${BASE_URL}/wp/v2/pages/?slug=${slug}`)
   .then((resp) => resp.json());
+  export const GetYoastById= (id : number) => fetch(`${BASE_URL}/wp/v2/pages/${id}`)
+      .then((resp) => resp.json());

@@ -59,6 +59,12 @@
                 }
             }
         }
+        .alert {
+            margin-top: 8px;
+            p {
+                text-align: center;
+            }
+        }
         .timeline {
             display: flex;
             flex-direction: column;

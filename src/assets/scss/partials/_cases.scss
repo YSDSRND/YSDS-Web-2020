@@ -99,9 +99,6 @@
             text-decoration: none;
             color: black;
             margin-bottom: 30px;
-            &:hover {
-                cursor: pointer;
-            }
             @media screen and (min-width: $small) {
                 padding: 30px;
             }

@@ -9,6 +9,7 @@ export type BulletProps = {
   bullets: [{ title: string, text: string, icon: string, fontawsome_or_upload: string, image: WPImage, button:WPButton }],
   style: string,
   title: string,
+  subtitle: string,
   columns:string,
   background_color:string,
   bullet_alignment: string,
@@ -17,11 +18,12 @@ export type BulletProps = {
 
 };
 
-const Bullets: React.FC<BulletProps> = ({ bullets, style, title, columns, background_color, bullet_alignment, button}) => (
+const Bullets: React.FC<BulletProps> = ({ bullets, style, title, subtitle, columns, background_color, bullet_alignment, button}) => (
   <section className={"check-list " + background_color}>
     <div className="main">
       <div className="main-inner">
         <h2>{title}</h2>
+        { subtitle ? <p>{subtitle}</p> : null }
         <div className={`flex-container ${style} ${columns}`}>
           {
             bullets.map((bullet, i) => (

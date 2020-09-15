@@ -1,4 +1,5 @@
 import React, {ReactElement} from 'react';
+import {CountryDropdown} from "../../Global/CountryDropdown/CountryDropdown";
 
 export enum FieldType {
     String,
@@ -7,11 +8,12 @@ export enum FieldType {
     Checkbox,
     Radio,
     File,
+    Country,
 }
 
 type Field<T, U extends FieldType, K extends keyof T> = {
     property: K
-    label: string
+    label: JSX.Element | string
     placeholder?: string
     type: U
     hide?: (model: T) => boolean
@@ -22,6 +24,7 @@ type Field<T, U extends FieldType, K extends keyof T> = {
 interface StringField<T, K extends keyof T> extends Field<T, FieldType.String, K> {
     props?: {
         type?: string
+        addonField?: FieldLike<T>
     }
 }
 
@@ -39,7 +42,13 @@ interface FileField<T, K extends keyof T> extends Field<T, FieldType.File, K>  {
     }
 }
 
-interface OptionField<T, K extends keyof T> extends Field<T, FieldType.Select | FieldType.Radio, K> {
+interface SelectField<T, K extends keyof T> extends Field<T, FieldType.Select, K> {
+    props: {
+        options: (model: T) => ReadonlyArray<Option>
+    }
+}
+
+interface RadioField<T, K extends keyof T> extends Field<T, FieldType.Radio, K> {
     props: {
         options: (model: T) => ReadonlyArray<Option>
     }
@@ -50,13 +59,17 @@ type Option = {
     label: string
 }
 
+type CountryField<T, K extends keyof T> = Field<T, FieldType.Country, K>;
+
 export type FieldLike<T> = {
     [K in keyof T]:
         | StringField<T, K>
         | TextareaField<T, K>
         | CheckboxField<T, K>
-        | OptionField<T, K>
+        | SelectField<T, K>
+        | RadioField<T, K>
         | FileField<T, K>
+        | CountryField<T, K>
 }[keyof T]
 
 type Props<T> = {
@@ -70,9 +83,10 @@ type FieldTypeMap<T, K extends keyof T> = {
     [FieldType.String]: StringField<T, K>
     [FieldType.Textarea]: TextareaField<T, K>
     [FieldType.Checkbox]: CheckboxField<T, K>
-    [FieldType.Select]: OptionField<T, K>
-    [FieldType.Radio]: OptionField<T, K>
+    [FieldType.Select]: SelectField<T, K>
+    [FieldType.Radio]: RadioField<T, K>
     [FieldType.File]: FileField<T, K>
+    [FieldType.Country]: CountryField<T, K>
 }
 
 export type ModelErrors<T> = {
@@ -88,7 +102,7 @@ function stringifyValue<T>(value: T): string {
     return String(value)
 }
 
-function isFieldOfType<T, K extends keyof T, U extends FieldType>(field: Field<T, FieldType, K>, type: U): field is FieldTypeMap<T, K>[U] {
+export function isFieldOfType<T, K extends keyof T, U extends FieldType>(field: Field<T, FieldType, K>, type: U): field is FieldTypeMap<T, K>[U] {
     return field.type === type
 }
 
@@ -136,6 +150,12 @@ export function set(item: unknown, path: string, value: unknown): void {
     }
 
     (slice as any)[parts[endIndex]] = value
+}
+
+export function classNames(classMap: Record<string, boolean>): string {
+    return Object.keys(classMap)
+        .filter(key => classMap[key])
+        .join(' ')
 }
 
 
@@ -258,29 +278,57 @@ export function ConfigurableField<T, K extends keyof T = keyof T>(props: Props<T
                 }}
             />
         )
+    } else if ( isFieldOfType(field, FieldType.Country) ) {
+        view = (
+            <CountryDropdown
+                className={field.className || "form-control"}
+                name={field.property.toString()}
+                placeholder={field.placeholder}
+                onChange={iso => {
+                    const newModel = {
+                        ...model,
+                        [field.property]: iso,
+                    }
+                    props.onChange(newModel, field.property)
+                }}
+            />
+        )
     }
 
     const asterisk = field.required ? <span className="required-asterisk">*</span> : null
     const hidden = !(field.hide === undefined || field.hide(model) === false);
 
-    return <div className={"form-row" + (hidden ? " hide" : "")}>
-        {isFieldOfType(field, FieldType.Checkbox) ?
-            <label className={field.className || "form-control"}>
-                {view}
-                <span>{field.label}{asterisk}</span>
-            </label>
-        :
-            <>
-                <label>{field.label}{asterisk}</label>
-                {view}
-            </>
-        }
-        {errors ?
-            <ul className="errors">
-                {errors.map((error, i) => {
-                    return <li key={`${field.property.toString()}-error-${i}`}>{error}</li>;
-                })}
-            </ul>
-        : null}
-    </div>
+    const subView = isFieldOfType(field, FieldType.String) && field.props && field.props.addonField
+        ? <ConfigurableField
+            field={field.props.addonField}
+            model={props.model}
+            onChange={props.onChange}
+            errors={props.errors}
+        />
+        : null;
+
+    return <>
+        <div className={"form-row" + (!!subView ? " addon" : "") + (hidden ? " hide" : "")}>
+            {isFieldOfType(field, FieldType.Checkbox) ?
+                <label className={field.className || "form-control"}>
+                    {view}
+                    <span>{field.label}{asterisk}</span>
+                </label>
+            :
+                <>
+                    <label>{field.label}{asterisk}</label>
+                    {view}
+
+                </>
+            }
+            {errors ?
+                <ul className="errors">
+                    {errors.map((error, i) => {
+                        return <li key={`${field.property.toString()}-error-${i}`}>{error}</li>;
+                    })}
+                </ul>
+            : null}
+        </div>
+        {subView}
+    </>
 }

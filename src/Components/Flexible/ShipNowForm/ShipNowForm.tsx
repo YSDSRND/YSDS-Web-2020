@@ -1,7 +1,9 @@
-import React, {FormEvent, useEffect, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {ConfigurableForm, SectionList, validate} from "./ConfigurableForm";
 import {FieldType, get, ModelErrors} from "./ConfigurableField";
-import {GetOffices} from "../../../Services/Offices/Offices";
+import {BASE_URL} from "../../../Services/config";
+import {Link} from "react-router-dom";
+import currencies from './currencies.json';
 
 export const ShipNowFormLayout = 'ship_now_form';
 
@@ -10,7 +12,7 @@ export type ShipNowFormProps = {
 }
 type ShipNowData = {
     type_of_request: string,
-    office: string,
+    country: string,
     sender_address: string,
     sender_name: string,
     email: string,
@@ -26,6 +28,7 @@ type ShipNowData = {
     shipment_dimensions: string,
     shipment_service_level: string,
     shipment_insurance_value: string,
+    shipment_insurance_currency: string,
     shipment_other_information: string,
     dangerous_goods: boolean,
     biological_substances: boolean,
@@ -36,13 +39,14 @@ type ShipNowData = {
     paying_taxes: string,
     customs_value: string,
     customs_declaration: string,
+    privacy_policy: boolean,
     files: ReadonlyArray<File>,
 }
 
 export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
     const [formData, setFormData] = useState<ShipNowData>({
         type_of_request: '',
-        office: '',
+        country: '',
         sender_address: '',
         sender_name: '',
         email: '',
@@ -58,6 +62,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         shipment_dimensions: '',
         shipment_service_level: '',
         shipment_insurance_value: '',
+        shipment_insurance_currency: '',
         shipment_other_information: '',
         dangerous_goods: false,
         biological_substances: false,
@@ -68,18 +73,13 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         paying_taxes: '',
         customs_value: '',
         customs_declaration: '',
+        privacy_policy: false,
         files: [],
     })
-    const [offices, setOffices] = useState<{title: string, slug: string}[]>([]);
+
     const [errors, setErrors] = useState<ModelErrors<ShipNowData>>({});
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-
-    useEffect(() => {
-        GetOffices().then(res => {
-            setOffices(res);
-        })
-    }, [])
 
     const formSections: SectionList<ShipNowData> = [
         {
@@ -106,23 +106,12 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                     }
                 },
                 {
-                    property: "office",
-                    label: "Office",
+                    property: "country",
+                    label: "Country",
+                    type: FieldType.Country,
                     placeholder: "Choose...",
-                    type: FieldType.Select,
                     required: model => true,
-                    props: {
-                        options: model => {
-                            return offices.map(office => {
-                                return {
-                                    value: office.slug,
-                                    label: office.title,
-                                }
-                            })
-                        }
-                    }
-
-                }
+                },
             ]
         },
         {
@@ -265,10 +254,29 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                 },
                 {
                     property: "shipment_insurance_value",
-                    label: "Insurance value (SEK)",
-                    placeholder: "500 SEK",
+                    label: "Insurance value",
+                    placeholder: "500",
                     type: FieldType.String,
                     required: model => true,
+                    props: {
+                        addonField: {
+                            property: "shipment_insurance_currency",
+                            label: "Currency",
+                            placeholder: "Currency",
+                            type: FieldType.Select,
+                            required: model => true,
+                            props: {
+                                options: model => {
+                                    return Object.keys(currencies as Record<string, string>).map(key => {
+                                        return {
+                                            value: key,
+                                            label: key,
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }
                 },
                 {
                     property: "shipment_other_information",
@@ -364,6 +372,17 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                     }
                 }
             ]
+        },
+        {
+            title: "Privacy policy",
+            fields: [
+                {
+                    property: "privacy_policy",
+                    label: <>I agree to the following <Link to="/privacy-policy" target="_blank">Privacy policy</Link> </>,
+                    type: FieldType.Checkbox,
+                    required: model => true,
+                }
+            ]
         }
     ]
 
@@ -395,7 +414,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
 
         setLoading(true);
 
-        fetch('https://wp-admin.ysds.com/wp-json/qte/v1/contact', {
+        fetch(BASE_URL + '/qte/v1/contact', {
             method: 'POST',
             body: body,
         }).then((res: any) => {

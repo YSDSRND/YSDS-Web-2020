@@ -34,14 +34,18 @@
     .main {
         position: relative;
         background-color: transparent;
+        padding: 100px 0;
+        @media sreen and (min-width: $medium) {
+            padding: 150px 0;
+        }
     }
     .main-inner {
         color: white;
-        padding: 100px 0;
         margin: 0 auto;
+        padding: 0;
         @media screen and (min-width: $medium) {
             width: $four-col;
-            padding: 150px 0;
+            padding: 0;
         }
         h2 {
             position: relative;
@@ -69,5 +73,13 @@
     .line {
         height: 1px;
         background: $primary-color;
+    }
+    .full-width-image {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        @media screen and (min-width: $medium) {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
     }
 }
