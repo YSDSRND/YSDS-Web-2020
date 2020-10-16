@@ -283,7 +283,6 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                     label: "Other information",
                     placeholder: "Biological samples on dry ice/ IT Equipment / Documents / Spare parts / Marketing material",
                     type: FieldType.Textarea,
-                    required: model => true,
                 },
             ]
         },
