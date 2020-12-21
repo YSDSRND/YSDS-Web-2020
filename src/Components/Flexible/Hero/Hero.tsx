@@ -9,6 +9,7 @@ export type HeroProps = {
     acf_fc_layout: typeof HeroACFLayout,
     centered?: boolean,
     header: string,
+    logoImage?: WPImage,
     subheader: string,
     backgroundImage: WPImage,
     button: WPButton,
@@ -17,7 +18,7 @@ export type HeroProps = {
 }
 
 const Hero: React.FC<HeroProps> = ({
-  header, subheader, centered, backgroundImage, button, background_color, arrow
+  header, subheader, centered, backgroundImage, button, background_color, arrow, logoImage
 }) => {
 
     const ref = useRef<HTMLDivElement>(null);
@@ -36,10 +37,15 @@ const Hero: React.FC<HeroProps> = ({
             <div className="triangle"/>
             <div className="main-inner">
                 <div className="text-container">
-
-                    <h1>
-                        {header}
-                    </h1>
+                    {
+                        logoImage ? (
+                            <img className="logo-image" src={logoImage && logoImage.sizes && logoImage.sizes.large ? logoImage.sizes.large : ''} alt={logoImage ? logoImage.alt : ''} />
+                        ) : (
+                            <h1>
+                                {header}
+                            </h1>
+                        )
+                    }
                     <div className="line three-col"/>
                     <h2 dangerouslySetInnerHTML={{__html: subheader}}/>
 
