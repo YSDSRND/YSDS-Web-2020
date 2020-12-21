@@ -41,7 +41,7 @@ const ContactForm: React.FC = () => {
         }
 
         const type = "contact_us";
-        fetch('https://wp-admin.ysds.com/wp-json/qte/v1/contact', {
+        fetch(process.env.REACT_APP_API_URL + '/qte/v1/contact', {
             method: 'POST',
             body: JSON.stringify({
                 name,
