@@ -54,7 +54,10 @@
         }
         .logo-image {
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 12px;
+            max-height: 21em;
+            max-height: 20vw;
+            max-width: 40em;
         }
         h2 {
             font-size: 21px;
