@@ -18,6 +18,7 @@ const FrontPage: React.FC = () => {
   const [data, setData] = useState<any>();
   const [is404, set404] = useState<boolean>();
   const [yoastData, setYoastData] = useState<any>();
+  const [yoastTitle, setYoastTitle] = useState<any>();
 
   useEffect(() => {
     if (!options.options?.frontpage) {
@@ -25,6 +26,7 @@ const FrontPage: React.FC = () => {
     }
 
     GetYoastById(options.options.frontpage).then((resp) => {
+      setYoastTitle(resp ? resp.yoast_title : data.title);
       setYoastData(resp ? defaultsForOGTags(resp.yoast_meta, options) : '');
 
     });
@@ -51,17 +53,20 @@ const FrontPage: React.FC = () => {
   if (is404) {
     return <Error404Template />;
   }
+
   return <>
   <Helmet >
     {
       yoastData ? yoastData.map((d:any) => {
-        return (
-          <meta property={d.property} content={unescape(d.content)} />
-        )
+        return typeof d.name === "undefined"
+          ? <meta property={d.property} content={unescape(d.content)} />
+          : <meta name={d.name} content={unescape(d.content)} />
       }) : null
     }
+
+    
   
-  <title>{AllHtmlEntities.decode(data.title)}</title>
+    <title>{AllHtmlEntities.decode(yoastTitle)}</title>
 
   </Helmet>
   <Flexible flexible={data.acf.flexible} /></>;

@@ -21,6 +21,7 @@ const Post: React.FC = () => {
   const [is404, set404] = useState<boolean>();
 
   const [yoastData, setYoastData] = useState<any>();
+  const [yoastTitle, setYoastTitle] = useState<any>();
 
   useEffect(() => {
     if (!slug) {
@@ -28,6 +29,7 @@ const Post: React.FC = () => {
     }
 
     GetYoastBySlug(slug).then((resp) => {
+      setYoastTitle(resp[0] ? resp[0].yoast_title : data.title);
       setYoastData(resp[0] ? defaultsForOGTags(resp[0].yoast_meta, options) : '');
 
     });
@@ -73,14 +75,14 @@ const Post: React.FC = () => {
   return <>
     <Helmet >
       {
-        yoastData ? yoastData.map((d: any) => {
-          return (
-            <meta property={d.property} content={d.content} />
-          )
+        yoastData ? yoastData.map((d:any) => {
+            return typeof d.name === "undefined"
+            ? <meta property={d.property} content={unescape(d.content)} />
+            : <meta name={d.name} content={unescape(d.content)} />
         }) : null
       }
 
-      <title>{AllHtmlEntities.decode(data.title)}</title>
+      <title>{AllHtmlEntities.decode(yoastTitle)}</title>
 
     </Helmet>
     <Breadcrumb items={breadcrumbItems} />
