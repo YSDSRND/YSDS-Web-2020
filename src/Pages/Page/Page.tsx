@@ -35,7 +35,7 @@ const Page: React.FC = (props) => {
         });
 
 
-    }, [location, options]);
+    }, [location, options, data]);
 
 
     useEffect(() => {
@@ -69,10 +69,10 @@ const Page: React.FC = (props) => {
     return <>
         <Helmet>
             {
-                yoastData ? yoastData.map((d:any) => {
+                yoastData ? yoastData.map((d:any, index: number) => {
                     return typeof d.name === "undefined"
-                    ? <meta property={d.property} content={unescape(d.content)} />
-                    : <meta name={d.name} content={unescape(d.content)} />
+                    ? <meta key={index} property={d.property} content={unescape(d.content)} />
+                    : <meta key={index} name={d.name} content={unescape(d.content)} />
                 }) : null
             }
 

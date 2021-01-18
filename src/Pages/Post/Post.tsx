@@ -35,7 +35,7 @@ const Post: React.FC = () => {
     });
 
 
-  }, [slug, options]);
+  }, [slug, options, data]);
 
   useEffect(() => {
     if (!slug) {
@@ -75,10 +75,10 @@ const Post: React.FC = () => {
   return <>
     <Helmet >
       {
-        yoastData ? yoastData.map((d:any) => {
+        yoastData ? yoastData.map((d:any, index: number) => {
             return typeof d.name === "undefined"
-            ? <meta property={d.property} content={unescape(d.content)} />
-            : <meta name={d.name} content={unescape(d.content)} />
+            ? <meta key={index} property={d.property} content={unescape(d.content)} />
+            : <meta key={index} name={d.name} content={unescape(d.content)} />
         }) : null
       }
 
