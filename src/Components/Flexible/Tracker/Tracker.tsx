@@ -34,14 +34,17 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
 
     const activities = trackingInformation.length ? (
         <div className="timeline">
-            {trackingInformation.map((info: any, i: number) => (
-                <div className="box" key={i}>
-                    <h3>{info.description}</h3>
-                    <p className="date">{info.date}</p>
-                    <p className="city">{info.address.city}</p>
-                    <p className="country">{info.address.country_code}</p>
-                </div>
-            ))}
+            {trackingInformation.map((info: any, i: number) => {
+                const date = new Date(info.date)
+                return (
+                    <div className="box" key={i}>
+                        <h3>{info.description}</h3>
+                        <p className="date">{date.toLocaleString()}</p>
+                        <p className="city">{info.address.city}</p>
+                        <p className="country">{info.address.country_code}</p>
+                    </div>
+                )
+            })}
         </div>
     ) : (hasSearched ? <div className="alert"><p>There is no activities for this tracking number yet. Please check back later!</p></div> : null )
 
