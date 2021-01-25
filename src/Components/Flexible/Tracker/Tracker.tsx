@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {WPImage} from '../../../Util/Types/WPImage';
 import {getTrackingRequest} from '../../../Services/Tracker/Tracker';
 import {BarLoader} from "react-spinners";
@@ -18,7 +18,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     const [error, setError] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
 
-    const getTracking = async () => {
+    const getTracking = async (trackingId: string) => {
         if (!trackingId) return;
 
         setLoading(true);
@@ -29,6 +29,17 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
         setLoading(false);
         setHasSearched(true);
     };
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search)
+
+        if (searchParams.has('tracking_number') && !trackingId) {
+            setTrackingId(searchParams.get('tracking_number') ?? '');
+            getTracking(searchParams.get('tracking_number') ?? '')
+        }
+    }, [getTracking])
+
+    
 
     const setTracking = (e: any) => setTrackingId(e.target.value);
 
@@ -55,7 +66,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
                     <h3>Enter your tracking code here:</h3>
                     <div className="tracker-form">
                         <input value={trackingId} onChange={setTracking} placeholder="Tracking ID"/>
-                        <button onClick={getTracking} disabled={loading}>Submit</button>
+                        <button onClick={() => getTracking(trackingId)} disabled={loading}>Submit</button>
                     </div>
                     {loading ?
                         <BarLoader
