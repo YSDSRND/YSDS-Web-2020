@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {WPImage} from '../../../Util/Types/WPImage';
 import {getTrackingRequest} from '../../../Services/Tracker/Tracker';
 import {BarLoader} from "react-spinners";
@@ -17,6 +17,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     const [trackingInformation, setTrackingInformation] = useState([]);
     const [error, setError] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
+    const callbackGetTracking = useCallback((trackingId) => getTracking(trackingId), [])
 
     const getTracking = async (trackingId: string) => {
         if (!trackingId) return;
@@ -33,11 +34,11 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search)
 
-        if (searchParams.has('tracking_number') && !trackingId) {
+        if (searchParams.has('tracking_number')) {
             setTrackingId(searchParams.get('tracking_number') ?? '');
-            getTracking(searchParams.get('tracking_number') ?? '')
+            callbackGetTracking(searchParams.get('tracking_number') ?? '')
         }
-    }, [getTracking])
+    }, [callbackGetTracking])
 
     
 
