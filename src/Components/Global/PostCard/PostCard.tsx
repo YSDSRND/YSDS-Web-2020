@@ -5,7 +5,7 @@ import HTMLContent from "../HTMLContent";
 const PostCard: React.FC<any> = ({post}) => (
     <Link className="one-post" to={`/posts/${post.slug}`}>
         {post.media ?
-            <img alt="" src={post.media ? post.media.large : ''}/>
+            <img alt="" src={post.media ? post.media.thumbnail : ''}/>
             : ""
         }
         <div className="post-text-container">
