@@ -4,6 +4,7 @@ import {FieldType, get, ModelErrors} from "./ConfigurableField";
 import {BASE_URL} from "../../../Services/config";
 import {Link} from "react-router-dom";
 import currencies from './currencies.json';
+import Swal from 'sweetalert2';
 
 export const ShipNowFormLayout = 'ship_now_form';
 
@@ -504,6 +505,12 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         setErrors(modelErrors);
 
         if (!!Object.keys(modelErrors).length) {
+            Swal.fire({
+                title: 'Missing fields!',
+                text: 'Oh no! You have a couple of missing fields in the form. We\'ve highlighted them in the form.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
             return;
         }
 
