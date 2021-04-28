@@ -40,7 +40,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
                 data.map((card: any, i:number) => (
                   <a key={i} className="one-post" href={`/posts/${card.slug}`}>
                       {card.media ?
-                      <img alt="" src={card.media ? card.media.large : ''} />
+                      <img alt="" src={card.media ? card.media.thumbnail : ''} />
                       : null }
                     <div className="post-text-container">
                       <h3>{card.title}</h3>
