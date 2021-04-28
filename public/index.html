@@ -29,6 +29,33 @@
     
   </head>
   <body>
+    <!--[if IE]>
+      <style>
+      .container {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: black;     
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .message {
+        color: white;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 143%;
+        font-size: 16px;
+        max-width: 700px;
+        padding: 0 10px;
+        text-align: center;
+        margin: 5px;
+      }
+    </style>
+    <div class="container">
+        <p class="message">ysds.com does not support Internet Explorer. Please upgrade to a modern, fully supported browser for a better user experience.</p>
+      </div>
+    <![endif]-->
     <noscript>
       <style>
         .noscript {
@@ -80,7 +107,6 @@
            </svg>
         <p>ysds.com contains JavaScript, a scripting programming language that runs on your web browser. It makes web pages functional for specific purposes and if disabled, the content and the functionality of the web page can be unavailable.</p>
         <p>For full functionality of this site it is necessary to enable JavaScript.</p>
-        <p>ysds.com works with all modern browsers. Are you, for some reason still using an old browser like Internet Explorer please upgrade to a modern, fully supported browser for a better user experience.</p>
       </section>
     </noscript>
     <div id="root"></div>
