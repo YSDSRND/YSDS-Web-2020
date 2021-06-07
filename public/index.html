@@ -29,33 +29,48 @@
     
   </head>
   <body>
-    <!--[if IE]>
-      <style>
-      .container {
+    <!-- Script for detecting IE : adding text and logo -->
+    <style>
+      .noscript {
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
         background: black;     
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
-
-      .message {
+      .noscripttext {
         color: white;
         font-family: Helvetica, Arial, sans-serif;
         line-height: 143%;
         font-size: 16px;
         max-width: 700px;
-        padding: 0 10px;
+        padding: 0px 10px 0px 10px;
         text-align: center;
-        margin: 5px;
+        margin: 0 auto;
+      }
+      .noscriptlogo {
+        width: 80px;
+        padding: 150px 10px 0px 10px;
+        height: 50px;
+        margin: 0 auto;
+      }
+      .noscriptlogo img {
+        width: 100%;
       }
     </style>
-    <div class="container">
-        <p class="message">ysds.com does not support Internet Explorer. Please upgrade to a modern, fully supported browser for a better user experience.</p>
-      </div>
-    <![endif]-->
+    <script type="text/javascript">
+      //userAgent in IE7 WinXP returns: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727)
+      //userAgent in IE11 Win7 returns: Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko
+      
+      if (navigator.userAgent.indexOf('MSIE') != -1)
+       var detectIEregexp = /MSIE (\d+\.\d+);/
+      else
+       var detectIEregexp = /Trident.*rv[ :]*(\d+\.\d+)/
+      
+      if (detectIEregexp.test(navigator.userAgent)){
+        document.write("<div class='noscript'><div class='noscriptlogo'><img src='sdsymbol_white.png' alt='logo' /></div><p class='noscripttext'>Looks like you are using Internet Explorer. ysds.com does not support Internet Explorer. Please upgrade to a modern, fully supported browser for a better user experience.</p></div>")
+      }
+    </script>
+
+    <!-- Noscript version-->
     <noscript>
       <style>
         .noscript {
@@ -68,7 +83,7 @@
           align-items: center;
         }
 
-        .noscript p {
+        .noscripttext {
           color: white;
           font-family: Helvetica, Arial, sans-serif;
           line-height: 143%;
@@ -105,8 +120,8 @@
             </g>
           </g>
            </svg>
-        <p>ysds.com contains JavaScript, a scripting programming language that runs on your web browser. It makes web pages functional for specific purposes and if disabled, the content and the functionality of the web page can be unavailable.</p>
-        <p>For full functionality of this site it is necessary to enable JavaScript.</p>
+        <p class="noscripttext">ysds.com contains JavaScript, a scripting programming language that runs on your web browser. It makes web pages functional for specific purposes and if disabled, the content and the functionality of the web page can be unavailable.</p>
+        <p class="noscripttext">For full functionality of this site it is necessary to enable JavaScript.</p>
       </section>
     </noscript>
     <div id="root"></div>
