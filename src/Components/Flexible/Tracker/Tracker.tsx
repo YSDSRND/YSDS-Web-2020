@@ -58,7 +58,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
                 const date = new Date(info.date)
                 return (
                     <div className="box" key={i}>
-                        <h3>{info.description} {xmlTrackingInformation[i]["Signatory"]["_text"] ? xmlTrackingInformation[i]["Signatory"]["_text"] : "" }</h3>
+                        <h3>{info.description} {xmlTrackingInformation[i] && xmlTrackingInformation[i]["Signatory"] && xmlTrackingInformation[i]["Signatory"]["_text"] ? xmlTrackingInformation[i]["Signatory"]["_text"] : "" }</h3>
                         <p className="date">{date.toLocaleString()}</p>
                         <p className="city">{info.address.city}</p>
                         <p className="country">{info.address.country_code}</p>
