@@ -29,7 +29,101 @@
     
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Script for detecting IE : adding text and logo -->
+    <style>
+      .noscript {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: black;     
+      }
+      .noscripttext {
+        color: white;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 143%;
+        font-size: 16px;
+        max-width: 700px;
+        padding: 0px 10px 0px 10px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .noscriptlogo {
+        width: 80px;
+        padding: 150px 10px 0px 10px;
+        height: 50px;
+        margin: 0 auto;
+      }
+      .noscriptlogo img {
+        width: 100%;
+      }
+    </style>
+    <script type="text/javascript">
+      //userAgent in IE7 WinXP returns: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727)
+      //userAgent in IE11 Win7 returns: Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko
+      
+      if (navigator.userAgent.indexOf('MSIE') != -1)
+       var detectIEregexp = /MSIE (\d+\.\d+);/
+      else
+       var detectIEregexp = /Trident.*rv[ :]*(\d+\.\d+)/
+      
+      if (detectIEregexp.test(navigator.userAgent)){
+        document.write("<div class='noscript'><div class='noscriptlogo'><img src='sdsymbol_white.png' alt='logo' /></div><p class='noscripttext'>Looks like you are using Internet Explorer. ysds.com does not support Internet Explorer. Please upgrade to a modern, fully supported browser for a better user experience.</p></div>")
+      }
+    </script>
+
+    <!-- Noscript version-->
+    <noscript>
+      <style>
+        .noscript {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: black;     
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .noscripttext {
+          color: white;
+          font-family: Helvetica, Arial, sans-serif;
+          line-height: 143%;
+          font-size: 16px;
+          max-width: 700px;
+          padding: 0 10px;
+          text-align: center;
+          margin: 5px;
+        }
+      </style>
+
+      <section class="noscript">
+        <svg  class="logo" width="134px" height="80px">
+          <style type="text/css">
+            .st0{display:none;}
+            .st1{display:inline;}
+            .st2{fill:#FFFFFF;}
+          </style>
+          <g id="Layer_2" class="st0">
+            <rect x="0.3" class="st1" width="131.4" height="49.8"/>
+          </g>
+          <g id="Lager_1">
+            <g>
+              <path class="st2" d="M124.7,31.4L80.2,0.5c-4.1,5.9-2.5,13.7,3.4,17.8l26.2,18.2h-43c0,7.1,5.8,12.7,12.9,12.7H128
+                C132.1,43.4,130.5,35.5,124.7,31.4"/>
+              <path class="st2" d="M60.8,0.5H28.6c0,7.1,5.8,12.7,12.9,12.7h32.1C73.7,6.1,67.9,0.5,60.8,0.5"/>
+              <path class="st2" d="M58.1,31.4L13.7,0.5c-4.1,5.9-2.5,13.7,3.4,17.8l26.2,18.2h-43c0,7.1,5.8,12.7,12.9,12.7h48.2
+                C65.5,43.4,64,35.5,58.1,31.4"/>
+              <path class="st2" d="M128.6,27.5c-1.4,0-2.6-1.1-2.6-2.5c0-1.4,1.2-2.6,2.6-2.6c1.4,0,2.6,1.1,2.6,2.6
+                C131.2,26.4,130,27.5,128.6,27.5 M128.6,21.9c-1.7,0-3.1,1.4-3.1,3.1c0,1.8,1.4,3.1,3.1,3.1c1.7,0,3.1-1.4,3.1-3.1
+                C131.6,23.3,130.3,21.9,128.6,21.9"/>
+              <path class="st2" d="M127.9,23.7h1.3c0.2,0,0.4,0.2,0.4,0.4c0,0.2-0.2,0.4-0.4,0.4h-1.3V23.7z M129.1,25.1c0.5,0,0.9-0.4,0.9-0.9
+                c0-0.5-0.4-0.9-0.9-0.9h-1.7v3.4h0.4v-1.6h0.7l0.9,1.6h0.5l-0.9-1.6H129.1z"/>
+            </g>
+          </g>
+           </svg>
+        <p class="noscripttext">ysds.com contains JavaScript, a scripting programming language that runs on your web browser. It makes web pages functional for specific purposes and if disabled, the content and the functionality of the web page can be unavailable.</p>
+        <p class="noscripttext">For full functionality of this site it is necessary to enable JavaScript.</p>
+      </section>
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
