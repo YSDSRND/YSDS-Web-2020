@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {WPImage} from '../../../Util/Types/WPImage';
 import {getTrackingRequest} from '../../../Services/Tracker/Tracker';
 import {BarLoader} from "react-spinners";
+import convert from 'xml-js'
 
 export const TrackerAcfLayout = 'tracker';
 export type TrackerProps = {
@@ -15,6 +16,8 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     const [trackingId, setTrackingId] = useState('');
     const [loading, setLoading] = useState(false);
     const [trackingInformation, setTrackingInformation] = useState([]);
+    const [xmlTrackingInformation, setXMLTrackingInformation] = useState([]);
+
     const [error, setError] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
     const callbackGetTracking = useCallback((trackingId) => getTracking(trackingId), [])
@@ -25,6 +28,11 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
         setLoading(true);
 
         const tracking = await getTrackingRequest(trackingId);
+        
+        
+        let xmlDataAsJsonString:any = convert.xml2json(tracking.data.body, {compact: true, spaces: 4});
+        
+        setXMLTrackingInformation(JSON.parse(xmlDataAsJsonString)["req:TrackingResponse"]["AWBInfo"]["ShipmentInfo"]["ShipmentEvent"].reverse())
         setError(tracking.data.status === 500);
         setTrackingInformation(tracking.data.status !== 500 ? tracking.data.tracking.activities : []);
         setLoading(false);
@@ -50,7 +58,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
                 const date = new Date(info.date)
                 return (
                     <div className="box" key={i}>
-                        <h3>{info.description}</h3>
+                        <h3>{info.description} {xmlTrackingInformation[i] && xmlTrackingInformation[i]["Signatory"] && xmlTrackingInformation[i]["Signatory"]["_text"] ? xmlTrackingInformation[i]["Signatory"]["_text"] : "" }</h3>
                         <p className="date">{date.toLocaleString()}</p>
                         <p className="city">{info.address.city}</p>
                         <p className="country">{info.address.country_code}</p>
