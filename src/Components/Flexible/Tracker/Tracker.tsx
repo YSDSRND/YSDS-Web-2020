@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {WPImage} from '../../../Util/Types/WPImage';
-import {getTrackingRequest} from '../../../Services/Tracker/Tracker';
+import {getTrackingRequest} from '../../../Services/Tracker';
 import {BarLoader} from "react-spinners";
 import convert from 'xml-js'
 
@@ -31,8 +31,9 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
         
         
         let xmlDataAsJsonString:any = convert.xml2json(tracking.data.body, {compact: true, spaces: 4});
-        
-        setXMLTrackingInformation(JSON.parse(xmlDataAsJsonString)["req:TrackingResponse"]["AWBInfo"]["ShipmentInfo"]["ShipmentEvent"].reverse())
+
+        /* The ShipmentEvent tag is not always present - default to empty array */
+        setXMLTrackingInformation((JSON.parse(xmlDataAsJsonString)["req:TrackingResponse"].AWBInfo.ShipmentInfo.ShipmentEvent || []).reverse())
         setError(tracking.data.status === 500);
         setTrackingInformation(tracking.data.status !== 500 ? tracking.data.tracking.activities : []);
         setLoading(false);
