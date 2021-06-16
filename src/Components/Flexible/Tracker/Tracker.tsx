@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {WPImage} from '../../../Util/Types/WPImage';
 import {getTrackingRequest} from '../../../Services/Tracker';
 import {BarLoader} from "react-spinners";
-import convert from 'xml-js'
+//import convert from 'xml-js'
 
 export const TrackerAcfLayout = 'tracker';
 export type TrackerProps = {
@@ -16,7 +16,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     const [trackingId, setTrackingId] = useState('');
     const [loading, setLoading] = useState(false);
     const [trackingInformation, setTrackingInformation] = useState([]);
-    const [xmlTrackingInformation, setXMLTrackingInformation] = useState([]);
+    //const [xmlTrackingInformation, setXMLTrackingInformation] = useState([]);
 
     const [error, setError] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
@@ -30,7 +30,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
         const tracking = await getTrackingRequest(trackingId);
         
         
-        let xmlDataAsJsonString:any = convert.xml2json(tracking.data.body, {compact: true, spaces: 4});
+        //let xmlDataAsJsonString:any = convert.xml2json(tracking.data.body, {compact: true, spaces: 4});
 
         /* The ShipmentEvent tag is not always present - default to empty array */
         /* The response here looks differently depending on carrier*/
