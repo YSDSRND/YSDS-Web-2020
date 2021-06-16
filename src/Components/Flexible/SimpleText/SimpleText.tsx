@@ -16,7 +16,6 @@ const SimpleText : React.FC<SimpleTextProps> = ({ header, body, background_color
   <section className={"simple-text " + background_color + ' ' + columns + ' ' + title_position}>
     <div className="main">
       <h2>{header}</h2>
-      <div className="line three-col" />
       <div className="main-inner">
       <HTMLContent html={body} />
       </div>

@@ -27,7 +27,6 @@ const ContactFormColor: React.FC<ContactFormColorProps> = ({
       <div className="main-inner">
         <div className="text-container">
           <h2>{header}</h2>
-          <div className="line five-col" />
           <div className="content">
             <p>{subheader}</p>
           </div>
@@ -39,7 +38,6 @@ const ContactFormColor: React.FC<ContactFormColorProps> = ({
         </div>
         <div className="right">
           <h3>{prefer_contacting_us_title}</h3>
-          <div className="line" />
           <p>{prefer_contacting_us_body}</p>
           <LinkButton {...button} />
         </div>

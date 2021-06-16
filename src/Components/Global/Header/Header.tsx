@@ -77,14 +77,11 @@ const Header: React.FC = () => {
         >
           <img
             className="logo"
-            src="YSDS_logo.svg"
-            /*
             src={
               header_logo && header_logo.sizes && header_logo.sizes.large
                 ? header_logo.sizes.large
                 : ''
             }
-             */
             alt={header_logo ? header_logo.alt : ''}
           />
         </RouterLink>

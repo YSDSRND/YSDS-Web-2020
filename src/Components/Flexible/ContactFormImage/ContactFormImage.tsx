@@ -29,7 +29,6 @@ const ContactFormImage: React.FC<ContactFormImageProps> = ({
       <div className="main-inner">
         <div className="text-container">
           <h2>{header}</h2>
-          <div className="line three-col" />
           <p>{body}</p>
           <div className="content">
             <div className="form-container">

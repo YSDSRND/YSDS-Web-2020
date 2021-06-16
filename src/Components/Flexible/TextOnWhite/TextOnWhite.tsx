@@ -41,7 +41,6 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
       <div className="main-inner">
         <div className="text-container">
           <h2>{header}</h2>
-          <div className="line six-col" />
           <div className="content">
             {text_or_lists === 'text' && body && <HTMLContent html={body} />}
             {text_or_lists === 'lists'

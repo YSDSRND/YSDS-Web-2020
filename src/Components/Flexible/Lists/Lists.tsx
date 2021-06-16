@@ -9,7 +9,6 @@ const Lists : React.FC = () => (
       <div className="main-inner">
         <div className="text-container">
           <h2>We facilitate growth by mitigating risks</h2>
-          <div className="line six-col" />
           <div className="content" />
         </div>
       </div>
