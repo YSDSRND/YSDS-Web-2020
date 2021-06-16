@@ -70,7 +70,6 @@
                     padding-left: 0;
                     h3 {
                         margin: 0;
-                        border-bottom: 1px solid $primary-color;
                         padding-bottom: 10px;
                         margin-bottom: 12px;
                     }
@@ -87,12 +86,6 @@
                     .text-container {
                         padding-left: 0;
                     } 
-                }
-            }
-            &.dark {
-                .bullet .text-container h3 {
-                    color: $color-navy;
-                    border-color: white;
                 }
             }
             &.four {
