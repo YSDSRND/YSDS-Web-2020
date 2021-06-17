@@ -12,6 +12,12 @@
                 padding: 28px 15px 20px;
             }
         }
+        &.magenta {
+            background-color: $color-light-magenta;
+            h2 {
+                color: $color-dark-magenta;
+            }
+        }
     }
     .main {
         position: relative;
