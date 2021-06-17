@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { AppState } from "../../../Store";
 import Card, { CardProps } from "./Card";
 export const CardsAlternateACFLayout = "cards_alternative";
 export type CardsAlternateProps = {
@@ -9,6 +11,10 @@ export type CardsAlternateProps = {
   columns:string
 };
 const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, background_color, columns }) => {
+  const currentPage = useSelector((state: AppState) => state.currentPage)
+
+  // @Joakim you can use currentPage.currentPage to access all the page data
+
   return (
     <section className={"cards " + background_color}>
       <div className="main">
