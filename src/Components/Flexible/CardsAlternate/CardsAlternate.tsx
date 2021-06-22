@@ -17,7 +17,7 @@ const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, backgrou
   const clazzes = classNames({
     'cards': true,
     [background_color]: true,
-    [currentPage.currentPage.acf.primaryColor]: currentPage.currentPage.acf.primaryColor || false,
+    [currentPage.currentPage?.acf.primaryColor]: currentPage.currentPage?.acf.primaryColor || false,
   })
 
   return (
