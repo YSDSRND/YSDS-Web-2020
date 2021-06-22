@@ -25,7 +25,6 @@ const Article: React.FC<ArticleProps> = ({
       <div className="main-inner">
         <div className="text-container">
           <h1>{header}</h1>
-          <div className="line five-col" />
           <h2>
             {subheader}
           </h2>

@@ -1,6 +1,6 @@
 .ysds-button {
     background: $primary-color;
-    border-radius: 5px;
+    border-radius: 20px;
     display: inline-block;
     color: white;
     //font-weight: 800;
@@ -10,16 +10,16 @@
     border: 1px solid $primary-color;
     letter-spacing: 1px;
     font-size: 12px;
-    padding: 9px 15px 5px;
+    padding: 9px 15px;
     white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
-    font-family: Helvetica-Neue-Condensed;
+    font-family: HelveticaNowDisplay-XBd;
     appearance: none;
 
     &.big {
         font-size: 17px;
-        padding: 14px 26px 9px;
+        padding: 14px 26px;
         &.lines {
             color: $primary-color;
             background: none;

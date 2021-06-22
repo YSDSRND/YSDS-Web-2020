@@ -1,6 +1,6 @@
 .cards  {
     &.alternative {
-        background: $blue;
+        background: $color-navy;
         .main {
             padding-top: 100px;
             padding-bottom: 50px;
@@ -10,6 +10,15 @@
             }
             .one-card .text-container {
                 padding: 28px 15px 20px;
+            }
+        }
+        &.magenta {
+            background-color: $color-light-magenta;
+            h2 {
+                color: $color-dark-magenta;
+            }
+            .main-inner h3 {
+                border-color: $color-dark-magenta;
             }
         }
     }

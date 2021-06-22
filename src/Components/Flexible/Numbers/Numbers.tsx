@@ -16,7 +16,6 @@ const Numbers : React.FC<NumbersProps> = ({ header, numbers, background_color })
       <div className="main-inner">
         <div className="text-container">
           <h2>{header}</h2>
-          <div className="line three-col" />
           <div className="content">
             {
                         numbers.map((numberItem, i) => <Number {...numberItem} key={i} />)

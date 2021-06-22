@@ -1,9 +1,9 @@
 .text-on-white {
     overflow: hidden;
     &.darkblue {
-        background: $blue;
+        background: $color-navy;
         .triangle { 
-            background: $blue;
+            background: $color-navy;
         }
         .main-inner {
             color: white;

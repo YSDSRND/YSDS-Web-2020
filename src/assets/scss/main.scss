@@ -40,11 +40,11 @@
 
 html {
     overflow-x: hidden;
-    background: black;
+    background: $color-navy;
 }
 
 .highblack {
-    background: black;
+    background: $color-navy;
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -96,7 +96,7 @@ img {
     -ms-user-select: none;
     user-select: none;
     &:hover input ~ .checkmark {
-        background-color: #846804;
+        background-color: $primary-color;
     }
     input {
         position: absolute;
@@ -105,7 +105,7 @@ img {
         height: 0;
         width: 0;
         &:checked ~ .checkmark {
-            background-color: #846804;
+            background-color: $primary-color;
         }
         &:checked ~ .checkmark:after {
             display: block;
@@ -118,7 +118,7 @@ img {
         height: 16px;
         width: 16px;
         background-color: transparent;
-        border: 1px solid #846804;
+        border: 1px solid $primary-color;
         &:after {
             content: "";
             position: absolute;

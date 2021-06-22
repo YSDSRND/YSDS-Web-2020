@@ -4,7 +4,7 @@
         .main {
             background-color: rgba(0,0,0,0.7);
             .triangle {
-                background: $blue;
+                background: $color-navy;
             }
             .main-inner {
                 color: white;
@@ -19,7 +19,7 @@
                         background: white;
                         border: 1px solid white;
                         @media screen and (min-width: $small) {
-                            border: 1px solid $blue;
+                            border: 1px solid $color-navy;
                         }
                     }
                 }
@@ -66,7 +66,7 @@
                 border-radius: 10px;
                 @media screen and (min-width: $small) {
                     padding: 35px 28px;
-                    background: $blue;
+                    background: $color-navy;
                     color: white;
                 }
                 h3 {
@@ -81,7 +81,7 @@
                         text-transform: uppercase;
                         letter-spacing: 1px;
                         font-size: 12px;
-                        font-family: Helvetica-Neue-Roman;
+                        font-family: HelveticaNowText-Regular;
                     }
                     input[type=text],
                     input[type=tel],
@@ -89,13 +89,13 @@
                         height: 38px;
                         width: 100%;
                         border-radius: 3px;
-                        border: 1px solid $blue;
-                        background: $blue;
+                        border: 1px solid $color-navy;
+                        background: $color-navy;
                         margin-bottom: 20px;
                         padding-left: 5px;
                         padding-top: 4px;
                         font-size: 15px;
-                        font-family: Helvetica-Neue-Roman;
+                        font-family: HelveticaNowText-Regular;
                         @media screen and (min-width: $small) {
                             border: 1px solid white;
                             background: white;

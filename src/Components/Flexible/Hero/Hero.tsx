@@ -34,7 +34,6 @@ const Hero: React.FC<HeroProps> = ({
         <div className="background-image"
              style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})`}}/>
         <div className="main">
-            <div className="triangle"/>
             <div className="main-inner">
                 <div className="text-container">
                     {
@@ -46,7 +45,6 @@ const Hero: React.FC<HeroProps> = ({
                             </h1>
                         )
                     }
-                    <div className="line three-col"/>
                     <h2 dangerouslySetInnerHTML={{__html: subheader}}/>
 
                     <LinkButton {...button} />
