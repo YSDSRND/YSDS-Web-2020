@@ -16,9 +16,9 @@ const Card: React.FC<CardProps> = ({
 }) => {
 
     const content = <>
-        <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ''} alt={image ? image.alt : ''} />
+        {image ? <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ''} alt={image ? image.alt : ''} /> : null}
         <div className="text-container">
-            <h3>{header}</h3>
+            <h3>{header} - alternate</h3>
             <p>{text}</p>
 
             {button.button ? <button className="ysds-button lines">{button.button.title}</button> : ''}

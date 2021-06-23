@@ -32,6 +32,7 @@ import ThreeBlogPosts, {
 } from '../../Flexible/ThreeBlogPosts/ThreeBlogPosts';
 import {ShipNowForm, ShipNowFormLayout, ShipNowFormProps} from "../../Flexible/ShipNowForm/ShipNowForm";
 import Posts,{ PostsProps, PostsACFLayout} from "../../Flexible/Posts/Posts";
+import TextBoxes, { TextBoxesACFLayout, TextBoxesProps } from '../../Flexible/TextBoxes/TextBoxes';
 
 type FlexibleProps = {
     flexible: FlexibleLayout[]
@@ -58,6 +59,7 @@ type FlexibleLayout = HeroProps
     | ThreeBlogPostsProps
     | ShipNowFormProps
     | PostsProps
+    | TextBoxesProps
 
 
 const Flexible : React.FC<FlexibleProps> = ({ flexible }) => (
@@ -113,6 +115,8 @@ function renderFlexibleSection(layout : FlexibleLayout, i:any) {
       return <Article {...layout} key={i} />;
     case BulletACFLayout:
       return <Bullets {...layout} key={i} />;
+    case TextBoxesACFLayout:
+      return <TextBoxes {...layout} key={i} />;
     case ShipNowFormLayout:
       return <ShipNowForm {...layout} key={i} />
     default: {
