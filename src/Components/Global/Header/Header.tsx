@@ -9,6 +9,7 @@ import { isInternalUrl } from "../../../Util/isInternalUrl";
 import mainBrandLogo from '../../../assets/images/YSDS.svg';
 import lifeScienceBrandLogo from '../../../assets/images/YSDS_lf.svg';
 import artBrandLogo from '../../../assets/images/YSDS_art.svg';
+import specialBrandLogo from '../../../assets/images/YSDS_sp.svg';
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -89,7 +90,7 @@ const Header: React.FC = () => {
       brandLogo = artBrandLogo
       break
     case brandSpecial:
-      brandLogo = 'YSDS_logo_dark_special.svg'
+      brandLogo = specialBrandLogo
       break
     default:
       brandLogo = mainBrandLogo

@@ -91,7 +91,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
                         <>
                             {error ?
                                 <div className="alert">
-                                    <p>We couldn't find any information about your tracking. </p>
+                                    <p>We couldn&apos;t find any information about your tracking. </p>
                                 </div>
                                 :
                                 activities

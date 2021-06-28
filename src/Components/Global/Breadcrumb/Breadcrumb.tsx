@@ -15,7 +15,7 @@ export const Breadcrumb: React.FC<Props> = props => {
     return <section className="breadcrumb">
         {props.items.map((item, i) => {
             const last = (props.items.length - 1) === i;
-            return <div className="breadcrumb-item">
+            return <div className="breadcrumb-item" key={i}>
                 { last ? <p>{item.title}</p> : <Link to={item.uri}>{item.title}</Link> }
             </div>
         })}
