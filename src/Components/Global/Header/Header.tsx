@@ -72,7 +72,7 @@ const Header: React.FC = () => {
     window.scrollTo(0, 0)
   }
 
-  const { header_logo, navigation } = options.options.header;
+  const { navigation } = options.options.header;
 
   console.log(currentPage.currentPage?.acf.ysds_brand)
   //pick out the brand of the page and change logo on that
