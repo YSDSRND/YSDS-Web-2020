@@ -23,7 +23,7 @@ const Header: React.FC = () => {
   const brandMain = 'brandMain'
   const brandLifeScience = 'lifeScience'
   const brandArt = 'art'
-  const brandSpecial = 'special'
+  const brandSpecial = 'specialLogistics'
 
 
   React.useEffect(() => {
@@ -75,9 +75,6 @@ const Header: React.FC = () => {
 
   const { navigation } = options.options.header;
 
-  console.log(currentPage.currentPage?.acf.ysds_brand)
-  //pick out the brand of the page and change logo on that
-
   const brandPage = currentPage.currentPage?.acf.ysds_brand ?? brandMain
 
   let brandLogo = ''
@@ -95,9 +92,6 @@ const Header: React.FC = () => {
     default:
       brandLogo = mainBrandLogo
   }
-
-  console.log(brandLogo)
-
 
   return (
     <section className="header">
