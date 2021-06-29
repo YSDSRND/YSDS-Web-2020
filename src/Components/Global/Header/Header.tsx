@@ -7,6 +7,7 @@ import ContactForm from '../ContactForm/ContactForm';
 import { IndustryBanner } from "../IndustryBanner/IndustryBanner";
 import { isInternalUrl } from "../../../Util/isInternalUrl";
 import { YsdsBrand, YsdsBrandLogo } from '../../../types';
+import { getYsdsBrand } from '../../../Util/Util';
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -67,7 +68,7 @@ const Header: React.FC = () => {
 
   const { navigation } = options.options.header;
 
-  const brandPage: YsdsBrand = currentPage.currentPage?.acf.ysds_brand ?? YsdsBrand.Main
+  const brandPage: YsdsBrand = getYsdsBrand(currentPage.currentPage?.acf.ysds_brand)
   const brandLogo = YsdsBrandLogo[brandPage];
 
   return (

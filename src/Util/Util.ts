@@ -1,3 +1,4 @@
+import { YsdsBrand } from "../types";
 
 export function classNames(classMap: Record<string, boolean>): string {
     return Object.keys(classMap)
@@ -5,3 +6,10 @@ export function classNames(classMap: Record<string, boolean>): string {
         .join(' ')
 }
 
+export function getYsdsBrand(brand: string): YsdsBrand {
+    if (Object.values(YsdsBrand).some(v => v === brand)) {
+        return brand as YsdsBrand;
+    }
+
+    return YsdsBrand.Main;
+}
