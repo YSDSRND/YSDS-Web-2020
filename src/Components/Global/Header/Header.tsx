@@ -21,9 +21,9 @@ const Header: React.FC = () => {
   const [hideDropdown, setHideDropdown] = useState<boolean>(false);
   const currentPage = useSelector((state: AppState) => state.currentPage)
   const brandMain = 'brandMain'
-  const brandLifeScience = 'lifeScience'
-  const brandArt = 'art'
-  const brandSpecial = 'specialLogistics'
+  const brandLifeScience = 'brandLifeScience'
+  const brandArt = 'brandArt'
+  const brandSpecial = 'brandSpecialLogistics'
 
 
   React.useEffect(() => {
@@ -76,7 +76,6 @@ const Header: React.FC = () => {
   const { navigation } = options.options.header;
 
   const brandPage = currentPage.currentPage?.acf.ysds_brand ?? brandMain
-
   let brandLogo = ''
 
   switch (brandPage) {
