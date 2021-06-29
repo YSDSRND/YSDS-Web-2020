@@ -20,6 +20,19 @@
             }
         }
     }
+
+    .brandLifeScience & {
+        background-color: $color-dark-blue;
+    }
+
+    .brandArt & {
+        background-color: $color-dark-magenta;
+    }
+
+    .brandSpecialLogistics & {
+        background-color: $color-dark-green;
+    }
+
     .background-image {
         position: absolute;
         width: 100%;
