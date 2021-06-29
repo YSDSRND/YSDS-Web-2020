@@ -82,4 +82,39 @@
             }
         }
     }
+    .brandArt & {
+        .one-card h3 {
+            border-color: $color-dark-magenta;
+        }
+        .ysds-button {
+            border-color: $color-dark-magenta;
+            &.lines {
+                color: $color-dark-magenta;
+            }
+        }
+    }
+
+    .brandLifeScience & {
+        .one-card h3 {
+            border-color: $color-dark-blue;
+        }
+        .ysds-button {
+            border-color: $color-dark-blue;
+            &.lines {
+                color: $color-dark-blue;
+            }
+        }
+    }
+
+    .brandSpecialLogistics & {
+        .one-card h3 {
+            border-color: $color-dark-green;
+        }
+        .ysds-button {
+            border-color: $color-dark-green;
+            &.lines {
+                color: $color-dark-green;
+            }
+        }
+    }
 }

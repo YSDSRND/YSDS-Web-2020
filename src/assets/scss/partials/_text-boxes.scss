@@ -14,8 +14,15 @@
     .background-image {
         background-image: url(../../images/YSDS_pattern_navy02.png);
     }
+    .main-inner h2 {
+        color: $color-navy;
+    }
 
     .brandLifeScience & {
+        .main-inner h2 {
+            color: $color-dark-blue;
+        }
+
         color: white;
         .background-image {
             background-image: url(../../images/YSDS_pattern_darkblue02.png);
@@ -23,6 +30,10 @@
     }
 
     .brandArt & {
+        .main-inner h2 {
+            color: $color-dark-magenta;
+        }
+
         color: white;
         .background-image {
             background-image: url(../../images/YSDS_pattern_darkmagenta02.png);
