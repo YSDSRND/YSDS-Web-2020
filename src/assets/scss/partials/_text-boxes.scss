@@ -11,6 +11,23 @@
             } 
         }
     }
+    .background-image {
+        background-image: url(../../images/YSDS_pattern_navy02.png);
+    }
+
+    .brandLifeScience & {
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkblue02.png);
+        }
+    }
+
+    .brandArt & {
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkmagenta02.png);
+        }
+    }
 
     .triangle {
         background: $color-light-yellow;

@@ -28,7 +28,7 @@ const TextBoxes: React.FC<TextBoxesProps> = ({ text_box, header, columns, backgr
                 'inverted': textBox.background_image ? true : false,
               })
               return <div className={textBoxClassNames} key={i}>
-                <div className="background-image" style={{backgroundImage: `url(${textBox.background_image && textBox.background_image.sizes && textBox.background_image.sizes.large ? textBox.background_image.sizes.large : ''})`}}/>
+                <div className="background-image" />
                 <div className="text-container">
                   <h3>{textBox.header}</h3>
                   <p>{textBox.text}</p>
