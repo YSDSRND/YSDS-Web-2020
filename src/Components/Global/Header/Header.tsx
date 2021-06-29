@@ -6,10 +6,7 @@ import Link from '../Link/Link';
 import ContactForm from '../ContactForm/ContactForm';
 import { IndustryBanner } from "../IndustryBanner/IndustryBanner";
 import { isInternalUrl } from "../../../Util/isInternalUrl";
-import mainBrandLogo from '../../../assets/images/YSDS.svg';
-import lifeScienceBrandLogo from '../../../assets/images/YSDS_lf.svg';
-import artBrandLogo from '../../../assets/images/YSDS_art.svg';
-import specialBrandLogo from '../../../assets/images/YSDS_sp.svg';
+import { YsdsBrand, YsdsBrandLogo } from '../../../types';
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -20,11 +17,6 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [hideDropdown, setHideDropdown] = useState<boolean>(false);
   const currentPage = useSelector((state: AppState) => state.currentPage)
-  const brandMain = 'brandMain'
-  const brandLifeScience = 'brandLifeScience'
-  const brandArt = 'brandArt'
-  const brandSpecial = 'brandSpecialLogistics'
-
 
   React.useEffect(() => {
 
@@ -75,22 +67,8 @@ const Header: React.FC = () => {
 
   const { navigation } = options.options.header;
 
-  const brandPage = currentPage.currentPage?.acf.ysds_brand ?? brandMain
-  let brandLogo = ''
-
-  switch (brandPage) {
-    case brandLifeScience:
-      brandLogo = lifeScienceBrandLogo
-      break
-    case brandArt:
-      brandLogo = artBrandLogo
-      break
-    case brandSpecial:
-      brandLogo = specialBrandLogo
-      break
-    default:
-      brandLogo = mainBrandLogo
-  }
+  const brandPage: YsdsBrand = currentPage.currentPage?.acf.ysds_brand ?? YsdsBrand.Main
+  const brandLogo = YsdsBrandLogo[brandPage];
 
   return (
     <section className="header">

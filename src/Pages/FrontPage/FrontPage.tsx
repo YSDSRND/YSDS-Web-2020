@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from "react-helmet";
 
 import Flexible from '../../Components/Global/Flexible/Flexible';
@@ -10,9 +10,12 @@ import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTempla
 
 import {AllHtmlEntities} from 'html-entities';
 import {defaultsForOGTags} from "../../Util/Types/defaultsForOGTags";
+import { SetCurrentPage } from '../../Store/CurrentPage/CurrentPageActions';
 
 const FrontPage: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
+  const dispatch = useDispatch();
+  const dispatchCallback = useCallback(dispatch, []);
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
@@ -42,10 +45,12 @@ const FrontPage: React.FC = () => {
       if (Array.isArray(resp)) {
         set404(true);
       }
+      
+      dispatchCallback(SetCurrentPage(resp))
       setData(resp);
       setLoading(false);
     });
-  }, [options]);
+  }, [options, dispatchCallback]);
 
   if (loading) {
     return <LoadingTemplate />;
