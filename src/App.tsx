@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './assets/scss/main.scss';
 import 'swiper/swiper.scss';
+import './index.css';
 import { useDispatch } from 'react-redux';
 import Router from './Router';
 import { GetOptions } from './Services/Options/Options';
