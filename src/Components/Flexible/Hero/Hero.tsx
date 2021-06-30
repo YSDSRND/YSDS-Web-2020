@@ -29,6 +29,9 @@ const Hero: React.FC<HeroProps> = ({
         }
     }
 
+    const headerWords = header.split(" ")
+    const headerFirstWord = headerWords.shift()
+    const headerRestWords = headerWords.join(" ")
 
     return <section ref={ref} className={(centered ? 'hero-centered' : 'hero') + ' ' + background_color + ' ' + arrow}>
         <div className="background-image"
@@ -41,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({
                             <img className="logo-image" src={logoImage && logoImage.sizes && logoImage.sizes.large ? logoImage.sizes.large : ''} alt={logoImage ? logoImage.alt : ''} />
                         ) : (
                             <h1>
-                                {header}
+                                <span className="firstWord">{headerFirstWord}</span> {headerRestWords}
                             </h1>
                         )
                     }
