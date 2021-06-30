@@ -4,7 +4,7 @@ import { GetPostBySlug, GetYoastBySlug } from '../../Services/Post/Post';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 import { Helmet } from "react-helmet";
-import {AllHtmlEntities} from "html-entities";
+import {decode as decodeHtmlEntities} from "html-entities";
 import {StandaloneTextAndImage} from "../../Components/Flexible/TextAndImage/TextAndImage";
 import ContactFormColor from "../../Components/Flexible/ContactFormColor/ContactFormColor";
 import {Breadcrumb, BreadcrumbItem} from "../../Components/Global/Breadcrumb/Breadcrumb";
@@ -14,7 +14,7 @@ import {AppState} from "../../Store";
 
 const Post: React.FC = () => {
   const options = useSelector((state : AppState) => state.options);
-  const { slug } = useParams();
+  const { slug } = useParams<{slug: string}>();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
@@ -82,7 +82,7 @@ const Post: React.FC = () => {
         }) : null
       }
 
-      <title>{AllHtmlEntities.decode(yoastTitle)}</title>
+      <title>{decodeHtmlEntities(yoastTitle)}</title>
 
     </Helmet>
     <Breadcrumb items={breadcrumbItems} />

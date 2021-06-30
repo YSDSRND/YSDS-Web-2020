@@ -6,7 +6,7 @@ import Error404Template from '../../PageTemplates/Error404Template/Error404Templ
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate'
 
 const Case: React.FC = () => {
-  const { slug } = useParams();
+  const { slug } = useParams<{slug: string}>();
 
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();

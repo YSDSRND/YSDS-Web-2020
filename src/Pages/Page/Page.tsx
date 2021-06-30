@@ -5,7 +5,7 @@ import Flexible from '../../Components/Global/Flexible/Flexible';
 import {GetPageBySlug, GetYoastBySlug} from '../../Services/Pages/Pages';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate';
-import {AllHtmlEntities} from 'html-entities';
+import {decode as decodeHtmlEntities} from 'html-entities';
 import {defaultsForOGTags} from "../../Util/Types/defaultsForOGTags";
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../../Store";
@@ -81,7 +81,7 @@ const Page: React.FC = (props) => {
                 }) : null
             }
 
-            <title>{AllHtmlEntities.decode(yoastTitle)}</title>
+            <title>{decodeHtmlEntities(yoastTitle)}</title>
         </Helmet>
         <Flexible flexible={data.acf.flexible}/></>;
 };
