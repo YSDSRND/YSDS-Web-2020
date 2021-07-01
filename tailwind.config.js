@@ -15,7 +15,7 @@ module.exports = {
         "screen/5": "calc(100vh / 5)",
       }),
       margin: {
-        '-word': '-1em',
+        '-word': '-1.1em',
       },
       padding: {
         'screen/2': '50vh',
