@@ -36,8 +36,7 @@
     "sweetalert2": "^9.17.2",
     "sweetalert2-react-content": "^3.2.2",
     "swiper": "5.4.3",
-    "typescript": "^3.9.7",
-    "xml-js": "^1.6.11"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
