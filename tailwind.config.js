@@ -9,6 +9,8 @@ module.exports = {
         'orange': '#F26703',
         'magenta-dark': '#853761',
         'magenta-light': '#ecd4dd',
+        'blue-dark': '#08758a',
+        'blue-light': '#add7de',
       },
       height: theme => ({
         "screen/2": "50vh",

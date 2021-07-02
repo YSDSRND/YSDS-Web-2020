@@ -42,4 +42,15 @@
     .brandArt .ysds-button {
         @apply bg-magenta-light border-magenta-light text-magenta-dark;
     }
+
+    .brandLifeScience .hero {
+        @apply bg-blue-dark;
+    }
+    .brandLifeScience .hero .title {
+        @apply text-blue-light;
+    }
+
+    .brandLifeScience .hero .title span:first-child {
+        @apply lg:text-blue-dark;
+    }
 }
