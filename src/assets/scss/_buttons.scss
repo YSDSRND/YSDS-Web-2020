@@ -6,8 +6,7 @@
     //font-weight: 800;
     line-height: 19px;
     text-align: center;
-    text-transform: uppercase;
-    border: 1px solid $primary-color;
+    //border: 1px solid $primary-color;
     letter-spacing: 1px;
     font-size: 12px;
     padding: 9px 15px;
@@ -30,13 +29,13 @@
         }
     }
 
-    &.lines {
+    /* &.outlines {
         color: $primary-color;
         background: none;
         &.white {
             color: white;
             border: 1px solid white;
         }
-    }
+    } */
     
 }

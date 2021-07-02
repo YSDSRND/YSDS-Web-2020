@@ -90,7 +90,6 @@
                 }
                 .date {
                     color: $dark-grey;
-                    text-transform: uppercase;
                     font-size: 13px;
                     font-family: HelveticaNowDisplay-XBd;
                     margin-top: 0;
@@ -139,7 +138,6 @@
                 line-height: 1;
                 padding-top: 13px;
                 font-family: HelveticaNowDisplay-XBd;
-                text-transform: uppercase;
                 &.active,
                 &:hover {
                     background: $primary-color;
