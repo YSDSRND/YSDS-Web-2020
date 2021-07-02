@@ -30,18 +30,18 @@ const Hero: React.FC<HeroProps> = ({
     }
 
     const headerWords = header.split(" ")
-    const headerFirstWord = headerWords.shift()
-    const headerRestWords = headerWords.join(" ")
 
     return <section ref={ref} className="hero">
         <div className="hero-image" style={{ backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})` }} />
-        <div className="content lg:container lg:mx-auto lg:grid lg:grid-cols-2 pb-8">
-            <div className="title lg:-mt-word text-light-yellow lg:text-7xl leading-none">
+        <div className="content container mx-auto lg:grid lg:grid-cols-2 pb-8">
+            <div className="title">
                 <h1>
-                    <span className="lg:block text-white">{headerFirstWord}</span> {headerRestWords}
+                    {headerWords.map((word: string, index: number) => {
+                        return <span key={index}>{word}&nbsp;</span>
+                    })}
                 </h1>
             </div>
-            <div className="message py-8">
+            <div className="text-container">
                 <p dangerouslySetInnerHTML={{ __html: subheader }} />
                 <LinkButton {...button} />
             </div>

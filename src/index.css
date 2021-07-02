@@ -7,6 +7,39 @@
         @apply bg-navy text-white 
     }
     .hero-image {
-        @apply pt-screen/2
+        @apply pt-screen2/3 bg-cover;
+    }
+
+    .hero .content {
+        @apply px-4;
+    }
+
+    .hero .title {
+        @apply text-light-yellow text-3xl leading-none mt-8;
+        @apply lg:-mt-word lg:text-7xl;
+    }
+
+    .hero .title span {
+        @apply lg:block
+    }
+    .hero .title span:first-child {
+        @apply text-white;
+    }
+
+    .text-container p {
+        @apply my-4;
+    }
+    .brandArt .hero {
+        @apply bg-magenta-dark;
+    }
+    .brandArt .hero .title {
+        @apply text-magenta-light;
+    }
+    .brandArt .hero .title span:first-child {
+        @apply lg:text-magenta-dark;
+    }
+
+    .brandArt .ysds-button {
+        @apply bg-magenta-light border-magenta-light text-magenta-dark;
     }
 }

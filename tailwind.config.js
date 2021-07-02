@@ -7,6 +7,8 @@ module.exports = {
         'navy': '#222E3B',
         'light-yellow': '#FFE9D0',
         'orange': '#F26703',
+        'magenta-dark': '#853761',
+        'magenta-light': '#ecd4dd',
       },
       height: theme => ({
         "screen/2": "50vh",
@@ -19,6 +21,7 @@ module.exports = {
       },
       padding: {
         'screen/2': '50vh',
+        'screen2/3': '75vh',
       }
     },
   },
