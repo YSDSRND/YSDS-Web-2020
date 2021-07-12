@@ -15,22 +15,24 @@ export type TextBoxesProps = {
   acf_fc_layout: 'text_boxes'
 };
 
-const TextBoxes: React.FC<TextBoxesProps> = ({ text_box, header, columns, background_color, button}) => (
-  <section className={"text-boxes "}>
+const TextBoxes: React.FC<TextBoxesProps> = ({ text_box, header, columns, background_color, button}) => {
+const colsAsInt = columns == 'four' ? 4 : 3
+return  <section className={"text-boxes py-16"}>
     <div className="main">
-      <div className="main-inner">
-        <h2>{header}</h2>
-        <div className={`flex-container ${columns}`}>
+      <div className="container mx-auto">
+        <h2 className="mb-8">{header}</h2>
+        <div className={`lg:grid lg:grid-cols-${colsAsInt} lg:gap-4`}>
           {
             text_box.map((textBox, i) => {
               const textBoxClassNames = classNames({
                 'text-box': true,
                 'inverted': textBox.background_image ? true : false,
+                'mb-8' : true,
               })
               return <div className={textBoxClassNames} key={i}>
                 <div className="background-image" />
-                <div className="text-container">
-                  <h3>{textBox.header}</h3>
+                <div className="text-container p-8">
+                  <h3 className="xl:h-24">{textBox.header}</h3>
                   <p>{textBox.text}</p>
                   <LinkButton {...textBox.button} />
                 </div>
@@ -43,6 +45,6 @@ const TextBoxes: React.FC<TextBoxesProps> = ({ text_box, header, columns, backgr
       </div>
     </div>
   </section>
-);
+}
 
 export default TextBoxes;
