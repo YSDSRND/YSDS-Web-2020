@@ -1,4 +1,54 @@
 .text-boxes {
+    .background-image {
+        background-image: url(../../images/YSDS_pattern_navy02.png);
+    }
+    h2 {
+        color: $color-navy;
+    }
+
+    .brandLifeScience & {
+        background-color: $color-light-blue;
+        h2 {
+            color: $color-dark-blue;
+        }
+
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkblue02.png);
+        }
+    }
+
+    .brandArt & {
+        background-color: $color-light-magenta;
+        h2 {
+            color: $color-dark-magenta;
+        }
+
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkmagenta02.png);
+        }
+    }
+
+    .text-box {
+        position: relative;
+
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-position: top;
+            background-size: cover;
+        }
+        .text-container {
+            position: relative;
+        }
+    }
+}
+
+/* .text-boxes {
     position: relative;
     &.alternative {
         background: $color-navy;
@@ -162,4 +212,4 @@
             margin-top: 30px;
         }
     }
-}
+} */
