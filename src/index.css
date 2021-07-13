@@ -40,6 +40,10 @@
         @apply bg-magenta-light border-magenta-light text-magenta-dark;
     }
 
+    .brandLifeScience .ysds-button {
+        @apply bg-blue-light border-blue-light text-blue-dark;
+    }
+
     .brandLifeScience .hero {
         @apply bg-blue-dark;
     }
