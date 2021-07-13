@@ -52,7 +52,7 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
       <div className="main">
         <div className="main-inner">
           {
-            title.length > 0 ? (<h2>{title}</h2>) : null
+            title.length > 0 ? (<h2 className="heading2">{title}</h2>) : null
           }
           {
             !loading && casesData && (

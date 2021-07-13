@@ -15,7 +15,7 @@ export type SimpleTextProps = {
 const SimpleText : React.FC<SimpleTextProps> = ({ header, body, background_color, title_position, columns }) => (
   <section className={"simple-text " + background_color + ' ' + columns + ' ' + title_position}>
     <div className="main">
-      <h2>{header}</h2>
+      <h2 className="heading2">{header}</h2>
       <div className="main-inner">
       <HTMLContent html={body} />
       </div>

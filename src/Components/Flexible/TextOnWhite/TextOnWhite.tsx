@@ -34,14 +34,13 @@ const TextOnWhite: React.FC<TextOnWhiteProps> = ({
         className="bg-image"
         style={{ backgroundImage: `url(${background_image && background_image.sizes && background_image.sizes.large ? background_image.sizes.large : ''})` }}
       >
-          <img src={image && image.sizes && image.sizes.large ? image.sizes.large : ''} alt={image ? image.alt : ''} />
+        
 
       </div>
-      <div className="triangle" />
       <div className="main-inner">
         <div className="text-container">
           <h2>{header}</h2>
-          <div className="content">
+          <div className="content pr-16">
             {text_or_lists === 'text' && body && <HTMLContent html={body} />}
             {text_or_lists === 'lists'
                 && lists

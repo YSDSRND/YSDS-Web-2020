@@ -27,7 +27,7 @@
 
         color: white;
         .background-image {
-            background-image: url(../../images/YSDS_pattern_darkblue02.png);
+            background-image: url(../../images/YSDS_pattern_darkblue01.png);
         }
     }
 
@@ -39,7 +39,21 @@
 
         color: white;
         .background-image {
-            background-image: url(../../images/YSDS_pattern_darkmagenta02.png);
+            background-image: url(../../images/YSDS_pattern_darkmagenta01.png);
+        }
+    }
+
+
+
+    .brandSpecialLogistics & {
+        background-color: $color-light-green;
+        h2 {
+            color: $color-dark-green;
+        }
+
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkgreen01.png);
         }
     }
 

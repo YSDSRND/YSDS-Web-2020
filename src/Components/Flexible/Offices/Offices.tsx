@@ -30,7 +30,7 @@ const Offices: React.FC<OfficesProps> = ({ header, body, offices, background_col
   return (
     <section className={"offices " + background_color}>
       <div className="main">
-        <h2>{header}</h2>
+        <h2 className="heading2">{header}</h2>
         <p className="subtitle">{body}</p>
 
         <div className="main-inner">

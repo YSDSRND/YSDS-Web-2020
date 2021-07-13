@@ -10,7 +10,7 @@ export type CaseProps = {
 
 const Case: React.FC<CaseProps> = ({ header, body, slug, media }) => {
     return <div className="one-card">
-        <img src={media &&  media.large ? media.large : ''} alt={''} />    <h3>{header}</h3>
+        <img src={media &&  media.large ? media.large : ''} alt={''} />    <h3 className="heading3">{header}</h3>
         <HTMLContent html={body} />
       </div>
 };

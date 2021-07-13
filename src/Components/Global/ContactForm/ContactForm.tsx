@@ -81,7 +81,7 @@ const ContactForm: React.FC = () => {
         <div>
             {
                 send ? (
-                    <h3>Thanks! We will get back to you as soon as possible.</h3>
+                    <h3 className="heading3">Thanks! We will get back to you as soon as possible.</h3>
                 ) : (
                     <form onSubmit={onSubmit}>
                         <label>Name</label>

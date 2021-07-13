@@ -16,6 +16,8 @@ module.exports = {
         'magenta-light': '#ecd4dd',
         'blue-dark': '#08758a',
         'blue-light': '#add7de',
+        'green-dark': '#0A8D5E',
+        'green-light': '#B4E8C9',
       },
       height: theme => ({
         "screen/2": "50vh",

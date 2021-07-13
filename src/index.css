@@ -40,9 +40,7 @@
         @apply bg-magenta-light border-magenta-light text-magenta-dark;
     }
 
-    .brandLifeScience .ysds-button {
-        @apply bg-blue-light border-blue-light text-blue-dark;
-    }
+
 
     .brandLifeScience .hero {
         @apply bg-blue-dark;
@@ -54,6 +52,28 @@
     .brandLifeScience .hero .title span:first-child {
         @apply lg:text-blue-dark;
     }
+
+    .brandLifeScience .ysds-button {
+        @apply bg-blue-light border-blue-light text-blue-dark;
+    }
+
+
+    .brandSpecialLogistics .hero {
+        @apply bg-green-dark;
+    }
+    .brandSpecialLogistics .hero .title {
+        @apply text-green-light;
+    }
+
+    .brandSpecialLogistics .hero .title span:first-child {
+        @apply lg:text-green-dark;
+    }
+
+    .brandSpecialLogistics .ysds-button {
+        @apply bg-green-light border-green-light text-green-dark;
+    }
+
+    
 
     .heading1 {
         @apply text-4xl lg:text-5xl xl:text-6xl;
@@ -71,10 +91,10 @@
         @apply my-4;
     }
     .text-container ul {
-        @apply list-disc;
+        @apply list-disc ml-6;
     }
 
     .text-container ol {
-        @apply list-decimal;
+        @apply list-decimal ml-6;
     }
 }
