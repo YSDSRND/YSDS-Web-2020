@@ -26,7 +26,7 @@ const CardsAlternate: React.FC<CardsAlternateProps> = ({ header, cards, backgrou
       {
         header.length > 0 ? (
           <React.Fragment>
-            <h2>{header}</h2>
+            <h2 className="heading2 mb-8">{header}</h2>
           </React.Fragment>
         ) : null
       }

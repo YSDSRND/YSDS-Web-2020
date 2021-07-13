@@ -35,9 +35,11 @@ const Article: React.FC<ArticleProps> = ({
         <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:ml-auto lg:mr-0">
           <div className="text-container">
             <h1 className="heading1 mb-4">{header}</h1>
-            <h3 className="heading3 text-orange">
-              {subheader}
-            </h3>
+            {subheader.length > 0 ?
+              <h3 className="heading3 text-orange">
+                {subheader}
+              </h3>
+              : ''}
             <HTMLContent html={body} />
           </div>
         </div>
