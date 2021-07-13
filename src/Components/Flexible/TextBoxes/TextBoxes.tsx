@@ -32,7 +32,7 @@ return  <section className={"text-boxes py-16"}>
               return <div className={textBoxClassNames} key={i}>
                 <div className="background-image" />
                 <div className="text-container p-8">
-                  <h3 className="xl:h-24">{textBox.header}</h3>
+                  <h3 className="lg:h-24">{textBox.header}</h3>
                   <p>{textBox.text}</p>
                   <LinkButton {...textBox.button} />
                 </div>
