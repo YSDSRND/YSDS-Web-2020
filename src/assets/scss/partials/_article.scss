@@ -1,5 +1,6 @@
 .article {
     position: relative;
+    min-height: 90vh;
     &.darkblue {
         .triangle {
             background: $color-navy;

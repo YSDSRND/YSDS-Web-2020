@@ -26,9 +26,6 @@
         @apply text-white;
     }
 
-    .text-container p {
-        @apply my-4;
-    }
     .brandArt .hero {
         @apply bg-magenta-dark;
     }
@@ -54,11 +51,26 @@
         @apply lg:text-blue-dark;
     }
 
-    h2 {
-        @apply text-3xl lg:text-4xl xl:text-5xl mb-8;
+    .heading1 {
+        @apply text-4xl lg:text-5xl xl:text-6xl;
     }
 
-    h3 {
+    .heading2 {
+        @apply text-3xl lg:text-4xl xl:text-5xl;
+    }
+
+    .heading3 {
         @apply text-2xl lg:text-3xl xl:text-4xl;
+    }
+
+    .text-container p {
+        @apply my-4;
+    }
+    .text-container ul {
+        @apply list-disc;
+    }
+
+    .text-container ol {
+        @apply list-decimal;
     }
 }

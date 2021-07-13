@@ -47,31 +47,6 @@ const Hero: React.FC<HeroProps> = ({
             </div>
         </div>
     </section>
-
-    /* return <section ref={ref} className={(centered ? 'hero-centered' : 'hero') + ' ' + background_color + ' ' + arrow}>
-        <div className="background-image"
-             style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})`}}/>
-        <div className="main">
-            <div className="main-inner">
-                <div className="text-container">
-                    {
-                        logoImage ? (
-                            <img className="logo-image" src={logoImage && logoImage.sizes && logoImage.sizes.large ? logoImage.sizes.large : ''} alt={logoImage ? logoImage.alt : ''} />
-                        ) : (
-                            <h1>
-                                <span className="firstWord">{headerFirstWord}</span> {headerRestWords}
-                            </h1>
-                        )
-                    }
-                    <h2 dangerouslySetInnerHTML={{__html: subheader}}/>
-
-                    <LinkButton {...button} />
-
-                </div>
-                <button onClick={onClick} className="bouncing-arrow"></button>
-            </div>
-        </div>
-    </section> */
 };
 
 export default Hero;
