@@ -1,5 +1,5 @@
 .footer {
-    background: black;
+    background: $color-navy;
     padding-top: 50px;
     padding-bottom: 50px;
     .main-inner {
@@ -36,7 +36,6 @@
                 margin-top: 25px;
             }
             li {
-                text-transform: uppercase;
                 &:before {
                     display: none;
                 }

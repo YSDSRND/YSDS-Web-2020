@@ -12,14 +12,17 @@ export type BulletProps = {
   subtitle: string,
   columns:string,
   background_color:string,
+  backgroundImage: WPImage,
   bullet_alignment: string,
   button: WPButton,
   acf_fc_layout: 'check_list'
 
 };
 
-const Bullets: React.FC<BulletProps> = ({ bullets, style, title, subtitle, columns, background_color, bullet_alignment, button}) => (
+const Bullets: React.FC<BulletProps> = ({ bullets, style, title, subtitle, columns, background_color, backgroundImage,bullet_alignment, button}) => (
   <section className={"check-list " + background_color}>
+    <div className="background-image"
+         style={{backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})`}}/>
     <div className="main">
       <div className="main-inner">
         <h2>{title}</h2>

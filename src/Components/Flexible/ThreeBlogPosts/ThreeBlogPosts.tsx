@@ -42,7 +42,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
                       {card.media ?
                       <img alt="" src={card.media ? card.media.thumbnail : ''} />
                       : null }
-                    <div className="post-text-container">
+                    <div className="post-text-container text-container">
                       <h3>{card.title}</h3>
                       <p className="date">{new Date(card.date).toLocaleDateString('sv-SE')}</p>
                       <p>{card.excerpt}</p>

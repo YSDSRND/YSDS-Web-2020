@@ -1,6 +1,6 @@
 .cases {
     &.darkblue {
-        background: $blue;
+        background: $color-navy;
         .main-inner {
             margin: 0 auto;
             padding-top: 100px;
@@ -47,7 +47,7 @@
         }
         .swiper-button-next,
         .swiper-button-prev {
-            background: $blue;
+            background: $color-navy;
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -103,7 +103,7 @@
                 padding: 30px;
             }
             img {
-                background: $blue;
+                background: $color-navy;
                 height: 150px;
                 width: 150px;
                 object-fit: contain;

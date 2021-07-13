@@ -21,12 +21,15 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint',
-    "emotion"
-
+    '@typescript-eslint'
   ],
   rules: {
     "react/prop-types":"off",
     "no-console":"warn"
   },
+  settings: {
+    "react": {
+      "version": "detect"
+    }
+  }
 };

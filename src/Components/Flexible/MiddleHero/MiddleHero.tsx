@@ -28,7 +28,6 @@ const Hero: React.FC<MiddleHeroProps> = ({
             <h2>
               {header}
             </h2>
-            <div className="line three-col" />
             <div dangerouslySetInnerHTML={{ __html: subheader }} />
 
             <LinkButton {...button} />

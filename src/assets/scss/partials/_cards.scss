@@ -1,6 +1,6 @@
 .cards  {
     &.alternative {
-        background: $blue;
+        background: $color-navy;
         .main {
             padding-top: 100px;
             padding-bottom: 50px;
@@ -10,6 +10,15 @@
             }
             .one-card .text-container {
                 padding: 28px 15px 20px;
+            }
+        }
+        &.magenta {
+            background-color: $color-light-magenta;
+            h2 {
+                color: $color-dark-magenta;
+            }
+            .main-inner h3 {
+                border-color: $color-dark-magenta;
             }
         }
     }
@@ -70,6 +79,41 @@
                 @media screen and (min-width: $medium) {
                     width: calc(33.3333% - 20px);
                 }
+            }
+        }
+    }
+    .brandArt & {
+        .one-card h3 {
+            border-color: $color-dark-magenta;
+        }
+        .ysds-button {
+            border-color: $color-dark-magenta;
+            &.lines {
+                color: $color-dark-magenta;
+            }
+        }
+    }
+
+    .brandLifeScience & {
+        .one-card h3 {
+            border-color: $color-dark-blue;
+        }
+        .ysds-button {
+            border-color: $color-dark-blue;
+            &.lines {
+                color: $color-dark-blue;
+            }
+        }
+    }
+
+    .brandSpecialLogistics & {
+        .one-card h3 {
+            border-color: $color-dark-green;
+        }
+        .ysds-button {
+            border-color: $color-dark-green;
+            &.lines {
+                color: $color-dark-green;
             }
         }
     }

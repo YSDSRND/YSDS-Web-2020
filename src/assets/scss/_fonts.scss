@@ -1,3 +1,14 @@
+@import url("//hello.myfonts.net/count/3ea0af");
+
+@font-face {
+    font-family: "HelveticaNowText-Regular";
+    src: url('../fonts/HelveticaNowTextRegular/font.woff2') format('woff2'), url('../fonts/HelveticaNowTextRegular/font.woff') format('woff');
+}
+@font-face {
+    font-family: "HelveticaNowDisplay-XBd";
+    src: url('../fonts/HelveticaNowDisplayXBd/font.woff2') format('woff2'), url('../fonts/HelveticaNowDisplayXBd/font.woff') format('woff');
+}
+
 @font-face {
     font-family: Helvetica-Neue-Condensed;
     src: url(../fonts/HelveticaNeueLTPro-BdCn.otf);
@@ -21,10 +32,9 @@
 h1 {
     font-size: 38px;
     line-height: 108%;
-    text-transform: uppercase;
     margin: 0;
     margin-bottom: 3px;
-    font-family: Helvetica-Neue-Condensed;
+    font-family: HelveticaNowDisplay-XBd;
     font-weight: normal;
     @media screen and (min-width: $small) {
         font-size: 40px;
@@ -33,11 +43,10 @@ h1 {
 
 h2 {
     font-size: 28px;
-    text-transform: uppercase;
     line-height: 133%;
     margin: 0;
     margin-bottom: 6px;
-    font-family: Helvetica-Neue-Condensed;
+    font-family: HelveticaNowDisplay-XBd;
     font-weight: normal;
     @media screen and (min-width: $small) {
         font-size: 30px;
@@ -47,19 +56,18 @@ h2 {
 h3 {
     font-size: 24px;
     line-height: 120%;
-    text-transform: uppercase;
-    font-family: Helvetica-Neue-Condensed;
+    font-family: HelveticaNowDisplay-XBd;
     font-weight: normal;
 }
 
 h4 {
     margin: 0;
-    font-family: Helvetica-Neue-Condensed;
+    font-family: HelveticaNowDisplay-XBd;
     font-weight: normal;
 }
 
 h5 {
-    font-family: Helvetica-Neue-Condensed;
+    font-family: HelveticaNowDisplay-XBd;
     font-weight: normal;
 }
 
@@ -67,7 +75,7 @@ p, a, li, div {
     font-weight: 200;
     font-size: 16px;
     line-height: 160%;
-    font-family: Helvetica-Neue-Roman;
+    font-family: HelveticaNowText-Regular;
 }
 
 strong {
@@ -81,7 +89,7 @@ a {
         text-decoration: underline;
     }
 }
-
+/* 
 ul, ol {
     padding-left: 20px;
     margin: 0;
@@ -101,7 +109,7 @@ ul {
 
 ol li {
     margin-bottom: 10px;
-}
+} */
 
 .lead {
     font-size: 1.4em;

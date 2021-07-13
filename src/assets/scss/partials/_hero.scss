@@ -3,13 +3,13 @@
     &.darkblue {
         
         .main {
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.4);
             .main-inner {
                 color: white;
             } 
         }
         .triangle {
-            background: $blue;
+            background: $color-navy;
         }
     }
     &.hide-arrow {
@@ -33,7 +33,7 @@
     }
     .triangle {
         background: white;
-        clip-path: polygon(0 0, 25% 0, 37.5% 100%, 0% 100%);
+        clip-path: polygon(0 0, -36% 0, 24.5% 100%, 0% 100%);
         height: 100%;
         width: 100%;
         position: absolute;
@@ -43,7 +43,8 @@
         margin: 0 12.5%;
         @media screen and (min-width: $medium) {
             width: $four-col;
-            padding: 150px 0;
+            padding: 300px 0;
+            padding: 20vh 0;
         }
         h1 {
             position: relative;
@@ -60,7 +61,7 @@
         }
         h2 {
             font-size: 21px;
-            font-family: Helvetica-Neue-Roman;
+            font-family: HelveticaNowText-Regular;
             margin-top: 19px;
             line-height: 143%;
             position: relative;

@@ -42,8 +42,7 @@ const TextAndImage: React.FC<TextAndImageProps> = ({
                 <div className="flex-container">
                     <div className="text-container">
                         <div className="title-container">
-                            <h2>{header}</h2>
-                            <div className="line three-col"/>
+                            <h2 className="heading2">{header}</h2>
                         </div>
                         <div className="content">
                             <HTMLContent html={body}/>
@@ -87,7 +86,6 @@ export const StandaloneTextAndImage: React.FC<StandaloneTextAndImageProps> = ({
                     <div className="text-container">
                         <div className="title-container">
                             <h2>{header}</h2>
-                            <div className="line three-col"/>
                         </div>
                         <div className="content">
                             <HTMLContent html={body}/>

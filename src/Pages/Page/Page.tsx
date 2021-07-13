@@ -5,13 +5,17 @@ import Flexible from '../../Components/Global/Flexible/Flexible';
 import {GetPageBySlug, GetYoastBySlug} from '../../Services/Pages/Pages';
 import Error404Template from '../../PageTemplates/Error404Template/Error404Template';
 import LoadingTemplate from './../../PageTemplates/LoadingTemplate/LoadingTemplate';
-import {AllHtmlEntities} from 'html-entities';
+import {decode as decodeHtmlEntities} from 'html-entities';
 import {defaultsForOGTags} from "../../Util/Types/defaultsForOGTags";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../../Store";
+import { SetCurrentPage } from '../../Store/CurrentPage/CurrentPageActions';
+import { useCallback } from 'react';
 
 const Page: React.FC = (props) => {
     const options = useSelector((state : AppState) => state.options);
+    const dispatch = useDispatch();
+    const dispatchCallback = useCallback(dispatch, []);
     const location = useLocation();
 
     const [loading, setLoading] = useState<boolean>(true);
@@ -49,13 +53,14 @@ const Page: React.FC = (props) => {
                 setLoading(false);
                 return
             }
+            dispatchCallback(SetCurrentPage(resp));
             setData(resp);
             setLoading(false);
             set404(false);
         });
 
 
-    }, [location]);
+    }, [location, dispatchCallback]);
 
 
     if (loading) {
@@ -76,7 +81,7 @@ const Page: React.FC = (props) => {
                 }) : null
             }
 
-            <title>{AllHtmlEntities.decode(yoastTitle)}</title>
+            <title>{decodeHtmlEntities(yoastTitle)}</title>
         </Helmet>
         <Flexible flexible={data.acf.flexible}/></>;
 };

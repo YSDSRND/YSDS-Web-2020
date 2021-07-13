@@ -26,20 +26,18 @@ const ContactFormColor: React.FC<ContactFormColorProps> = ({
     <div className="main">
       <div className="main-inner">
         <div className="text-container">
-          <h2>{header}</h2>
-          <div className="line five-col" />
+          <h2 className="heading2">{header}</h2>
           <div className="content">
             <p>{subheader}</p>
           </div>
         </div>
       </div>
-      <div className="form-container">
+      <div className="form-container text-container">
         <div className="left">
           <ContactForm />
         </div>
         <div className="right">
-          <h3>{prefer_contacting_us_title}</h3>
-          <div className="line" />
+          <h3 className="heading3">{prefer_contacting_us_title}</h3>
           <p>{prefer_contacting_us_body}</p>
           <LinkButton {...button} />
         </div>

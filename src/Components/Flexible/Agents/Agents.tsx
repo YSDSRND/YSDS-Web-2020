@@ -18,7 +18,6 @@ const Agents : React.FC<AgentsProps> = ({ header, body, agents, background_color
   <section className={"agents " + background_color}>
     <div className="main">
       <h2>{header}</h2>
-      <div className="line three-col" />
       <p className="subtitle">{body}</p>
 
       <div className="main-inner">

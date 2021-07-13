@@ -1,6 +1,6 @@
 .contact-form {
     &.blue {
-        background: $blue;
+        background: $color-navy;
         color: white;
         padding-bottom: 100px;
         .form-container {
@@ -57,7 +57,7 @@
         flex-wrap: wrap;
         @media screen and (min-width: $small) {
             padding: 26px 20px;
-            background: $blue;
+            background: $color-navy;
             color: white;
         }
         .left {
@@ -71,10 +71,9 @@
                 flex-direction: column;
                 align-items: flex-start;
                 label {
-                    text-transform: uppercase;
                     letter-spacing: 1px;
                     font-size: 12px;
-                    font-family: Helvetica-Neue-Roman, sans-serif;
+                    font-family: HelveticaNowText-Regular, sans-serif;
                     a {
                         font-size: 13px;
                     }
@@ -85,13 +84,13 @@
                     height: 38px;
                     width: 100%;
                     border-radius: 3px;
-                    border: 1px solid $blue;
+                    border: 1px solid $color-navy;
                     margin-bottom: 20px;
                     padding-left: 5px;
                     padding-top: 4px;
                     font-size: 15px;
-                    font-family: Helvetica-Neue-Roman;
-                    background: $blue;
+                    font-family: HelveticaNowText-Regular;
+                    background: $color-navy;
                     @media screen and (min-width: $small) {
                         background: white;
                         border: 1px solid white;
