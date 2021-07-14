@@ -5,6 +5,7 @@ import { GetCaseByID } from '../../../Services/Cases/Cases';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {Navigation} from 'swiper';
 import 'swiper/components/navigation/navigation.scss';
+import { useRef } from 'react';
 
 export const CasesACFLayout = 'cases';
 export type CasesProps = {
@@ -19,6 +20,8 @@ export type CasesProps = {
 const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [casesData, setCasesData] = useState<CaseProps[]>([]);
+  const nextRef = useRef<HTMLDivElement>(null);
+  const prevRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const promises = cases.map((c) => GetCaseByID(c.ID));
@@ -46,8 +49,8 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
       disableOnInteraction: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: nextRef.current,
+      prevEl: prevRef.current,
     },
     rebuildOnUpdate: true,
   }
@@ -72,8 +75,10 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
               </Swiper>
             )
           }
-          
 
+          <div ref={nextRef} className="swiper-button-next"></div>
+          <div ref={prevRef} className="swiper-button-prev"></div>
+          
         </div>
       </div>
     </section>
