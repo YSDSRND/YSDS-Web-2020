@@ -16,12 +16,12 @@ export type TextBoxesProps = {
 };
 
 const TextBoxes: React.FC<TextBoxesProps> = ({ text_box, header, columns, background_color, button}) => {
-const colsAsInt = columns == 'four' ? 4 : 3
+const colsAsInt = columns == 'four' ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
 return  <section className={"text-boxes py-16"}>
     <div className="main">
       <div className="container mx-auto">
         <h2 className="mb-8">{header}</h2>
-        <div className={`lg:grid lg:grid-cols-${colsAsInt} lg:gap-4`}>
+        <div className={`grid grid-cols-1 ${colsAsInt} lg:gap-4`}>
           {
             text_box.map((textBox, i) => {
               const textBoxClassNames = classNames({
