@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({
             <div className="title">
                 <h1>
                     {headerWords.map((word: string, index: number) => {
-                        return <span key={index}>{word}&nbsp;</span>
+                        return <span key={index}>{word} </span>
                     })}
                 </h1>
             </div>
