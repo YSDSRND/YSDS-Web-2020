@@ -269,7 +269,7 @@
                 position: absolute;
                 top: 70px;
                 right: 0;
-                background: black;
+                background: $color-navy;
                 color: white;
                 padding: 30px 25px;
                 width: 430px;
@@ -292,6 +292,10 @@
                         a {
                             font-size: 13px;
                         }
+                    }
+
+                    input {
+                        color: $color-navy;
                     }
 
                     input[type=text],
