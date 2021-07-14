@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Case, { CaseProps } from './Case';
 import { GetCaseByID } from '../../../Services/Cases/Cases';
-import Swiper from 'react-id-swiper';
+//import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, {Navigation} from 'swiper';
+import 'swiper/components/navigation/navigation.scss';
+import { useRef } from 'react';
 
 export const CasesACFLayout = 'cases';
 export type CasesProps = {
@@ -16,6 +20,8 @@ export type CasesProps = {
 const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [casesData, setCasesData] = useState<CaseProps[]>([]);
+  const nextRef = useRef<HTMLDivElement>(null);
+  const prevRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const promises = cases.map((c) => GetCaseByID(c.ID));
@@ -32,6 +38,8 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
     });
   }, [cases]);
 
+  SwiperCore.use([Navigation]);
+
   const params = {
     slidesPerView: 1,
     spaceBetween: 40,
@@ -41,8 +49,8 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
       disableOnInteraction: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: nextRef.current,
+      prevEl: prevRef.current,
     },
     rebuildOnUpdate: true,
   }
@@ -59,16 +67,18 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
               <Swiper {...params}>
               {
                 casesData.map((caseItem: CaseProps, i) => (
-                  <div key={i} className="swiper-slide">
+                  <SwiperSlide key={i} className="swiper-slide">
                     <Case {...caseItem} />
-                  </div>
+                  </SwiperSlide>
                 ))
               }
               </Swiper>
             )
           }
-          
 
+          <div ref={nextRef} className="swiper-button-next"></div>
+          <div ref={prevRef} className="swiper-button-prev"></div>
+          
         </div>
       </div>
     </section>
