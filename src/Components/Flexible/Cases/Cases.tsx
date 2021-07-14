@@ -3,7 +3,7 @@ import Case, { CaseProps } from './Case';
 import { GetCaseByID } from '../../../Services/Cases/Cases';
 //import Swiper from 'react-id-swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, {Navigation} from 'swiper';
+import SwiperCore, {Autoplay, Navigation} from 'swiper';
 import 'swiper/components/navigation/navigation.scss';
 import { useRef } from 'react';
 
@@ -38,7 +38,7 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
     });
   }, [cases]);
 
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, Autoplay]);
 
   const params = {
     slidesPerView: 1,
