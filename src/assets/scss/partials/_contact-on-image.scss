@@ -82,14 +82,18 @@
                         font-size: 12px;
                         font-family: HelveticaNowText-Regular;
                     }
+
+                    input {
+                        color: $color-navy;
+                    }
                     input[type=text],
                     input[type=tel],
                     input[type=email] {
                         height: 38px;
                         width: 100%;
                         border-radius: 3px;
-                        border: 1px solid $color-navy;
-                        background: $color-navy;
+                        border: 1px solid $dark-grey;
+                        background: $grey;
                         margin-bottom: 20px;
                         padding-left: 5px;
                         padding-top: 4px;
