@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Case, { CaseProps } from './Case';
 import { GetCaseByID } from '../../../Services/Cases/Cases';
-import Swiper from 'react-id-swiper';
+//import Swiper from 'react-id-swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, {Navigation} from 'swiper';
+import 'swiper/components/navigation/navigation.scss';
 
 export const CasesACFLayout = 'cases';
 export type CasesProps = {
@@ -32,6 +35,8 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
     });
   }, [cases]);
 
+  SwiperCore.use([Navigation]);
+
   const params = {
     slidesPerView: 1,
     spaceBetween: 40,
@@ -59,9 +64,9 @@ const Cases: React.FC<CasesProps> = ({ cases, title, background_color }) => {
               <Swiper {...params}>
               {
                 casesData.map((caseItem: CaseProps, i) => (
-                  <div key={i} className="swiper-slide">
+                  <SwiperSlide key={i} className="swiper-slide">
                     <Case {...caseItem} />
-                  </div>
+                  </SwiperSlide>
                 ))
               }
               </Swiper>
