@@ -78,6 +78,9 @@
                         font-size: 13px;
                     }
                 }
+                input {
+                    color: $color-navy;
+                }
                 input[type=text],
                 input[type=tel],
                 input[type=email] {
