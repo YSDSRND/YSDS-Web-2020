@@ -49,9 +49,10 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
 
     const setTracking = (e: any) => setTrackingId(e.target.value);
 
+    /* We're reversing the tracking information to get the newest on top */
     const activities = trackingInformation.length ? (
         <div className="timeline">
-            {trackingInformation.map((info: any, i: number) => {
+            {trackingInformation.slice(0).reverse().map((info: any, i: number) => {
                 const date = new Date(info.date)
                 return (
                     <div className="box" key={i}>
