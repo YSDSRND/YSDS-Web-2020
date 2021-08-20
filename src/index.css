@@ -7,7 +7,8 @@
         @apply bg-navy text-white 
     }
     .hero-image {
-        @apply pt-screen2/3 bg-cover;
+        height: 60vh;
+        @apply h-new bg-cover;
     }
 
     .hero .content {

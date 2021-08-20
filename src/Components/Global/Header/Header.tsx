@@ -213,6 +213,22 @@ const FormDropdown: React.FC<FormDropdownProps> = ({ open, onClose, openButtonRe
   }, [onClose, openButtonRef]);
 
 
+  /** Setting the height of the hero so that it works in mobile safari
+   * TODO: The eventlistener should probably be debounced
+   */
+  useEffect(() => {
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    // We listen to the resize event
+    window.addEventListener('resize', () => {
+      // We execute the same script as before
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+  })
+
   if (!open) {
     return <></>;
   }

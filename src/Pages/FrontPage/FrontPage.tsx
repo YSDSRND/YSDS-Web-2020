@@ -28,13 +28,10 @@ const FrontPage: React.FC = () => {
       return;
     }
 
-    /* GetYoastById(options.options.frontpage).then((resp) => {
+    GetYoastById(options.options.frontpage).then((resp) => {
       setYoastTitle(resp ? resp.yoast_title : data.title);
-      setYoastData(resp ? defaultsForOGTags(resp.yoast_meta, options) : '');
-
-    }); */
-
-
+      setYoastData(resp?.yoast_meta ? defaultsForOGTags(resp.yoast_meta, options) : '');
+    });
   }, [options, data]);
 
   useEffect(() => {
