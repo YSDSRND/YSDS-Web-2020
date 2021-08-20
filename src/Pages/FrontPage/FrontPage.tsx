@@ -27,12 +27,12 @@ const FrontPage: React.FC = () => {
     if (!options.options?.frontpage) {
       return;
     }
-
-    /* GetYoastById(options.options.frontpage).then((resp) => {
+    
+    /** TODO: This fails when activating WP REST Yoast meta */
+    GetYoastById(options.options.frontpage).then((resp) => {
       setYoastTitle(resp ? resp.yoast_title : data.title);
       setYoastData(resp ? defaultsForOGTags(resp.yoast_meta, options) : '');
-
-    }); */
+    });
 
 
   }, [options, data]);
