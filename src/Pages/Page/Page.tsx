@@ -33,8 +33,8 @@ const Page: React.FC = (props) => {
         const slug = location.pathname.split('/').filter(value => !!value).slice(-1)[0];
 
         GetYoastBySlug(slug).then((resp) => {
-            setYoastTitle(resp[0] ? resp[0].yoast_title : data.title);
-            setYoastData(resp[0] ? defaultsForOGTags(resp[0].yoast_meta, options) : '');
+            setYoastTitle(resp[0]?.yoast_title ? resp[0].yoast_title : data.title);
+            setYoastData(resp[0]?.yoast_meta ? defaultsForOGTags(resp[0].yoast_meta, options) : '');
 
         });
 

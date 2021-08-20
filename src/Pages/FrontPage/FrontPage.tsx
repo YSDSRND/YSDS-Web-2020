@@ -28,13 +28,10 @@ const FrontPage: React.FC = () => {
       return;
     }
 
-    /** TODO: This fails when activating WP REST Yoast meta */
     GetYoastById(options.options.frontpage).then((resp) => {
       setYoastTitle(resp ? resp.yoast_title : data.title);
-      setYoastData(resp ? defaultsForOGTags(resp.yoast_meta, options) : '');
+      setYoastData(resp?.yoast_meta ? defaultsForOGTags(resp.yoast_meta, options) : '');
     });
-
-
   }, [options, data]);
 
   useEffect(() => {
