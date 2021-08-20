@@ -27,7 +27,7 @@ const FrontPage: React.FC = () => {
     if (!options.options?.frontpage) {
       return;
     }
-    
+
     /** TODO: This fails when activating WP REST Yoast meta */
     GetYoastById(options.options.frontpage).then((resp) => {
       setYoastTitle(resp ? resp.yoast_title : data.title);
