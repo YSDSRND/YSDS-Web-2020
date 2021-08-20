@@ -140,7 +140,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
                 {
                     property: "sender_name",
                     label: "Sender name",
-                    placeholder: "Your Special Delivery Service",
+                    placeholder: "YSDS",
                     type: FieldType.String,
                     required: model => true,
                 },
