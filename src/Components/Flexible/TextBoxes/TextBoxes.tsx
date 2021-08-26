@@ -20,7 +20,7 @@ const colsAsInt = columns == 'four' ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
 return  <section className={"text-boxes py-16"}>
     <div className="main">
       <div className="container mx-auto">
-        <h2 className="mb-8">{header}</h2>
+        <h2 className="mb-8 mx-8 sm:mx-0">{header}</h2>
         <div className={`grid grid-cols-1 ${colsAsInt} lg:gap-4`}>
           {
             text_box.map((textBox, i) => {
