@@ -53,11 +53,17 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     const activities = trackingInformation.length ? (
         <div className="timeline">
             {trackingInformation.slice(0).reverse().map((info: any, i: number) => {
+                /** Ok, since we don't have any timezone we want to "game" the client
+                 * and adjust the timezone difference before showing it to the client
+                 * so that it shows correct local time in the browser
+                 */
                 const date = new Date(info.date)
+                const userTimeZoneOffset = date.getTimezoneOffset() * 60000;
+                const adjustedDate = new Date(date.getTime() + userTimeZoneOffset)
                 return (
                     <div className="box" key={i}>
                         <h3>{info.description} {/*xmlTrackingInformation[i] && xmlTrackingInformation[i]["Signatory"] && xmlTrackingInformation[i]["Signatory"]["_text"] ? xmlTrackingInformation[i]["Signatory"]["_text"] : "" */}</h3>
-                        <p className="date">{date.toLocaleString()}</p>
+                        <p className="date">{adjustedDate.toLocaleString()}</p>
                         <p className="city">{info.address.city}</p>
                         <p className="country">{info.address.country_code}</p>
                     </div>
