@@ -53,17 +53,12 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
     const activities = trackingInformation.length ? (
         <div className="timeline">
             {trackingInformation.slice(0).reverse().map((info: any, i: number) => {
-                /** Ok, since we don't have any timezone we want to "game" the client
-                 * and adjust the timezone difference before showing it to the client
-                 * so that it shows correct local time in the browser
-                 */
-                const date = new Date(info.date)
-                const userTimeZoneOffset = date.getTimezoneOffset() * 60000;
-                const adjustedDate = new Date(date.getTime() + userTimeZoneOffset)
+                const date = new Date(info.date);
+                const originalDate = new Date(info.original_date);
                 return (
                     <div className="box" key={i}>
-                        <h3>{info.description} {/*xmlTrackingInformation[i] && xmlTrackingInformation[i]["Signatory"] && xmlTrackingInformation[i]["Signatory"]["_text"] ? xmlTrackingInformation[i]["Signatory"]["_text"] : "" */}</h3>
-                        <p className="date">{adjustedDate.toLocaleString()}</p>
+                        <h3>{info.description}</h3>
+                        <p className="date">{originalDate.toLocaleString() !== 'Invalid Date' ? originalDate.toLocaleString() : date.toLocaleString()}</p>
                         <p className="city">{info.address.city}</p>
                         <p className="country">{info.address.country_code}</p>
                     </div>
@@ -86,7 +81,7 @@ const Tracker: React.FC<TrackerProps> = ({ background_image, header, background_
                             css={'display: block; margin: 1.5rem auto; border-color: red;'}
                             width={200}
                             height={6}
-                            color={"#846804"}
+                            color={"#F26703"}
                             loading={true}
                         />
                         :
