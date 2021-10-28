@@ -30,7 +30,7 @@ import ThreeBlogPosts, {
   ThreeBlogPostsProps,
   ThreeBlogPostsPropsACFLayout
 } from '../../Flexible/ThreeBlogPosts/ThreeBlogPosts';
-import { ShipNowForm, ShipNowFormLayout, ShipNowFormProps } from "../../Flexible/ShipNowForm/ShipNowForm";
+import { NewShipNowForm, ShipNowFormLayout, ShipNowFormProps } from "../../Flexible/ShipNowForm/NewShipNowForm";
 import Posts, { PostsProps, PostsACFLayout } from "../../Flexible/Posts/Posts";
 import TextBoxes, { TextBoxesACFLayout, TextBoxesProps } from '../../Flexible/TextBoxes/TextBoxes';
 import { AppState } from '../../../Store';
@@ -124,7 +124,7 @@ function renderFlexibleSection(layout: FlexibleLayout, i: any) {
     case TextBoxesACFLayout:
       return <TextBoxes {...layout} key={i} />;
     case ShipNowFormLayout:
-      return <ShipNowForm {...layout} key={i} />
+      return <NewShipNowForm {...layout} key={i} />
     default: {
       return null;
     }

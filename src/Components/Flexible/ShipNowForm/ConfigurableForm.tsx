@@ -7,6 +7,7 @@ type FormSection<T> = {
     title?: string
     description?: string
     className?: string
+    fieldsetClassName?: string
     fields: FieldList<T>
 }
 
@@ -71,7 +72,7 @@ export const ConfigurableForm: <T>(props: Props<T>) => React.ReactElement<Props<
         return <div key={i} className={section.className || "form-section"}>
             <h4>{section.title}</h4>
             <p>{section.description}</p>
-            <fieldset>
+            <fieldset className={section.fieldsetClassName}>
                 {fields}
             </fieldset>
         </div>
