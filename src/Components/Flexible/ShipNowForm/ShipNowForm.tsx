@@ -537,6 +537,7 @@ export const ShipNowForm: React.FC<ShipNowFormProps> = props => {
         }).then((res: any) => {
             setLoading(false);
             setSubmitted(true);
+            window.ga('send', { 'hitType': 'pageview', 'page': '/_ship_now_completion/', 'title': 'Ship-Now completed' })
         });
     };
 

@@ -47,6 +47,9 @@ const Header: React.FC = () => {
 
   const reverseForm = () => {
     setFormOpen(!formOpen);
+    if (formOpen === false) {
+      window.ga('send', { 'hitType': 'pageview', 'page': '/_get_in_touch_init/', 'title': 'Get in touch init' })
+    }
   };
 
   const closeForm = () => {
