@@ -1,4 +1,5 @@
 import React, {ReactElement} from 'react';
+import { optionsReducer } from '../../../Store/Options/OptionsReducer';
 import {CountryDropdown} from "../../Global/CountryDropdown/CountryDropdown";
 
 export enum FieldType {
@@ -6,6 +7,7 @@ export enum FieldType {
     Textarea,
     Select,
     Checkbox,
+    CheckboxGroup,
     Radio,
     File,
     Country,
@@ -18,6 +20,7 @@ type Field<T, U extends FieldType, K extends keyof T> = {
     type: U
     hide?: (model: T) => boolean
     className?: string
+    containerClassName?: string
     required?: (model: T) => boolean
 }
 
@@ -54,6 +57,12 @@ interface RadioField<T, K extends keyof T> extends Field<T, FieldType.Radio, K> 
     }
 }
 
+interface CheckboxGroupField<T, K extends keyof T> extends Field<T, FieldType.CheckboxGroup, K> {
+    props: {
+        options: (model: T) => ReadonlyArray<Option>
+    }
+}
+
 type Option = {
     value: string,
     label: string
@@ -70,6 +79,7 @@ export type FieldLike<T> = {
         | RadioField<T, K>
         | FileField<T, K>
         | CountryField<T, K>
+        | CheckboxGroupField<T, K>
 }[keyof T]
 
 type Props<T> = {
@@ -87,6 +97,7 @@ type FieldTypeMap<T, K extends keyof T> = {
     [FieldType.Radio]: RadioField<T, K>
     [FieldType.File]: FileField<T, K>
     [FieldType.Country]: CountryField<T, K>
+    [FieldType.CheckboxGroup]: CheckboxGroupField<T, K>
 }
 
 export type ModelErrors<T> = {
@@ -293,6 +304,28 @@ export function ConfigurableField<T, K extends keyof T = keyof T>(props: Props<T
                 }}
             />
         )
+    } else if ( isFieldOfType( field, FieldType.CheckboxGroup ) ) {
+        const values = get<ReadonlyArray<string>>(model, field.property.toString())
+        view = field.props.options(model).map((option, j) => {
+            return <label className="radio-label" key={j}>
+                <input
+                    className={field.className || "form-control"}
+                    name={field.property.toString()}
+                    checked={values?.findIndex(v => v === option.value) !== -1}
+                    type="checkbox"
+                    value={option.value}
+                    onChange={event => {
+                        const newValues = (values || []).slice()
+                        const newModel = {
+                            ...model,
+                            [field.property]: event.target.checked ?  newValues.concat(option.value) : newValues.filter(v => v !== option.value),
+                        }
+                        props.onChange(newModel, field.property)
+                    }}
+                />
+                <span>{option.label}</span>
+            </label>
+        })
     }
 
     const asterisk = field.required ? <span className="required-asterisk">*</span> : null
@@ -307,8 +340,15 @@ export function ConfigurableField<T, K extends keyof T = keyof T>(props: Props<T
         />
         : null;
 
+    const clazz = classNames({
+        "form-row": true,
+        "addon": !!subView,
+        "hide": hidden,
+        [props.field.containerClassName || '']: true
+    });
+
     return <>
-        <div className={"form-row" + (!!subView ? " addon" : "") + (hidden ? " hide" : "")}>
+        <div className={clazz}>
             {isFieldOfType(field, FieldType.Checkbox) ?
                 <label className={field.className || "form-control"}>
                     {view}
