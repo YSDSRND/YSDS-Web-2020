@@ -31,6 +31,7 @@ type ShipNowData = {
     shipment_other_information: string,
     shipment_temperature_required: string,
     shipment_temperature: string,
+    shipment_date: string,
     dangerous_goods: ReadonlyArray<string>,
     customs_value: string,
     customs_reason: string
@@ -59,6 +60,7 @@ export const NewShipNowForm: React.FC<ShipNowFormProps> = props => {
         shipment_other_information: '',
         shipment_temperature_required: '',
         shipment_temperature: '',
+        shipment_date: '',
         dangerous_goods: [],
         customs_value: '',
         customs_reason: '',
@@ -221,7 +223,7 @@ export const NewShipNowForm: React.FC<ShipNowFormProps> = props => {
                     containerClassName: "col-span-2",
                 },
                 {
-                    property: "shipment_dimensions",
+                    property: "shipment_date",
                     label: "Desired pick-up (date)",
                     type: FieldType.String,
                     required: model => true,
