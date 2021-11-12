@@ -3,7 +3,6 @@ import {ConfigurableForm, SectionList, validate} from "./ConfigurableForm";
 import {FieldType, get, ModelErrors} from "./ConfigurableField";
 import {BASE_URL} from "../../../Services/config";
 import {Link} from "react-router-dom";
-import currencies from './currencies.json';
 import Swal from 'sweetalert2';
 
 export const ShipNowFormLayout = 'ship_now_form';
@@ -388,6 +387,7 @@ export const NewShipNowForm: React.FC<ShipNowFormProps> = props => {
         }).then((res: any) => {
             setLoading(false);
             setSubmitted(true);
+            window.gtag?.('event', 'page_view', { 'page_location': '/_ship_now_completion/', 'page_title': 'Ship-Now completed' })
         });
     };
 
