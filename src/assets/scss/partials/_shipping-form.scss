@@ -9,26 +9,19 @@
             padding: 0 12.5%;
         }
 
-        .form-row {
-            &:first-of-type label {
-                margin-top: 10px;
-            }
-        }
-
         label {
             width: 100%;
             display: block;
-            margin-top: 28px;
         }
 
         label.radio-label,
         label.form-control {
-            margin-top: 0;
             font-weight: normal;
             margin-top: 5px;
 
             span {
                 font-family: HelveticaNowText-Regular;
+                margin-left: 8px;
             }
         }
 
@@ -81,7 +74,6 @@
             fieldset {
                 margin: 0;
                 border: 0;
-                padding: 0;
 
                 .form-row.addon {
                     margin-bottom: 8px;
@@ -102,7 +94,12 @@
                             display: none;
                         }
                     }
+                }
 
+                .form-row {
+                    &.hide {
+                        display: none;
+                    }
                 }
             }
 
