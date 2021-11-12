@@ -57,7 +57,7 @@ const ContactForm: React.FC = () => {
             },
         }).then((res: any) => {
             setSend(true);
-            window.ga('send', { 'hitType': 'pageview', 'page': '/_get_in_touch_completion/', 'title': 'Get in touch completion' })
+            window.gtag?.('event', 'page_view', { 'page_location': '/_get_in_touch_completion/', 'page_title': 'Get in touch completion' })
         });
     };
 

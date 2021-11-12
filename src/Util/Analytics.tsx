@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 
 declare global {
     interface Window {
-        ga?: any
+        gtag?: any
     }
 }
 
@@ -13,11 +13,7 @@ const Analytics : React.FC = () => {
 
     const location = useLocation();
     useEffect(() => {
-        if(window.ga) {
-            window.ga('set', 'page', location.pathname + location.search);
-            window.ga('send', 'pageview');
-        }
-
+        window.gtag?.('event', 'page_view', { page_location: location.pathname + location.search });
     }, [location])
 
     return null
