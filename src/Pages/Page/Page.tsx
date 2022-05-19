@@ -12,6 +12,13 @@ import {AppState} from "../../Store";
 import { SetCurrentPage } from '../../Store/CurrentPage/CurrentPageActions';
 import { useCallback } from 'react';
 
+function handleTracking(pathname: string, search: string) {
+    if (search.length > 0 && pathname.includes('tracking') && search.includes('tracking_number'))
+        window.location.replace(`https://tracking.ysds.com/${search.substring(search.indexOf('=') + 1)}`);
+    else if (pathname.includes('tracking'))
+        window.location.replace('http://tracking.ysds.com'); 
+}
+
 const Page: React.FC = (props) => {
     const options = useSelector((state : AppState) => state.options);
     const dispatch = useDispatch();
@@ -24,6 +31,8 @@ const Page: React.FC = (props) => {
 
     const [yoastData, setYoastData] = useState<any>();
     const [yoastTitle, setYoastTitle] = useState<any>();
+
+    handleTracking(location.pathname, location.search);
 
     useEffect(() => {
         if (!location) {
