@@ -15,6 +15,11 @@ declare global {
  */
 function createTitle(pathname: string): string {
     let title: string = pathname
+
+    // Handle root route (Home)
+    if (pathname === "/")
+        return "Home"
+
     title = title.slice(1, -1)
     
     // Handle one route deep nesting
