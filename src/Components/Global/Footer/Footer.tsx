@@ -23,7 +23,11 @@ const Footer: React.FC = () => {
             <ul key={j}>
               {subnavigation.map(({ link }, i) => (
                 <li key={i}>
-                  <Link onClick={() => {window.scrollTo(0, 0)}} to={link.url}><span dangerouslySetInnerHTML={{__html: link.title}}></span></Link>
+                  {link.url.startsWith('https://ysds.com') ? (
+                    <Link onClick={() => {window.scrollTo(0, 0)}} to={link.url}><span dangerouslySetInnerHTML={{__html: link.title}}></span></Link>
+                  ) : (
+                    <a href={link.url} target="_blank" rel="noopener noreferrer"><span dangerouslySetInnerHTML={{__html: link.title}}></span></a>
+                  )}
                 </li>
               ))}
             </ul>
