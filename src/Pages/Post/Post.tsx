@@ -90,7 +90,7 @@ const Post: React.FC = () => {
     <ContactFormColor
         acf_fc_layout="contact"
         backgroundColor="blue"
-        header="Contact an export"
+        header="Contact an expert"
         subheader="We are based in 12 cities in 7 countries worldwide, with a global network of agents and partners."
         prefer_contacting_us_title="Prefer calling?"
         prefer_contacting_us_body="Our dedicated staff are available by phone to help with any questions or enquiries that you may have."
