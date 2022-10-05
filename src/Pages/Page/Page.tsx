@@ -31,6 +31,11 @@ const Page: React.FC = (props) => {
 
     const [yoastData, setYoastData] = useState<any>();
     const [yoastTitle, setYoastTitle] = useState<any>();
+    
+
+    const getCanonical = (pagePath?: string): string|undefined => {
+        return !!pagePath? (window.location.origin + pagePath) : window.location.href;
+    }
 
     handleTracking(location.pathname, location.search);
 
@@ -89,6 +94,7 @@ const Page: React.FC = (props) => {
                 }) : null
             }
 
+            <link rel="canonical" href={getCanonical()} />
             <title>{decodeHtmlEntities(yoastTitle)}</title>
         </Helmet>
         <Flexible flexible={data.acf.flexible}/></>;

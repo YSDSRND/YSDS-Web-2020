@@ -23,6 +23,11 @@ const Post: React.FC = () => {
   const [yoastData, setYoastData] = useState<any>();
   const [yoastTitle, setYoastTitle] = useState<any>();
 
+
+  const getCanonical = (pagePath?: string): string|undefined => {
+    return !!pagePath? (window.location.origin + pagePath) : window.location.href;
+  }
+
   useEffect(() => {
     if (!slug) {
       return;
@@ -80,7 +85,8 @@ const Post: React.FC = () => {
             : <meta key={index} name={d.name} content={unescape(d.content)} />
         }) : null
       }
-
+      
+      <link rel="canonical" href={getCanonical()} />
       <title>{decodeHtmlEntities(yoastTitle)}</title>
 
     </Helmet>

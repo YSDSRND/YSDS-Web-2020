@@ -23,6 +23,10 @@ const FrontPage: React.FC = () => {
   const [yoastData, setYoastData] = useState<any>();
   const [yoastTitle, setYoastTitle] = useState<any>();
 
+  const getCanonical = (pagePath?: string): string|undefined => {
+    return !!pagePath? (window.location.origin + pagePath) : window.location.href;
+  }
+
   useEffect(() => {
     if (!options.options?.frontpage) {
       return;
@@ -66,8 +70,7 @@ const FrontPage: React.FC = () => {
       }) : null
     }
 
-    
-  
+    <link rel="canonical" href={getCanonical()} />
     <title>{decodeHtmlEntities(yoastTitle)}</title>
 
   </Helmet>
