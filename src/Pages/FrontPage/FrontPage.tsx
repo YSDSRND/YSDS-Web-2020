@@ -29,7 +29,7 @@ const FrontPage: React.FC = () => {
     }
 
     GetYoastById(options.options.frontpage).then((resp) => {
-      setYoastTitle(resp ? resp.yoast_title : data.title);
+      setYoastTitle(resp[0]?.yoast_title ?? data?.title)     
       setYoastData(resp?.yoast_meta ? defaultsForOGTags(resp.yoast_meta, options) : '');
     });
   }, [options, data]);
