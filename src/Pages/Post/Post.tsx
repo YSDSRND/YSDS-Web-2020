@@ -24,8 +24,8 @@ const Post: React.FC = () => {
   const [yoastTitle, setYoastTitle] = useState<any>();
 
 
-  const getCanonical = (pagePath?: string): string|undefined => {
-    return !!pagePath? (window.location.origin + pagePath) : window.location.href;
+  const getCanonical = (pagePath?: string): string => {
+    return !!pagePath? (window.location.origin + pagePath) : window.location.protocol + '//' + window.location.host + window.location.pathname;
   }
 
   useEffect(() => {
