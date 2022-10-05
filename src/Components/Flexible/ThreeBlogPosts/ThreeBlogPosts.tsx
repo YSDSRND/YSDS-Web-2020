@@ -3,6 +3,7 @@ import WPButton from '../../../Util/Types/WPButton';
 import LinkButton from '../../Global/LinkButton/LinkButton';
 import { getPosts } from '../../../Services/Post/Post';
 import LoadingTemplate from './../../../PageTemplates/LoadingTemplate/LoadingTemplate'
+import HTMLContent from '../../Global/HTMLContent/HTMLContent';
 
 
 export const ThreeBlogPostsPropsACFLayout = 'latest_blog_posts';
@@ -45,7 +46,7 @@ const Hero: React.FC<ThreeBlogPostsProps> = ({ title, button, background_color }
                     <div className="post-text-container text-container">
                       <h3>{card.title}</h3>
                       <p className="date">{new Date(card.date).toLocaleDateString('sv-SE')}</p>
-                      <p>{card.excerpt}</p>
+                      <p><HTMLContent html={card.excerpt} /></p>
                     </div>
                   </a>
                 ))
