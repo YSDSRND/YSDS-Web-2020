@@ -6,8 +6,6 @@
     top: 0;
     .nav {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 0 15px;
         height: 70px;
         .logo {
@@ -23,29 +21,29 @@
 
         .menu-container.desktop {
             height: 100%;
-            padding: 0;
-            padding-top: 5px;
+            width: 100%;
+            padding: 0 Min(100px, auto);
             display: none;
             @media screen and (min-width: $medium) {
                 display: flex;
+                column-gap: 0.5vw;
             }
+            margin: auto;
+            justify-content: center;
 
             li {
                 height: 100%;
 
                 &.one-submenu {
                     position: relative;
-
                     .sub-menu {
-                        top: 65px;
+                        top: 70px;
                         padding: 10px 20px;
                         position: absolute;
                         width: auto;
                         left: -10px;
 
                         .sub-menu-list {
-                            margin: 0;
-
                             li a {
                                 letter-spacing: 1.5px;
                                 white-space: nowrap;
@@ -256,72 +254,90 @@
         }
 
         .ysds-button {
+            align-self: center;
+            margin-left: auto;
+            margin-right: 2rem;
             display: none;
+
             @media screen and (min-width: $medium) {
                 display: block;
             }
         }
 
-        .header-contact-form {
-            display: none;
-            @media screen and (min-width: $medium) {
-                display: block;
-                position: absolute;
-                top: 70px;
-                right: 0;
-                background: $color-navy;
-                color: white;
-                padding: 30px 25px;
-                width: 430px;
-                border-radius: 0px 0px 0px 10px;
-                h4 {
-                    font-weight: 900;
-                    font-size: 20px;
-                    line-height: 120%;
-                    margin-bottom: 12px;
-                }
-                form {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
+        // .header-contact-form {
+        //     display: none;
+        //     @media screen and (min-width: $medium) {
+        //         display: block;
+        //         position: absolute;
+        //         top: 70px;
+        //         right: 0;
+        //         background: $color-navy;
+        //         color: white;
+        //         padding: 30px 25px;
+        //         width: 430px;
+        //         border-radius: 0px 0px 0px 10px;
+        //         h4 {
+        //             font-weight: 900;
+        //             font-size: 20px;
+        //             line-height: 120%;
+        //             margin-bottom: 12px;
+        //         }
+        //         form {
+        //             display: flex;
+        //             flex-direction: column;
+        //             align-items: flex-start;
 
-                    label {
-                        letter-spacing: 1px;
-                        font-size: 12px;
-                        font-family: HelveticaNowText-Regular, sans-serif;
-                        a {
-                            font-size: 13px;
-                        }
-                    }
+        //             label {
+        //                 letter-spacing: 1px;
+        //                 font-size: 12px;
+        //                 font-family: HelveticaNowText-Regular, sans-serif;
+        //                 a {
+        //                     font-size: 13px;
+        //                 }
+        //             }
 
-                    input {
-                        color: $color-navy;
-                    }
+        //             input {
+        //                 color: $color-navy;
+        //             }
+        //             .details {
+        //                 padding: 16px 0;
+        //             }
+        //             .two-columns {
+        //                 display: grid;
+        //                 grid-template-columns: 1fr 1fr;
+        //                 grid-column-gap: 1rem;
+        //                 width: 100%;
+        //                 font-weight: bold;
+        //             }
+        //             .underline {
+        //                 text-decoration: underline;
+        //                 cursor: pointer;
+        //             }
 
-                    input[type=text],
-                    input[type=tel],
-                    input[type=email] {
-                        height: 38px;
-                        width: 100%;
-                        border-radius: 3px;
-                        border: 1px solid white;
-                        margin-bottom: 20px;
-                        padding-left: 5px;
-                        padding-top: 4px;
-                        font-size: 15px;
-                        font-family: HelveticaNowText-Regular, sans-serif;
-                    }
+        //             input[type=text],
+        //             input[type=tel],
+        //             input[type=email] {
+        //                 height: 38px;
+        //                 width: 100%;
+        //                 border-radius: 3px;
+        //                 border: 1px solid white;
+        //                 margin-bottom: 20px;
+        //                 padding-left: 5px;
+        //                 padding-top: 4px;
+        //                 font-size: 15px;
+        //                 font-family: HelveticaNowText-Regular, sans-serif;
+        //             }
 
-                    input:focus {
-                        outline: none;
-                    }
-                    .error {
-                        margin-top: 0;
-                        color: #db3d3d;
-                    }
-                }
-            }
-        }
+        //             input:focus {
+        //                 outline: none;
+        //             }
+        //             .error {
+        //                 margin-top: 0;
+        //                 color: #db3d3d;
+        //             }
+        //         }
+        //     }
+        // }
 
         .hamburger {
 

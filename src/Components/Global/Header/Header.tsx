@@ -11,23 +11,23 @@ import { getYsdsBrand } from '../../../Util/Util';
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
-  const contactButtonRef = useRef(null);
+  // const contactButtonRef = useRef(null);
   const [openSubNavs, setOpenSubNavs] = useState<Map<number, boolean>>(
     new Map<number, boolean>(),
   );
-  const location = useLocation();
-  const [hideDropdown, setHideDropdown] = useState<boolean>(false);
+  // const location = useLocation();
+  // const [hideDropdown, setHideDropdown] = useState<boolean>(false);
   const currentPage = useSelector((state: AppState) => state.currentPage)
 
-  React.useEffect(() => {
+  // React.useEffect(() => {
 
-    setHideDropdown(true)
-    setTimeout(() => {
-      setHideDropdown(false)
+  //   setHideDropdown(true)
+  //   setTimeout(() => {
+  //     setHideDropdown(false)
 
-    }, 100)
+  //   }, 100)
 
-  }, [location]);
+  // }, [location]);
 
   const [formOpen, setFormOpen] = useState<boolean>(false);
 
@@ -71,6 +71,12 @@ const Header: React.FC = () => {
 
   const { navigation } = options.options.header;
 
+  const { contact } = options.options.header;
+
+  const contactButton = isInternalUrl(contact.url)
+              ? <Link className='ysds-button normal' onClick={() => { window.scrollTo(0, 0) }} to={contact.url}><span dangerouslySetInnerHTML={{ __html: contact.title }}></span></Link>
+              : <a className='ysds-button normal' href={contact.url} target={contact.target}><span dangerouslySetInnerHTML={{ __html: contact.title }}></span></a>
+
   const brandPage: YsdsBrand = getYsdsBrand(currentPage.currentPage?.acf.ysds_brand)
   const brandLogo = YsdsBrandLogo[brandPage];
 
@@ -105,13 +111,14 @@ const Header: React.FC = () => {
               ? <Link onClick={() => { window.scrollTo(0, 0) }} to={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }}></span></Link>
               : <a href={nav.link.url}><span dangerouslySetInnerHTML={{ __html: nav.link.title }}></span></a>
 
+
             return (
               <li className={className} key={i}>
                 {button}
                 <div className={"sub-menu"}>
                   {typeof nav.submenus === 'object'
                     && nav.submenus.map((subs: any, index: any) => (
-                      <div className="sub-menu-list" style={{ display: !hideDropdown ? "block" : "none" }} key={index}>
+                      <div className="sub-menu-list" style={{ display:  "block" }} key={index}>
                         {
                           subs.title.length > 0 ? (
                             <h5 dangerouslySetInnerHTML={{ __html: subs.title }}></h5>
@@ -135,14 +142,14 @@ const Header: React.FC = () => {
             );
           })}
         </ul>
-        <button ref={contactButtonRef} className="ysds-button normal" onClick={reverseForm}>
-          Get in touch!
-        </button>
-        <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} />
+
+        {contactButton}
+        {/* <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} /> */}
+       
         <button
           className={"hamburger " + (mobileNavOpen ? "navopen" : "")}
           onClick={reverseMobileNav}
-        />
+        /> 
 
         <div className={`menu-container mobile ${mobileNavOpen ? 'show' : ''}`}>
           <ul>

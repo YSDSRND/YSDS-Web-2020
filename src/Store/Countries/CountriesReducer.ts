@@ -1,7 +1,7 @@
 import {Countries, CountriesActionTypes, SET_COUNTRIES} from "./CountriesTypes";
 
 
-const initialState: Countries = {};
+const initialState: Countries = [];
 
 export const countriesReducer = (state = initialState, action: CountriesActionTypes) : Countries => {
     switch (action.type) {

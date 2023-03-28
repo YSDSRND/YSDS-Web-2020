@@ -15,8 +15,8 @@ export const CountryDropdown: React.FC<Props> = props => {
 
     const countries = useSelector((state: AppState) => state.countries);
 
-    const options = Object.keys(countries).map((iso) => {
-        return <option key={iso} value={iso} >{countries[iso]}</option>;
+    const options = countries.map((country) => {
+        return <option key={country.iso} value={country.iso} >{country.name}</option>;
     })
 
     const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
