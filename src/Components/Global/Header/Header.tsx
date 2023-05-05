@@ -4,7 +4,6 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AppState } from '../../../Store';
 import Link from '../Link/Link';
 import ContactForm from '../ContactForm/ContactForm';
-import { IndustryBanner } from "../IndustryBanner/IndustryBanner";
 import { isInternalUrl } from "../../../Util/isInternalUrl";
 import { YsdsBrand, YsdsBrandLogo } from '../../../types';
 import { getYsdsBrand } from '../../../Util/Util';
@@ -82,7 +81,6 @@ const Header: React.FC = () => {
 
   return (
     <section className="header">
-      <IndustryBanner />
       <div className="nav">
         <RouterLink
           onClick={() => {

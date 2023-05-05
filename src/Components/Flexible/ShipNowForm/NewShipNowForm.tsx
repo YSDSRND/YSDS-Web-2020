@@ -161,14 +161,14 @@ export const NewShipNowForm: React.FC<ShipNowFormProps> = props => {
                 },
                 {
                     property: "recipient_country",
-                    label: "Reciver Country",
+                    label: "Receiver Country",
                     type: FieldType.Country,
                     placeholder: "Choose...",
                     required: model => true,
                 },
                 {
                     property: "recipient_email",
-                    label: "Reciver e-mail",
+                    label: "Receiver e-mail",
                     placeholder: "john.smith@receivercompany.com",
                     type: FieldType.String,
                     required: model => true,
@@ -178,7 +178,7 @@ export const NewShipNowForm: React.FC<ShipNowFormProps> = props => {
                 },
                 {
                     property: "recipient_phone",
-                    label: "Reciver phone",
+                    label: "Receiver phone",
                     placeholder: "+1 1-111 222 333",
                     type: FieldType.String,
                     required: model => true,
