@@ -8,6 +8,7 @@ export enum YsdsBrand {
     LifeScience = 'brandLifeScience',
     Art = 'brandArt',
     Special = 'brandSpecialLogistics',
+    EPL = 'brandEPL',
 }
 
 export const YsdsBrandLogo: { [K in YsdsBrand]: string } = {
@@ -15,4 +16,5 @@ export const YsdsBrandLogo: { [K in YsdsBrand]: string } = {
     [YsdsBrand.LifeScience]: lifeScienceBrandLogo,
     [YsdsBrand.Art]: artBrandLogo,
     [YsdsBrand.Special]: specialBrandLogo,
+    [YsdsBrand.EPL]: mainBrandLogo, // TODO: Do we need a separate logo for EPL?
 }

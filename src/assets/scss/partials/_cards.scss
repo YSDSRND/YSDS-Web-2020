@@ -117,4 +117,16 @@
             }
         }
     }
+
+    .brandEPL & {
+        .one-card h3 {
+            border-color: $color-dark-red;
+        }
+        .ysds-button {
+            border-color: $color-dark-red;
+            &.lines {
+                color: $color-dark-red;
+            }
+        }
+    }
 }

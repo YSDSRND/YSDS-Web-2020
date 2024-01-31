@@ -66,7 +66,7 @@ type FlexibleLayout = HeroProps
 
 const Flexible: React.FC<FlexibleProps> = ({ flexible }) => {
   const currentPage = useSelector((state: AppState) => state.currentPage)
-  const pageBrand = currentPage.currentPage?.acf.ysds_brand ?? 'brandMain'
+  const pageBrand = currentPage.currentPage?.acf.ysds_brand ?? currentPage.currentPage?.acf.brand_class ?? 'brandMain'
   return (
     <main className={pageBrand}>
       {

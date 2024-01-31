@@ -57,6 +57,18 @@
         }
     }
 
+    .brandEPL & {
+        background-color: $color-light-red;
+        h2 {
+            color: $color-dark-red;
+        }
+
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkred01.png);
+        }
+    }
+
     .text-box {
         position: relative;
 

@@ -18,6 +18,8 @@ module.exports = {
         'blue-light': '#add7de',
         'green-dark': '#0A8D5E',
         'green-light': '#B4E8C9',
+        'red-dark': '#af3830',
+        'red-light': '#e7c3c1',
       },
       height: theme => ({
         "screen/2": "50vh",
