@@ -1,6 +1,22 @@
 .text-and-image {
+    main.brandArt &.accent {
+        background-color: $color-dark-magenta;
+    }
+
+    main.brandLifeScience &.accent {
+        background-color: $color-dark-blue;
+    }
+
+    main.brandSpecialtyLogistics &.accent {
+        background-color: $color-dark-green;
+    }
+
+    main.brandEPL &.accent {
+        background-color: $color-dark-red;
+    }
+
     position: relative;
-    &.darkblue {
+    &.darkblue, &.accent {
         background: $color-navy;
         .main-inner {
             margin-top: 0;

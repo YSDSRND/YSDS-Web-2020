@@ -12,8 +12,24 @@
         @apply text-2xl lg:text-3xl xl:text-4xl;
     }
 
+    main.brandArt &.accent {
+        background-color: $color-dark-magenta;
+    }
+
+    main.brandLifeScience &.accent {
+        background-color: $color-dark-blue;
+    }
+
+    main.brandSpecialtyLogistics &.accent {
+        background-color: $color-dark-green;
+    }
+
+    main.brandEPL &.accent {
+        background-color: $color-dark-red;
+    }
+
     position: relative;
-    &.alternative {
+    &.alternative, &.accent {
         background: $color-navy;
         .main {
             color: white;
