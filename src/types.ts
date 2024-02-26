@@ -2,6 +2,8 @@ import mainBrandLogo from './assets/images/YSDS.svg';
 import lifeScienceBrandLogo from './assets/images/YSDS_lf.svg';
 import artBrandLogo from './assets/images/YSDS_art.svg';
 import specialBrandLogo from './assets/images/YSDS_sp.svg';
+import eplLogo from './assets/images/YSDS_epl.svg';
+import itLogo from './assets/images/YSDS_it.svg';
 
 export enum YsdsBrand {
     Main = 'brandMain',
@@ -9,6 +11,7 @@ export enum YsdsBrand {
     Art = 'brandArt',
     Special = 'brandSpecialLogistics',
     EPL = 'brandEPL',
+    IT = 'brandIT',
 }
 
 export const YsdsBrandLogo: { [K in YsdsBrand]: string } = {
@@ -16,5 +19,6 @@ export const YsdsBrandLogo: { [K in YsdsBrand]: string } = {
     [YsdsBrand.LifeScience]: lifeScienceBrandLogo,
     [YsdsBrand.Art]: artBrandLogo,
     [YsdsBrand.Special]: specialBrandLogo,
-    [YsdsBrand.EPL]: mainBrandLogo, // TODO: Do we need a separate logo for EPL?
+    [YsdsBrand.EPL]: eplLogo,
+    [YsdsBrand.IT]: itLogo,
 }

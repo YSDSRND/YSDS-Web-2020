@@ -69,6 +69,18 @@
         }
     }
 
+    .brandIT & {
+        background-color: $color-light-green;
+        h2 {
+            color: $color-dark-green;
+        }
+
+        color: white;
+        .background-image {
+            background-image: url(../../images/YSDS_pattern_darkgreen01.png);
+        }
+    }
+
     .text-box {
         position: relative;
 

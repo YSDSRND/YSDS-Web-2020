@@ -28,6 +28,10 @@
         background-color: $color-dark-red;
     }
 
+    main.brandIT &.accent {
+        background-color: $color-dark-green;
+    }
+
     position: relative;
     &.alternative, &.accent {
         background: $color-navy;

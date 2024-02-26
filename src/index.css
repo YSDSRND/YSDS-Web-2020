@@ -91,6 +91,21 @@
         @apply bg-red-light border-red-light text-red-dark;
     }
 
+    .brandIT .hero {
+        @apply bg-green-dark;
+    }
+    .brandIT .hero .title {
+        @apply text-green-light;
+    }
+
+    .brandIT .hero .title span:first-child {
+        @apply lg:text-green-dark;
+    }
+
+    .brandIT .ysds-button {
+        @apply bg-green-light border-green-light text-green-dark;
+    }
+
 
     .heading1 {
         @apply text-4xl lg:text-5xl xl:text-6xl;
