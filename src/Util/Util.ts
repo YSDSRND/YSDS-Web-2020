@@ -28,6 +28,11 @@ export const usePageBrand = (currentPage: AppState['currentPage']): YsdsBrand =>
     const oldBrandAcf = currentPage.currentPage?.acf.ysds_brand;
     const newBrandAcf = currentPage.currentPage?.acf.brand_class;
 
+    if (!oldBrandAcf && !newBrandAcf) {
+        return YsdsBrand.Main;
+    }
+    
+
     // To keep functionality of old pages we early return if the new brand is not set
     if (typeof newBrandAcf === "undefined" || newBrandAcf === null || newBrandAcf === "") {
         return oldBrandAcf;
