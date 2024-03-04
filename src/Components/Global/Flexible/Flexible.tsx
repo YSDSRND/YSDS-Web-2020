@@ -35,6 +35,7 @@ import Posts, { PostsProps, PostsACFLayout } from "../../Flexible/Posts/Posts";
 import TextBoxes, { TextBoxesACFLayout, TextBoxesProps } from '../../Flexible/TextBoxes/TextBoxes';
 import { AppState } from '../../../Store';
 import { useSelector } from 'react-redux';
+import { usePageBrand } from '../../../Util/Util';
 
 type FlexibleProps = {
   flexible: FlexibleLayout[]
@@ -66,7 +67,9 @@ type FlexibleLayout = HeroProps
 
 const Flexible: React.FC<FlexibleProps> = ({ flexible }) => {
   const currentPage = useSelector((state: AppState) => state.currentPage)
-  const pageBrand = currentPage.currentPage?.acf.ysds_brand ?? currentPage.currentPage?.acf.brand_class ?? 'brandMain'
+
+  const pageBrand = usePageBrand(currentPage);
+
   return (
     <main className={pageBrand}>
       {

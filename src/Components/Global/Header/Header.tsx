@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { AppState } from '../../../Store';
-import Link from '../Link/Link';
-import ContactForm from '../ContactForm/ContactForm';
+import { usePageBrand } from '../../../Util/Util';
 import { isInternalUrl } from "../../../Util/isInternalUrl";
-import { YsdsBrand, YsdsBrandLogo } from '../../../types';
-import { getYsdsBrand } from '../../../Util/Util';
+import { YsdsBrandLogo } from '../../../types';
+import ContactForm from '../ContactForm/ContactForm';
+import Link from '../Link/Link';
 
 const Header: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -76,8 +76,8 @@ const Header: React.FC = () => {
               ? <Link className='ysds-button normal' onClick={() => { window.scrollTo(0, 0) }} to={contact.url}><span dangerouslySetInnerHTML={{ __html: contact.title }}></span></Link>
               : <a className='ysds-button normal' href={contact.url} target={contact.target}><span dangerouslySetInnerHTML={{ __html: contact.title }}></span></a>
 
-  const brandPage: YsdsBrand = getYsdsBrand(currentPage.currentPage?.acf.ysds_brand ?? currentPage.currentPage?.acf.brand_class)
-  const brandLogo = YsdsBrandLogo[brandPage];
+  const brand = usePageBrand(currentPage);
+  const brandLogo = YsdsBrandLogo[brand];
 
   return (
     <section className="header">
