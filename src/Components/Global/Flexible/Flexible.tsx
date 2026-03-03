@@ -33,6 +33,7 @@ import ThreeBlogPosts, {
 import { NewShipNowForm, ShipNowFormLayout, ShipNowFormProps } from "../../Flexible/ShipNowForm/NewShipNowForm";
 import Posts, { PostsProps, PostsACFLayout } from "../../Flexible/Posts/Posts";
 import TextBoxes, { TextBoxesACFLayout, TextBoxesProps } from '../../Flexible/TextBoxes/TextBoxes';
+import DiagonalImage, { DiagonalImageACFLayout, DiagonalImageProps } from '../../Flexible/DiagonalImage/DiagonalImage';
 import { AppState } from '../../../Store';
 import { useSelector } from 'react-redux';
 import { usePageBrand } from '../../../Util/Util';
@@ -63,6 +64,7 @@ type FlexibleLayout = HeroProps
   | ShipNowFormProps
   | PostsProps
   | TextBoxesProps
+  | DiagonalImageProps
 
 
 const Flexible: React.FC<FlexibleProps> = ({ flexible }) => {
@@ -128,6 +130,8 @@ function renderFlexibleSection(layout: FlexibleLayout, i: any) {
       return <TextBoxes {...layout} key={i} />;
     case ShipNowFormLayout:
       return <NewShipNowForm {...layout} key={i} />
+    case DiagonalImageACFLayout:
+      return <DiagonalImage {...layout} key={i} />;
     default: {
       return null;
     }

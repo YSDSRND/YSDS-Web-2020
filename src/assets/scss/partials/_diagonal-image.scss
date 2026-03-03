@@ -1,0 +1,81 @@
+.diagonal-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: stretch;
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+
+        @media screen and (max-width: $small) {
+            width: 100%;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100%;
+        background: white;
+        clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+
+        @media screen and (max-width: $small) {
+            width: 100%;
+            clip-path: none;
+            opacity: 0.9;
+        }
+    }
+
+    &__content {
+        position: relative;
+        width: 40%;
+        padding: 60px 40px 60px $one-col;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media screen and (max-width: $small) {
+            width: 100%;
+            padding: 40px 24px;
+        }
+
+        h2 {
+            font-size: 42px;
+            margin: 0 0 16px;
+        }
+    }
+
+    &__body {
+        p:first-of-type {
+            margin-top: 0;
+        }
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        ul {
+            list-style: disc;
+        }
+        ol {
+            list-style: decimal;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+        b, strong {
+            font-family: HelveticaNowDisplay-XBd;
+        }
+    }
+}
