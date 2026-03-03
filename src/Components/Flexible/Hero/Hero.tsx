@@ -3,6 +3,7 @@ import LinkButton from '../../Global/LinkButton/LinkButton';
 import { WPImage } from '../../../Util/Types/WPImage';
 import WPButton from '../../../Util/Types/WPButton';
 import { animateScroll } from "react-scroll/modules";
+import { YsdsBrand, YsdsBrandLogo, YsdsBrandLogoPink } from '../../../types';
 
 export const HeroACFLayout = 'hero';
 export type HeroProps = {
@@ -11,6 +12,8 @@ export type HeroProps = {
     header: string,
     logoImage?: WPImage,
     use_large_logo?: boolean,
+    use_predefined_logo?: boolean,
+    predefined_logo?: string,
     subheader: string,
     backgroundImage: WPImage,
     button: WPButton,
@@ -19,7 +22,7 @@ export type HeroProps = {
 }
 
 const Hero: React.FC<HeroProps> = ({
-    header, subheader, centered, backgroundImage, button, background_color, arrow, logoImage, use_large_logo
+    header, subheader, centered, backgroundImage, button, background_color, arrow, logoImage, use_large_logo, use_predefined_logo, predefined_logo
 }) => {
 
     const ref = useRef<HTMLDivElement>(null);
@@ -32,16 +35,24 @@ const Hero: React.FC<HeroProps> = ({
 
     const headerWords = header ? header.split(" ") : []
 
-    return <section ref={ref} className="hero">
-        <div className="hero-image" style={{ backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})` }} />
+    const hasBackgroundImage = !!(backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large);
+
+    const resolvedLogoSrc = use_large_logo
+        ? (use_predefined_logo && predefined_logo
+            ? (YsdsBrandLogoPink[predefined_logo as YsdsBrand] ?? YsdsBrandLogo[predefined_logo as YsdsBrand])
+            : (logoImage ? (logoImage.sizes?.large || logoImage.url) : null))
+        : null;
+
+    return <section ref={ref} className={`hero${resolvedLogoSrc ? ' logo-only' : ''}${!hasBackgroundImage ? ' no-image' : ''}`}>
+        <div className="hero-image" style={{ backgroundImage: hasBackgroundImage ? `url(${backgroundImage.sizes.large})` : undefined }} />
         <div className="content container mx-auto lg:grid lg:grid-cols-2 pb-8">
-            <div className={`title${use_large_logo && logoImage ? ' self-end' : ''}`}>
-                {use_large_logo && logoImage ? (
+            <div className={`title${resolvedLogoSrc ? ' self-end' : ''}`}>
+                {resolvedLogoSrc ? (
                     <img
-                        src={logoImage.sizes?.large || logoImage.url}
-                        alt={logoImage.alt || ''}
+                        src={resolvedLogoSrc}
+                        alt={use_predefined_logo ? (predefined_logo || '') : (logoImage?.alt || '')}
                         className="hero-logo"
-                        style={{ maxWidth: '260px', width: 'auto', height: 'auto' }}
+                        style={{ maxWidth: '420px', width: 'auto', height: 'auto' }}
                     />
                 ) : (
                     <h1>

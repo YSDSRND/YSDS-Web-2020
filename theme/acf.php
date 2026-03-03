@@ -260,6 +260,75 @@ if (function_exists('acf_add_local_field_group')):
                                 'ui_off_text' => '',
                             ),
                             array(
+                                'key' => 'field_predefined_logo_toggle',
+                                'label' => 'Use Predefined Industry Logo',
+                                'name' => 'use_predefined_logo',
+                                'type' => 'true_false',
+                                'instructions' => 'Choose from the built-in industry brand logos instead of uploading an image.',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_660a0001logo',
+                                            'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'message' => '',
+                                'default_value' => 0,
+                                'ui' => 1,
+                                'ui_on_text' => '',
+                                'ui_off_text' => '',
+                            ),
+                            array(
+                                'key' => 'field_predefined_logo_select',
+                                'label' => 'Industry Logo',
+                                'name' => 'predefined_logo',
+                                'type' => 'select',
+                                'instructions' => 'Select which industry brand logo to display.',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_660a0001logo',
+                                            'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                        array(
+                                            'field' => 'field_predefined_logo_toggle',
+                                            'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'choices' => array(
+                                    'brandMain'             => 'YSDS Main',
+                                    'brandArt'              => 'Art',
+                                    'brandLifeScience'      => 'Life Science',
+                                    'brandSpecialLogistics' => 'Special Logistics',
+                                    'brandEPL'              => 'EPL',
+                                    'brandIT'               => 'IT',
+                                ),
+                                'default_value' => '',
+                                'allow_null' => 1,
+                                'multiple' => 0,
+                                'ui' => 1,
+                                'return_format' => 'value',
+                                'ajax' => 0,
+                                'placeholder' => '',
+                            ),
+                            array(
                                 'key' => 'field_5fcd0090beff3',
                                 'label' => 'Logo Image',
                                 'name' => 'logoImage',
@@ -271,6 +340,11 @@ if (function_exists('acf_add_local_field_group')):
                                         array(
                                             'field' => 'field_660a0001logo',
                                             'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                        array(
+                                            'field' => 'field_predefined_logo_toggle',
+                                            'operator' => '!=',
                                             'value' => '1',
                                         ),
                                     ),

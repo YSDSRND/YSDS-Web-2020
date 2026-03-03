@@ -31,14 +31,13 @@
         @media screen and (max-width: $small) {
             width: 100%;
             clip-path: none;
-            opacity: 0.9;
         }
     }
 
     &__content {
         position: relative;
         width: 40%;
-        padding: 60px 40px 60px $one-col;
+        padding: 100px 40px 100px $one-col;
         display: flex;
         flex-direction: column;
         justify-content: center;
