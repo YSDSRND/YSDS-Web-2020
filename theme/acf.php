@@ -241,13 +241,40 @@ if (function_exists('acf_add_local_field_group')):
                                 'mime_types' => '',
                             ),
                             array(
+                                'key' => 'field_660a0001logo',
+                                'label' => 'Use Large Logo',
+                                'name' => 'use_large_logo',
+                                'type' => 'true_false',
+                                'instructions' => 'Display a large logo image instead of the text title.',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'message' => '',
+                                'default_value' => 0,
+                                'ui' => 1,
+                                'ui_on_text' => '',
+                                'ui_off_text' => '',
+                            ),
+                            array(
                                 'key' => 'field_5fcd0090beff3',
                                 'label' => 'Logo Image',
                                 'name' => 'logoImage',
                                 'type' => 'image',
                                 'instructions' => '',
                                 'required' => 0,
-                                'conditional_logic' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_660a0001logo',
+                                            'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
                                 'wrapper' => array(
                                     'width' => '',
                                     'class' => '',
@@ -271,7 +298,15 @@ if (function_exists('acf_add_local_field_group')):
                                 'type' => 'text',
                                 'instructions' => '',
                                 'required' => 0,
-                                'conditional_logic' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_660a0001logo',
+                                            'operator' => '!=',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
                                 'wrapper' => array(
                                     'width' => '',
                                     'class' => '',

@@ -97,6 +97,11 @@
             }
         }
     }
+    .hero-logo {
+        display: block;
+        height: auto;
+        max-width: 200px;
+    }
     .line {
         height: 1px;
         background: $primary-color;

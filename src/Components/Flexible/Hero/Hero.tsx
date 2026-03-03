@@ -10,6 +10,7 @@ export type HeroProps = {
     centered?: boolean,
     header: string,
     logoImage?: WPImage,
+    use_large_logo?: boolean,
     subheader: string,
     backgroundImage: WPImage,
     button: WPButton,
@@ -18,7 +19,7 @@ export type HeroProps = {
 }
 
 const Hero: React.FC<HeroProps> = ({
-    header, subheader, centered, backgroundImage, button, background_color, arrow, logoImage
+    header, subheader, centered, backgroundImage, button, background_color, arrow, logoImage, use_large_logo
 }) => {
 
     const ref = useRef<HTMLDivElement>(null);
@@ -29,17 +30,26 @@ const Hero: React.FC<HeroProps> = ({
         }
     }
 
-    const headerWords = header.split(" ")
+    const headerWords = header ? header.split(" ") : []
 
     return <section ref={ref} className="hero">
         <div className="hero-image" style={{ backgroundImage: `url(${backgroundImage && backgroundImage.sizes && backgroundImage.sizes.large ? backgroundImage.sizes.large : ''})` }} />
         <div className="content container mx-auto lg:grid lg:grid-cols-2 pb-8">
-            <div className="title">
-                <h1>
-                    {headerWords.map((word: string, index: number) => {
-                        return <span key={index}>{word} </span>
-                    })}
-                </h1>
+            <div className={`title${use_large_logo && logoImage ? ' self-end' : ''}`}>
+                {use_large_logo && logoImage ? (
+                    <img
+                        src={logoImage.sizes?.large || logoImage.url}
+                        alt={logoImage.alt || ''}
+                        className="hero-logo"
+                        style={{ maxWidth: '260px', width: 'auto', height: 'auto' }}
+                    />
+                ) : (
+                    <h1>
+                        {headerWords.map((word: string, index: number) => {
+                            return <span key={index}>{word} </span>
+                        })}
+                    </h1>
+                )}
             </div>
             <div className="text-container">
                 <p dangerouslySetInnerHTML={{ __html: subheader }} />
