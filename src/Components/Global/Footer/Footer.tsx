@@ -1,14 +1,21 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import CookieConsent from 'react-cookie-consent';
 import { AppState } from '../../../Store';
 import Link from '../Link';
+import ArtFooter from './ArtFooter';
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+  const isArtRoute = location.pathname.startsWith('/art-new');
   const options = useSelector((state: AppState) => state.options);
   if (!options.options || options.loading) {
     return <></>;
+  }
+
+  if (isArtRoute) {
+    return <ArtFooter />;
   }
 
   const { footer_logo, navigation } = options.options.footer;

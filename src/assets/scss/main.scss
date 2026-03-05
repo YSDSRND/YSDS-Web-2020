@@ -5,7 +5,7 @@
 @import './buttons';
 @import "wordpress";
 
-//@import './partials/hero';
+@import './partials/hero';
 @import './partials/hero-centered';
 @import './partials/middle-hero';
 @import './partials/numbers';
@@ -32,6 +32,8 @@
 @import './partials/breadcrumb';
 @import './partials/country-dropdown';
 @import './partials/text-boxes';
+@import './partials/diagonal-image';
+@import './partials/art-footer';
 
 * {
     box-sizing: border-box;

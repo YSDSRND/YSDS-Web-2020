@@ -38,6 +38,30 @@
         width: 100%;
         position: absolute;
     }
+    .hero-image {
+        width: 100%;
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+    }
+    &.no-image .hero-image {
+        height: 110px;
+    }
+    &.logo-only .content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    &.logo-only .hero-logo {
+        position: relative;
+        top: 30px;
+        @media screen and (max-width: 1023px) {
+            display: none;
+        }
+    }
+    &.logo-only.no-image .content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
     .main-inner {
         padding: 100px 0;
         margin: 0 12.5%;
@@ -96,6 +120,11 @@
                 cursor: pointer;
             }
         }
+    }
+    .hero-logo {
+        display: block;
+        height: auto;
+        max-width: 200px;
     }
     .line {
         height: 1px;

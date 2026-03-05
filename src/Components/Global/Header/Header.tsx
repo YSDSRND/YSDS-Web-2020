@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AppState } from '../../../Store';
 import { usePageBrand } from '../../../Util/Util';
 import { isInternalUrl } from "../../../Util/isInternalUrl";
@@ -17,6 +17,8 @@ const Header: React.FC = () => {
   // const location = useLocation();
   // const [hideDropdown, setHideDropdown] = useState<boolean>(false);
   const currentPage = useSelector((state: AppState) => state.currentPage)
+  const location = useLocation();
+  const isArtRoute = location.pathname.startsWith('/art-new');
 
   // React.useEffect(() => {
 
@@ -95,7 +97,7 @@ const Header: React.FC = () => {
             alt="YSDS logo"
           />
         </RouterLink>
-        <ul className="menu-container desktop">
+        {!isArtRoute && <ul className="menu-container desktop">
           {navigation.map((nav: any, i) => {
             let className = '';
             if (nav.submenus) {
@@ -139,17 +141,17 @@ const Header: React.FC = () => {
               </li>
             );
           })}
-        </ul>
+        </ul>}
 
         {contactButton}
         {/* <FormDropdown openButtonRef={contactButtonRef} open={formOpen} onClose={closeForm} /> */}
        
-        <button
+        {!isArtRoute && <button
           className={"hamburger " + (mobileNavOpen ? "navopen" : "")}
           onClick={reverseMobileNav}
-        /> 
+        />}
 
-        <div className={`menu-container mobile ${mobileNavOpen ? 'show' : ''}`}>
+        {!isArtRoute && <div className={`menu-container mobile ${mobileNavOpen ? 'show' : ''}`}>
           <ul>
             {navigation.map((nav, index) => {
               const button = isInternalUrl(nav.link.url)
@@ -187,7 +189,7 @@ const Header: React.FC = () => {
               )
             })}
           </ul>
-        </div>
+        </div>}
       </div>
     </section>
   );
