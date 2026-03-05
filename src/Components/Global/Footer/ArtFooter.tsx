@@ -7,7 +7,7 @@ const ArtFooter: React.FC = () => {
     <section className="art-footer">
       <div className="art-footer-inner">
         <div className="art-footer-logo">
-          <RouterLink to="/art" onClick={() => { window.scrollTo(0, 0) }}>
+          <RouterLink to="/art-new" onClick={() => { window.scrollTo(0, 0) }}>
             <img src={artLogo} alt="YSDS Art" />
           </RouterLink>
         </div>

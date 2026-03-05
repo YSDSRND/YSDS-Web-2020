@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   // const [hideDropdown, setHideDropdown] = useState<boolean>(false);
   const currentPage = useSelector((state: AppState) => state.currentPage)
   const location = useLocation();
-  const isArtRoute = location.pathname.startsWith('/art');
+  const isArtRoute = location.pathname.startsWith('/art-new');
 
   // React.useEffect(() => {
 

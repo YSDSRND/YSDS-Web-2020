@@ -8,7 +8,7 @@ import ArtFooter from './ArtFooter';
 
 const Footer: React.FC = () => {
   const location = useLocation();
-  const isArtRoute = location.pathname.startsWith('/art');
+  const isArtRoute = location.pathname.startsWith('/art-new');
   const options = useSelector((state: AppState) => state.options);
   if (!options.options || options.loading) {
     return <></>;
